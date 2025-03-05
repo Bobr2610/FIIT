@@ -5,14 +5,45 @@
 3. **Kirill B.**   : ...  
 4. **Alexandar L.**: ...  
 ---
-|  | Date 1 | ... | Date N |  
-|-----------|:-----------:|:-----------:|-----------:|  
-| Change 1 | Cell 11 | ... | Cell N1 |  
-| ... | ... | ... | ... |  
-| Change M | Cell 1M | ... | Cell NM |  
+
+# Setup
+
+Клонирование репозитория
+```shell
+git clone https://github.com/Bobr2610/Python_team
+```
+
+Переход в папку проекта
+```shell
+cd Python_team
+```
+
+Настройка виртуальной среды
+```shell
+python -m venv .venv
+```
+
+Активация виртуальной среды
+```shell
+./.venv/Scripts/activate
+```
+
+Обновление pip???
+```shell
+???
+```
+
+Установка зависимостей
+```shell
+pip install -r requirements.txt
+```
+
 ---
-Tasks:  
-- [ ] Task1  
-- [ ] ..  
-- [x] Taskn  
----  
+
+# Run
+
+```shell
+python manage.py runserver
+```
+
+---
