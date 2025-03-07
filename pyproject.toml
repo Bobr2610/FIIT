@@ -1,0 +1,19 @@
+[project]
+name = "exchange-dashboard"
+version = "0.1.0"
+description = "Интерактивная панель для мониторинга и торговли валютами"
+authors = [
+    {name = "eldar",email = "eldar.salm@gmail.com"}
+    # TODO: добавить авторов
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "django (>=5.1.7,<6.0.0)",
+    "djangorestframework (>=3.15.2,<4.0.0)",
+    "djangorestframework-simplejwt (>=5.5.0,<6.0.0)"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

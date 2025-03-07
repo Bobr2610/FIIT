@@ -1,49 +1,57 @@
-# Python_team
-## Our task:
-1. **Mickhail S.** : Lider  
-2. **Eldar S.**    : Main programmer  
-3. **Kirill B.**   : ...  
-4. **Alexandar L.**: ...  
+# ExchangeDashboard
+
+## Команда
+1. **Белянский Кирилл** : Main Frontend Developer
+2. **Литвак Александр** : ...
+3. **Сальманов Эльдар** : Main Backend Developer
+4. **Седов Михаил**     : Leader
 ---
 
 # Setup
 
-Клонирование репозитория
+## 1. Установка внешних зависимостей
+
+Для запуска проекта требуется Python, Poetry.
+
+### Windows
+```shell
+(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | py -
+```
+
+### Mac OS & Linux
+```shell
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+#### Замечание: после установки нужно перезапустить консоль!
+
+## 2. Клонирование репозитория
 ```shell
 git clone https://github.com/Bobr2610/Python_team
 ```
 
-Переход в папку проекта
+## 3. Переход в папку проекта
 ```shell
 cd Python_team
 ```
 
-Настройка виртуальной среды
+## 4. Настройка Poetry
 ```shell
-python -m venv .venv
+poetry config virtualenvs.in-project true
 ```
 
-Активация виртуальной среды
+## 5. Установка внутренних зависимостей
 ```shell
-./.venv/Scripts/activate
-```
-
-Обновление pip???
-```shell
-???
-```
-
-Установка зависимостей
-```shell
-pip install -r requirements.txt
+poetry install
 ```
 
 ---
 
 # Run
 
+## Запуск проекта
 ```shell
-python manage.py runserver
+poetry run python manage.py runserver
 ```
 
 ---
