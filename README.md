@@ -11,17 +11,9 @@
 
 ## 1. Установка внешних зависимостей
 
-Для запуска проекта требуется Python, Poetry.
-
-### Windows
-```shell
-(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | py -
-```
-
-### Mac OS & Linux
-```shell
-curl -sSL https://install.python-poetry.org | python3 -
-```
+Для запуска проекта требуется
+1. [Python](https://www.python.org/),
+2. [Poetry](https://python-poetry.org/).
 
 #### Замечание: после установки нужно перезапустить консоль!
 
