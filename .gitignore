@@ -1,2 +1,6 @@
 /.idea
 /.venv
+poetry.lock
+
+# TODO: позже надо убрать
+db.sqlite3
