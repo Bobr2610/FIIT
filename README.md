@@ -12,8 +12,8 @@
 ## 1. Установка внешних зависимостей
 
 Для запуска проекта требуется
-1. [Python](https://www.python.org/),
-2. [Poetry](https://python-poetry.org/).
+1. [Python](https://www.python.org/)
+2. [Poetry](https://python-poetry.org/)
 
 #### Замечание: после установки нужно перезапустить консоль!
 
