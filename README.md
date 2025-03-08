@@ -15,8 +15,6 @@
 1. [Python](https://www.python.org/)
 2. [Poetry](https://python-poetry.org/)
 
-#### Замечание: после установки нужно перезапустить консоль!
-
 ## 2. Клонирование репозитория
 ```shell
 git clone https://github.com/Bobr2610/Python_team
@@ -45,5 +43,30 @@ poetry install
 ```shell
 poetry run python manage.py runserver
 ```
+
+---
+
+# Update
+
+## Обновление локального репозитория
+```shell
+git pull
+```
+
+---
+
+# Contribute
+
+## Фиксация изменений в локальном репозитории
+```shell
+git commit -m "<your message>"
+```
+
+## Загрузка изменений в удалённый репозиторий
+```shell
+git push
+```
+
+### Примечание: перед загрузкой желательно обновить локальный репозиторий во избежании конфликтов
 
 ---
