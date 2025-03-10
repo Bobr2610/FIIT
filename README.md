@@ -2,7 +2,7 @@
 
 ## Команда
 1. **Белянский Кирилл** : Lead Frontend Developer
-2. **Литвак Александр** : ...
+2. **Литвак Александр** : Frontend дизайн и представление продукта
 3. **Сальманов Эльдар** : Lead Backend Developer
 4. **Седов Михаил**     : Leader, Support Frontend & Backend Developer
 ---
