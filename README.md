@@ -2,9 +2,8 @@
 
 ## Команда
 1. **Белянский Кирилл** : Lead Frontend Developer
-2. **Литвак Александр** : Frontend дизайн и представление продукта
-3. **Сальманов Эльдар** : Lead Backend Developer
-4. **Седов Михаил**     : Leader, Support Frontend & Backend Developer
+2. **Сальманов Эльдар** : Lead Backend Developer
+3. **Седов Михаил**     : Leader, Support Frontend & Backend Developer
 ---
 
 # Setup
@@ -43,30 +42,3 @@ poetry install
 ```shell
 poetry run python manage.py runserver
 ```
-
----
-
-# Update
-
-## Обновление локального репозитория
-```shell
-git pull
-```
-
----
-
-# Contribute
-
-## 1. Фиксация изменений в локальном репозитории
-```shell
-git commit -m "<your message>"
-```
-
-## 2. Загрузка изменений в удалённый репозиторий
-```shell
-git push
-```
-
-#### Примечание: перед загрузкой желательно обновить локальный репозиторий во избежании конфликтов
-
----

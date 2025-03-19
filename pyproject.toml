@@ -3,8 +3,9 @@ name = "exchange-dashboard"
 version = "0.1.0"
 description = "Интерактивная панель для мониторинга и торговли валютами"
 authors = [
-    {name = "eldar",email = "eldar.salm@gmail.com"}
-    # TODO: добавить авторов
+    {name = "eldar",email = "eldar.salm@gmail.com"},
+    {name = "mikhail",email = "misha.sedov07@gmail.com"},
+    {name = "kirill",email = "belianskiykirill@gmail.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.12"
