@@ -1,6 +1,6 @@
 ![alt text](https://github.com/Bobr2610/Python_team/blob/main/Logo.png?raw=true)
 # ExchangeDashboard
-## Команда
+## Команда FIIT – Financial Intelligent Investment Tracker
 1. **Белянский Кирилл** : Lead Frontend Developer
 2. **Сальманов Эльдар** : Lead Backend Developer
 3. **Седов Михаил**     : Leader, Support Frontend & Backend Developer
