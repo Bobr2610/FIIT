@@ -1,5 +1,5 @@
 # ExchangeDashboard
-
+![alt text](https://github.com/Bobr2610/Python_team/blob/main/imageLogo.png?raw=true)
 ## Команда
 1. **Белянский Кирилл** : Lead Frontend Developer
 2. **Сальманов Эльдар** : Lead Backend Developer
