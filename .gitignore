@@ -6,3 +6,4 @@ migrations
 
 # TODO: позже надо убрать
 db.sqlite3
+.qodo
