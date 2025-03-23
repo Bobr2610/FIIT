@@ -1,0 +1,95 @@
+/* Глобальные стили */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Roboto', sans-serif; background-color: #f4f7fa; color: #333; display: flex; min-height: 100vh; }
+a { text-decoration: none; color: inherit; }
+
+/* Сайдбар */
+.sidebar {
+  width: 250px;
+  background-color: #767676;
+  color: #fff;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.sidebar .logo {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.sidebar .logo img {
+  width: 150px;
+  object-fit: contain;
+}
+.sidebar nav a {
+  display: block;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+.sidebar nav a:hover { background-color: #3a4563; }
+.sidebar h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #a1aab2;
+}
+
+/* Основной контент */
+.main-content { flex-grow: 1; padding: 20px; overflow-y: auto; }
+
+/* Хедер панели */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.dashboard-header .time-filter {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.dashboard-header select,
+.dashboard-header input {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+/* Контейнер для графика */
+.chart-container {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+.chart-container h4 { margin-bottom: 10px; }
+
+/* Портфель */
+.portfolio {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.portfolio h4 { margin-bottom: 15px; }
+.portfolio .balance { font-size: 24px; margin-bottom: 15px; }
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  body { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .sidebar nav { display: flex; gap: 10px; }
+  .main-content { padding: 10px; }
+} 
