@@ -72,36 +72,33 @@ function getDataForInterval(data, interval) {
  * - Настройки осей
  */
 function createChartConfig(type, data, options = {}) {
-  // Получаем CSS переменные для цветов
   const getComputedStyle = window.getComputedStyle(document.documentElement);
-  const getColor = (currency) => {
-    const currencyKey = currency.split('/')[0].toLowerCase();
-    const color = getComputedStyle.getPropertyValue(`--chart-${currencyKey}-color`).trim();
-    const bgColor = color.replace(')', `, ${getComputedStyle.getPropertyValue('--chart-bg-opacity').trim()})`);
-    return {
-      borderColor: color,
-      backgroundColor: bgColor
-    };
-  };
-
-  // Проверяем текущую тему
-  const currentTheme = document.documentElement.getAttribute('data-theme');
-  const isColorblind = currentTheme === 'colorblind';
-
+  
   return {
     type: 'line',
     data: {
       labels: data.labels,
-      datasets: data.datasets.map(dataset => ({
-        ...dataset,
-        ...getColor(dataset.label),
-        borderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-line-width').trim()),
-        pointRadius: parseInt(getComputedStyle.getPropertyValue('--chart-point-radius').trim()),
-        pointHoverRadius: parseInt(getComputedStyle.getPropertyValue('--chart-point-hover-radius').trim()),
-        pointBorderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-point-border-width').trim()),
-        pointHoverBorderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-point-hover-border-width').trim()),
-        tension: parseFloat(getComputedStyle.getPropertyValue('--chart-line-tension').trim())
-      }))
+      datasets: data.datasets.map(dataset => {
+        const currencyKey = dataset.label.split('/')[0].toLowerCase();
+        const color = getComputedStyle.getPropertyValue(`--chart-${currencyKey}-color`).trim();
+        const bgColor = color.replace(')', `, ${getComputedStyle.getPropertyValue('--chart-bg-opacity').trim()})`);
+        const pointStyle = getComputedStyle.getPropertyValue(`--chart-${currencyKey}-point-style`).trim().replace(/['"]/g, '');
+        const borderDash = getComputedStyle.getPropertyValue(`--chart-${currencyKey}-border-dash`).trim();
+        
+        return {
+          ...dataset,
+          borderColor: color,
+          backgroundColor: bgColor,
+          borderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-line-width').trim()),
+          pointRadius: parseInt(getComputedStyle.getPropertyValue('--chart-point-radius').trim()),
+          pointHoverRadius: parseInt(getComputedStyle.getPropertyValue('--chart-point-hover-radius').trim()),
+          pointBorderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-point-border-width').trim()),
+          pointHoverBorderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-point-hover-border-width').trim()),
+          pointStyle: pointStyle,
+          borderDash: borderDash === '[]' ? [] : JSON.parse(borderDash),
+          tension: parseFloat(getComputedStyle.getPropertyValue('--chart-line-tension').trim())
+        };
+      })
     },
     options: {
       responsive: true,
@@ -167,20 +164,7 @@ async function initializeCharts() {
       // Создание или обновление графика криптовалют
       if (!cryptoChart) {
         const cryptoCtx = document.getElementById('cryptoChart').getContext('2d');
-        cryptoChart = new Chart(cryptoCtx, createChartConfig('line', {
-          labels: labels,
-          datasets: cryptoDatasets
-        }, {
-          y: {
-            type: 'logarithmic', // Логарифмическая шкала для лучшего отображения
-            ticks: {
-              callback: function(value) {
-                return value;
-              }
-            }
-          },
-          yAxisTitle: 'Курс (USD)'
-        }));
+        cryptoChart = new Chart(cryptoCtx, createChartConfig('line', { labels: labels, datasets: cryptoDatasets }));
       } else {
         cryptoChart.data.labels = labels;
         cryptoChart.data.datasets = cryptoDatasets;
@@ -190,20 +174,7 @@ async function initializeCharts() {
       // Создание или обновление графика фиатных валют
       if (!fiatChart) {
         const fiatCtx = document.getElementById('fiatChart').getContext('2d');
-        fiatChart = new Chart(fiatCtx, createChartConfig('line', {
-          labels: labels,
-          datasets: fiatDatasets
-        }, {
-          y: {
-            type: 'logarithmic',
-            ticks: {
-              callback: function(value) {
-                return value;
-              }
-            }
-          },
-          yAxisTitle: 'Курс (RUB)'
-        }));
+        fiatChart = new Chart(fiatCtx, createChartConfig('line', { labels: labels, datasets: fiatDatasets }));
       } else {
         fiatChart.data.labels = labels;
         fiatChart.data.datasets = fiatDatasets;
@@ -265,15 +236,26 @@ document.addEventListener('DOMContentLoaded', () => {
   updateThemeIcon(savedTheme);
 
   // Обработчик изменения темы через селектор
-  themeSelect.addEventListener('change', (e) => {
+  themeSelect.addEventListener('change', handleThemeChange);
+
+  // Обработчик переключения темы через кнопку
+  themeToggle.addEventListener('click', handleThemeToggle);
+
+  /**
+   * Обработчик изменения темы через селектор
+   * @param {Event} e - Событие изменения
+   */
+  function handleThemeChange(e) {
     const theme = e.target.value;
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
     updateThemeIcon(theme);
-  });
+  }
 
-  // Обработчик переключения темы через кнопку
-  themeToggle.addEventListener('click', () => {
+  /**
+   * Обработчик переключения темы через кнопку
+   */
+  function handleThemeToggle() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const themes = ['light', 'dark', 'colorblind'];
     const currentIndex = themes.indexOf(currentTheme);
@@ -283,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
     themeSelect.value = nextTheme;
     localStorage.setItem('theme', nextTheme);
     updateThemeIcon(nextTheme);
-  });
+  }
 
   /**
    * Обновление иконки темы

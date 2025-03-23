@@ -159,6 +159,24 @@
   --chart-point-border-width: 2px;
   --chart-point-hover-border-width: 3px;
   --chart-line-tension: 0.3;
+
+  /* Стили точек по умолчанию */
+  --chart-btc-point-style: 'circle';
+  --chart-eth-point-style: 'circle';
+  --chart-ton-point-style: 'circle';
+  --chart-eur-point-style: 'circle';
+  --chart-usd-point-style: 'circle';
+  --chart-aed-point-style: 'circle';
+  --chart-cny-point-style: 'circle';
+
+  /* Типы линий по умолчанию */
+  --chart-btc-border-dash: [];
+  --chart-eth-border-dash: [];
+  --chart-ton-border-dash: [];
+  --chart-eur-border-dash: [];
+  --chart-usd-border-dash: [];
+  --chart-aed-border-dash: [];
+  --chart-cny-border-dash: [];
 }
 ```
 
@@ -290,13 +308,29 @@
   --chart-point-border-width: 2px;
   --chart-point-hover-border-width: 3px;
   --chart-line-tension: 0.3;
+
+  /* Стили точек по умолчанию */
+  --chart-btc-point-style: 'circle';
+  --chart-eth-point-style: 'circle';
+  --chart-ton-point-style: 'circle';
+  --chart-eur-point-style: 'circle';
+  --chart-usd-point-style: 'circle';
+  --chart-aed-point-style: 'circle';
+  --chart-cny-point-style: 'circle';
+
+  /* Типы линий по умолчанию */
+  --chart-btc-border-dash: [];
+  --chart-eth-border-dash: [];
+  --chart-ton-border-dash: [];
+  --chart-eur-border-dash: [];
+  --chart-usd-border-dash: [];
+  --chart-aed-border-dash: [];
+  --chart-cny-border-dash: [];
   ```
-  - Толщина линий (2px)
-  - Размер маркеров (3px)
-  - Размер маркеров при наведении (5px)
-  - Толщина границ маркеров (2px)
-  - Толщина границ при наведении (3px)
-  - Плавность линий (0.3)
+  - Все значения по умолчанию определены в CSS переменных
+  - Стили точек и типы линий задаются для каждой валюты отдельно
+  - В теме с высоким контрастом эти значения переопределяются
+  - JavaScript код просто использует эти переменные без дополнительной логики
 
 - **Специальные стили для темы с высоким контрастом**
   ```css
@@ -325,6 +359,29 @@
   - Толстые границы маркеров (3px)
   - Увеличенные границы при наведении (4px)
   - Оптимизированные цвета для дальтоников
+
+### Специальные стили для темы с высоким контрастом
+- Использование максимально контрастных цветов для лучшей видимости
+- Увеличенная толщина линий (3px) для графиков
+- Увеличенные маркеры точек (6px) и увеличенные размеры при наведении (8px)
+- Толстые границы для маркеров (3px) и увеличенные границы при наведении (4px)
+- Оптимизированные цвета для дальтоников
+- Уникальные формы маркеров для каждой валюты:
+  - BTC: круг
+  - ETH: треугольник
+  - TON: квадрат
+  - EUR: звезда
+  - USD: ромб
+  - AED: крест
+  - CNY: повернутый крест
+- Разные типы линий для каждой валюты:
+  - BTC: сплошная линия
+  - ETH: пунктир (5,5)
+  - TON: пунктир (10,5,5,5)
+  - EUR: пунктир (5,10)
+  - USD: пунктир (10,10)
+  - AED: пунктир (5,5,5,5)
+  - CNY: пунктир (15,5)
 
 ## JavaScript
 
@@ -454,6 +511,50 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 ```
+
+### JavaScript функции
+
+#### Обработчики событий
+```javascript
+// Обработчики событий для управления темами
+function handleThemeChange(e) {
+  const theme = e.target.value;
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  updateThemeIcon(theme);
+}
+
+function handleThemeToggle() {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const themes = ['light', 'dark', 'colorblind'];
+  const currentIndex = themes.indexOf(currentTheme);
+  const nextTheme = themes[(currentIndex + 1) % themes.length];
+  
+  document.documentElement.setAttribute('data-theme', nextTheme);
+  themeSelect.value = nextTheme;
+  localStorage.setItem('theme', nextTheme);
+  updateThemeIcon(nextTheme);
+}
+
+function updateThemeIcon(theme) {
+  switch(theme) {
+    case 'dark':
+      themeIcon.className = 'fas fa-moon';
+      break;
+    case 'light':
+      themeIcon.className = 'fas fa-sun';
+      break;
+    case 'colorblind':
+      themeIcon.className = 'fas fa-eye';
+      break;
+  }
+}
+```
+- Все обработчики событий реализованы как именованные функции
+- Улучшена читаемость и поддерживаемость кода
+- Добавлена документация через JSDoc комментарии
+- Функции легко тестировать и отлаживать
+- Улучшена производительность за счет отсутствия создания новых функций при каждом событии
 
 ## JSON
 

@@ -96,6 +96,24 @@
   --chart-point-border-width: 2px;
   --chart-point-hover-border-width: 3px;
   --chart-line-tension: 0.3;
+
+  /* Стили точек по умолчанию */
+  --chart-btc-point-style: 'circle';
+  --chart-eth-point-style: 'circle';
+  --chart-ton-point-style: 'circle';
+  --chart-eur-point-style: 'circle';
+  --chart-usd-point-style: 'circle';
+  --chart-aed-point-style: 'circle';
+  --chart-cny-point-style: 'circle';
+
+  /* Типы линий по умолчанию */
+  --chart-btc-border-dash: [];
+  --chart-eth-border-dash: [];
+  --chart-ton-border-dash: [];
+  --chart-eur-border-dash: [];
+  --chart-usd-border-dash: [];
+  --chart-aed-border-dash: [];
+  --chart-cny-border-dash: [];
 }
 
 /* Темная тема */
@@ -196,6 +214,24 @@
   --chart-point-hover-radius: 8px;
   --chart-point-border-width: 3px;
   --chart-point-hover-border-width: 4px;
+
+  /* Формы маркеров для разных валют */
+  --chart-btc-point-style: 'circle';
+  --chart-eth-point-style: 'triangle';
+  --chart-ton-point-style: 'rect';
+  --chart-eur-point-style: 'star';
+  --chart-usd-point-style: 'diamond';
+  --chart-aed-point-style: 'cross';
+  --chart-cny-point-style: 'crossRot';
+
+  /* Типы линий для разных валют */
+  --chart-btc-border-dash: [5, 5];
+  --chart-eth-border-dash: [5, 5];
+  --chart-ton-border-dash: [10, 5, 5, 5];
+  --chart-eur-border-dash: [5, 10];
+  --chart-usd-border-dash: [10, 10];
+  --chart-aed-border-dash: [5, 5, 5, 5];
+  --chart-cny-border-dash: [15, 5];
 }
 
 /* Дополнительные стили для темы с высоким контрастом */
