@@ -76,6 +76,18 @@
   --grid-gap: 10px;
   --grid-item-min-width: 120px;
   --mobile-grid-item-min-width: 100px;
+  
+  /* Цвета графиков для светлой темы */
+  --chart-btc-color: #ff9800;
+  --chart-eth-color: #007bff;
+  --chart-ton-color: #28a745;
+  --chart-eur-color: #6f42c1;
+  --chart-usd-color: #007bff;
+  --chart-aed-color: #ff5722;
+  --chart-cny-color: #28a745;
+  
+  /* Прозрачность для фона графиков */
+  --chart-bg-opacity: 0.1;
 }
 
 /* Темная тема */
@@ -103,6 +115,15 @@
   --sidebar-text: #ffffff;
   --card-bg: #2d2d2d;
   --hover-bg: #404040;
+  
+  /* Цвета графиков для темной темы */
+  --chart-btc-color: #ffa726;
+  --chart-eth-color: #42a5f5;
+  --chart-ton-color: #66bb6a;
+  --chart-eur-color: #ab47bc;
+  --chart-usd-color: #42a5f5;
+  --chart-aed-color: #ff7043;
+  --chart-cny-color: #66bb6a;
 }
 
 /* Тема с высоким контрастом */
@@ -151,6 +172,15 @@
   --input-border: 2px solid #000000;
   --text-decoration-thickness: 2px;
   --text-decoration-style: solid;
+  
+  /* Цвета графиков для темы с высоким контрастом */
+  --chart-btc-color: #0000ff;
+  --chart-eth-color: #000080;
+  --chart-ton-color: #008000;
+  --chart-eur-color: #800080;
+  --chart-usd-color: #0000ff;
+  --chart-aed-color: #ff0000;
+  --chart-cny-color: #008000;
 }
 
 /* Дополнительные стили для темы с высоким контрастом */

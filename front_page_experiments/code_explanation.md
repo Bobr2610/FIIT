@@ -139,6 +139,18 @@
   --font-size-lg: 18px;
   --font-size-xl: 24px;
   --font-size-2xl: 32px;
+  
+  /* Цвета графиков для светлой темы */
+  --chart-btc-color: #ff9800;
+  --chart-eth-color: #007bff;
+  --chart-ton-color: #28a745;
+  --chart-eur-color: #6f42c1;
+  --chart-usd-color: #007bff;
+  --chart-aed-color: #ff5722;
+  --chart-cny-color: #28a745;
+  
+  /* Прозрачность для фона графиков */
+  --chart-bg-opacity: 0.1;
 }
 ```
 
@@ -155,6 +167,7 @@
   - Использует светлые цвета фона
   - Контрастные цвета текста
   - Яркие акцентные цвета
+  - Оптимизированные цвета для графиков
 
 - **Темная тема**
   ```css
@@ -163,11 +176,17 @@
     --text-primary: #ffffff;
     --accent-primary: #3498db;
     /* ... */
+    
+    /* Цвета графиков для темной темы */
+    --chart-btc-color: #ffa726;
+    --chart-eth-color: #42a5f5;
+    /* ... */
   }
   ```
   - Темные цвета фона
   - Светлые цвета текста
   - Сохранение контраста
+  - Адаптированные цвета для графиков
 
 - **Тема с высоким контрастом**
   ```css
@@ -176,11 +195,17 @@
     --text-primary: #000000;
     --accent-primary: #0000ff;
     /* ... */
+    
+    /* Цвета графиков для темы с высоким контрастом */
+    --chart-btc-color: #0000ff;
+    --chart-eth-color: #000080;
+    /* ... */
   }
   ```
   - Максимальный контраст
   - Безопасные цвета для дальтоников
   - Увеличенные размеры элементов
+  - Специально подобранные цвета для графиков
 
 ### Адаптивный дизайн
 ```css
@@ -232,6 +257,21 @@
   - Плавные переходы состояний
   - Анимации при наведении
   - Эффекты при взаимодействии
+
+- **Цветовая система графиков**
+  ```css
+  /* Определение цветов для каждой валюты */
+  --chart-btc-color: #ff9800;
+  --chart-eth-color: #007bff;
+  /* ... */
+  
+  /* Прозрачность для фона */
+  --chart-bg-opacity: 0.1;
+  ```
+  - Уникальные цвета для каждой валюты
+  - Адаптация под разные темы
+  - Оптимизация для дальтоников
+  - Настраиваемая прозрачность фона
 
 ## JavaScript
 
@@ -293,9 +333,26 @@ function getDataForInterval(data, interval) {
 #### Создание конфигурации графика
 ```javascript
 function createChartConfig(type, data, options = {}) {
+  // Получаем CSS переменные для цветов
+  const getComputedStyle = window.getComputedStyle(document.documentElement);
+  const getColor = (currency) => {
+    const color = getComputedStyle.getPropertyValue(`--chart-${currency.toLowerCase()}-color`).trim();
+    const bgColor = color.replace(')', `, ${getComputedStyle.getPropertyValue('--chart-bg-opacity').trim()})`);
+    return {
+      borderColor: color,
+      backgroundColor: bgColor
+    };
+  };
+
   return {
     type: 'line',
-    data: data,
+    data: {
+      labels: data.labels,
+      datasets: data.datasets.map(dataset => ({
+        ...dataset,
+        ...getColor(dataset.currency)
+      }))
+    },
     options: {
       responsive: true,
       interaction: { mode: 'index', intersect: false },

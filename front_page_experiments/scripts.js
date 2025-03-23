@@ -72,13 +72,35 @@ function getDataForInterval(data, interval) {
  * - Настройки осей
  */
 function createChartConfig(type, data, options = {}) {
+  // Получаем CSS переменные для цветов
+  const getComputedStyle = window.getComputedStyle(document.documentElement);
+  const getColor = (currency) => {
+    // Преобразуем название валюты в формат для CSS переменной
+    const currencyKey = currency.split('/')[0].toLowerCase();
+    const color = getComputedStyle.getPropertyValue(`--chart-${currencyKey}-color`).trim();
+    const bgColor = color.replace(')', `, ${getComputedStyle.getPropertyValue('--chart-bg-opacity').trim()})`);
+    return {
+      borderColor: color,
+      backgroundColor: bgColor
+    };
+  };
+
   return {
     type: 'line',
-    data: data,
+    data: {
+      labels: data.labels,
+      datasets: data.datasets.map(dataset => ({
+        ...dataset,
+        ...getColor(dataset.label)
+      }))
+    },
     options: {
       responsive: true,
       interaction: { mode: 'index', intersect: false },
-      plugins: { tooltip: { enabled: true }, legend: { position: 'bottom' } },
+      plugins: {
+        tooltip: { enabled: true },
+        legend: { position: 'bottom' }
+      },
       scales: {
         x: {
           display: true,
@@ -89,8 +111,7 @@ function createChartConfig(type, data, options = {}) {
           display: true,
           title: { display: true, text: options.yAxisTitle || 'Курс' }
         }
-      },
-      ...options
+      }
     }
   };
 }
@@ -124,8 +145,6 @@ async function initializeCharts() {
       const cryptoDatasets = Object.keys(data.crypto).map(currency => ({
         label: currency,
         data: getDataForInterval(data.crypto[currency], interval),
-        borderColor: data.colors[currency].borderColor,
-        backgroundColor: data.colors[currency].backgroundColor,
         tension: 0.3 // Сглаживание линий графика
       }));
 
@@ -133,8 +152,6 @@ async function initializeCharts() {
       const fiatDatasets = Object.keys(data.fiat).map(currency => ({
         label: currency,
         data: getDataForInterval(data.fiat[currency], interval),
-        borderColor: data.colors[currency].borderColor,
-        backgroundColor: data.colors[currency].backgroundColor,
         tension: 0.3
       }));
 
