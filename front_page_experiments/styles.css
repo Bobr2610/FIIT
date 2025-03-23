@@ -439,10 +439,11 @@ a {
 
 /* Сайдбар */
 .sidebar {
+  position: fixed; /* Фиксированное позиционирование */
   width: var(--sidebar-width);
+  height: 100%; /* Высота на весь экран */
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   padding: var(--spacing-md);
@@ -505,9 +506,10 @@ a {
 
 /* Основной контент */
 .main-content { 
-  flex-grow: 1; 
+  margin-left: var(--sidebar-width); /* Отступ слева для основного контента */
   padding: var(--spacing-md); 
-  overflow-y: auto; 
+  overflow-y: auto; /* Вертикальная прокрутка */
+  height: 100vh; /* Высота на весь экран */
   background-color: var(--bg-primary); 
 }
 
