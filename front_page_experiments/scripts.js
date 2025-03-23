@@ -159,4 +159,53 @@ async function initializeCharts() {
 }
 
 // Запуск инициализации при загрузке страницы
-window.addEventListener('load', initializeCharts); 
+window.addEventListener('load', initializeCharts);
+
+// Управление темами
+document.addEventListener('DOMContentLoaded', () => {
+  const themeSelect = document.getElementById('colorScheme');
+  const themeToggle = document.querySelector('.theme-toggle');
+  const themeIcon = themeToggle.querySelector('i');
+
+  // Загрузка сохраненной темы
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  themeSelect.value = savedTheme;
+  updateThemeIcon(savedTheme);
+
+  // Обработчик изменения темы через селектор
+  themeSelect.addEventListener('change', (e) => {
+    const theme = e.target.value;
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    updateThemeIcon(theme);
+  });
+
+  // Обработчик переключения темы через кнопку
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const themes = ['light', 'dark', 'colorblind'];
+    const currentIndex = themes.indexOf(currentTheme);
+    const nextTheme = themes[(currentIndex + 1) % themes.length];
+    
+    document.documentElement.setAttribute('data-theme', nextTheme);
+    themeSelect.value = nextTheme;
+    localStorage.setItem('theme', nextTheme);
+    updateThemeIcon(nextTheme);
+  });
+
+  // Обновление иконки темы
+  function updateThemeIcon(theme) {
+    switch(theme) {
+      case 'dark':
+        themeIcon.className = 'fas fa-moon';
+        break;
+      case 'light':
+        themeIcon.className = 'fas fa-sun';
+        break;
+      case 'colorblind':
+        themeIcon.className = 'fas fa-eye';
+        break;
+    }
+  }
+}); 

@@ -456,4 +456,112 @@ a { text-decoration: none; color: inherit; }
   .asset-item span {
     font-size: 0.8rem;
   }
+}
+
+:root {
+  /* Светлая тема (по умолчанию) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #2c3e50;
+  --text-secondary: #95a5a6;
+  --accent-color: #3498db;
+  --border-color: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --trend-up: #2ecc71;
+  --trend-down: #e74c3c;
+  --sidebar-bg: #2c3e50;
+  --sidebar-text: #ffffff;
+  --card-bg: #ffffff;
+  --hover-bg: #f8f9fa;
+}
+
+/* Темная тема */
+[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --accent-color: #3498db;
+  --border-color: #404040;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --trend-up: #2ecc71;
+  --trend-down: #e74c3c;
+  --sidebar-bg: #1a1a1a;
+  --sidebar-text: #ffffff;
+  --card-bg: #2d2d2d;
+  --hover-bg: #404040;
+}
+
+/* Тема для дальтоников */
+[data-theme="colorblind"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #000000;
+  --text-secondary: #595959;
+  --accent-color: #0066cc;
+  --border-color: #cccccc;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --trend-up: #006600;
+  --trend-down: #cc0000;
+  --sidebar-bg: #333333;
+  --sidebar-text: #ffffff;
+  --card-bg: #ffffff;
+  --hover-bg: #f0f0f0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.sidebar {
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+}
+
+.main-content {
+  background-color: var(--bg-primary);
+}
+
+.chart-container, .portfolio {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
+
+.portfolio-table th {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.portfolio-table td {
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.trend-up {
+  color: var(--trend-up);
+}
+
+.trend-down {
+  color: var(--trend-down);
+}
+
+.theme-selector {
+  background-color: var(--bg-secondary);
+}
+
+.theme-selector select {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.theme-toggle {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.theme-toggle:hover {
+  background-color: var(--accent-color);
+  color: #ffffff;
 } 
