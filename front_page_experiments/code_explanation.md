@@ -615,3 +615,110 @@
   - Экранирование данных
   - Безопасный вывод
   - Валидация ввода 
+
+## API Интеграции
+
+### Московская биржа (MOEX)
+
+#### Структура ответа API
+```json
+{
+  "securities": {
+    "metadata": {
+      "SECID": {"type": "string", "bytes": 36},
+      "BOARDID": {"type": "string", "bytes": 12},
+      "PREVPRICE": {"type": "double"},
+      "STATUS": {"type": "string", "bytes": 3}
+      // ... другие поля метаданных
+    },
+    "columns": ["SECID", "BOARDID", "SHORTNAME", "LOTSIZE", "SETTLEDATE", "DECIMALS", "FACEVALUE", "MARKETCODE", "MINSTEP", "PREVDATE", "SECNAME", "REMARKS", "STATUS", "FACEUNIT", "PREVPRICE", "PREVWAPRICE", "CURRENCYID", "LATNAME", "LOTDIVIDER"],
+    "data": [
+      ["EUR000TODTOM", "AUCB", "EUR_TODTOM", 100000, "2025-03-21", 6, 1, "CURR", 0.0001, "2025-03-20", "EUR_TODTOM - СВОП EUR/РУБ", null, "A", "EUR", null, null, "RUB", "EUR_TODTOM - SWAP EUR/RUB", 1],
+      // ... другие инструменты
+    ]
+  }
+}
+```
+
+#### Ключевые поля
+- `SECID` - уникальный идентификатор инструмента
+- `BOARDID` - идентификатор торговой площадки
+- `PREVPRICE` - предыдущая цена закрытия
+- `STATUS` - статус инструмента (A - активный)
+- `CURRENCYID` - базовая валюта инструмента
+
+#### Идентификаторы инструментов
+- USD: `USD000UTSTOM` (TOM)
+- EUR: `EUR_RUB__TOM` (TOM)
+- CNY: `CNYRUB_TOM` (TOM)
+- AED: `AEDRUB_TOM` (TOM)
+
+#### Обработка данных
+```javascript
+async function getFiatPricesFromMOEX() {
+  try {
+    const response = await fetch('https://iss.moex.com/iss/engines/currency/markets/selt/securities.json');
+    const data = await response.json();
+    
+    const prices = {};
+    const securities = data.securities.data;
+    const columns = data.securities.columns;
+    
+    // Определяем индексы нужных колонок
+    const secIdIndex = columns.indexOf('SECID');
+    const prevPriceIndex = columns.indexOf('PREVPRICE');
+    const boardIdIndex = columns.indexOf('BOARDID');
+    
+    securities.forEach(security => {
+      const secId = security[secIdIndex];
+      const boardId = security[boardIdIndex];
+      const price = parseFloat(security[prevPriceIndex]);
+      
+      // Используем только активные инструменты с ценой
+      if (security[columns.indexOf('STATUS')] === 'A' && !isNaN(price)) {
+        // Обработка курсов для разных валют
+        if (secId === 'USD000UTSTOM') prices.USD = price;
+        else if (secId === 'EUR_RUB__TOM') prices.EUR = price;
+        else if (secId === 'CNYRUB_TOM') prices.CNY = price;
+        else if (secId === 'AEDRUB_TOM') prices.AED = price;
+      }
+    });
+    
+    return prices;
+  } catch (error) {
+    console.error('Ошибка при получении курсов фиатных валют:', error);
+    return null;
+  }
+}
+```
+
+### Binance API
+
+#### Получение курсов криптовалют
+```javascript
+async function getBTCPriceFromBinance() {
+  try {
+    // Получаем курс BTC/USDT
+    const btcUsdtResponse = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT');
+    const btcUsdtData = await btcUsdtResponse.json();
+    const btcUsdtPrice = parseFloat(btcUsdtData.price);
+
+    // Получаем курс USDT/RUB
+    const usdtRubResponse = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=USDTRUB');
+    const usdtRubData = await usdtRubResponse.json();
+    const usdtRubPrice = parseFloat(usdtRubData.price);
+
+    // Рассчитываем курс BTC в рублях
+    return btcUsdtPrice * usdtRubPrice;
+  } catch (error) {
+    console.error('Ошибка при получении курса BTC:', error);
+    return null;
+  }
+}
+```
+
+#### Особенности работы с API
+- Использование Promise.all для параллельных запросов
+- Обработка ошибок и валидация данных
+- Кэширование результатов
+- Автоматическое обновление курсов 
