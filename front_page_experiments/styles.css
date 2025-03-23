@@ -150,23 +150,35 @@ a {
 /* Сайдбар */
 .sidebar {
   width: var(--sidebar-width);
-  background-color: var(--sidebar-bg);
-  color: var(--sidebar-text);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   padding: var(--spacing-md);
   box-shadow: var(--shadow-sm);
+  border-right: 1px solid var(--border-color);
 }
 
 .sidebar .logo {
   margin-bottom: var(--spacing-xl);
   text-align: center;
+  padding: var(--spacing-md);
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
 }
 
 .sidebar .logo img {
   width: var(--logo-width);
   object-fit: contain;
+}
+
+.sidebar nav {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm);
+  box-shadow: var(--shadow-sm);
 }
 
 .sidebar nav a {
@@ -176,17 +188,19 @@ a {
   margin-bottom: var(--nav-margin);
   border-radius: var(--border-radius);
   transition: all var(--transition-speed) ease;
-  color: var(--sidebar-text);
+  color: var(--text-primary);
 }
 
 .sidebar nav a i {
   margin-right: var(--spacing-sm);
   width: var(--nav-icon-width);
   text-align: center;
+  color: var(--accent-primary);
 }
 
 .sidebar nav a:hover { 
-  background-color: var(--bg-tertiary);
+  background-color: var(--hover-bg);
+  color: var(--accent-primary);
   transform: var(--nav-transform);
 }
 
@@ -480,6 +494,8 @@ a {
   justify-content: space-between;
   align-items: center;
   margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .tracked-assets h3 {
@@ -519,16 +535,18 @@ a {
   background-color: var(--bg-secondary);
   border-radius: var(--border-radius);
   transition: all var(--transition-speed) ease;
+  border: 1px solid var(--border-color);
 }
 
 .asset-item:hover {
-  background-color: var(--bg-tertiary);
+  background-color: var(--hover-bg);
   transform: var(--button-transform);
+  box-shadow: var(--shadow-sm);
 }
 
 .asset-item i {
   font-size: var(--font-size-lg);
-  color: var(--text-primary);
+  color: var(--accent-primary);
   width: var(--nav-icon-width);
   text-align: center;
 }
@@ -541,26 +559,49 @@ a {
 .asset-item .price {
   margin-left: auto;
   font-weight: 500;
+  color: var(--text-secondary);
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
-  body { flex-direction: column; }
   .sidebar {
     width: 100%;
     padding: var(--spacing-sm);
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
   }
-  .sidebar nav { 
-    display: flex; 
-    gap: var(--grid-gap);
-    overflow-x: auto;
-    padding-bottom: var(--spacing-sm);
+
+  .sidebar .logo {
+    margin-bottom: 0;
+    padding: var(--spacing-xs);
   }
-  .main-content { padding: var(--spacing-sm); }
-  
+
+  .sidebar nav {
+    flex: 1;
+    margin: 0 var(--spacing-sm);
+    padding: var(--spacing-xs);
+  }
+
+  .sidebar nav a {
+    margin-bottom: 0;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .sidebar nav a span {
+    display: none;
+  }
+
+  .sidebar nav a i {
+    margin-right: 0;
+  }
+
+  .tracked-assets {
+    display: none;
+  }
+
   .top-bar {
     flex-direction: column;
     gap: var(--spacing-md);
