@@ -315,13 +315,12 @@
 }
 
 [data-theme="colorblind"] .trend-up::before {
-  content: "↑";
+
   margin-right: 4px;
   font-weight: bold;
 }
 
 [data-theme="colorblind"] .trend-down::before {
-  content: "↓";
   margin-right: 4px;
   font-weight: bold;
 }
