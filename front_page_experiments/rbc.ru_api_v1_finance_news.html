@@ -1,0 +1,1061 @@
+Переносить строки
+<!DOCTYPE html>
+
+
+<html lang="ru" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="HandheldFriendly" content="True">
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="address=no">
+g-desktop-visible
+
+<title>Новости дня в России и мире — РБК</title>
+
+<meta name="title" content="Новости дня в России и мире — РБК"/>
+<meta name="description" content="«РосБизнесКонсалтинг» — ведущая российская компания, работающая в сферах масс-медиа и информационных технологий."/>
+<meta name="copyright" content="«РосБизнесКонсалтинг»"/>
+
+<meta property="og:title" content="РБК – новости в реальном времени"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://www.rbc.ru/"/>
+<meta property="og:image" content="https://s.rbk.ru/v10_rbcnews_static/current/images/rbc-share.png"/>
+<meta property="og:description" content="Новости в России и в мире о политике, экономике и бизнесе, обзоры, аналитика, оперативная информация: фото и видео с места событий на сайте РБК"/>
+<meta property="og:site_name" content="РБК"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@ru_rbc"/>
+<meta name="twitter:creator" content="@ru_rbc"/>
+<meta name="twitter:title" content="РБК – новости в реальном времени"/>
+<meta name="twitter:description" content="Новости в России и в мире о политике, экономике и бизнесе, обзоры, аналитика, оперативная информация: фото и видео с места событий на сайте РБК"/>
+<meta name="twitter:image" content="https://s.rbk.ru/v10_rbcnews_static/current/images/rbc-share.png"/>
+<meta name="twitter:image:alt" content="РБК – новости в реальном времени"/>
+
+
+
+<meta http-equiv="Reply-to" content="webmaster@rbc.ru"/>
+
+
+
+<link id="link-favicon" rel="icon" type="image/png" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/images/favicon.png">
+<link rel="apple-touch-icon" sizes="60x60" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/images/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="76x76" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/images/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="120x120" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/images/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/images/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/images/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/images/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/images/android-chrome-512x512.png">
+<link rel="mask-icon" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/images/safari-pinned-tab.svg" color="#999999">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/images/mstile-144x144.png">
+<meta name="msapplication-square70x70logo" content="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/images/mstile-70x70.png">
+<meta name="msapplication-square150x150logo" content="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/images/mstile-150x150.png">
+<meta name="msapplication-square310x310logo" content="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/images/mstile-310x310.png">
+<meta name="msapplication-wide310x150logo" content="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/images/mstile-310x150.png">
+<link rel="preload" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/styles/build/_common.css" media="screen" as="style">
+<link rel="stylesheet" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/styles/build/_common.css" media="screen">
+<link rel="stylesheet" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/styles/build/_print.css" media="print">
+<link rel="preload" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/fonts/GraphikRBCLC/GraphikRBCLC-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/fonts/GraphikRBCLC/GraphikRBCLC-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/fonts/GraphikRBCLC/GraphikRBCLC-Semibold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/fonts/GraphikRBCLC/GraphikRBCLC-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/fonts/KazimirTextRBC/KazimirTextRBC-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/fonts/KazimirTextRBC/KazimirTextRBC-Semibold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/fonts/build/_common-fonts.css" media="screen" as="style">
+<link rel="stylesheet" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/fonts/build/_common-fonts.css" media="screen">
+
+<link rel="preload" href="//s.rbk.ru/v10_rbcnews_static/rbcnews-10.6.182/styles/build/_main.css" media="screen" as="style"/>
+<link rel="stylesheet" href="//s.rbk.ru/v10_rbcnews_static/rbcnews-10.6.182/styles/build/_main.css" media="screen"/>
+<link rel="stylesheet" href="//s.rbk.ru/v10_rbcnews_static/rbcnews-10.6.182/styles/build/_print.css" media="print"/>
+
+<link rel="preload" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/styles/build/pages/_error.css" media="screen" as="style">
+<link rel="stylesheet" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/styles/build/pages/_error.css" media="screen">
+
+<link rel="preload" href="//s.rbk.ru/v10_rbcnews_static/rbcnews-10.6.182/styles/build/pages/_error.css" media="screen" as="style"/>
+<link rel="stylesheet" href="//s.rbk.ru/v10_rbcnews_static/rbcnews-10.6.182/styles/build/pages/_error.css" media="screen"/>
+
+<link rel="preload" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/scripts/vendor/jquery/jquery-3.5.1.min.js" as="script">
+<script src="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/scripts/vendor/jquery/jquery-3.5.1.min.js"></script>
+<link rel="preload" href="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/scripts/build/_core.js" as="script">
+<script src="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/scripts/build/_core.js"></script>
+
+<script>
+window.foxConfig = {
+project: 'news',
+useVideo: true,
+useFallback: true,
+useWeboramaSegments: true,
+useHeaderBidding: true,
+useInformerClass: true,
+page: 'default',
+abTestKey: '',
+};
+</script>
+
+<script>
+let targetingParameters = [], autoTargetingParameters = ['404'];
+
+window.foxConfig.targetingParameters = targetingParameters;
+window.foxConfig.autoTargetingParameters = autoTargetingParameters;
+window.foxConfig.useAutoTargetingParameters = true;
+</script>
+
+<script type="text/javascript">
+window.foxConfig.backOffice = [{"place_name":"after_topline_inner","refresh_timeout":1,"max_refresh_count":999,"activation":"instant","tab_refresh":true,"viewable_only":true,"is_disabled":false},{"place_name":"in_newsline_inner","refresh_timeout":1,"max_refresh_count":999,"activation":"instant","tab_refresh":true,"viewable_only":true,"is_disabled":false},{"place_name":"right_1_inner","refresh_timeout":1,"max_refresh_count":999,"activation":"instant","tab_refresh":true,"viewable_only":true,"is_disabled":false},{"place_name":"skyscraper_inner","refresh_timeout":1,"max_refresh_count":999,"activation":"instant","tab_refresh":true,"viewable_only":true,"is_disabled":false},{"place_name":"right_2_inner","refresh_timeout":1,"max_refresh_count":999,"activation":"instant","tab_refresh":true,"viewable_only":true,"is_disabled":false},{"place_name":"in_newsline_more_inner","refresh_timeout":1,"max_refresh_count":999,"activation":"instant","tab_refresh":true,"viewable_only":true,"is_disabled":false},{"place_name":"after_topline_more_inner","refresh_timeout":1,"max_refresh_count":999,"activation":"instant","tab_refresh":true,"viewable_only":true,"is_disabled":false},{"place_name":"informer-inner (auto-1)","refresh_timeout":5,"max_refresh_count":999,"activation":"default","tab_refresh":true,"viewable_only":true,"is_disabled":false},{"place_name":"informer-inner (realty-1)","refresh_timeout":5,"max_refresh_count":999,"activation":"default","tab_refresh":true,"viewable_only":true,"is_disabled":false},{"place_name":"native-video-for-incut","refresh_timeout":1,"max_refresh_count":999,"activation":"instant","tab_refresh":true,"viewable_only":true,"is_disabled":false},{"place_name":"freezer_inner","refresh_timeout":1,"max_refresh_count":0,"activation":"instant","tab_refresh":true,"viewable_only":true,"is_disabled":false},{"place_name":"freezer_inner-fallback","refresh_timeout":1,"max_refresh_count":0,"activation":"on_doscroll","tab_refresh":true,"viewable_only":true,"is_disabled":false},{"place_name":"enter_scroller_inner_mobile","refresh_timeout":1,"max_refresh_count":999,"activation":"instant","tab_refresh":true,"viewable_only":true,"is_disabled":false},{"place_name":"after_topline_inner_mobile_more","refresh_timeout":1,"max_refresh_count":999,"activation":"instant","tab_refresh":true,"viewable_only":true,"is_disabled":false}];
+RA.config.set('banners.preroll', {"live":"https:\/\/yandex.ru\/ads\/adfox\/226279\/getCode?","content_video":"https:\/\/yandex.ru\/ads\/adfox\/226279\/getCode?","live_add_puid":true,"content_video_add_puid":true});
+</script>
+
+<!-- Заглушка для поддержания корректной работы common -->
+<script>
+RA.config.set('fox', true);
+RA.config.set('fox-video', true);
+RA.repo.banner = {
+isHalt: function() {
+return false;
+},
+getService: function() {
+return {
+getPlaces: function() {
+return [];
+},
+createPlaceholder: function(){
+return null;
+}
+}
+},
+addFloatTargetingKeyValue: function() {},
+addFloatHideBanners: function() {},
+setTargeting: function() {},
+addEventListener: function() {},
+removeEventListener: function() {},
+run: function() {},
+refresh: function() {},
+clear: function() {},
+exclusiveValue: function() {},
+checkAdBlock: function() {
+return 1;
+},
+clearTargeting: function() {},
+getFloatHideBanners: function() {},
+disableRefresh: function() {},
+EVENTS: {}
+};
+
+const helpers = window.RA.repo.helpers;
+let hashCode = 0;
+if (helpers && helpers.hashCode) {
+hashCode = helpers.hashCode(RA.repo.banner.checkAdBlock.toString());
+}
+
+window.RA.config.set('bHashCode', hashCode);
+</script>
+<script>
+(function(){
+function defineScript ({ src, async, defer }) {
+return new Promise((resolve, reject) => {
+const tag = document.createElement('script');
+
+tag.type = 'text/javascript';
+tag.src = src;
+
+tag.async = !!async;
+
+if(defer){
+tag.defer = true;
+}
+
+tag.onload = resolve;
+tag.onerror = reject;
+
+document.head.appendChild(tag);
+});
+}
+
+window.foxState = {
+loaded: null,
+};
+defineScript({
+src: '//s.rbk.ru/v2_rbcbanners_static/rbcbanners-2.1.52/fox/build/app.js',
+defer: true,
+}).then(function(){
+window.foxState.loaded = true;
+document.dispatchEvent(new CustomEvent('foxLoaded'));
+}).catch(function(){
+const errorType = 'loaderError';
+document.dispatchEvent(new CustomEvent('foxError', {
+detail: {
+type: errorType,
+},
+}));
+window.foxState.foxError = errorType;
+window.foxState.loaded = false;
+});
+})();
+</script>
+
+<script>
+RA.version = 10;
+RA.env = ('production' || 'production'); // develop, test, staging, production
+RA.config.set('device.isMobile', false);
+RA.config.set('device.isApp', false);
+RA.config.set('ajax.prefix', '/v10/');
+RA.config.set('layout.mainMenuHeight', 105);
+RA.config.set('layout.toplineHeight', 45);
+RA.config.set('layout.headerHeight', 60);
+RA.config.set('layout.layoutMinBreakpoint', 1260);
+RA.config.set('layout.layoutMinWidth', 980);
+RA.config.set('layout.bottomBannerHeight', 250);
+RA.config.set('layout.billboardHeight', 250);
+RA.config.set('layout.isLogoBW', false);
+RA.config.set('layout.templatePath', 'public');
+RA.config.set('urls.common_static', '//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/');
+RA.config.set('urls.static', '//s.rbk.ru/v10_rbcnews_static/rbcnews-10.6.182/');
+RA.config.set('urls.image', 'https://s.rbk.ru/v10_rbcnews_static/current/images/');
+RA.config.set('domain', '.rbc.ru');
+RA.config.set('domainAuth', 'https://auth.rbc.ru');
+RA.config.set('domainApigw', 'https://apigw.rbc.ru');
+RA.config.set('pro.cookie', '');
+RA.config.set('video.off', false);
+RA.config.set('paywall.user.logined', false);
+RA.config.set('paywall.user.paid', false);
+RA.config.set('mainPage', false);
+RA.config.set('showBanners', true);
+RA.config.set('noVideo', false);
+RA.config.set('disableThirdPartyScripts', false);
+RA.config.set('split', 'Z');
+RA.config.set('yandexCaptchaKey', 'ysc1_Kd1HVgncMR21IKbmWHeEcFYVwfb6pSyxbicSghwcc196899e');
+RA.config.set('proProjectUrl', 'https://pro.rbc.ru');
+</script>
+
+<meta name="apple-itunes-app" content="app-id=483524731">
+<meta name="theme-color" content="#11BB88"/>
+<link rel="manifest" href="//s.rbk.ru/v10_rbcnews_static/rbcnews-10.6.182/app/manifest.json">
+<script>
+RA.config.set('appPushDomain', 'https://app.rbc.ru/');
+RA.config.set('apnPushDomen', 'https://app.rbc.ru');
+RA.config.set('apnWebsitePushId', 'web.ru.rbc.top');
+RA.config.set('messagingSenderId', '644988820153');
+RA.config.set('user.region', 'world');
+RA.config.set('layout.mainMenuHeight', 45);
+RA.config.set('newsfeed.loadTabNick', 'rbcnews.uploaded');
+RA.config.set('newsfeed.removeHiddingNews', true);
+RA.config.set('project', 'rbc');
+RA.config.set('pagename', 'error');
+RA.config.set('projectUrl', 'https://www.rbc.ru');
+RA.config.set('visitedPagesEnabled', true);
+RA.config.set('trackingRequestIsEnabled', true);
+RA.config.set('maxPinnedStoriesCount', 1);
+RA.config.set('newDesignExperiment', 1);
+
+try {
+RA.config.set('criticalPlacements', JSON.parse('{ "mtsOnbordingAida": { "enabled": false, "showCount": 5, "blockUrl": "http://mts-marketolog.rbc.ru/?utm_source=rbc&utm_medium=banner&utm_campaign=rbc_banner_floorad_1&erid=Pb3XmBtzt74NLb5PG7ECU7KVXCJ1uNwHRCsQear", "buttonUrl": "http://mts-marketolog.rbc.ru/?utm_source=rbc&utm_medium=banner&utm_campaign=rbc_banner_floorad_1&erid=Pb3XmBtzt74NLb5PG7ECU7KVXCJ1uNwHRCsQear", "disableDate": "2022-12-31 11:00" } } '));
+}
+catch (e) {
+console.log('Critical placements error: ', e);
+}
+
+RA.config.set('pollPopup.shouldRun', true);
+RA.config.set('pollPopupMobile.shouldRun', false);
+
+const newDesignSplitCookie = document.cookie.match('(^|;)\\s*split\\s*=\\s*([^;]+)')?.pop() || '';
+
+if(newDesignSplitCookie === 'A'){
+window.yaParams = window.yaParams || {};
+Object.assign(window.yaParams, {
+'ab_test_main10': 'my_rbc_beta_old',
+});
+}
+
+/**
+*
+*/
+window.utmMarkerConfig = {
+source: 'rbc.ru',
+term: '10.4Z_noauth'
+};
+</script>
+
+</head>
+<body
+data-page="error"
+class=" "
+>
+
+<noscript>
+<style>
+:root {
+--auto-if-no-script: auto;
+--none-if-no-script: none;
+--block-if-no-script: block;
+--zero-if-no-script: 0;
+--one-if-no-script: 1;
+}
+</style>
+</noscript>
+
+<span class="g-mobile-detector g-mobile"></span>
+<span class="g-tablet-detector g-tablet"></span>
+<span class="g-desktop-small-detector g-desktop-small"></span>
+<span class="g-desktop-detector g-desktop"></span>
+
+<a href="#maincontent" class="main-content-link l-window js-skip-to-content" tabindex="1">Перейти к основному контенту</a>
+
+<div id="js_ra_notifications" class="ra-notifications"></div>
+<header class="topline__wrapper js-topline-wrapper topline__wrapper_min">
+<div class="topline l-window js-topline js-filter-lock-block">
+<div class="topline__inner l-row js-topline"><div class="topline__left js-topline-left"><span class="topline__logo-block"><a class="topline__logo" href="https://www.rbc.ru/"></a><div class="fox-tail fox-tail_topline-logo g-desktop-visible g-tablet-visible g-mobile-orientation-all-hidden"
+data-role="fox-tail"
+data-unit="topline_logo_inner"
+style="width: 22px; height: 22px;"
+data-force-observe="1"
+></div><div class="fox-tail fox-tail_topline-logo g-mobile-orientation-all-visible"
+data-role="fox-tail"
+data-unit="topline_logo_inner_mobile"
+style="width: 22px; height: 22px;"
+data-force-observe="1"
+></div></span><div class="topline__projects-wrap js-topline-first"><nav class="topline__items-container js-topline-dropdown-container"><ul class="topline__projects"><li class="topline__item-block js-topline-item"><a href="https://tv.rbc.ru/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://tv.rbc.ru/?utm_source=topline"}'>
+Телеканал
+</a></li><li class="topline__item-block js-topline-item"><a href="https://pro.rbc.ru/?from=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://pro.rbc.ru/?from=topline"}'>
+Pro
+</a></li><li class="topline__item-block js-topline-item"><a href="https://www.rbc.ru/quote?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://www.rbc.ru/quote?utm_source=topline"}'>
+Инвестиции
+<span class="topline__item__image-block"><img src="https://s0.rbk.ru/v6_top_pics/media/img/5/64/347271065287645.svg" class="topline__item__image" alt="" loading="lazy" decoding="async"/></span></a></li><li class="topline__item-block js-topline-item"><a href="https://events.rbc.ru/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://events.rbc.ru/?utm_source=topline"}'>
+Мероприятия
+</a></li><li class="topline__item-block js-topline-item"><a href="https://www.rbc.ru/industries/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://www.rbc.ru/industries/?utm_source=topline"}'>
+Отрасли
+</a></li><li class="topline__item-block js-topline-item"><a href="https://realty.rbc.ru/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://realty.rbc.ru/?utm_source=topline"}'>
+Недвижимость
+</a></li><li class="topline__item-block js-topline-item"><a href="https://www.autonews.ru/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://www.autonews.ru/?utm_source=topline"}'>
+Autonews
+</a></li><li class="topline__item-block js-topline-item"><a href="https://sportrbc.ru/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://sportrbc.ru/?utm_source=topline"}'>
+Спорт
+</a></li><li class="topline__item-block js-topline-item"><a href="https://companies.rbc.ru/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://companies.rbc.ru/?utm_source=topline"}'>
+РБК Компании
+</a></li><li class="topline__item-block js-topline-item"><a href="https://www.rbc.ru/wine?utm_source=rbc&amp;utm_medium=menu" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://www.rbc.ru/wine?utm_source=rbc&amp;utm_medium=menu"}'>
+РБК Вино
+</a></li><li class="topline__item-block js-topline-item"><a href="https://www.rbc.ru/life?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://www.rbc.ru/life?utm_source=topline"}'>
+РБК Life
+</a></li><li class="topline__item-block js-topline-item"><a href="https://trends.rbc.ru/trends/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://trends.rbc.ru/trends/?utm_source=topline"}'>
+Тренды
+</a></li><li class="topline__item-block js-topline-item"><a href="https://visionaries.rbc.ru/?utm_source=rbc_topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://visionaries.rbc.ru/?utm_source=rbc_topline"}'>
+Визионеры
+</a></li><li class="topline__item-block js-topline-item"><a href="https://www.rbc.ru/national" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://www.rbc.ru/national"}'>
+Национальные проекты
+</a></li><li class="topline__item-block js-topline-item"><a href="https://www.rbc.ru/gorod/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://www.rbc.ru/gorod/?utm_source=topline"}'>
+Город
+</a></li><li class="topline__item-block js-topline-item"><a href="https://style.rbc.ru/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://style.rbc.ru/?utm_source=topline"}'>
+Стиль
+</a></li><li class="topline__item-block js-topline-item"><a href="https://www.rbc.ru/crypto/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://www.rbc.ru/crypto/?utm_source=topline"}'>
+Крипто
+</a></li><li class="topline__item-block js-topline-item"><a href="https://plus.rbc.ru/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://plus.rbc.ru/?utm_source=topline"}'>
+РБК+
+</a></li><li class="topline__item-block js-topline-item"><a href="https://www.rbc.ru/dc/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://www.rbc.ru/dc/?utm_source=topline"}'>
+Дискуссионный клуб
+</a></li><li class="topline__item-block js-topline-item"><a href="https://marketing.rbc.ru/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://marketing.rbc.ru/?utm_source=topline"}'>
+Исследования
+</a></li><li class="topline__item-block js-topline-item"><a href="https://ratings.ru/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://ratings.ru/?utm_source=topline"}'>
+Кредитные рейтинги
+</a></li><li class="topline__item-block js-topline-item"><a href="https://biztorg.ru/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://biztorg.ru/?utm_source=topline"}'>
+Франшизы
+</a></li><li class="topline__item-block js-topline-item"><a href="https://www.rbc.ru/newspaper/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://www.rbc.ru/newspaper/?utm_source=topline"}'>
+Газета
+</a></li><li class="topline__item-block js-topline-item"><a href="https://spbspecials.rbc.ru/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://spbspecials.rbc.ru/?utm_source=topline"}'>
+Спецпроекты СПб
+</a></li><li class="topline__item-block js-topline-item"><a href="https://spb-bc.rbc.ru/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://spb-bc.rbc.ru/?utm_source=topline"}'>
+Конференции СПб
+</a></li><li class="topline__item-block js-topline-item"><a href="https://specialists.ru/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://specialists.ru/?utm_source=topline"}'>
+Спецпроекты
+</a></li><li class="topline__item-block js-topline-item"><a href="https://rescore.online/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://rescore.online/?utm_source=topline"}'>
+Проверка контрагентов
+</a></li><li class="topline__item-block js-topline-item"><a href="http://esg-index.rbc.ru/" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "http://esg-index.rbc.ru/"}'>
+ESG-индекс
+</a></li><li class="topline__item-block js-topline-item"><a href="https://www.rbc.ru/politics/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://www.rbc.ru/politics/?utm_source=topline"}'>
+Политика
+</a></li><li class="topline__item-block js-topline-item"><a href="https://www.rbc.ru/economics/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://www.rbc.ru/economics/?utm_source=topline"}'>
+Экономика
+</a></li><li class="topline__item-block js-topline-item"><a href="https://www.rbc.ru/business/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://www.rbc.ru/business/?utm_source=topline"}'>
+Бизнес
+</a></li><li class="topline__item-block js-topline-item"><a href="https://www.rbc.ru/technology_and_media/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://www.rbc.ru/technology_and_media/?utm_source=topline"}'>
+Технологии и медиа
+</a></li><li class="topline__item-block js-topline-item"><a href="https://www.rbc.ru/finances/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://www.rbc.ru/finances/?utm_source=topline"}'>
+Финансы
+</a></li><li class="topline__item-block js-topline-item"><a href="https://cash.rbc.ru/?utm_source=topline" class="topline__item js-yandex-counter" data-yandex-name="from_topline" data-yandex-params='{url: "https://cash.rbc.ru/?utm_source=topline"}'>
+Рынок наличной валюты
+</a></li></ul></nav><nav class="topline__more"><ul class="topline__item__wrap"></ul><div class="topline__dropdown"><a href="" class="topline__dropdown__handle js-topline-dropdown">
+...
+</a><div class="topline__dropdown__list js-topline-dropdown-list"><ul class="topline__dropdown__list__inner js-topline-dropdown-list-inner"></ul></div></div></nav></div><div class="js-indicators g-overflow" data-type="topline"></div></div><div class="topline__right"><div class="topline__branding__wrapper js-topline-branding
+"
+data-items='[{"id":"642b00b29a79477d937c1f26","hide_for_paid_users":true,"descriptor":null,"descriptor_md":null,"url_for_desktop":"https:\/\/pik.rbc.ru\/?utm_source=rbc&utm_medium=banner&utm_campaign=pik23_button_rbc&erid=F7NfYUJCUneP5VYMqo3k","url_for_mobile":"https:\/\/pik.rbc.ru\/?utm_source=rbc&utm_medium=banner&utm_campaign=pik23_button_rbc&erid=F7NfYUJCUneP5VYMqo3k","hide_plate_on_click":false,"advertiser":null,"advertiser_md":null,"publish_date_t":1680577200,"publish_date":"Tue, 04 Apr 2023 06:00:00 +0300","first_publish_date_t":1680577200,"first_publish_date":"Tue, 04 Apr 2023 06:00:00 +0300","modif_date_t":1738593643,"modif_date":"Mon, 03 Feb 2025 17:40:43 +0300","create_date_t":1680539826,"create_date":"Mon, 03 Apr 2023 19:37:06 +0300","end_date_t":1767214775,"end_date":"Wed, 31 Dec 2025 23:59:35 +0300","pixel_block":{"pixels":[{"pixel":null}]},"projects_for_show":{"rbcnews":true,"rbctv":false,"autonews":false,"crypto":false,"quote":false,"trends":false,"sport":false,"neweconomy":false,"style":false,"realty":true,"conferences":false,"life":false,"rbcplus":false,"bc3":false,"auto":false},"image_for_desktop":{"type":"image","title":"","url":"https:\/\/s0.rbk.ru\/v6_top_pics\/media\/img\/1\/42\/756805400031421.svg","description":"","description_md":"","short_description":"","image_type":"photo","image_type_name":"\u0424\u043e\u0442\u043e","extension":".svg","aspect_ratio":0,"width":0,"height":0,"source":"","export":true,"path":"756805400031421.svg","path_webp":"","url_webp":null,"alt":null},"image_for_mobile":{"type":"image","title":"","url":"https:\/\/s0.rbk.ru\/v6_top_pics\/media\/img\/9\/21\/756805400064219.svg","description":"","description_md":"","short_description":"","image_type":"photo","image_type_name":"\u0424\u043e\u0442\u043e","extension":".svg","aspect_ratio":0,"width":0,"height":0,"source":"","export":true,"path":"756805400064219.svg","path_webp":"","url_webp":null,"alt":null}}]'><div class="topline__branding__content
+js-pixel-loader"
+data-pixels-on-show='[{"pixel":null}]'><a class="topline__branding__link g-desktop g-tablet"
+href="https://pik.rbc.ru/?utm_source=rbc&amp;utm_medium=banner&amp;utm_campaign=pik23_button_rbc&amp;erid=F7NfYUJCUneP5VYMqo3k"
+target="_blank"
+><img class="topline__branding__image" width="124" height="30" src="https://s0.rbk.ru/v6_top_pics/media/img/1/42/756805400031421.svg" alt="branding image"></a><a class="topline__branding__link g-mobile"
+href="https://pik.rbc.ru/?utm_source=rbc&amp;utm_medium=banner&amp;utm_campaign=pik23_button_rbc&amp;erid=F7NfYUJCUneP5VYMqo3k"
+target="_blank"
+><img class="topline__branding__image" width="124" height="30" src="https://s0.rbk.ru/v6_top_pics/media/img/9/21/756805400064219.svg" alt="branding image"></a></div></div><div class="topline__menu"><div class="topline__menu__open js-topline-menu js-yandex-counter" data-yandex-name="click_hamburger"><span></span><span></span><span></span></div><div class="topline__menu__close js-topline-menu-close"><span></span><span></span></div></div></div></div><div class="topline__popup js-topline-popup"><nav class="topline__popup__inner js-topline-open-popup-content active"><ul class="topline__popup__menu"><li class="topline__popup__menu__item g-hidden js-experimental-version"><div class="topline__popup__menu__switch"><span class="topline__popup__menu__switch__text">
+Новая версия РБК
+</span><label class="switch"><input
+name="topline-toggle-version"
+type="checkbox"
+class="switch-input js-experimental-version-input"
+/><span class="switch-content"></span></label></div></li></ul><ul class="topline__popup__submenu topline__popup__flex"><li class="topline__popup__submenu__wrap"><a href="https://tv.rbc.ru/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://tv.rbc.ru/?utm_source=topline"}'>Телеканал</a></li><li class="topline__popup__submenu__wrap"><a href="https://pro.rbc.ru/?from=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://pro.rbc.ru/?from=topline"}'>Pro</a></li><li class="topline__popup__submenu__wrap"><a href="https://www.rbc.ru/quote?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://www.rbc.ru/quote?utm_source=topline"}'>Инвестиции</a><img src=https://s0.rbk.ru/v6_top_pics/media/img/5/64/347271065287645.svg class="topline__popup__submenu-logo" alt=""></li><li class="topline__popup__submenu__wrap"><a href="https://events.rbc.ru/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://events.rbc.ru/?utm_source=topline"}'>Мероприятия</a></li><li class="topline__popup__submenu__wrap"><a href="https://www.rbc.ru/industries/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://www.rbc.ru/industries/?utm_source=topline"}'>Отрасли</a></li><li class="topline__popup__submenu__wrap"><a href="https://realty.rbc.ru/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://realty.rbc.ru/?utm_source=topline"}'>Недвижимость</a></li><li class="topline__popup__submenu__wrap"><a href="https://www.autonews.ru/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://www.autonews.ru/?utm_source=topline"}'>Autonews</a></li><li class="topline__popup__submenu__wrap"><a href="https://sportrbc.ru/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://sportrbc.ru/?utm_source=topline"}'>Спорт</a></li><li class="topline__popup__submenu__wrap"><a href="https://companies.rbc.ru/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://companies.rbc.ru/?utm_source=topline"}'>РБК Компании</a></li><li class="topline__popup__submenu__wrap"><a href="https://www.rbc.ru/wine?utm_source=rbc&amp;utm_medium=menu" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://www.rbc.ru/wine?utm_source=rbc&amp;utm_medium=menu"}'>РБК Вино</a></li><li class="topline__popup__submenu__wrap"><a href="https://www.rbc.ru/life?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://www.rbc.ru/life?utm_source=topline"}'>РБК Life</a></li><li class="topline__popup__submenu__wrap"><a href="https://trends.rbc.ru/trends/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://trends.rbc.ru/trends/?utm_source=topline"}'>Тренды</a></li><li class="topline__popup__submenu__wrap"><a href="https://visionaries.rbc.ru/?utm_source=rbc_topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://visionaries.rbc.ru/?utm_source=rbc_topline"}'>Визионеры</a></li><li class="topline__popup__submenu__wrap"><a href="https://www.rbc.ru/national" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://www.rbc.ru/national"}'>Национальные проекты</a></li><li class="topline__popup__submenu__wrap"><a href="https://www.rbc.ru/gorod/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://www.rbc.ru/gorod/?utm_source=topline"}'>Город</a></li><li class="topline__popup__submenu__wrap"><a href="https://style.rbc.ru/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://style.rbc.ru/?utm_source=topline"}'>Стиль</a></li><li class="topline__popup__submenu__wrap"><a href="https://www.rbc.ru/crypto/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://www.rbc.ru/crypto/?utm_source=topline"}'>Крипто</a></li><li class="topline__popup__submenu__wrap"><a href="https://plus.rbc.ru/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://plus.rbc.ru/?utm_source=topline"}'>РБК+</a></li><li class="topline__popup__submenu__wrap"><a href="https://www.rbc.ru/dc/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://www.rbc.ru/dc/?utm_source=topline"}'>Дискуссионный клуб</a></li><li class="topline__popup__submenu__wrap"><a href="https://marketing.rbc.ru/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://marketing.rbc.ru/?utm_source=topline"}'>Исследования</a></li><li class="topline__popup__submenu__wrap"><a href="https://ratings.ru/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://ratings.ru/?utm_source=topline"}'>Кредитные рейтинги</a></li><li class="topline__popup__submenu__wrap"><a href="https://biztorg.ru/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://biztorg.ru/?utm_source=topline"}'>Франшизы</a></li><li class="topline__popup__submenu__wrap"><a href="https://www.rbc.ru/newspaper/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://www.rbc.ru/newspaper/?utm_source=topline"}'>Газета</a></li><li class="topline__popup__submenu__wrap"><a href="https://spbspecials.rbc.ru/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://spbspecials.rbc.ru/?utm_source=topline"}'>Спецпроекты СПб</a></li><li class="topline__popup__submenu__wrap"><a href="https://spb-bc.rbc.ru/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://spb-bc.rbc.ru/?utm_source=topline"}'>Конференции СПб</a></li><li class="topline__popup__submenu__wrap"><a href="https://specialists.ru/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://specialists.ru/?utm_source=topline"}'>Спецпроекты</a></li><li class="topline__popup__submenu__wrap"><a href="https://rescore.online/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://rescore.online/?utm_source=topline"}'>Проверка контрагентов</a></li><li class="topline__popup__submenu__wrap"><a href="http://esg-index.rbc.ru/" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "http://esg-index.rbc.ru/"}'>ESG-индекс</a></li><li class="topline__popup__submenu__wrap"><a href="https://www.rbc.ru/politics/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://www.rbc.ru/politics/?utm_source=topline"}'>Политика</a></li><li class="topline__popup__submenu__wrap"><a href="https://www.rbc.ru/economics/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://www.rbc.ru/economics/?utm_source=topline"}'>Экономика</a></li><li class="topline__popup__submenu__wrap"><a href="https://www.rbc.ru/business/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://www.rbc.ru/business/?utm_source=topline"}'>Бизнес</a></li><li class="topline__popup__submenu__wrap"><a href="https://www.rbc.ru/technology_and_media/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://www.rbc.ru/technology_and_media/?utm_source=topline"}'>Технологии и медиа</a></li><li class="topline__popup__submenu__wrap"><a href="https://www.rbc.ru/finances/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://www.rbc.ru/finances/?utm_source=topline"}'>Финансы</a></li><li class="topline__popup__submenu__wrap"><a href="https://cash.rbc.ru/?utm_source=topline" class="topline__popup__submenu-item js-yandex-counter" data-yandex-name="click_hamburger" data-yandex-params='{url: "https://cash.rbc.ru/?utm_source=topline"}'>Рынок наличной валюты</a></li><div class="topline__popup__submenu__wrap"></div><div class="topline__popup__submenu__wrap"></div></ul></nav></div>
+</div>
+</header>
+<div class="l-window js-set-height">
+<div class="g-relative g-clear">
+<div class="l-col-container l-col-container_no-margin">
+<div class="l-table">
+<div class="l-col-center-590 js-set-height-spacer">
+<div class="error__wrap">
+<div class="error__title">
+404
+</div>
+
+<div class="error__subtitle">
+Cтраницa не&nbsp;найдена
+</div>
+<div class="g-desktop-visible">
+<div class="error__text error__text_404">
+Посмотрите другие материалы или воспользуйтесь поиском
+</div>
+<div class="error__search">
+<form action="/search/">
+<div class="error__search__submit-wrap">
+<input class="error__search__submit" type="submit" value="Найти"/>
+</div>
+<div class="error__search__input-wrap">
+<input class="error__search__input" type="text" name="query" autocomplete="off" value="" placeholder="Поиск по сайту"/>
+</div>
+<input type="hidden" name="project" value="rbcnews"/>
+</form>
+</div>
+</div>
+
+<div class="g-desktop-visible">
+<div class="error__news">
+<div class="error__news__header">Главные новости</div>
+<div class="error__list">
+<div class="error__news__item">
+<a href="https://www.rbc.ru/politics/23/03/2025/67e0215c9a7947e182719311" class="error__news__link">
+<span class="error__news__title-wrap">
+<span class="error__news__title"><!--
+-->Уиткофф заявил об ожидании прогресса на переговорах в Саудовской Аравии<!--
+--></span><!--
+--><!--
+--></span><!--
+--></a>
+</div>
+<div class="error__news__item">
+<a href="https://www.rbc.ru/politics/23/03/2025/67e02eae9a794723a6ab7637" class="error__news__link">
+<span class="error__news__title-wrap">
+<span class="error__news__title"><!--
+-->Уолтц раскрыл темы для обсуждения с Россией в будущем<!--
+--></span><!--
+--><!--
+--></span><!--
+--></a>
+</div>
+<div class="error__news__item">
+<a href="https://www.rbc.ru/politics/23/03/2025/67e03cb79a79475b138c416a" class="error__news__link">
+<span class="error__news__title-wrap">
+<span class="error__news__title"><!--
+-->ABC узнал об угрозе для хаба военной помощи Украине в Польше из-за США<!--
+--></span><!--
+--><!--
+--></span><!--
+--></a>
+</div>
+<div class="error__news__item">
+<a href="https://www.rbc.ru/politics/23/03/2025/67dfe97f9a7947f51abd3bb7" class="error__news__link">
+<span class="error__news__title-wrap">
+<span class="error__news__title"><!--
+-->Песков заявил, что переговоры США и России в Эр-Рияде будут непростыми<!--
+--></span><!--
+--><!--
+--></span><!--
+--></a>
+</div>
+<div class="error__news__item">
+<a href="https://pro.rbc.ru/demo/67dc3bc99a7947557ba55399" class="error__news__link">
+<span class="error__news__title-wrap">
+<span class="error__news__title"><!--
+-->В Мексике взлетел финтех-стартап Plata. Как он связан с Олегом Тиньковым<!--
+--></span><!--
+--><!--
+--></span><!--
+--></a>
+</div>
+<div class="error__news__item">
+<a href="https://www.rbc.ru/politics/23/03/2025/67e021d49a7947e182719318" class="error__news__link">
+<span class="error__news__title-wrap">
+<span class="error__news__title"><!--
+-->Хинштейн пообещал административное наказание блогеру за граффити в Судже<!--
+--></span><!--
+--><!--
+--></span><!--
+--></a>
+</div>
+<div class="error__news__item">
+<a href="https://www.rbc.ru/politics/23/03/2025/67dfc2879a7947c4dbbc0f0c" class="error__news__link">
+<span class="error__news__title-wrap">
+<span class="error__news__title"><!--
+-->Стармер призвал иметь план на случай мира на Украине, а не чесать головы<!--
+--></span><!--
+--><!--
+--></span><!--
+--></a>
+</div>
+<div class="error__news__item">
+<a href="https://www.rbc.ru/politics/23/03/2025/67dfc99d9a794710b4f860b2" class="error__news__link">
+<span class="error__news__title-wrap">
+<span class="error__news__title"><!--
+-->Bloomberg узнал оценку США сроков перемирия на Украине<!--
+--></span><!--
+--><!--
+--></span><!--
+--></a>
+</div>
+<div class="error__news__item">
+<a href="https://www.rbc.ru/politics/23/03/2025/67dffd869a7947791bfcf89f" class="error__news__link">
+<span class="error__news__title-wrap">
+<span class="error__news__title"><!--
+-->Хуситы заявили об ударе по израильскому аэропорту Бен-Гурион<!--
+--></span><!--
+--><!--
+--></span><!--
+--></a>
+</div>
+<div class="error__news__item">
+<a href="https://www.rbc.ru/society/23/03/2025/67dff8f99a7947326948eddf" class="error__news__link">
+<span class="error__news__title-wrap">
+<span class="error__news__title"><!--
+-->В Киеве решили завершить отопительный сезон<!--
+--></span><!--
+--><!--
+--></span><!--
+--></a>
+</div>
+<div class="error__news__item">
+<a href="https://www.rbc.ru/business/23/03/2025/67dfe0e09a79475a5c4b953a" class="error__news__link">
+<span class="error__news__title-wrap">
+<span class="error__news__title"><!--
+-->L&#039;Oreal предостерег ЕС от «красного флага» на косметику в торговой войне<!--
+--></span><!--
+--><!--
+--></span><!--
+--></a>
+</div>
+<div class="error__news__item">
+<a href="https://www.rbc.ru/politics/23/03/2025/67dfa4809a794710ea2d9ead" class="error__news__link">
+<span class="error__news__title-wrap">
+<span class="error__news__title"><!--
+-->Times предупредила об «обществе автоматов Калашникова» на Украине<!--
+--></span><!--
+--><!--
+--></span><!--
+--></a>
+</div>
+<div class="error__news__item">
+<a href="https://www.rbc.ru/sport/23/03/2025/67e037a59a79471262aef97e" class="error__news__link">
+<span class="error__news__title-wrap">
+<span class="error__news__title"><!--
+-->Стали известны все пары первого раунда плей-офф КХЛ<!--
+--></span><!--
+--><!--
+--></span><!--
+--></a>
+</div>
+<div class="error__news__item">
+<a href="https://www.rbc.ru/quote/news/article/67dd15a69a794706a84327cd" class="error__news__link">
+<span class="error__news__title-wrap">
+<span class="error__news__title"><!--
+-->Курс доллара в апреле 2025 года: чем закончится трехмесячное ралли рубля<!--
+--></span><!--
+--><!--
+--></span><!--
+--></a>
+</div>
+<div class="error__news__item">
+<a href="https://pro.rbc.ru/demo/67dad1c09a7947cdcc8e0165" class="error__news__link">
+<span class="error__news__title-wrap">
+<span class="error__news__title"><!--
+-->Как ИИ помогает фермерам производить вино — Fast Company<!--
+--></span><!--
+--><!--
+--></span><!--
+--></a>
+</div>
+<div class="error__news__item">
+<a href="https://pro.rbc.ru/demo/67dbd6929a7947b856bb5b5d" class="error__news__link">
+<span class="error__news__title-wrap">
+<span class="error__news__title"><!--
+-->Почему люди худеют с возрастом и чем это грозит — Harvard Health<!--
+--></span><!--
+--><!--
+--></span><!--
+--></a>
+</div>
+</div>
+</div>
+</div>
+<div class="g-tablet-visible g-mobile-visible">
+<a href="/" class="error__button">
+Вернуться на&nbsp;главную
+</a>
+</div>
+<div class="fox-tail fox-tail_in-text"
+data-role="fox-tail"
+data-type="video"
+data-unit="native_video_in_text"
+style=""
+>
+<a href="https://rbc.group/advertisers/" rel="nofollow" target="_blank" class="banner__container__link">
+<span class="banner__container__border">
+<span class="banner__container__info"><span class="banner__container__color">rbc.group</span></span>
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="l-row">
+<footer class="footer js-footer">
+<div class="footer__wrap">
+<div class="footer__inner">
+<div class="footer__col footer__col_double">
+<div class="footer__subcol">
+<div class="footer__title">РБК</div>
+<ul class="footer__list">
+<li class="footer__item">
+<a href="http://www.rbcholding.ru/about.shtml" class="footer__link">О&nbsp;компании</a>
+</li>
+<li class="footer__item active">
+<a href="https://www.rbc.ru/contacts/" class="footer__link">Контактная информация</a>
+</li>
+<li class="footer__item active">
+<a href="https://www.rbc.ru/editors/" class="footer__link">Редакция</a>
+</li>
+<li class="footer__item">
+<a href="https://rbc.group/advertisers/" class="footer__link">Размещение рекламы</a>
+</li>
+</ul>
+</div>
+<div class="footer__subcol">
+<div class="footer__title">Социальные сети</div>
+<ul class="footer__list">
+<li class="footer__item">
+<a href="https://vk.com/rbc" class="footer__link" target="_blank">ВКонтакте</a>
+</li>
+<li class="footer__item">
+<a href="https://ok.ru/group/51670727852273" class="footer__link" target="_blank">Одноклассники</a>
+</li>
+<li class="footer__item">
+<a href="https://t.me/rbc_news" class="footer__link" target="_blank">Telegram</a>
+</li>
+<li class="footer__item">
+<a href="https://zen.yandex.ru/rbc.ru" class="footer__link" target="_blank">Дзен</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="footer__col footer__col_custom">
+<div class="footer__title">Новости регионов</div>
+<ul class="footer__list">
+<li class="footer__item">
+<a href="https://www.rbc.ru/spb_sz/" class="footer__link">Санкт-Петербург и область</a>
+</li>
+<li class="footer__item">
+<a href="https://ekb.rbc.ru/ekb/" class="footer__link">Екатеринбург</a>
+</li>
+<li class="footer__item">
+<a href="https://nsk.rbc.ru/nsk/" class="footer__link">Новосибирск</a>
+</li>
+<li class="footer__item">
+<a href="https://omsk.rbc.ru/omsk/" class="footer__link">Омск</a>
+</li>
+<li class="footer__item">
+<a href="https://ufa.rbc.ru/ufa/" class="footer__link">Башкортостан</a>
+</li>
+<li class="footer__item">
+<a href="https://vo.rbc.ru/vo/" class="footer__link">Вологодская область</a>
+</li>
+<li class="footer__item">
+<a href="https://kaliningrad.rbc.ru/kaliningrad/" class="footer__link">Калининград</a>
+</li>
+<li class="footer__item">
+<a href="https://kuban.rbc.ru/krasnodar/" class="footer__link">Краснодарский край</a>
+</li>
+<li class="footer__item">
+<a href="https://nn.rbc.ru/nn/" class="footer__link">Нижний Новгород</a>
+</li>
+<li class="footer__item">
+<a href="https://perm.rbc.ru/perm/" class="footer__link">Пермский край</a>
+</li>
+<li class="footer__item">
+<a href="https://rostov.rbc.ru/rostov/" class="footer__link">Ростов-на-Дону</a>
+</li>
+<li class="footer__item">
+<a href="https://rt.rbc.ru/tatarstan/" class="footer__link">Татарстан</a>
+</li>
+<li class="footer__item">
+<a href="https://t.rbc.ru/tyumen/" class="footer__link">Тюмень</a>
+</li>
+<li class="footer__item">
+<a href="https://chr.rbc.ru/chr/" class="footer__link">Черноземье</a>
+</li>
+<li class="footer__item">
+<a href="https://kavkaz.rbc.ru/kavkaz/" class="footer__link">Кавказ</a>
+</li>
+<li class="footer__item">
+<a href="https://karelia.rbc.ru/karelia/" class="footer__link">Карелия</a>
+</li>
+<li class="footer__item">
+<a href="https://murmansk.rbc.ru/murmansk/" class="footer__link">Мурманск</a>
+</li>
+<li class="footer__item">
+<a href="https://prim.rbc.ru/prim/" class="footer__link">Приморский край</a>
+</li>
+</ul>
+</div>
+<div class="footer__col footer__col_double">
+<div class="footer__subcol">
+<div class="footer__title">Подписки</div>
+<ul class="footer__list">
+<li class="footer__item active">
+<a href="https://pro.rbc.ru/rbcoffer/comfort_email_news?utm_source=rbc.ru&amp;utm_medium=inhouse_media&amp;utm_campaign=rbc_comfort&amp;utm_term=footer" class="footer__link">
+РБК Comfort
+</a>
+</li>
+<li class="footer__item active">
+<a href="https://pro.rbc.ru/offers?utm_source=rbc.ru&amp;utm_medium=inhouse_media&amp;utm_campaign=rbc_pro&amp;utm_term=footer&amp;from=footer" class="footer__link">
+РБК Pro
+</a>
+</li>
+</ul>
+<div class="footer__title">Уведомления</div>
+<ul class="footer__list">
+<li class="footer__item">
+<a href="https://rssexport.rbc.ru/rbcnews/news/30/full.rss" class="footer__link">RSS Новости</a>
+</li>
+<li class="footer__item">
+<a href="#" class="footer__link js-push-notification">Оповещения RBC.ru</a>
+</li>
+</ul>
+<div class="footer__title">Рубрики</div>
+<ul class="footer__list"
+data-publisher-nick="main_footer_links">
+<li class="footer__item">
+<a href="https://www.rbc.ru/politics/?utm_source=topline" class="footer__link">Политика</a>
+</li>
+<li class="footer__item">
+<a href="https://www.rbc.ru/economics/?utm_source=topline" class="footer__link">Экономика</a>
+</li>
+<li class="footer__item">
+<a href="https://www.rbc.ru/society/?utm_source=topline" class="footer__link">Общество</a>
+</li>
+<li class="footer__item">
+<a href="https://www.rbc.ru/business/?utm_source=topline" class="footer__link">Бизнес</a>
+</li>
+<li class="footer__item">
+<a href="https://www.rbc.ru/technology_and_media/?utm_source=topline" class="footer__link">Технологии и медиа</a>
+</li>
+<li class="footer__item">
+<a href="https://www.rbc.ru/finances/?utm_source=topline" class="footer__link">Финансы</a>
+</li>
+<li class="footer__item">
+<a href="https://www.rbc.ru/person" class="footer__link">Биографии</a>
+</li>
+<li class="footer__item">
+<a href="https://www.rbc.ru/base/" class="footer__link">База знаний</a>
+</li>
+</ul>
+
+</div>
+<div class="footer__subcol">
+<div class="footer__title">РБК Новости</div>
+<ul class="footer__list">
+<li class="footer__item">
+<a href="https://apps.apple.com/ru/app/%D1%80%D0%B1%D0%BA-%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%BE%D0%B5/id483524731" class="footer__link" target="_blank">iOS</a>
+</li>
+<li class="footer__item">
+<a href="https://play.google.com/store/apps/details?id=ru.rbc.news.starter" class="footer__link" target="_blank">Android</a>
+</li>
+</ul>
+<div class="footer__title">Другие продукты РБК</div>
+<ul class="footer__list">
+<li class="footer__item">
+<a href="https://www.reg.ru/pro/" class="footer__link" target="_blank">Облако для бизнеса</a>
+</li>
+<li class="footer__item">
+<a href="https://www.nic.ru/" class="footer__link" target="_blank">Корпоративный регистратор доменов</a>
+</li>
+<li class="footer__item">
+<a href="https://sweb.ru/" class="footer__link" target="_blank">Хостинг сайтов</a>
+</li>
+<li class="footer__item">
+<a href="https://loveplanet.ru/" class="footer__link" target="_blank">Знакомства</a>
+</li>
+
+<li class="footer__item">
+<a href="https://companies.rbc.ru/" class="footer__link" target="_blank">РБК Компании</a>
+</li>
+
+<li class="footer__item">
+<a target="_blank" href="https://www.rbc.ru/edu/?utm_source=rbc.ru&utm_medium=inhouse_media&utm_campaign=edu&utm_term=footer&from=footer" class="footer__link">Курсы и интенсивы РБК Pro</a>
+</li>
+<li class="footer__item">
+<a target="_blank" href="https://www.rbc.ru/edu/prof_courses?utm_source=rbc.ru&utm_medium=inhouse_media&utm_campaign=edu_prof_courses&utm_term=footer&from=footer" class="footer__link">Курсы Digilal-профессий</a>
+</li>
+<li class="footer__item footer__item_duplicate active">
+<a href="https://www.rbc.ru/restrictions" class="footer__link">Информация об&nbsp;ограничениях</a>
+</li>
+<il class="footer__item footer__item_duplicate active">
+<a href="https://www.rbc.ru/info/" class="footer__link">Правовая информация</a>
+</il>
+<li class="footer__item footer__item_duplicate active">
+<a href="http://www.rbc.ru/privacy/" class="footer__link">О&nbsp;соблюдении авторских прав</a>
+</li>
+<li class="footer__item footer__item_duplicate active">
+<a href="https://www.rbc.ru/cookie/" class="footer__link">Политика обработки файлов cookie</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="footer__col">
+<div class="footer__title">Юридическая информация</div>
+<ul class="footer__list">
+<li class="footer__item">
+<a href="https://www.rbc.ru/restrictions" class="footer__link">Информация об&nbsp;ограничениях</a>
+</li>
+<li class="footer__item">
+<a href="https://www.rbc.ru/info/" class="footer__link">Правовая информация</a>
+</li>
+<li class="footer__item">
+<a href="https://www.rbc.ru/privacy/" class="footer__link">О&nbsp;соблюдении авторских прав</a>
+</li>
+<li class="footer__item">
+<a href="https://www.rbc.ru/cookie/" class="footer__link">Политика обработки файлов cookie</a>
+</li>
+</ul>
+<div class="footer__copyright">
+<div class="footer__info active">
+&copy;&nbsp;АО&nbsp;&laquo;РОСБИЗНЕСКОНСАЛТИНГ&raquo;, <span class="footer__nowrap">1995–2025</span>.
+Сообщения и&nbsp;материалы сетевого издания &laquo;РБК&raquo; (зарегистрировано Федеральной службой по&nbsp;надзору в&nbsp;сфере связи, информационных технологий и&nbsp;массовых коммуникаций (Роскомнадзор) 03.12.2021 за&nbsp;номером ЭЛ&nbsp;&#8470;ФС77-82385) сопровождаются пометкой &laquo;РБК&raquo;.
+<span class="footer__restrictions">18+</span>
+<a href="mailto:letters@rbc.ru" class="footer__link">letters@rbc.ru</a>
+</div>
+<div class="footer__info">
+Котировки мировых финансовых инструментов предоставлены <a class="footer__link" href="https://www.rbc.ru/restrictions#reuters" target="_blank">Reuters</a>
+</div>
+<div class="footer__info">
+Чтобы отправить редакции сообщение, выделите часть текста в&nbsp;статье и&nbsp;нажмите Ctrl+Enter
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+</div>
+</div><!-- .l-window -->
+<div class="live-tv-popup js-live-tv-popup">
+<div class="live-tv-popup__head">
+<a class="topline__logo-block" href="/">
+<span class="topline__logo"></span>
+</a>
+<div class="live-tv-popup__close js-live-tv-close"></div>
+</div>
+<div class="live-tv-popup__overlay g-event-fullscreen">
+<div class="live-tv-popup__video js-live-tv-popup-video">
+<div class="live-tv-popup__plug js-live-tv-popup-plug"></div>
+</div>
+</div>
+</div>
+<div id="id_ra_overlay" class="page-overlay"></div>
+<div class="live-tv live-tv_mobile js-live-tv-mobile"></div>
+<div class="g-zeropixel">
+<script>RA.config.set('counters.ya.idCounter', '16443139');</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+var yaParams = window.yaParams || {};
+
+yaParams.region = 'World';
+
+yaParams.paywall = 'unpaid';
+yaParams.authorization = 'noauth';
+(function(m,e,t,r,i,k,a) {
+m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+})(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+ym(16443139, "init", {
+clickmap:true,
+trackLinks:true,
+accurateTrackBounce:true,
+webvisor:true,
+triggerEvent: true,
+params: window.yaParams||{}
+});
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/16443139" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<!-- weborama -->
+<script type='text/javascript'>
+var wamid = '2641'; /* Wam Account ID */
+var typ = '3';
+var Wvar=[];
+Wvar.push("domain",location.host);
+
+(function() {
+var bs = new Image(1, 1);
+bs.src = 'https://dx.frontend.weborama.com/collect?touchpoint=0&url=' + escape(document.location);
+})();
+
+// include the wamfactory wildcard js
+(function() {
+var w = document.createElement("script");
+w.type = "text/javascript";
+w.src = document.location.protocol + "//cstatic.weborama.fr/js/wam/customers/wamfactory_dpm.wildcard.min.js?rnd="+new Date().getTime();
+w.async = true;
+var body = document.getElementsByTagName('script')[0];
+body.parentNode.insertBefore(w,body);
+})();
+</script>
+<!-- /weborama -->
+<!-- SMI2 pixel -->
+<script type="text/javascript">
+var ttagsmi2_data = {
+tag: 20300,
+ver: 2,
+format: 'pixel',
+cdt: '2016-12-22 12:59:14'
+};
+(function() {
+var sc = document.createElement('script');
+sc.type = 'text/javascript';
+sc.async = true;
+sc.src = '//target.smi2.net/client/ttag.js';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(sc, s);
+}());
+</script>
+<!-- / SMI2 pixel -->
+
+
+
+<script>
+mindbox = window.mindbox || function() { mindbox.queue.push(arguments); };
+mindbox.queue = mindbox.queue || [];
+mindbox('create', {
+endpointId: 'RBC'
+});
+</script>
+<script src="https://api.mindbox.ru/scripts/v1/tracker.modern.js" async></script>
+<!--LiveInternet counter-->
+<script type="text/javascript"><!--
+new Image().src = "//counter.yadro.ru/hit;RBCRU?r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random();//--></script>
+<!--/LiveInternet-->
+<script type="text/javascript">
+RA.config.set('counters.li.id', 'RBCRU');
+</script>
+
+<!-- Top.Mail.Ru counter -->
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({
+id: "3081030",
+type: "pageView",
+start: (new Date()).getTime()
+});
+(function (d, w, id) {
+if (d.getElementById(id)) return;
+var ts = d.createElement("script");
+ts.type = "text/javascript";
+ts.async = true;
+ts.id = id;
+ts.src = "https://top-fwz1.mail.ru/js/code.js";
+var f = function () {
+var s = d.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(ts, s);
+};
+if (w.opera == "[object Opera]") {
+d.addEventListener("DOMContentLoaded", f, false);
+} else {
+f();
+}
+})(document, window, "tmr-code");
+</script>
+<noscript>
+<div>
+<img src="https://top-fwz1.mail.ru/counter?id=3081030;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" />
+</div>
+</noscript>
+<!-- /Top.Mail.Ru counter --> <script>
+((counterHostname) => {
+window.MSCounter = {
+counterHostname: counterHostname
+};
+window.mscounterCallbacks = window.mscounterCallbacks || [];
+window.mscounterCallbacks.push(() => {
+msCounterExampleCom = new MSCounter.counter({
+'account': 'rbc_ru',
+'tmsec': 'rbc_ru',
+'cat_id': 147,
+'media': encodeURIComponent('РБК')
+});
+});
+
+const newScript = document.createElement('script');
+newScript.async = true;
+newScript.src = `${counterHostname}/ncc/counter.js`;
+
+const referenceNode = document.querySelector('script');
+if (referenceNode) {
+referenceNode.parentNode.insertBefore(newScript, referenceNode);
+} else {
+document.firstElementChild.appendChild(newScript);
+}
+})('https://tns-counter.ru/');
+</script>
+
+</div>
+
+<script src="//s.rbk.ru/v10_rbcnews_static/rbcnews-10.6.182/scripts/build/_gt-targeting.js" defer></script>
+<script>
+RA.config.set('domainAuth', 'https://auth.rbc.ru');
+RA.config.set('domainApigw', 'https://apigw.rbc.ru');
+RA.config.set('paywall.staticPath', '//s.rbk.ru/v2_paywall_static/paywall-2.1.187/');
+</script>
+<script src="//s.rbk.ru/v2_paywall_static/paywall-2.1.187/scripts/build/_paywall.js" defer></script>
+
+
+<script id="js_common_script" src="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/scripts/build/_common.js" data-param="0" defer></script>
+
+<script src="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/scripts/build/_main.js" defer></script>
+<div class="push-allow js-push-allow"></div> <script src="//s.rbk.ru/v10_rbcnews_static/rbcnews-10.6.182/scripts/build/_main.js" defer></script>
+<script src="//s.rbk.ru/v10_rbcnews_static/common/common-10.10.199/scripts/build/_error.js" defer></script>
+
+<script src="//s.rbk.ru/v10_rbcnews_static/rbcnews-10.6.182/scripts/build/_metrika-config.js"></script>
+
+<!--AB: -->
+<!-- NoVideo: off -->
+</body>
+</html>
+<!--Комментарий не убирать!!!-->
+<!-- 834759o8347 -->

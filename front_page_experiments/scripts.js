@@ -564,4 +564,92 @@ document.addEventListener('DOMContentLoaded', () => {
   updateAllPrices();
   // Обновляем цены каждые 30 секунд
   setInterval(updateAllPrices, 30000);
+});
+
+/**
+ * Получение финансовых новостей из локального HTML файла
+ * @returns {Promise<Array>} Массив новостей
+ */
+async function getFinancialNews() {
+  try {
+    const response = await fetch('rbc.ru_api_v1_finance_news.html');
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const htmlText = await response.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlText, 'text/html');
+    
+    // Находим корневой элемент с новостями
+    const newsHeader = doc.querySelector('.error__news__header');
+    if (!newsHeader) {
+      throw new Error('Заголовок новостей не найден');
+    }
+    
+    // Находим все новостные блоки и берем только первые 8
+    const newsItems = Array.from(newsHeader.parentElement.querySelectorAll('.error__news__item')).slice(0, 8);
+    
+    // Обрабатываем новости
+    const news = newsItems.map(item => {
+      const linkElement = item.querySelector('.error__news__link');
+      const titleElement = item.querySelector('.error__news__title');
+      
+      return {
+        text: titleElement ? titleElement.textContent.trim() : '',
+        link: linkElement ? linkElement.href : '#',
+        category: 'Новости', // По умолчанию, так как категория не указана в HTML
+        description: '' // Описание отсутствует в текущей структуре
+      };
+    }).filter(item => item.text); // Фильтруем пустые новости
+    
+    if (news.length > 0) {
+      updateNewsList(news);
+      return news;
+    }
+    
+    throw new Error('Новости не найдены в HTML');
+    
+  } catch (error) {
+    console.error('Ошибка при получении новостей:', error);
+    
+    // В случае ошибки показываем заглушку (тоже ограничиваем до 8 новостей)
+    const fallbackNews = [
+      { text: 'Рынок криптовалют демонстрирует повышенную волатильность', link: '#', category: 'Финансы', description: '' },
+      { text: 'Евро укрепился на фоне свежих экономических данных', link: '#', category: 'Экономика', description: '' },
+      { text: 'Рубль стабилизируется по отношению к USD', link: '#', category: 'Финансы', description: '' },
+      { text: 'L\'Oreal предостерег ЕС от «красного флага» на косметику', link: '#', category: 'Бизнес', description: '' },
+      { text: 'Курс доллара в апреле 2025 года: чем закончится трехмесячное ралли рубля', link: '#', category: 'Финансы', description: '' }
+    ].slice(0, 8);
+    updateNewsList(fallbackNews);
+    return fallbackNews;
+  }
+}
+
+/**
+ * Обновление списка новостей на странице
+ * @param {Array} news - Массив новостей
+ */
+function updateNewsList(news) {
+  const newsList = document.querySelector('.news-list');
+  if (!newsList) return;
+  
+  newsList.innerHTML = news.map(item => `
+    <li>
+      <a href="${item.link}" target="_blank" rel="noopener noreferrer">
+        ${item.text}
+      </a>
+      ${item.description ? `<p class="news-description">${item.description}</p>` : ''}
+    </li>
+  `).join('');
+}
+
+// Добавляем вызов функции при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+  // ... existing code ...
+  
+  // Получаем новости каждые 5 минут
+  getFinancialNews();
+  setInterval(getFinancialNews, 5 * 60 * 1000);
 }); 
