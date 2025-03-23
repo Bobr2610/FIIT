@@ -705,3 +705,38 @@ document.addEventListener('DOMContentLoaded', () => {
   getFinancialNews();
   setInterval(getFinancialNews, 5 * 60 * 1000);
 }); 
+
+
+/**
+ * Обновление даты и времени
+ * 
+ * Функция:
+ * 1. Форматирует текущую дату и время
+ * 2. Обновляет элемент на странице
+ * 3. Обновляется каждую секунду
+ */
+function updateDateTime() {
+  const timeElement = document.querySelector('.current-time');
+  if (!timeElement) return;
+
+  const now = new Date();
+  const options = {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  };
+
+  timeElement.textContent = now.toLocaleString('ru-RU', options);
+}
+
+// Добавляем вызов функции при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+  // ... existing code ...
+  
+  // Обновляем время каждую минуту
+  updateDateTime();
+  setInterval(updateDateTime, 60000);
+}); 

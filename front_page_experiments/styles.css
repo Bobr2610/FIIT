@@ -1078,4 +1078,24 @@ a {
   .asset-item .price {
     font-size: var(--font-size-xs);
   }
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.current-time {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-left: 0.5rem;
 } 

@@ -30,48 +30,48 @@
 
 <body>
   <!-- Сайдбар - боковая панель навигации -->
-  <aside class="sidebar">
-    <!-- Логотип с ссылкой наверх -->
-    <div class="logo">
-      <a href="#top" title="Наверх">
-        <img src="https://raw.githubusercontent.com/Bobr2610/FIIT/main/Logo.png" alt="Логотип FIIT">
-      </a>
-    </div>
+<aside class="sidebar">
+  <!-- Логотип с ссылкой наверх -->
+  <div class="logo">
+    <a href="#top" title="Наверх">
+      <img src="https://raw.githubusercontent.com/Bobr2610/FIIT/main/Logo.png" alt="Логотип FIIT">
+    </a>
+  </div>
 
-    <!-- Основная навигация с иконками -->
-    <nav class="main-nav">
-      <!-- Каждый пункт навигации имеет иконку и текст -->
-      <a href="#alerts" class="nav-item">
-        <i class="fas fa-bell"></i>
-        <span>Оповещения</span>
-      </a>
-      <a href="#portfolio" class="nav-item">
-        <i class="fas fa-wallet"></i>
-        <span>Портфель</span>
-      </a>
-      <a href="#news" class="nav-item">
-        <i class="fas fa-newspaper"></i>
-        <span>Курсы и новости</span>
-      </a>
-      <a href="#dashboard" class="nav-item">
-        <i class="fas fa-chart-line"></i>
-        <span>Обзор рынка</span>
-      </a>
-      <a href="#cryptoAssets" class="nav-item">
-        <i class="fab fa-bitcoin"></i>
-        <span>Криптовалюты</span>
-      </a>
-      <a href="#fiatAssets" class="nav-item">
-        <i class="fas fa-money-bill-wave"></i>
-        <span>Фиатные валюты</span>
-      </a>
-    </nav>
+  <!-- Основная навигация с иконками -->
+  <nav class="main-nav">
+    <!-- Каждый пункт навигации имеет иконку и текст -->
+    <a href="#alerts" class="nav-item">
+      <i class="fas fa-bell"></i>
+      <span>Оповещения</span>
+    </a>
+    <a href="#portfolio" class="nav-item">
+      <i class="fas fa-wallet"></i>
+      <span>Портфель</span>
+    </a>
+    <a href="#news" class="nav-item">
+      <i class="fas fa-newspaper"></i>
+      <span>Курсы и новости</span>
+    </a>
+    <a href="#dashboard" class="nav-item">
+      <i class="fas fa-chart-line"></i>
+      <span>Обзор рынка</span>
+    </a>
+    <a href="#cryptoAssets" class="nav-item">
+      <i class="fab fa-bitcoin"></i>
+      <span>Криптовалюты</span>
+    </a>
+    <a href="#fiatAssets" class="nav-item">
+      <i class="fas fa-money-bill-wave"></i>
+      <span>Фиатные валюты</span>
+    </a>
+  </nav>
 
-    <!-- Нижняя панель -->
-    <div class="sidebar-footer">
-      <!-- Удаляем кнопку переключения темы -->
-    </div>
-  </aside>
+  <!-- Нижняя панель -->
+  <div class="sidebar-footer">
+    <!-- Тут можно что-то вставить полезное -->
+  </div>
+</aside>
 
   <!-- Основной контент страницы -->
   <div class="main-content">
@@ -89,6 +89,9 @@
           <button class="account-btn">Зарегистрироваться</button>
         </div>
       </div>
+
+      <!-- Добавляем текущее время под логотип -->
+      <span class="current-time"></span>
       
       <!-- Селектор темы с кнопкой переключения -->
       <div class="theme-selector">
@@ -161,7 +164,9 @@
       <div class="tracked-assets">
         <!-- Заголовок секции с кнопкой обновления -->
         <div class="section-header">
-          <h3>Отслеживаемые активы</h3>
+          <div class="header-left">
+            <h3>Отслеживаемые активы </h3>
+          </div>
           <button class="refresh-btn" title="Обновить курсы">
             <i class="fas fa-sync-alt"></i>
           </button>
