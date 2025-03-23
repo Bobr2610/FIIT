@@ -820,6 +820,8 @@ a {
   border-radius: var(--border-radius);
   transition: all var(--transition-speed) ease;
   border: 1px solid var(--border-color);
+  min-width: 0;
+  position: relative;
 }
 
 .asset-item:hover {
@@ -833,17 +835,25 @@ a {
   color: var(--accent-primary);
   width: var(--nav-icon-width);
   text-align: center;
+  flex-shrink: 0;
 }
 
-.asset-item span {
+.asset-item span:not(.price) {
   font-size: var(--font-size-sm);
   color: var(--text-primary);
+  flex-shrink: 0;
 }
 
 .asset-item .price {
   margin-left: auto;
   font-weight: 500;
   color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+  min-width: 0;
+  font-size: var(--font-size-sm);
+  transition: font-size var(--transition-speed) ease;
 }
 
 /* Адаптивность */
@@ -933,7 +943,11 @@ a {
     font-size: var(--font-size-md);
   }
   
-  .asset-item span {
+  .asset-item span:not(.price) {
+    font-size: var(--font-size-xs);
+  }
+
+  .asset-item .price {
     font-size: var(--font-size-xs);
   }
 } 

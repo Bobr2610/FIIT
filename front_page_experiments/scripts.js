@@ -132,6 +132,252 @@ function createChartConfig(type, data, options = {}) {
 }
 
 /**
+ * Получение курса BTC с Binance
+ * @returns {Promise<number>} Курс BTC в рублях
+ */
+async function getBTCPriceFromBinance() {
+  try {
+    // Получаем курс BTC/USDT
+    const btcUsdtResponse = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT');
+    const btcUsdtData = await btcUsdtResponse.json();
+    const btcUsdtPrice = parseFloat(btcUsdtData.price);
+
+    // Получаем курс USDT/RUB
+    const usdtRubResponse = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=USDTRUB');
+    const usdtRubData = await usdtRubResponse.json();
+    const usdtRubPrice = parseFloat(usdtRubData.price);
+
+    // Рассчитываем курс BTC в рублях
+    const btcRubPrice = btcUsdtPrice * usdtRubPrice;
+    return btcRubPrice;
+  } catch (error) {
+    console.error('Ошибка при получении курса BTC:', error);
+    return null;
+  }
+}
+
+/**
+ * Получение курса ETH с Binance
+ * @returns {Promise<number>} Курс ETH в рублях
+ */
+async function getETHPriceFromBinance() {
+  try {
+    // Получаем курс ETH/USDT
+    const ethRubResponse = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=ETHRUB');
+    const ethRubData = await ethRubResponse.json();
+    const ethRubPrice = parseFloat(ethRubData.price);
+
+    return ethRubPrice;
+  } catch (error) {
+    console.error('Ошибка при получении курса ETH:', error);
+    return null;
+  }
+}
+
+/**
+ * Получение текущего курса TON (The Open Network) с биржи Binance
+ * Функция делает два запроса к API Binance:
+ * 1. Получает курс TON/USDT (TON к USDT)
+ * 2. Получает курс USDT/RUB (USDT к рублю)
+ * Затем вычисляет итоговый курс TON в рублях путем перемножения этих значений
+ * 
+ * @returns {Promise<number|null>} Возвращает курс TON в рублях или null в случае ошибки
+ */
+async function getTONPriceFromBinance() {
+  try {
+    // Делаем запрос к API Binance для получения курса TON/USDT
+    // Используем endpoint /api/v3/ticker/price с параметром symbol=TONUSDT
+    const tonUsdtResponse = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=TONUSDT');
+    const tonUsdtData = await tonUsdtResponse.json();
+    // Преобразуем строковое значение цены в число с плавающей точкой
+    const tonUsdtPrice = parseFloat(tonUsdtData.price);
+
+    // Делаем запрос к API Binance для получения курса USDT/RUB
+    // Используем тот же endpoint с параметром symbol=USDTRUB
+    const usdtRubResponse = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=USDTRUB');
+    const usdtRubData = await usdtRubResponse.json();
+    // Преобразуем строковое значение цены в число с плавающей точкой
+    const usdtRubPrice = parseFloat(usdtRubData.price);
+
+    // Вычисляем итоговый курс TON в рублях путем умножения
+    // курса TON/USDT на курс USDT/RUB
+    const tonRubPrice = tonUsdtPrice * usdtRubPrice;
+    return tonRubPrice;
+  } catch (error) {
+    // В случае любой ошибки (сетевой, парсинга и т.д.)
+    // логируем её в консоль и возвращаем null
+    console.error('Ошибка при получении курса TON:', error);
+    return null;
+  }
+}
+
+/**
+ * Получение курсов фиатных валют с MOEX
+ * @returns {Promise<Object>} Курсы валют в рублях
+ */
+async function getFiatPricesFromMOEX() {
+  try {
+    // Делаем запрос к API Московской биржи для получения данных по валютным инструментам
+    // Используем endpoint /iss/engines/currency/markets/selt/securities.json который возвращает список всех торгуемых валютных пар
+    const response = await fetch('https://iss.moex.com/iss/engines/currency/markets/selt/securities.json');
+    const data = await response.json();
+    
+    // Создаем пустой объект для хранения курсов валют
+    const prices = {};
+    // Получаем массив данных по ценным бумагам из ответа API
+    const securities = data.securities.data;
+    // Получаем массив названий колонок для определения индексов нужных полей
+    const columns = data.securities.columns;
+    
+    // Находим индексы необходимых колонок в массиве columns:
+    // SECID - идентификатор инструмента (например, USD000UTSTOM для доллара)
+    // PREVPRICE - цена закрытия предыдущего дня
+    // BOARDID - идентификатор режима торгов
+    const secIdIndex = columns.indexOf('SECID');
+    const prevPriceIndex = columns.indexOf('PREVPRICE');
+    const boardIdIndex = columns.indexOf('BOARDID');
+    
+    // Перебираем все валютные инструменты
+    securities.forEach(security => {
+      // Получаем значения нужных полей для текущего инструмента
+      const secId = security[secIdIndex];
+      const boardId = security[boardIdIndex];
+      const price = parseFloat(security[prevPriceIndex]);
+      
+      // Проверяем что инструмент активен (STATUS='A') и цена является числом
+      if (security[columns.indexOf('STATUS')] === 'A' && !isNaN(price)) {
+        // Для каждой валюты используем соответствующий инструмент расчетами tomorrow (TOM):
+        // USD000UTSTOM - доллар США
+        if (secId === 'USD000UTSTOM') {
+          prices.USD = price;
+        }
+        // EUR_RUB__TOM - евро 
+        else if (secId === 'EUR_RUB__TOM') {
+          prices.EUR = price;
+        }
+        // CNYRUB_TOM - китайский юань
+        else if (secId === 'CNYRUB_TOM') {
+          prices.CNY = price;
+        }
+        // AEDRUB_TOM - дирхам ОАЭ
+        else if (secId === 'AEDRUB_TOM') {
+          prices.AED = price;
+        }
+      }
+    });
+    
+    // Проверяем наличие всех необходимых курсов
+    const requiredCurrencies = ['USD', 'EUR', 'CNY', 'AED'];
+    const missingCurrencies = requiredCurrencies.filter(currency => !prices[currency]);
+    
+    if (missingCurrencies.length > 0) {
+      console.warn('Не удалось получить курсы для следующих валют:', missingCurrencies);
+    }
+    
+    return prices;
+  } catch (error) {
+    console.error('Ошибка при получении курсов фиатных валют:', error);
+    return null;
+  }
+}
+
+// Функция для подстройки размера шрифта цены
+/**
+ * Подстраивает размер шрифта цены под доступное пространство
+ * 
+ * Функция находит все элементы с ценами и для каждого:
+ * 1. Вычисляет доступную ширину с учетом иконки, символа валюты и отступов
+ * 2. Начиная с базового размера шрифта 14px, уменьшает его пока текст не поместится
+ * 3. Минимальный размер шрифта - 10px
+ * 
+ * @returns {void}
+ */
+function adjustPriceFontSize() {
+  const priceElements = document.querySelectorAll('.asset-item .price');
+  
+  priceElements.forEach(priceElement => {
+    const parentWidth = priceElement.parentElement.offsetWidth;
+    const iconWidth = priceElement.parentElement.querySelector('i').offsetWidth;
+    const symbolWidth = priceElement.parentElement.querySelector('span:not(.price)').offsetWidth;
+    const padding = 32; // Учитываем padding родителя
+    const gap = 8; // Учитываем gap между элементами
+    
+    // Вычисляем доступную ширину для цены
+    const availableWidth = parentWidth - iconWidth - symbolWidth - padding - gap;
+    
+    // Начинаем с базового размера шрифта
+    let fontSize = 14; // var(--font-size-sm)
+    
+    // Проверяем, помещается ли текст
+    while (priceElement.scrollWidth > availableWidth && fontSize > 10) {
+      fontSize--;
+      priceElement.style.fontSize = `${fontSize}px`;
+    }
+  });
+}
+
+// Константа для настроек форматирования чисел
+const NUMBER_FORMAT_OPTIONS = {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2
+};
+
+/**
+ * Форматирует число в цену в рублях
+ * @param {number} price - Число для форматирования
+ * @returns {string} Отформатированная цена в рублях
+ */
+function formatPrice(price) {
+  return `${price.toLocaleString('ru-RU', NUMBER_FORMAT_OPTIONS)} ₽`;
+}
+
+/**
+ * Обновление всех курсов в интерфейсе
+ */
+async function updateAllPrices() {
+  const refreshBtn = document.querySelector('.refresh-btn');
+  const refreshIcon = refreshBtn.querySelector('i');
+  
+  // Добавляем анимацию вращения
+  refreshIcon.style.animation = 'spin 1s linear infinite';
+  
+  try {
+    const [btcPrice, ethPrice, tonPrice, fiatPrices] = await Promise.all([
+      getBTCPriceFromBinance(),
+      getETHPriceFromBinance(),
+      getTONPriceFromBinance(),
+      getFiatPricesFromMOEX()
+    ]);
+
+    // Обновляем цены с анимацией
+    const priceElements = document.querySelectorAll('.asset-item .price');
+    priceElements.forEach(element => {
+      element.style.color = 'var(--accent-primary)';
+      setTimeout(() => {
+        element.style.color = 'var(--text-secondary)';
+      }, 500);
+    });
+
+    // Обновляем значения
+    document.querySelector('.asset-item:nth-child(1) .price').textContent = formatPrice(btcPrice);
+    document.querySelector('.asset-item:nth-child(2) .price').textContent = formatPrice(ethPrice);
+    document.querySelector('.asset-item:nth-child(3) .price').textContent = formatPrice(tonPrice);
+    document.querySelector('.asset-item:nth-child(4) .price').textContent = formatPrice(fiatPrices.USD);
+    document.querySelector('.asset-item:nth-child(5) .price').textContent = formatPrice(fiatPrices.EUR);
+    document.querySelector('.asset-item:nth-child(6) .price').textContent = formatPrice(fiatPrices.CNY);
+    document.querySelector('.asset-item:nth-child(7) .price').textContent = formatPrice(fiatPrices.AED);
+
+    // Подстраиваем размер шрифта после обновления цен
+    adjustPriceFontSize();
+  } catch (error) {
+    console.error('Ошибка при обновлении цен:', error);
+  } finally {
+    // Останавливаем анимацию вращения
+    refreshIcon.style.animation = '';
+  }
+}
+
+/**
  * Инициализация графиков и загрузка данных
  * 
  * Основная функция, которая:
@@ -147,6 +393,10 @@ async function initializeCharts() {
     const data = await response.json();
     let baseLabels = generateLabels("2023-01-01", 36);
     let cryptoChart, fiatChart;
+
+    // Обновляем курс BTC каждые 30 секунд
+    updateAllPrices();
+    setInterval(updateAllPrices, 30000);
 
     /**
      * Обновление графиков при изменении интервала
@@ -250,6 +500,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Обработчик переключения темы через кнопку
   themeToggle.addEventListener('click', handleThemeToggle);
 
+  // Добавляем обработчик для кнопки обновления
+  const refreshBtn = document.querySelector('.refresh-btn');
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', updateAllPrices);
+  }
+
   /**
    * Обработчик изменения темы через селектор
    * @param {Event} e - Событие изменения
@@ -295,4 +551,17 @@ document.addEventListener('DOMContentLoaded', () => {
         break;
     }
   }
+});
+
+// Добавляем обработчик изменения размера окна
+window.addEventListener('resize', adjustPriceFontSize);
+
+// Добавляем обработчик для кнопки обновления
+document.querySelector('.refresh-btn').addEventListener('click', updateAllPrices);
+
+// Вызываем функцию при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+  updateAllPrices();
+  // Обновляем цены каждые 30 секунд
+  setInterval(updateAllPrices, 30000);
 }); 
