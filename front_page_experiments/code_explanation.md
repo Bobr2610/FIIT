@@ -151,6 +151,14 @@
   
   /* Прозрачность для фона графиков */
   --chart-bg-opacity: 0.1;
+
+  /* Значения по умолчанию для графиков */
+  --chart-line-width: 2px;
+  --chart-point-radius: 3px;
+  --chart-point-hover-radius: 5px;
+  --chart-point-border-width: 2px;
+  --chart-point-hover-border-width: 3px;
+  --chart-line-tension: 0.3;
 }
 ```
 
@@ -273,6 +281,51 @@
   - Оптимизация для дальтоников
   - Настраиваемая прозрачность фона
 
+- **Стили графиков по умолчанию**
+  ```css
+  /* Значения по умолчанию для графиков */
+  --chart-line-width: 2px;
+  --chart-point-radius: 3px;
+  --chart-point-hover-radius: 5px;
+  --chart-point-border-width: 2px;
+  --chart-point-hover-border-width: 3px;
+  --chart-line-tension: 0.3;
+  ```
+  - Толщина линий (2px)
+  - Размер маркеров (3px)
+  - Размер маркеров при наведении (5px)
+  - Толщина границ маркеров (2px)
+  - Толщина границ при наведении (3px)
+  - Плавность линий (0.3)
+
+- **Специальные стили для темы с высоким контрастом**
+  ```css
+  [data-theme="colorblind"] {
+    /* Цвета графиков для темы с высоким контрастом */
+    --chart-btc-color: #0000ff;
+    --chart-eth-color: #000080;
+    --chart-ton-color: #008000;
+    --chart-eur-color: #800080;
+    --chart-usd-color: #0000ff;
+    --chart-aed-color: #ff0000;
+    --chart-cny-color: #008000;
+    
+    /* Увеличенная толщина линий и размер маркеров */
+    --chart-line-width: 3px;
+    --chart-point-radius: 6px;
+    --chart-point-hover-radius: 8px;
+    --chart-point-border-width: 3px;
+    --chart-point-hover-border-width: 4px;
+  }
+  ```
+  - Максимально контрастные цвета для лучшей видимости
+  - Увеличенная толщина линий (3px)
+  - Крупные маркеры точек (6px)
+  - Увеличенные маркеры при наведении (8px)
+  - Толстые границы маркеров (3px)
+  - Увеличенные границы при наведении (4px)
+  - Оптимизированные цвета для дальтоников
+
 ## JavaScript
 
 ### Основные функции
@@ -336,7 +389,8 @@ function createChartConfig(type, data, options = {}) {
   // Получаем CSS переменные для цветов
   const getComputedStyle = window.getComputedStyle(document.documentElement);
   const getColor = (currency) => {
-    const color = getComputedStyle.getPropertyValue(`--chart-${currency.toLowerCase()}-color`).trim();
+    const currencyKey = currency.split('/')[0].toLowerCase();
+    const color = getComputedStyle.getPropertyValue(`--chart-${currencyKey}-color`).trim();
     const bgColor = color.replace(')', `, ${getComputedStyle.getPropertyValue('--chart-bg-opacity').trim()})`);
     return {
       borderColor: color,
@@ -350,7 +404,13 @@ function createChartConfig(type, data, options = {}) {
       labels: data.labels,
       datasets: data.datasets.map(dataset => ({
         ...dataset,
-        ...getColor(dataset.currency)
+        ...getColor(dataset.label),
+        borderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-line-width').trim()),
+        pointRadius: parseInt(getComputedStyle.getPropertyValue('--chart-point-radius').trim()),
+        pointHoverRadius: parseInt(getComputedStyle.getPropertyValue('--chart-point-hover-radius').trim()),
+        pointBorderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-point-border-width').trim()),
+        pointHoverBorderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-point-hover-border-width').trim()),
+        tension: parseFloat(getComputedStyle.getPropertyValue('--chart-line-tension').trim())
       }))
     },
     options: {
@@ -415,13 +475,6 @@ document.addEventListener('DOMContentLoaded', () => {
     "USD/RUB": { /* ... */ },
     "AED/RUB": { /* ... */ },
     "CNY/RUB": { /* ... */ }
-  },
-  "colors": {
-    "BTC": {
-      "borderColor": "#ff9800",
-      "backgroundColor": "rgba(255,152,0,0.1)"
-    },
-    /* ... */
   }
 }
 ```
@@ -437,11 +490,6 @@ document.addEventListener('DOMContentLoaded', () => {
   - Используются для краткосрочного анализа
   - Обновляются в реальном времени
 
-- **Цветовые схемы**
-  - Уникальные цвета для каждой валюты
-  - Поддержка прозрачности для фона
-  - Оптимизированы для разных тем
-
 ### Особенности
 - **Организация данных**
   - Разделение на криптовалюты и фиат
@@ -452,11 +500,6 @@ document.addEventListener('DOMContentLoaded', () => {
   - Поддержка разных периодов
   - Гибкая система обновления
   - Оптимизированное хранение
-
-- **Цветовая кодировка**
-  - Уникальные цвета для валют
-  - Поддержка тем оформления
-  - Доступность для дальтоников
 
 ## Технические особенности
 

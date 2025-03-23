@@ -75,7 +75,6 @@ function createChartConfig(type, data, options = {}) {
   // Получаем CSS переменные для цветов
   const getComputedStyle = window.getComputedStyle(document.documentElement);
   const getColor = (currency) => {
-    // Преобразуем название валюты в формат для CSS переменной
     const currencyKey = currency.split('/')[0].toLowerCase();
     const color = getComputedStyle.getPropertyValue(`--chart-${currencyKey}-color`).trim();
     const bgColor = color.replace(')', `, ${getComputedStyle.getPropertyValue('--chart-bg-opacity').trim()})`);
@@ -85,13 +84,23 @@ function createChartConfig(type, data, options = {}) {
     };
   };
 
+  // Проверяем текущую тему
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const isColorblind = currentTheme === 'colorblind';
+
   return {
     type: 'line',
     data: {
       labels: data.labels,
       datasets: data.datasets.map(dataset => ({
         ...dataset,
-        ...getColor(dataset.label)
+        ...getColor(dataset.label),
+        borderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-line-width').trim()),
+        pointRadius: parseInt(getComputedStyle.getPropertyValue('--chart-point-radius').trim()),
+        pointHoverRadius: parseInt(getComputedStyle.getPropertyValue('--chart-point-hover-radius').trim()),
+        pointBorderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-point-border-width').trim()),
+        pointHoverBorderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-point-hover-border-width').trim()),
+        tension: parseFloat(getComputedStyle.getPropertyValue('--chart-line-tension').trim())
       }))
     },
     options: {

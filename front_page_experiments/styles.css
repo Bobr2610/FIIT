@@ -88,6 +88,14 @@
   
   /* Прозрачность для фона графиков */
   --chart-bg-opacity: 0.1;
+
+  /* Значения по умолчанию для графиков */
+  --chart-line-width: 2px;
+  --chart-point-radius: 3px;
+  --chart-point-hover-radius: 5px;
+  --chart-point-border-width: 2px;
+  --chart-point-hover-border-width: 3px;
+  --chart-line-tension: 0.3;
 }
 
 /* Темная тема */
@@ -175,12 +183,19 @@
   
   /* Цвета графиков для темы с высоким контрастом */
   --chart-btc-color: #0000ff;
-  --chart-eth-color: #000080;
+  --chart-eth-color: #ff7700;
   --chart-ton-color: #008000;
   --chart-eur-color: #800080;
   --chart-usd-color: #0000ff;
   --chart-aed-color: #ff0000;
   --chart-cny-color: #008000;
+  
+  /* Увеличенная толщина линий и размер маркеров */
+  --chart-line-width: 3px;
+  --chart-point-radius: 6px;
+  --chart-point-hover-radius: 8px;
+  --chart-point-border-width: 3px;
+  --chart-point-hover-border-width: 4px;
 }
 
 /* Дополнительные стили для темы с высоким контрастом */
