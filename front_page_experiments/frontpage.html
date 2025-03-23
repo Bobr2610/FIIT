@@ -145,10 +145,6 @@
 
     <!-- Нижняя панель -->
     <div class="sidebar-footer">
-      <a href="#account" class="account-btn">
-        <i class="fas fa-user-circle"></i>
-        <span>Аккаунт</span>
-      </a>
       <button class="theme-toggle" title="Переключить тему">
         <i class="fas fa-moon"></i>
       </button>
@@ -157,17 +153,22 @@
 
   <!-- Основной контент -->
   <div class="main-content">
-    <!-- Хедер панели (фильтры и выбор темы) -->
-    <div class="dashboard-header" id="dashboard">
-      <h2>Обзор рынка</h2>
-      <div class="time-filter">
-        <label for="timeRange">Интервал:</label>
-        <select id="timeRange">
-          <option value="1m">1 месяц</option>
-          <option value="6m">6 месяцев</option>
-          <option value="1y">1 год</option>
-          <option value="3y" selected>3 года</option>
-        </select>
+    <!-- Верхняя панель с аккаунтом и темой -->
+    <div class="top-bar">
+      <!-- Левая часть с аккаунтом -->
+      <div class="account-group">
+        <a href="#account" class="account-link">
+          <i class="fas fa-user-circle"></i>
+          <span>Аккаунт</span>
+        </a>
+        <div class="account-buttons">
+          <button class="account-btn">Войти</button>
+          <button class="account-btn">Зарегистрироваться</button>
+        </div>
+      </div>
+      
+      <!-- Селектор темы -->
+      <div class="theme-selector">
         <label for="colorScheme">Тема:</label>
         <select id="colorScheme">
           <option value="default">Стандартная</option>
@@ -176,18 +177,13 @@
       </div>
     </div>
 
-    <!-- График криптоактивов с логарифмической Y-осью -->
-    <div class="chart-container" id="cryptoAssets">
-      <h4>Динамика криптовалют</h4>
-      <canvas id="cryptoChart" height="140"></canvas>
-      <small>Криптовалюты в USD. Значения в логарифмическом масштабе.</small>
-    </div>
-
-    <!-- График фиатных валют -->
-    <div class="chart-container" id="fiatAssets">
-      <h4>Динамика фиатных валют</h4>
-      <canvas id="fiatChart" height="140"></canvas>
-      <small>Фиатные валюты в RUB. Значения в логарифмическом масштабе.</small>
+    <!-- Оповещения -->
+    <div class="chart-container" id="alerts">
+      <h4>Оповещения</h4>
+      <p>
+        Выберите валюту для отслеживания и получайте уведомления по электронной почте или Telegram, когда достигаются
+        заданные пороговые значения.
+      </p>
     </div>
 
     <!-- Портфель пользователя -->
@@ -238,22 +234,32 @@
       </ul>
     </div>
 
-    <!-- Оповещения -->
-    <div class="chart-container" id="alerts">
-      <h4>Оповещения</h4>
-      <p>
-        Выберите валюту для отслеживания и получайте уведомления по электронной почте или Telegram, когда достигаются
-        заданные пороговые значения.
-      </p>
+    <!-- Хедер панели (фильтры) -->
+    <div class="dashboard-header" id="dashboard">
+      <h2>Обзор рынка</h2>
+      <div class="time-filter">
+        <label for="timeRange">Интервал:</label>
+        <select id="timeRange">
+          <option value="1m">1 месяц</option>
+          <option value="6m">6 месяцев</option>
+          <option value="1y">1 год</option>
+          <option value="3y" selected>3 года</option>
+        </select>
+      </div>
     </div>
 
-    <!-- Управление аккаунтом -->
-    <div class="chart-container" id="account">
-      <h4>Управление аккаунтом</h4>
-      <p>
-        <strong>Вход / Регистрация</strong><br>
-        <button>Войти</button> <button>Зарегистрироваться</button>
-      </p>
+    <!-- График криптоактивов с логарифмической Y-осью -->
+    <div class="chart-container" id="cryptoAssets">
+      <h4>Динамика криптовалют</h4>
+      <canvas id="cryptoChart" height="140"></canvas>
+      <small>Криптовалюты в USD. Значения в логарифмическом масштабе.</small>
+    </div>
+
+    <!-- График фиатных валют -->
+    <div class="chart-container" id="fiatAssets">
+      <h4>Динамика фиатных валют</h4>
+      <canvas id="fiatChart" height="140"></canvas>
+      <small>Фиатные валюты в RUB. Значения в логарифмическом масштабе.</small>
     </div>
   </div>
 
