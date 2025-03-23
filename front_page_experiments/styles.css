@@ -153,6 +153,38 @@ a { text-decoration: none; color: inherit; }
   background-color: #f8f9fa;
 }
 
+.portfolio-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #2c3e50;
+}
+
+.portfolio-table td i {
+  margin-left: 5px;
+  font-size: 0.9rem;
+}
+
+.trend-up {
+  color: #2ecc71;
+}
+
+.trend-down {
+  color: #e74c3c;
+}
+
+/* Стили для процентного изменения */
+.portfolio-table td:last-child {
+  font-weight: 500;
+}
+
+.portfolio-table td:last-child.trend-up {
+  color: #2ecc71;
+}
+
+.portfolio-table td:last-child.trend-down {
+  color: #e74c3c;
+}
+
 /* Верхняя панель */
 .top-bar {
   display: flex;
