@@ -14,6 +14,9 @@
 
   <!-- Подключение стилей -->
   <link href="styles.css" rel="stylesheet">
+
+  <!-- Добавляем Font Awesome для иконок -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
@@ -23,26 +26,133 @@
       <img src="https://raw.githubusercontent.com/Bobr2610/FIIT/main/Logo.png" alt="Логотип FIIT">
     </div>
 
-    <h3>Отслеживаемые активы</h3>
-    <div class="currencies">
-      <div>RUB/BTC - Биткоин</div>
-      <div>RUB/ETH - Эфириум</div>
-      <div>RUB/TON - TON</div>
-      <div>RUB/USD - Доллар США</div>
-      <div>RUB/EUR - Евро</div>
-      <div>RUB/CNY - Китайский юань</div>
-      <div>RUB/AED - Дирхам ОАЭ</div>
+    <!-- Основная навигация -->
+    <nav class="main-nav">
+      <a href="#dashboard" class="nav-item">
+        <i class="fas fa-chart-line"></i>
+        <span>Панель</span>
+      </a>
+      <a href="#cryptoAssets" class="nav-item">
+        <i class="fab fa-bitcoin"></i>
+        <span>Криптовалюты</span>
+      </a>
+      <a href="#fiatAssets" class="nav-item">
+        <i class="fas fa-money-bill-wave"></i>
+        <span>Фиат</span>
+      </a>
+      <a href="#portfolio" class="nav-item">
+        <i class="fas fa-wallet"></i>
+        <span>Портфель</span>
+      </a>
+      <a href="#news" class="nav-item">
+        <i class="fas fa-newspaper"></i>
+        <span>Новости</span>
+      </a>
+      <a href="#alerts" class="nav-item">
+        <i class="fas fa-bell"></i>
+        <span>Оповещения</span>
+      </a>
+    </nav>
+
+    <!-- Отслеживаемые активы -->
+    <div class="tracked-assets">
+      <div class="section-header">
+        <h3>Отслеживаемые активы</h3>
+        <button class="refresh-btn" title="Обновить курсы">
+          <i class="fas fa-sync-alt"></i>
+        </button>
+      </div>
+      
+      <div class="assets-list">
+        <div class="asset-item crypto">
+          <div class="asset-icon">
+            <i class="fab fa-bitcoin"></i>
+          </div>
+          <div class="asset-info">
+            <div class="asset-name">Биткоин</div>
+            <div class="asset-pair">RUB/BTC</div>
+          </div>
+          <div class="asset-price">2,450,000 ₽</div>
+        </div>
+        
+        <div class="asset-item crypto">
+          <div class="asset-icon">
+            <i class="fab fa-ethereum"></i>
+          </div>
+          <div class="asset-info">
+            <div class="asset-name">Эфириум</div>
+            <div class="asset-pair">RUB/ETH</div>
+          </div>
+          <div class="asset-price">145,000 ₽</div>
+        </div>
+        
+        <div class="asset-item crypto">
+          <div class="asset-icon">
+            <i class="fas fa-coins"></i>
+          </div>
+          <div class="asset-info">
+            <div class="asset-name">TON</div>
+            <div class="asset-pair">RUB/TON</div>
+          </div>
+          <div class="asset-price">45 ₽</div>
+        </div>
+
+        <div class="asset-item fiat">
+          <div class="asset-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <div class="asset-info">
+            <div class="asset-name">Доллар США</div>
+            <div class="asset-pair">RUB/USD</div>
+          </div>
+          <div class="asset-price">92.5 ₽</div>
+        </div>
+
+        <div class="asset-item fiat">
+          <div class="asset-icon">
+            <i class="fas fa-euro-sign"></i>
+          </div>
+          <div class="asset-info">
+            <div class="asset-name">Евро</div>
+            <div class="asset-pair">RUB/EUR</div>
+          </div>
+          <div class="asset-price">98.3 ₽</div>
+        </div>
+
+        <div class="asset-item fiat">
+          <div class="asset-icon">
+            <i class="fas fa-yen-sign"></i>
+          </div>
+          <div class="asset-info">
+            <div class="asset-name">Китайский юань</div>
+            <div class="asset-pair">RUB/CNY</div>
+          </div>
+          <div class="asset-price">12.8 ₽</div>
+        </div>
+
+        <div class="asset-item fiat">
+          <div class="asset-icon">
+            <i class="fas fa-money-bill"></i>
+          </div>
+          <div class="asset-info">
+            <div class="asset-name">Дирхам ОАЭ</div>
+            <div class="asset-pair">RUB/AED</div>
+          </div>
+          <div class="asset-price">25.2 ₽</div>
+        </div>
+      </div>
     </div>
 
-    <nav>
-      <a href="#dashboard">Панель</a>
-      <a href="#cryptoAssets">Криптовалюты</a>
-      <a href="#fiatAssets">Фиат</a>
-      <a href="#portfolio">Портфель</a>
-      <a href="#news">Новости</a>
-      <a href="#alerts">Оповещения</a>
-      <a href="#account">Аккаунт</a>
-    </nav>
+    <!-- Нижняя панель -->
+    <div class="sidebar-footer">
+      <a href="#account" class="account-btn">
+        <i class="fas fa-user-circle"></i>
+        <span>Аккаунт</span>
+      </a>
+      <button class="theme-toggle" title="Переключить тему">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
   </aside>
 
   <!-- Основной контент -->
