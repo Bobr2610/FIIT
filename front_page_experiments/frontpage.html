@@ -22,6 +22,18 @@
     <div class="logo">
       <img src="https://raw.githubusercontent.com/Bobr2610/FIIT/main/Logo.png" alt="Логотип FIIT">
     </div>
+
+    <h3>Отслеживаемые активы</h3>
+    <div class="currencies">
+      <div>RUB/BTC - Биткоин</div>
+      <div>RUB/ETH - Эфириум</div>
+      <div>RUB/TON - TON</div>
+      <div>RUB/USD - Доллар США</div>
+      <div>RUB/EUR - Евро</div>
+      <div>RUB/CNY - Китайский юань</div>
+      <div>RUB/AED - Дирхам ОАЭ</div>
+    </div>
+
     <nav>
       <a href="#dashboard">Панель</a>
       <a href="#cryptoAssets">Криптовалюты</a>
@@ -31,17 +43,6 @@
       <a href="#alerts">Оповещения</a>
       <a href="#account">Аккаунт</a>
     </nav>
-
-    <h3>Валюты</h3>
-    <div class="currencies">
-      <div>USD/RUB - Доллар США к рублю</div>
-      <div>EUR/RUB - Евро к рублю</div>
-      <div>CNY/RUB - Юань к рублю</div>
-      <div>BTC - Биткоин</div>
-      <div>ETH - Эфириум</div>
-      <div>TON - TON</div>
-      <div>AED/RUB - Дирхам к рублю</div>
-    </div>
   </aside>
 
   <!-- Основной контент -->
@@ -69,21 +70,20 @@
     <div class="chart-container" id="cryptoAssets">
       <h4>Динамика криптовалют</h4>
       <canvas id="cryptoChart" height="140"></canvas>
-      <small>Отображение изменений для BTC, ETH, TON и других основных криптовалют. Y-ось настроена в логарифмическом
-        масштабе.</small>
+      <small>Криптовалюты в USD. Значения в логарифмическом масштабе.</small>
     </div>
 
     <!-- График фиатных валют -->
     <div class="chart-container" id="fiatAssets">
       <h4>Динамика фиатных валют</h4>
       <canvas id="fiatChart" height="140"></canvas>
-      <small>Отображение курсов для RUB/EUR, RUB/USD, AED, CNY и других валют.</small>
+      <small>Фиатные валюты в RUB. Значения в логарифмическом масштабе.</small>
     </div>
 
     <!-- Портфель пользователя -->
     <div class="portfolio" id="portfolio">
       <h4>Ваш портфель</h4>
-      <div class="balance">Баланс: 10 000 у.е.</div>
+      <div class="balance">Баланс: 10 000 RUB.</div>
       <table style="width: 100%; border-collapse: collapse;">
         <thead>
           <tr style="text-align: left; border-bottom: 1px solid #ddd;">
