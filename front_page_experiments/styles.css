@@ -1,6 +1,16 @@
+/* 
+  Основной файл стилей для финансовой панели
+  Использует современные практики CSS:
+  - CSS переменные для темизации
+  - Flexbox и Grid для верстки
+  - Медиа-запросы для адаптивности
+  - БЭМ-подобная структура классов
+  - Плавные анимации и переходы
+*/
+
 /* Глобальные переменные */
 :root {
-  /* Размеры */
+  /* Размеры элементов интерфейса */
   --sidebar-width: 250px;
   --header-height: 60px;
   --border-radius: 8px;
@@ -10,15 +20,15 @@
   --spacing-lg: 24px;
   --spacing-xl: 32px;
   
-  /* Тени */
+  /* Тени для создания глубины */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
   
-  /* Анимации */
+  /* Скорость анимаций */
   --transition-speed: 0.3s;
   
-  /* Шрифты */
+  /* Типографика */
   --font-family: 'Roboto', sans-serif;
   --font-size-xs: 12px;
   --font-size-sm: 14px;
@@ -51,7 +61,7 @@
   --card-bg: #ffffff;
   --hover-bg: #f8f9fa;
   
-  /* Дополнительные стили */
+  /* Дополнительные стили для компонентов */
   --logo-width: 150px;
   --nav-icon-width: 20px;
   --nav-padding: 12px 20px;
@@ -70,6 +80,7 @@
 
 /* Темная тема */
 [data-theme="dark"] {
+  /* Основные цвета темной темы */
   --bg-primary: #1a1a1a;
   --bg-secondary: #2d2d2d;
   --bg-tertiary: #404040;
@@ -96,7 +107,7 @@
 
 /* Тема с высоким контрастом */
 [data-theme="colorblind"] {
-  /* Основные цвета */
+  /* Основные цвета с высоким контрастом */
   --bg-primary: #ffffff;
   --bg-secondary: #f8f8f8;
   --bg-tertiary: #f0f0f0;
@@ -764,6 +775,7 @@ a {
 
 /* Адаптивность */
 @media (max-width: 768px) {
+  /* Стили для мобильных устройств */
   .sidebar {
     width: 100%;
     padding: var(--spacing-sm);

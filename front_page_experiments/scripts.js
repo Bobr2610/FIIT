@@ -1,13 +1,24 @@
-// Генерация меток времени для месяцев с 2023 по 2025
+/**
+ * Генерация меток времени для графиков
+ * @param {Date} start - Начальная дата
+ * @param {number} count - Количество меток
+ * @param {boolean} isDaily - Флаг для ежедневных меток
+ * @returns {string[]} Массив меток времени
+ * 
+ * Функция создает метки времени в формате YYYY-MM-DD для графиков.
+ * Поддерживает как месячные, так и ежедневные метки.
+ */
 function generateLabels(start, count, isDaily = false) {
   const labels = [];
   let current = new Date(start);
+  
   if (isDaily) {
     // Генерация ежедневных меток для января 2025
     for (let i = 1; i <= 31; i++) {
       labels.push('2025-01-' + (i < 10 ? '0' + i : i));
     }
   } else {
+    // Генерация месячных меток
     for (let i = 0; i < count; i++) {
       const month = current.getMonth() + 1;
       const year = current.getFullYear();
@@ -18,12 +29,27 @@ function generateLabels(start, count, isDaily = false) {
   return labels;
 }
 
-// Функция для объединения массивов данных по годам
+/**
+ * Объединение данных по годам в единый массив
+ * @param {Object} yearlyData - Объект с данными по годам
+ * @returns {number[]} Объединенный массив данных
+ * 
+ * Функция объединяет массивы данных за 2023, 2024 и 2025 годы
+ * в один последовательный массив для построения графика.
+ */
 function combineYearlyData(yearlyData) {
   return [...yearlyData["2023"], ...yearlyData["2024"], ...yearlyData["2025"]];
 }
 
-// Функция для получения данных в зависимости от интервала
+/**
+ * Получение данных в зависимости от выбранного интервала
+ * @param {Object} data - Объект с данными
+ * @param {string} interval - Выбранный интервал
+ * @returns {number[]} Массив данных для графика
+ * 
+ * Функция возвращает соответствующий набор данных в зависимости
+ * от выбранного временного интервала (1 месяц, 6 месяцев, 1 год, 3 года).
+ */
 function getDataForInterval(data, interval) {
   if (interval === '1m') {
     return data.daily_2025_01 || [];
@@ -31,7 +57,20 @@ function getDataForInterval(data, interval) {
   return combineYearlyData(data);
 }
 
-// Функция для создания конфигурации графика
+/**
+ * Создание конфигурации для графика Chart.js
+ * @param {string} type - Тип графика
+ * @param {Object} data - Данные для графика
+ * @param {Object} options - Дополнительные опции
+ * @returns {Object} Конфигурация графика
+ * 
+ * Функция создает конфигурацию для графика с настройками:
+ * - Адаптивность
+ * - Интерактивность
+ * - Подсказки
+ * - Легенда
+ * - Настройки осей
+ */
 function createChartConfig(type, data, options = {}) {
   return {
     type: 'line',
@@ -56,15 +95,27 @@ function createChartConfig(type, data, options = {}) {
   };
 }
 
-// Загрузка данных и инициализация графиков
+/**
+ * Инициализация графиков и загрузка данных
+ * 
+ * Основная функция, которая:
+ * 1. Загружает данные из JSON файла
+ * 2. Создает графики криптовалют и фиатных валют
+ * 3. Настраивает обработчики событий
+ * 4. Обрабатывает ошибки загрузки
+ */
 async function initializeCharts() {
   try {
+    // Загрузка данных из JSON файла
     const response = await fetch('exchangerates.json');
     const data = await response.json();
     let baseLabels = generateLabels("2023-01-01", 36);
     let cryptoChart, fiatChart;
 
-    // Функция обновления графиков
+    /**
+     * Обновление графиков при изменении интервала
+     * @param {string} interval - Выбранный интервал
+     */
     function updateCharts(interval) {
       const isDaily = interval === '1m';
       const labels = isDaily ? generateLabels(null, null, true) : baseLabels.slice(-getMonthCount(interval));
@@ -75,7 +126,7 @@ async function initializeCharts() {
         data: getDataForInterval(data.crypto[currency], interval),
         borderColor: data.colors[currency].borderColor,
         backgroundColor: data.colors[currency].backgroundColor,
-        tension: 0.3
+        tension: 0.3 // Сглаживание линий графика
       }));
 
       // Подготовка данных для фиатных валют
@@ -87,7 +138,7 @@ async function initializeCharts() {
         tension: 0.3
       }));
 
-      // Обновление графиков
+      // Создание или обновление графика криптовалют
       if (!cryptoChart) {
         const cryptoCtx = document.getElementById('cryptoChart').getContext('2d');
         cryptoChart = new Chart(cryptoCtx, createChartConfig('line', {
@@ -95,7 +146,7 @@ async function initializeCharts() {
           datasets: cryptoDatasets
         }, {
           y: {
-            type: 'logarithmic',
+            type: 'logarithmic', // Логарифмическая шкала для лучшего отображения
             ticks: {
               callback: function(value) {
                 return value;
@@ -110,6 +161,7 @@ async function initializeCharts() {
         cryptoChart.update();
       }
 
+      // Создание или обновление графика фиатных валют
       if (!fiatChart) {
         const fiatCtx = document.getElementById('fiatChart').getContext('2d');
         fiatChart = new Chart(fiatCtx, createChartConfig('line', {
@@ -133,7 +185,11 @@ async function initializeCharts() {
       }
     }
 
-    // Функция определения количества месяцев для интервала
+    /**
+     * Определение количества месяцев для интервала
+     * @param {string} interval - Выбранный интервал
+     * @returns {number} Количество месяцев
+     */
     function getMonthCount(interval) {
       switch(interval) {
         case '1m': return 1;
@@ -144,7 +200,7 @@ async function initializeCharts() {
       }
     }
 
-    // Инициализация с дефолтным интервалом
+    // Инициализация с дефолтным интервалом (3 года)
     updateCharts('3y');
 
     // Обработчик изменения интервала
@@ -161,13 +217,22 @@ async function initializeCharts() {
 // Запуск инициализации при загрузке страницы
 window.addEventListener('load', initializeCharts);
 
-// Управление темами
+/**
+ * Управление темами оформления
+ * 
+ * Функционал включает:
+ * 1. Загрузку сохраненной темы
+ * 2. Переключение тем через селектор
+ * 3. Переключение тем через кнопку
+ * 4. Сохранение выбранной темы
+ * 5. Обновление иконки темы
+ */
 document.addEventListener('DOMContentLoaded', () => {
   const themeSelect = document.getElementById('colorScheme');
   const themeToggle = document.querySelector('.theme-toggle');
   const themeIcon = themeToggle.querySelector('i');
 
-  // Загрузка сохраненной темы
+  // Загрузка сохраненной темы из localStorage
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
   themeSelect.value = savedTheme;
@@ -194,7 +259,10 @@ document.addEventListener('DOMContentLoaded', () => {
     updateThemeIcon(nextTheme);
   });
 
-  // Обновление иконки темы
+  /**
+   * Обновление иконки темы
+   * @param {string} theme - Текущая тема
+   */
   function updateThemeIcon(theme) {
     switch(theme) {
       case 'dark':

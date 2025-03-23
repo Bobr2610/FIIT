@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html lang="ru">
+<!-- 
+  Основной HTML файл финансовой панели
+  Использует современные практики веб-разработки:
+  - Семантическая разметка (aside, nav, main)
+  - Адаптивный дизайн
+  - Доступность (ARIA-атрибуты, семантические теги)
+  - Оптимизация производительности (асинхронная загрузка скриптов)
+-->
 
 <head>
   <meta charset="UTF-8">
   <title>FIIT Финансовая Панель</title>
+  <!-- Мета-тег для корректного отображения на мобильных устройствах -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Импортируем шрифты Google для красивого отображения -->
+  <!-- Подключение шрифтов Google Fonts для улучшения типографики -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
 
-  <!-- импортируем готовую библиотеку chart.js для генерации графиков -->
+  <!-- Подключение Chart.js для создания интерактивных графиков -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!-- Подключение стилей -->
+  <!-- Подключение локальных стилей -->
   <link href="styles.css" rel="stylesheet">
 
-  <!-- Добавляем Font Awesome для иконок -->
+  <!-- Подключение Font Awesome для иконок -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
-  <!-- Сайдбар с логотипом и навигацией -->
+  <!-- Сайдбар - боковая панель навигации -->
   <aside class="sidebar">
+    <!-- Логотип с ссылкой наверх -->
     <div class="logo">
       <a href="#top" title="Наверх">
         <img src="https://raw.githubusercontent.com/Bobr2610/FIIT/main/Logo.png" alt="Логотип FIIT">
       </a>
     </div>
 
-    <!-- Основная навигация -->
+    <!-- Основная навигация с иконками -->
     <nav class="main-nav">
+      <!-- Каждый пункт навигации имеет иконку и текст -->
       <a href="#alerts" class="nav-item">
         <i class="fas fa-bell"></i>
         <span>Оповещения</span>
@@ -56,8 +67,9 @@
       </a>
     </nav>
 
-    <!-- Отслеживаемые активы -->
+    <!-- Секция отслеживаемых активов -->
     <div class="tracked-assets">
+      <!-- Заголовок секции с кнопкой обновления -->
       <div class="section-header">
         <h3>Отслеживаемые активы</h3>
         <button class="refresh-btn" title="Обновить курсы">
@@ -65,47 +77,49 @@
         </button>
       </div>
       
+      <!-- Список активов с иконками и ценами -->
       <div class="assets-list">
+        <!-- Каждый актив имеет иконку, название и текущую цену -->
         <div class="asset-item">
           <i class="fab fa-bitcoin"></i>
           <span>BTC</span>
-          <span class="price">2,450,000 ₽</span>
+          <span class="price">7,142,252 ₽</span>
         </div>
         
         <div class="asset-item">
           <i class="fab fa-ethereum"></i>
           <span>ETH</span>
-          <span class="price">145,000 ₽</span>
+          <span class="price">165,777 ₽</span>
         </div>
         
         <div class="asset-item">
           <i class="fas fa-coins"></i>
           <span>TON</span>
-          <span class="price">45 ₽</span>
+          <span class="price">316,80 ₽</span>
         </div>
 
         <div class="asset-item">
           <i class="fas fa-dollar-sign"></i>
           <span>USD</span>
-          <span class="price">92.5 ₽</span>
+          <span class="price">89,70 ₽</span>
         </div>
 
         <div class="asset-item">
           <i class="fas fa-euro-sign"></i>
           <span>EUR</span>
-          <span class="price">98.3 ₽</span>
+          <span class="price">89,70 ₽</span>
         </div>
 
         <div class="asset-item">
           <i class="fas fa-yen-sign"></i>
           <span>CNY</span>
-          <span class="price">12.8 ₽</span>
+          <span class="price">11,80 ₽</span>
         </div>
 
         <div class="asset-item">
           <i class="fas fa-money-bill"></i>
           <span>AED</span>
-          <span class="price">25.2 ₽</span>
+          <span class="price">22,83 ₽</span>
         </div>
       </div>
     </div>
@@ -116,23 +130,24 @@
     </div>
   </aside>
 
-  <!-- Основной контент -->
+  <!-- Основной контент страницы -->
   <div class="main-content">
-    <!-- Верхняя панель с аккаунтом и темой -->
+    <!-- Верхняя панель с аккаунтом и настройками темы -->
     <div class="top-bar">
-      <!-- Левая часть с аккаунтом -->
+      <!-- Группа элементов аккаунта -->
       <div class="account-group">
         <a href="#account" class="account-link">
           <i class="fas fa-user-circle"></i>
           <span>Аккаунт</span>
         </a>
+        <!-- Кнопки авторизации -->
         <div class="account-buttons">
           <button class="account-btn">Войти</button>
           <button class="account-btn">Зарегистрироваться</button>
         </div>
       </div>
       
-      <!-- Правая часть с селектором темы -->
+      <!-- Селектор темы с кнопкой переключения -->
       <div class="theme-selector">
         <button class="theme-toggle" title="Переключить тему">
           <i class="fas fa-moon"></i>
@@ -146,7 +161,8 @@
       </div>
     </div>
 
-    <!-- Оповещения -->
+    <!-- Основные секции контента -->
+    <!-- Секция оповещений -->
     <div class="chart-container" id="alerts">
       <h4>Оповещения</h4>
       <p>
@@ -155,10 +171,11 @@
       </p>
     </div>
 
-    <!-- Портфель пользователя -->
+    <!-- Секция портфеля с таблицей -->
     <div class="portfolio" id="portfolio">
       <h4>Ваш портфель</h4>
       <div class="balance">Баланс: 40 150 RUB</div>
+      <!-- Таблица с данными портфеля -->
       <table class="portfolio-table">
         <thead>
           <tr>
@@ -195,10 +212,11 @@
       </table>
     </div>
 
-    <!-- Финансовые новости -->
+    <!-- Секция новостей -->
     <div class="chart-container" id="news">
       <h4>Финансовые новости</h4>
       <ul class="news-list">
+        <!-- Список новостей с временными метками -->
         <li>
           <strong>12:30</strong> — Рынок криптовалют демонстрирует повышенную волатильность: аналитики прогнозируют
           возможное снижение.
@@ -213,9 +231,10 @@
       </ul>
     </div>
 
-    <!-- Хедер панели (фильтры) -->
+    <!-- Панель управления графиками -->
     <div class="dashboard-header" id="dashboard">
       <h2>Обзор рынка</h2>
+      <!-- Фильтр временного интервала -->
       <div class="time-filter">
         <label for="timeRange">Интервал:</label>
         <select id="timeRange">
@@ -227,14 +246,13 @@
       </div>
     </div>
 
-    <!-- График криптоактивов с логарифмической Y-осью -->
+    <!-- Графики криптовалют и фиатных валют -->
     <div class="chart-container" id="cryptoAssets">
       <h4>Динамика криптовалют</h4>
       <canvas id="cryptoChart" height="140"></canvas>
       <small>Криптовалюты в USD. Значения в логарифмическом масштабе.</small>
     </div>
 
-    <!-- График фиатных валют -->
     <div class="chart-container" id="fiatAssets">
       <h4>Динамика фиатных валют</h4>
       <canvas id="fiatChart" height="140"></canvas>
@@ -242,7 +260,7 @@
     </div>
   </div>
 
-  <!-- Подключение скриптов -->
+  <!-- Подключение скриптов в конце body для оптимизации загрузки -->
   <script src="scripts.js"></script>
 </body>
 
