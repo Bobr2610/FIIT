@@ -219,26 +219,142 @@ a { text-decoration: none; color: inherit; }
 .theme-selector {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 1rem;
+  background-color: #f8f9fa;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .theme-selector label {
   color: #2c3e50;
   font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .theme-selector select {
-  padding: 0.6rem 1rem;
+  padding: 0.5rem 1rem;
   border: 1px solid #e0e0e0;
   border-radius: 6px;
   background-color: white;
   color: #2c3e50;
   cursor: pointer;
   transition: all 0.2s ease;
+  font-size: 0.9rem;
 }
 
 .theme-selector select:hover {
   border-color: #3498db;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background-color: #3498db;
+  color: white;
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+.theme-toggle i {
+  font-size: 1.1rem;
+  color: #2c3e50;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover i {
+  color: white;
+}
+
+/* Отслеживаемые активы */
+.tracked-assets {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.tracked-assets .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.tracked-assets h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #95a5a6;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.refresh-btn {
+  background: none;
+  border: none;
+  color: #95a5a6;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.refresh-btn:hover {
+  color: #3498db;
+  background-color: #f8f9fa;
+}
+
+.assets-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.asset-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.asset-item:hover {
+  background-color: #e9ecef;
+  transform: translateY(-1px);
+}
+
+.asset-item i {
+  font-size: 1.1rem;
+  color: #2c3e50;
+  width: 20px;
+  text-align: center;
+}
+
+.asset-item span {
+  font-size: 0.9rem;
+  color: #2c3e50;
+}
+
+.asset-item .price {
+  margin-left: auto;
+  font-weight: 500;
 }
 
 /* Адаптивность */
@@ -277,6 +393,35 @@ a { text-decoration: none; color: inherit; }
   }
   
   .theme-selector {
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem;
+  }
+  
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .theme-toggle i {
+    font-size: 1.2rem;
+  }
+  
+  .assets-list {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 8px;
+  }
+  
+  .asset-item {
+    padding: 6px 10px;
+  }
+  
+  .asset-item i {
+    font-size: 1rem;
+  }
+  
+  .asset-item span {
+    font-size: 0.8rem;
   }
 } 

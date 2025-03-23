@@ -23,22 +23,16 @@
   <!-- Сайдбар с логотипом и навигацией -->
   <aside class="sidebar">
     <div class="logo">
-      <img src="https://raw.githubusercontent.com/Bobr2610/FIIT/main/Logo.png" alt="Логотип FIIT">
+      <a href="#top" title="Наверх">
+        <img src="https://raw.githubusercontent.com/Bobr2610/FIIT/main/Logo.png" alt="Логотип FIIT">
+      </a>
     </div>
 
     <!-- Основная навигация -->
     <nav class="main-nav">
-      <a href="#dashboard" class="nav-item">
-        <i class="fas fa-chart-line"></i>
-        <span>Панель</span>
-      </a>
-      <a href="#cryptoAssets" class="nav-item">
-        <i class="fab fa-bitcoin"></i>
-        <span>Криптовалюты</span>
-      </a>
-      <a href="#fiatAssets" class="nav-item">
-        <i class="fas fa-money-bill-wave"></i>
-        <span>Фиат</span>
+      <a href="#alerts" class="nav-item">
+        <i class="fas fa-bell"></i>
+        <span>Оповещения</span>
       </a>
       <a href="#portfolio" class="nav-item">
         <i class="fas fa-wallet"></i>
@@ -48,9 +42,17 @@
         <i class="fas fa-newspaper"></i>
         <span>Новости</span>
       </a>
-      <a href="#alerts" class="nav-item">
-        <i class="fas fa-bell"></i>
-        <span>Оповещения</span>
+      <a href="#dashboard" class="nav-item">
+        <i class="fas fa-chart-line"></i>
+        <span>Обзор рынка</span>
+      </a>
+      <a href="#cryptoAssets" class="nav-item">
+        <i class="fab fa-bitcoin"></i>
+        <span>Криптовалюты</span>
+      </a>
+      <a href="#fiatAssets" class="nav-item">
+        <i class="fas fa-money-bill-wave"></i>
+        <span>Фиатные валюты</span>
       </a>
     </nav>
 
@@ -64,90 +66,53 @@
       </div>
       
       <div class="assets-list">
-        <div class="asset-item crypto">
-          <div class="asset-icon">
-            <i class="fab fa-bitcoin"></i>
-          </div>
-          <div class="asset-info">
-            <div class="asset-name">Биткоин</div>
-            <div class="asset-pair">RUB/BTC</div>
-          </div>
-          <div class="asset-price">2,450,000 ₽</div>
+        <div class="asset-item">
+          <i class="fab fa-bitcoin"></i>
+          <span>BTC</span>
+          <span class="price">2,450,000 ₽</span>
         </div>
         
-        <div class="asset-item crypto">
-          <div class="asset-icon">
-            <i class="fab fa-ethereum"></i>
-          </div>
-          <div class="asset-info">
-            <div class="asset-name">Эфириум</div>
-            <div class="asset-pair">RUB/ETH</div>
-          </div>
-          <div class="asset-price">145,000 ₽</div>
+        <div class="asset-item">
+          <i class="fab fa-ethereum"></i>
+          <span>ETH</span>
+          <span class="price">145,000 ₽</span>
         </div>
         
-        <div class="asset-item crypto">
-          <div class="asset-icon">
-            <i class="fas fa-coins"></i>
-          </div>
-          <div class="asset-info">
-            <div class="asset-name">TON</div>
-            <div class="asset-pair">RUB/TON</div>
-          </div>
-          <div class="asset-price">45 ₽</div>
+        <div class="asset-item">
+          <i class="fas fa-coins"></i>
+          <span>TON</span>
+          <span class="price">45 ₽</span>
         </div>
 
-        <div class="asset-item fiat">
-          <div class="asset-icon">
-            <i class="fas fa-dollar-sign"></i>
-          </div>
-          <div class="asset-info">
-            <div class="asset-name">Доллар США</div>
-            <div class="asset-pair">RUB/USD</div>
-          </div>
-          <div class="asset-price">92.5 ₽</div>
+        <div class="asset-item">
+          <i class="fas fa-dollar-sign"></i>
+          <span>USD</span>
+          <span class="price">92.5 ₽</span>
         </div>
 
-        <div class="asset-item fiat">
-          <div class="asset-icon">
-            <i class="fas fa-euro-sign"></i>
-          </div>
-          <div class="asset-info">
-            <div class="asset-name">Евро</div>
-            <div class="asset-pair">RUB/EUR</div>
-          </div>
-          <div class="asset-price">98.3 ₽</div>
+        <div class="asset-item">
+          <i class="fas fa-euro-sign"></i>
+          <span>EUR</span>
+          <span class="price">98.3 ₽</span>
         </div>
 
-        <div class="asset-item fiat">
-          <div class="asset-icon">
-            <i class="fas fa-yen-sign"></i>
-          </div>
-          <div class="asset-info">
-            <div class="asset-name">Китайский юань</div>
-            <div class="asset-pair">RUB/CNY</div>
-          </div>
-          <div class="asset-price">12.8 ₽</div>
+        <div class="asset-item">
+          <i class="fas fa-yen-sign"></i>
+          <span>CNY</span>
+          <span class="price">12.8 ₽</span>
         </div>
 
-        <div class="asset-item fiat">
-          <div class="asset-icon">
-            <i class="fas fa-money-bill"></i>
-          </div>
-          <div class="asset-info">
-            <div class="asset-name">Дирхам ОАЭ</div>
-            <div class="asset-pair">RUB/AED</div>
-          </div>
-          <div class="asset-price">25.2 ₽</div>
+        <div class="asset-item">
+          <i class="fas fa-money-bill"></i>
+          <span>AED</span>
+          <span class="price">25.2 ₽</span>
         </div>
       </div>
     </div>
 
     <!-- Нижняя панель -->
     <div class="sidebar-footer">
-      <button class="theme-toggle" title="Переключить тему">
-        <i class="fas fa-moon"></i>
-      </button>
+      <!-- Удаляем кнопку переключения темы -->
     </div>
   </aside>
 
@@ -167,8 +132,11 @@
         </div>
       </div>
       
-      <!-- Селектор темы -->
+      <!-- Правая часть с селектором темы -->
       <div class="theme-selector">
+        <button class="theme-toggle" title="Переключить тему">
+          <i class="fas fa-moon"></i>
+        </button>
         <label for="colorScheme">Тема:</label>
         <select id="colorScheme">
           <option value="default">Стандартная</option>
@@ -190,9 +158,9 @@
     <div class="portfolio" id="portfolio">
       <h4>Ваш портфель</h4>
       <div class="balance">Баланс: 10 000 RUB.</div>
-      <table style="width: 100%; border-collapse: collapse;">
+      <table class="portfolio-table">
         <thead>
-          <tr style="text-align: left; border-bottom: 1px solid #ddd;">
+          <tr>
             <th>Валюта</th>
             <th>Количество</th>
             <th>Текущий курс</th>
@@ -219,16 +187,16 @@
     <!-- Финансовые новости -->
     <div class="chart-container" id="news">
       <h4>Финансовые новости</h4>
-      <ul style="list-style-type: none; padding-left: 0;">
-        <li style="margin-bottom: 10px;">
+      <ul class="news-list">
+        <li>
           <strong>12:30</strong> — Рынок криптовалют демонстрирует повышенную волатильность: аналитики прогнозируют
           возможное снижение.
         </li>
-        <li style="margin-bottom: 10px;">
+        <li>
           <strong>11:15</strong> — Евро укрепился на фоне свежих экономических данных. Эксперт поделился своими
           выводами.
         </li>
-        <li style="margin-bottom: 10px;">
+        <li>
           <strong>10:00</strong> — Рубль стабилизируется по отношению к USD, а спрос на евро заметно растёт.
         </li>
       </ul>
