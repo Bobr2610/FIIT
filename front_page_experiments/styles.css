@@ -96,34 +96,234 @@
 
 /* Тема с высоким контрастом */
 [data-theme="colorblind"] {
+  /* Основные цвета */
   --bg-primary: #ffffff;
-  --bg-secondary: #f0f0f0;
-  --bg-tertiary: #e0e0e0;
+  --bg-secondary: #f8f8f8;
+  --bg-tertiary: #f0f0f0;
   --text-primary: #000000;
   --text-secondary: #595959;
-  --accent-primary: #0066cc;
+  
+  /* Акцентные цвета - безопасные для дальтоников */
+  --accent-primary: #0000ff;
   --accent-secondary: #595959;
+  
+  /* Границы и разделители */
   --border-color: #000000;
-  --success-color: #006600;
-  --danger-color: #cc0000;
+  --border-width: 2px;
+  
+  /* Цвета статусов - безопасные для дальтоников */
+  --success-color: #006400;
+  --danger-color: #8b0000;
   --warning-color: #808000;
   --info-color: #000080;
-  --trend-up-color: #006600;
-  --trend-down-color: #cc0000;
+  
+  /* Цвета трендов */
+  --trend-up-color: #006400;
+  --trend-down-color: #8b0000;
+  
+  /* Цвета таблиц и графиков */
   --table-header-bg: #e0e0e0;
   --table-row-hover: #f0f0f0;
   --chart-grid-color: #c0c0c0;
   --chart-text-color: #000000;
-  --sidebar-bg: #333333;
-  --sidebar-text: #ffffff;
+  
+  /* Цвета интерфейса */
+  --sidebar-bg: #ffffff;
+  --sidebar-text: #000000;
   --card-bg: #ffffff;
   --hover-bg: #f0f0f0;
   
   /* Дополнительные стили для улучшения читаемости */
   --link-underline: underline;
-  --focus-outline: 2px solid #000000;
+  --focus-outline: 3px solid #000000;
   --button-border: 2px solid #000000;
   --input-border: 2px solid #000000;
+  --text-decoration-thickness: 2px;
+  --text-decoration-style: solid;
+}
+
+/* Дополнительные стили для темы с высоким контрастом */
+[data-theme="colorblind"] .nav-item {
+  border: var(--border-width) solid var(--border-color);
+  font-weight: bold;
+}
+
+[data-theme="colorblind"] .nav-item:hover {
+  background-color: var(--bg-tertiary);
+  border: var(--border-width) solid var(--accent-primary);
+  text-decoration: underline;
+}
+
+[data-theme="colorblind"] .account-btn {
+  border: var(--button-border);
+  font-weight: bold;
+}
+
+[data-theme="colorblind"] .account-btn:hover {
+  background-color: var(--bg-tertiary);
+  border: var(--border-width) solid var(--accent-primary);
+  text-decoration: underline;
+}
+
+[data-theme="colorblind"] .asset-item {
+  border: var(--border-width) solid var(--border-color);
+}
+
+[data-theme="colorblind"] .asset-item:hover {
+  border: var(--border-width) solid var(--accent-primary);
+  text-decoration: underline;
+}
+
+[data-theme="colorblind"] .portfolio-table th {
+  border: var(--border-width) solid var(--border-color);
+  font-weight: bold;
+  background-color: var(--bg-tertiary);
+}
+
+[data-theme="colorblind"] .portfolio-table td {
+  border: var(--border-width) solid var(--border-color);
+}
+
+[data-theme="colorblind"] .news-list li {
+  border-bottom: var(--border-width) solid var(--border-color);
+  padding-bottom: var(--spacing-sm);
+}
+
+[data-theme="colorblind"] .news-list strong {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Фокус и доступность */
+[data-theme="colorblind"] .theme-toggle:focus,
+[data-theme="colorblind"] .account-btn:focus,
+[data-theme="colorblind"] #colorScheme:focus,
+[data-theme="colorblind"] #timeRange:focus,
+[data-theme="colorblind"] .nav-item:focus {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
+[data-theme="colorblind"] #colorScheme,
+[data-theme="colorblind"] #timeRange {
+  border: var(--input-border);
+  font-weight: bold;
+}
+
+[data-theme="colorblind"] .chart-container,
+[data-theme="colorblind"] .portfolio {
+  border: var(--border-width) solid var(--border-color);
+}
+
+/* Улучшенные индикаторы трендов */
+[data-theme="colorblind"] .trend-up,
+[data-theme="colorblind"] .trend-down {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+[data-theme="colorblind"] .trend-up::before {
+  content: "↑";
+  margin-right: 4px;
+  font-weight: bold;
+}
+
+[data-theme="colorblind"] .trend-down::before {
+  content: "↓";
+  margin-right: 4px;
+  font-weight: bold;
+}
+
+/* Улучшенные стили для ссылок */
+[data-theme="colorblind"] a {
+  text-decoration: underline;
+  text-decoration-thickness: var(--text-decoration-thickness);
+  text-decoration-style: var(--text-decoration-style);
+}
+
+[data-theme="colorblind"] a:hover {
+  text-decoration: none;
+  background-color: var(--bg-tertiary);
+}
+
+/* Улучшенные стили для кнопок */
+[data-theme="colorblind"] button {
+  border: var(--button-border);
+  font-weight: bold;
+}
+
+[data-theme="colorblind"] button:hover {
+  background-color: var(--bg-tertiary);
+  text-decoration: underline;
+}
+
+/* Улучшенные стили для заголовков */
+[data-theme="colorblind"] h1,
+[data-theme="colorblind"] h2,
+[data-theme="colorblind"] h3,
+[data-theme="colorblind"] h4 {
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-thickness: var(--text-decoration-thickness);
+  text-decoration-style: var(--text-decoration-style);
+}
+
+/* Улучшенные стили для таблиц */
+[data-theme="colorblind"] table {
+  border-collapse: collapse;
+  border: var(--border-width) solid var(--border-color);
+}
+
+[data-theme="colorblind"] th,
+[data-theme="colorblind"] td {
+  border: var(--border-width) solid var(--border-color);
+  padding: var(--spacing-sm);
+}
+
+[data-theme="colorblind"] th {
+  background-color: var(--bg-tertiary);
+  font-weight: bold;
+}
+
+/* Улучшенные стили для форм */
+[data-theme="colorblind"] input,
+[data-theme="colorblind"] select,
+[data-theme="colorblind"] textarea {
+  border: var(--input-border);
+  font-weight: bold;
+}
+
+[data-theme="colorblind"] input:focus,
+[data-theme="colorblind"] select:focus,
+[data-theme="colorblind"] textarea:focus {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
+/* Улучшенные стили для графиков */
+[data-theme="colorblind"] canvas {
+  border: var(--border-width) solid var(--border-color);
+}
+
+/* Улучшенные стили для скроллбаров */
+[data-theme="colorblind"] ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+[data-theme="colorblind"] ::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border: var(--border-width) solid var(--border-color);
+}
+
+[data-theme="colorblind"] ::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: 6px;
+}
+
+[data-theme="colorblind"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
 }
 
 /* Глобальные стили */
