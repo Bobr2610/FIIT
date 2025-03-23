@@ -115,6 +115,16 @@ async function initializeCharts() {
         fiatChart = new Chart(fiatCtx, createChartConfig('line', {
           labels: labels,
           datasets: fiatDatasets
+        }, {
+          y: {
+            type: 'logarithmic',
+            ticks: {
+              callback: function(value) {
+                return value;
+              }
+            }
+          },
+          yAxisTitle: 'Курс (RUB)'
         }));
       } else {
         fiatChart.data.labels = labels;
