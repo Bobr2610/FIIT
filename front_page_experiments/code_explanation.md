@@ -387,174 +387,98 @@
 
 ### Основные функции
 
-#### Генерация меток времени
-```javascript
-function generateLabels(start, count, isDaily = false) {
-  const labels = [];
-  let current = new Date(start);
-  
-  if (isDaily) {
-    // Генерация ежедневных меток
-    for (let i = 1; i <= 31; i++) {
-      labels.push('2025-01-' + (i < 10 ? '0' + i : i));
-    }
-  } else {
-    // Генерация месячных меток
-    for (let i = 0; i < count; i++) {
-      const month = current.getMonth() + 1;
-      const year = current.getFullYear();
-      labels.push(year + '-' + (month < 10 ? '0' + month : month));
-      current.setMonth(current.getMonth() + 1);
-    }
-  }
-  return labels;
-}
-```
+#### `generateLabels(start, count, isDaily)`
+Генерирует метки времени для графиков:
+- Для месячного интервала создает ежедневные метки
+- Для остальных интервалов создает месячные метки
+- Поддерживает форматирование дат для отображения
 
-#### Объединение данных
-```javascript
-function combineYearlyData(yearlyData) {
-  return [
-    ...yearlyData["2023"],
-    ...yearlyData["2024"],
-    ...yearlyData["2025"]
-  ];
-}
-```
+#### `combineYearlyData(yearlyData)`
+Объединяет данные по годам в единый массив:
+- Объединяет данные за 2023, 2024 и 2025 годы
+- Используется для отображения долгосрочных графиков
 
-#### Получение данных по интервалу
-```javascript
-function getDataForInterval(data, interval) {
-  switch(interval) {
-    case '1m':
-      return data.daily_2025_01 || [];
-    case '6m':
-      return combineYearlyData(data).slice(-6);
-    case '1y':
-      return combineYearlyData(data).slice(-12);
-    case '3y':
-      return combineYearlyData(data);
-    default:
-      return combineYearlyData(data);
-  }
-}
-```
+#### `getDataForInterval(data, interval)`
+Получает данные в зависимости от выбранного интервала:
+- Для месячного интервала использует ежедневные данные
+- Для остальных интервалов объединяет годовые данные
+- Поддерживает все типы интервалов (1m, 6m, 1y, 3y)
 
-#### Создание конфигурации графика
-```javascript
-function createChartConfig(type, data, options = {}) {
-  // Получаем CSS переменные для цветов
-  const getComputedStyle = window.getComputedStyle(document.documentElement);
-  const getColor = (currency) => {
-    const currencyKey = currency.split('/')[0].toLowerCase();
-    const color = getComputedStyle.getPropertyValue(`--chart-${currencyKey}-color`).trim();
-    const bgColor = color.replace(')', `, ${getComputedStyle.getPropertyValue('--chart-bg-opacity').trim()})`);
-    return {
-      borderColor: color,
-      backgroundColor: bgColor
-    };
-  };
+#### `createChartConfig(type, data, options)`
+Создает конфигурацию для графиков Chart.js:
+- Получает стили из CSS переменных
+- Настраивает цвета, размеры и стили точек
+- Конфигурирует оси и подписи
+- Поддерживает кастомные опции
 
-  return {
-    type: 'line',
-    data: {
-      labels: data.labels,
-      datasets: data.datasets.map(dataset => ({
-        ...dataset,
-        ...getColor(dataset.label),
-        borderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-line-width').trim()),
-        pointRadius: parseInt(getComputedStyle.getPropertyValue('--chart-point-radius').trim()),
-        pointHoverRadius: parseInt(getComputedStyle.getPropertyValue('--chart-point-hover-radius').trim()),
-        pointBorderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-point-border-width').trim()),
-        pointHoverBorderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-point-hover-border-width').trim()),
-        tension: parseFloat(getComputedStyle.getPropertyValue('--chart-line-tension').trim())
-      }))
-    },
-    options: {
-      responsive: true,
-      interaction: { mode: 'index', intersect: false },
-      plugins: {
-        tooltip: { enabled: true },
-        legend: { position: 'bottom' }
-      },
-      scales: {
-        x: {
-          display: true,
-          title: { display: true, text: 'Месяц' }
-        },
-        y: {
-          ...options.y,
-          display: true,
-          title: { display: true, text: options.yAxisTitle || 'Курс' }
-        }
-      }
-    }
-  };
-}
-```
+### Функции управления темами
 
-### Управление темами
-```javascript
-document.addEventListener('DOMContentLoaded', () => {
-  const themeSelect = document.getElementById('colorScheme');
-  const themeToggle = document.querySelector('.theme-toggle');
-  
-  // Загрузка сохраненной темы
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  document.documentElement.setAttribute('data-theme', savedTheme);
-  
-  // Обработчик изменения темы
-  themeSelect.addEventListener('change', (e) => {
-    const theme = e.target.value;
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  });
-});
-```
+#### `handleThemeChange(e)`
+Обрабатывает изменение темы через селектор:
+- Сохраняет выбранную тему в localStorage
+- Обновляет иконку темы
+- Перезагружает страницу для применения новой темы
 
-### JavaScript функции
+#### `handleThemeToggle()`
+Обрабатывает переключение темы через кнопку:
+- Циклически переключает между темами
+- Обновляет селектор и localStorage
+- Перезагружает страницу для применения новой темы
 
-#### Обработчики событий
-```javascript
-// Обработчики событий для управления темами
-function handleThemeChange(e) {
-  const theme = e.target.value;
-  document.documentElement.setAttribute('data-theme', theme);
-  localStorage.setItem('theme', theme);
-  updateThemeIcon(theme);
-}
+#### `updateThemeIcon(theme)`
+Обновляет иконку темы:
+- Устанавливает соответствующую иконку Font Awesome
+- Поддерживает все типы тем (светлая, темная, высокий контраст)
 
-function handleThemeToggle() {
-  const currentTheme = document.documentElement.getAttribute('data-theme');
-  const themes = ['light', 'dark', 'colorblind'];
-  const currentIndex = themes.indexOf(currentTheme);
-  const nextTheme = themes[(currentIndex + 1) % themes.length];
-  
-  document.documentElement.setAttribute('data-theme', nextTheme);
-  themeSelect.value = nextTheme;
-  localStorage.setItem('theme', nextTheme);
-  updateThemeIcon(nextTheme);
-}
+### Инициализация и обновление графиков
 
-function updateThemeIcon(theme) {
-  switch(theme) {
-    case 'dark':
-      themeIcon.className = 'fas fa-moon';
-      break;
-    case 'light':
-      themeIcon.className = 'fas fa-sun';
-      break;
-    case 'colorblind':
-      themeIcon.className = 'fas fa-eye';
-      break;
-  }
-}
-```
-- Все обработчики событий реализованы как именованные функции
-- Улучшена читаемость и поддерживаемость кода
-- Добавлена документация через JSDoc комментарии
-- Функции легко тестировать и отлаживать
-- Улучшена производительность за счет отсутствия создания новых функций при каждом событии
+#### `initializeCharts()`
+Основная функция инициализации:
+- Загружает данные из JSON файла
+- Создает графики с дефолтными настройками
+- Устанавливает обработчики событий
+
+#### `updateCharts(interval)`
+Обновляет графики при изменении интервала:
+- Обновляет метки времени
+- Пересчитывает данные для выбранного интервала
+- Обновляет отображение графиков
+
+#### `getMonthCount(interval)`
+Определяет количество месяцев для интервала:
+- Поддерживает все типы интервалов
+- Возвращает соответствующее количество месяцев
+
+## Взаимодействие компонентов
+
+1. При загрузке страницы:
+   - Инициализируются графики
+   - Загружается сохраненная тема
+   - Устанавливаются обработчики событий
+
+2. При изменении интервала:
+   - Обновляются метки времени
+   - Пересчитываются данные
+   - Обновляются графики
+
+3. При смене темы:
+   - Сохраняется новая тема
+   - Обновляется иконка
+   - Перезагружается страница для применения стилей
+
+## Оптимизация производительности
+
+1. Кэширование данных:
+   - Данные загружаются один раз при инициализации
+   - Переиспользуются при обновлении графиков
+
+2. Эффективное обновление:
+   - Обновляются только измененные данные
+   - Минимизируется количество перерисовок
+
+3. Оптимизация памяти:
+   - Очистка неиспользуемых ресурсов
+   - Эффективное управление объектами графиков
 
 ## JSON
 

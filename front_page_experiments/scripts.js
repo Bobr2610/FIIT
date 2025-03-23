@@ -52,8 +52,10 @@ function combineYearlyData(yearlyData) {
  */
 function getDataForInterval(data, interval) {
   if (interval === '1m') {
+    // Для месячного интервала используем ежедневные данные
     return data.daily_2025_01 || [];
   }
+  // Для остальных интервалов объединяем годовые данные
   return combineYearlyData(data);
 }
 
@@ -72,6 +74,7 @@ function getDataForInterval(data, interval) {
  * - Настройки осей
  */
 function createChartConfig(type, data, options = {}) {
+  // Получаем текущие CSS переменные для стилей
   const getComputedStyle = window.getComputedStyle(document.documentElement);
   
   return {
@@ -79,9 +82,14 @@ function createChartConfig(type, data, options = {}) {
     data: {
       labels: data.labels,
       datasets: data.datasets.map(dataset => {
+        // Получаем ключ валюты для доступа к CSS переменным
         const currencyKey = dataset.label.split('/')[0].toLowerCase();
+        
+        // Получаем цвета из CSS переменных
         const color = getComputedStyle.getPropertyValue(`--chart-${currencyKey}-color`).trim();
         const bgColor = color.replace(')', `, ${getComputedStyle.getPropertyValue('--chart-bg-opacity').trim()})`);
+        
+        // Получаем стили точек и линий из CSS переменных
         const pointStyle = getComputedStyle.getPropertyValue(`--chart-${currencyKey}-point-style`).trim().replace(/['"]/g, '');
         const borderDash = getComputedStyle.getPropertyValue(`--chart-${currencyKey}-border-dash`).trim();
         
@@ -89,6 +97,7 @@ function createChartConfig(type, data, options = {}) {
           ...dataset,
           borderColor: color,
           backgroundColor: bgColor,
+          // Получаем размеры и стили из CSS переменных
           borderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-line-width').trim()),
           pointRadius: parseInt(getComputedStyle.getPropertyValue('--chart-point-radius').trim()),
           pointHoverRadius: parseInt(getComputedStyle.getPropertyValue('--chart-point-hover-radius').trim()),
@@ -250,6 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
     updateThemeIcon(theme);
+    location.reload(); // Перезагрузка страницы для применения новой темы
   }
 
   /**
@@ -265,6 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
     themeSelect.value = nextTheme;
     localStorage.setItem('theme', nextTheme);
     updateThemeIcon(nextTheme);
+    location.reload(); // Перезагрузка страницы для применения новой темы
   }
 
   /**
