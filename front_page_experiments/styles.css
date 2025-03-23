@@ -710,28 +710,25 @@ a {
 .theme-selector {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
-  background-color: var(--bg-secondary);
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-sm);
+  gap: var(--spacing-sm);
+  margin-left: var(--spacing-lg);
 }
 
 .theme-selector label {
-  color: var(--text-primary);
-  font-weight: 500;
+  color: var(--text-secondary);
   font-size: var(--font-size-sm);
+  margin-right: var(--spacing-xs);
 }
 
 .theme-selector select {
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: var(--spacing-xs) var(--spacing-sm);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
-  background-color: var(--card-bg);
+  background-color: var(--bg-primary);
   color: var(--text-primary);
-  cursor: pointer;
-  transition: all var(--transition-speed) ease;
   font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-speed);
 }
 
 .theme-selector select:hover {
@@ -739,36 +736,32 @@ a {
 }
 
 .theme-toggle {
-  background: none;
-  border: none;
-  padding: var(--spacing-sm);
-  cursor: pointer;
-  border-radius: 50%;
   width: var(--theme-toggle-size);
   height: var(--theme-toggle-size);
+  border: none;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--transition-speed) ease;
-  background-color: var(--card-bg);
-  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-speed);
+  margin-left: var(--spacing-sm);
 }
 
 .theme-toggle:hover {
-  transform: scale(var(--theme-toggle-scale));
-  background-color: var(--accent-primary);
-  color: var(--bg-primary);
-  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+  background-color: var(--bg-tertiary);
+  transform: var(--button-transform);
 }
 
 .theme-toggle i {
   font-size: var(--font-size-lg);
-  color: var(--text-primary);
-  transition: all var(--transition-speed) ease;
+  transition: transform var(--transition-speed);
 }
 
 .theme-toggle:hover i {
-  color: var(--bg-primary);
+  transform: scale(var(--theme-toggle-scale));
 }
 
 /* Отслеживаемые активы */
