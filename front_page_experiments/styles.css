@@ -315,7 +315,6 @@
 }
 
 [data-theme="colorblind"] .trend-up::before {
-
   margin-right: 4px;
   font-weight: bold;
 }
@@ -551,8 +550,9 @@ a {
   border-color: var(--accent-primary);
 }
 
-/* Контейнер для графика */
-.chart-container {
+/* Контейнер для графика и секций */
+.chart-container,
+.tracked-assets {
   background-color: var(--card-bg);
   border-radius: var(--border-radius);
   padding: var(--spacing-md);
@@ -561,16 +561,63 @@ a {
   transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
-.chart-container:hover {
+.chart-container:hover,
+.tracked-assets:hover {
   transform: var(--button-transform);
   box-shadow: var(--shadow-md);
 }
 
-.chart-container h4 { 
+.chart-container h4,
+.tracked-assets h3 {
   margin-bottom: var(--spacing-md);
   color: var(--text-primary);
   font-size: var(--font-size-lg);
   font-weight: 500;
+}
+
+/* Стили для заголовка секции отслеживаемых активов */
+.tracked-assets .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tracked-assets .section-header h3 {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.tracked-assets .section-header .refresh-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-speed) ease;
+}
+
+.tracked-assets .section-header .refresh-btn:hover {
+  color: var(--accent-primary);
+  background-color: var(--hover-bg);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .chart-container,
+  .tracked-assets {
+    margin: var(--spacing-sm);
+  }
+
+  .chart-container h4,
+  .tracked-assets h3 {
+    font-size: var(--font-size-md);
+  }
 }
 
 /* Портфель */
@@ -764,9 +811,68 @@ a {
   transform: scale(var(--theme-toggle-scale));
 }
 
+/* Контейнер для секций */
+.sections-container {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  align-items: stretch;
+  width: 100%;
+}
+
+/* Стили для секций внутри контейнера */
+.sections-container .tracked-assets,
+.sections-container #news {
+  flex: 1;
+  min-width: 300px;
+  padding: var(--spacing-md);
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+}
+
+/* Стили для заголовков секций */
+.sections-container .tracked-assets h3,
+.sections-container #news h3 {
+  margin: 0 0 var(--spacing-md) 0;
+  color: var(--text-primary);
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  line-height: 1.2;
+  padding: 0;
+}
+
+/* Стили для содержимого секций */
+.sections-container .tracked-assets .assets-list,
+.sections-container #news .news-list {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .sections-container {
+    flex-direction: column;
+  }
+  
+  .sections-container .tracked-assets,
+  .sections-container #news {
+    margin: var(--spacing-sm);
+    min-width: auto;
+  }
+}
+
 /* Отслеживаемые активы */
 .tracked-assets {
   margin-top: var(--spacing-md);
+
   padding: var(--spacing-md);
   background-color: var(--card-bg);
   border-radius: var(--border-radius);
@@ -783,11 +889,11 @@ a {
 }
 
 .tracked-assets h3 {
-  font-size: var(--font-size-sm);
-  text-transform: var(--section-title-transform);
-  color: var(--text-secondary);
-  letter-spacing: var(--section-title-spacing);
-  margin: 0;
+  font-size: var(--font-size-lg);
+  text-transform: none;
+  color: var(--text-primary);
+  letter-spacing: normal;
+  margin: 0 0 var(--spacing-md) 0;
 }
 
 .refresh-btn {
@@ -806,9 +912,9 @@ a {
 }
 
 .assets-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(var(--grid-item-min-width), 1fr));
-  gap: var(--grid-gap);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
 }
 
 .asset-item {
@@ -822,11 +928,12 @@ a {
   border: 1px solid var(--border-color);
   min-width: 0;
   position: relative;
+  width: 100%;
 }
 
 .asset-item:hover {
   background-color: var(--hover-bg);
-  transform: var(--button-transform);
+  transform: translateX(5px);
   box-shadow: var(--shadow-sm);
 }
 
@@ -842,6 +949,7 @@ a {
   font-size: var(--font-size-sm);
   color: var(--text-primary);
   flex-shrink: 0;
+  min-width: 60px;
 }
 
 .asset-item .price {
@@ -854,6 +962,26 @@ a {
   min-width: 0;
   font-size: var(--font-size-sm);
   transition: font-size var(--transition-speed) ease;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .asset-item {
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+  
+  .asset-item i {
+    font-size: var(--font-size-md);
+  }
+  
+  .asset-item span:not(.price) {
+    font-size: var(--font-size-xs);
+    min-width: 40px;
+  }
+
+  .asset-item .price {
+    font-size: var(--font-size-xs);
+  }
 }
 
 /* Адаптивность */

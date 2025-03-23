@@ -67,63 +67,6 @@
       </a>
     </nav>
 
-    <!-- Секция отслеживаемых активов -->
-    <div class="tracked-assets">
-      <!-- Заголовок секции с кнопкой обновления -->
-      <div class="section-header">
-        <h3>Отслеживаемые активы</h3>
-        <button class="refresh-btn" title="Обновить курсы">
-          <i class="fas fa-sync-alt"></i>
-        </button>
-      </div>
-      
-      <!-- Список активов с иконками и ценами -->
-      <div class="assets-list">
-        <!-- Каждый актив имеет иконку, название и текущую цену -->
-        <div class="asset-item">
-          <i class="fab fa-bitcoin"></i>
-          <span>BTC</span>
-          <span class="price">7,142,252 ₽</span>
-        </div>
-        
-        <div class="asset-item">
-          <i class="fab fa-ethereum"></i>
-          <span>ETH</span>
-          <span class="price">165,777 ₽</span>
-        </div>
-        
-        <div class="asset-item">
-          <i class="fas fa-coins"></i>
-          <span>TON</span>
-          <span class="price">316,80 ₽</span>
-        </div>
-
-        <div class="asset-item">
-          <i class="fas fa-dollar-sign"></i>
-          <span>USD</span>
-          <span class="price">89,70 ₽</span>
-        </div>
-
-        <div class="asset-item">
-          <i class="fas fa-euro-sign"></i>
-          <span>EUR</span>
-          <span class="price">89,70 ₽</span>
-        </div>
-
-        <div class="asset-item">
-          <i class="fas fa-yen-sign"></i>
-          <span>CNY</span>
-          <span class="price">11,80 ₽</span>
-        </div>
-
-        <div class="asset-item">
-          <i class="fas fa-money-bill"></i>
-          <span>AED</span>
-          <span class="price">22,83 ₽</span>
-        </div>
-      </div>
-    </div>
-
     <!-- Нижняя панель -->
     <div class="sidebar-footer">
       <!-- Удаляем кнопку переключения темы -->
@@ -212,23 +155,83 @@
       </table>
     </div>
 
-    <!-- Секция новостей -->
-    <div class="chart-container" id="news">
-      <h4>Финансовые новости</h4>
-      <ul class="news-list">
-        <!-- Список новостей с временными метками -->
-        <li>
-          <strong>12:30</strong> — Рынок криптовалют демонстрирует повышенную волатильность: аналитики прогнозируют
-          возможное снижение.
-        </li>
-        <li>
-          <strong>11:15</strong> — Евро укрепился на фоне свежих экономических данных. Эксперт поделился своими
-          выводами.
-        </li>
-        <li>
-          <strong>10:00</strong> — Рубль стабилизируется по отношению к USD, а спрос на евро заметно растёт.
-        </li>
-      </ul>
+    <!-- Секции отслеживаемых активов и новостей -->
+    <div class="sections-container">
+      <!-- Секция отслеживаемых активов -->
+      <div class="tracked-assets">
+        <!-- Заголовок секции с кнопкой обновления -->
+        <div class="section-header">
+          <h3>Отслеживаемые активы</h3>
+          <button class="refresh-btn" title="Обновить курсы">
+            <i class="fas fa-sync-alt"></i>
+          </button>
+        </div>
+        
+        <!-- Список активов с иконками и ценами -->
+        <div class="assets-list">
+          <!-- Каждый актив имеет иконку, название и текущую цену -->
+          <div class="asset-item">
+            <i class="fab fa-bitcoin"></i>
+            <span>BTC</span>
+            <span class="price">7,142,252 ₽</span>
+          </div>
+          
+          <div class="asset-item">
+            <i class="fab fa-ethereum"></i>
+            <span>ETH</span>
+            <span class="price">165,777 ₽</span>
+          </div>
+          
+          <div class="asset-item">
+            <i class="fas fa-coins"></i>
+            <span>TON</span>
+            <span class="price">316,80 ₽</span>
+          </div>
+
+          <div class="asset-item">
+            <i class="fas fa-dollar-sign"></i>
+            <span>USD</span>
+            <span class="price">89,70 ₽</span>
+          </div>
+
+          <div class="asset-item">
+            <i class="fas fa-euro-sign"></i>
+            <span>EUR</span>
+            <span class="price">89,70 ₽</span>
+          </div>
+
+          <div class="asset-item">
+            <i class="fas fa-yen-sign"></i>
+            <span>CNY</span>
+            <span class="price">11,80 ₽</span>
+          </div>
+
+          <div class="asset-item">
+            <i class="fas fa-money-bill"></i>
+            <span>AED</span>
+            <span class="price">22,83 ₽</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Секция новостей -->
+      <div class="chart-container" id="news">
+        <h3>Финансовые новости</h3>
+        <ul class="news-list">
+          <!-- Список новостей с временными метками -->
+          <li>
+            <strong>12:30</strong> — Рынок криптовалют демонстрирует повышенную волатильность: аналитики прогнозируют
+            возможное снижение.
+          </li>
+          <li>
+            <strong>11:15</strong> — Евро укрепился на фоне свежих экономических данных. Эксперт поделился своими
+            выводами.
+          </li>
+          <li>
+            <strong>10:00</strong> — Рубль стабилизируется по отношению к USD, а спрос на евро заметно растёт.
+          </li>
+        </ul>
+      </div>
     </div>
 
     <!-- Панель управления графиками -->
