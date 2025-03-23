@@ -505,7 +505,8 @@ a {
 }
 
 /* Основной контент */
-.main-content { 
+.main-content {
+  width: 100%;
   margin-left: var(--sidebar-width); /* Отступ слева для основного контента */
   padding: var(--spacing-md); 
   overflow-y: auto; /* Вертикальная прокрутка */

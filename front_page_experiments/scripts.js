@@ -259,8 +259,8 @@ async function getFiatPricesFromMOEX() {
         else if (secId === 'CNYRUB_TOM') {
           prices.CNY = price;
         }
-        // AEDRUB_TOM - дирхам ОАЭ
-        else if (secId === 'AEDRUB_TOM') {
+        // AEDRUB_TOD - дирхам ОАЭ
+        else if (secId === 'AEDRUB_TOD') {
           prices.AED = price;
         }
       }
