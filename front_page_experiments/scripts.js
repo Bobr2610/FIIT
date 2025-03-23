@@ -324,15 +324,30 @@ const NUMBER_FORMAT_OPTIONS = {
 
 /**
  * Форматирует число в цену в рублях
+ * 
+ * Функция:
+ * 1. Проверяет наличие значения
+ * 2. Форматирует число с учетом локали
+ * 3. Добавляет символ рубля
+ * 
  * @param {number} price - Число для форматирования
  * @returns {string} Отформатированная цена в рублях
  */
 function formatPrice(price) {
+  if (price === undefined || price === null) {
+    return '— ₽';
+  }
   return `${price.toLocaleString('ru-RU', NUMBER_FORMAT_OPTIONS)} ₽`;
 }
 
 /**
  * Обновление всех курсов в интерфейсе
+ * 
+ * Функция:
+ * 1. Получает актуальные цены с бирж
+ * 2. Обновляет отображение цен с анимацией
+ * 3. Подстраивает размер шрифта
+ * 4. Обрабатывает возможные ошибки
  */
 async function updateAllPrices() {
   const refreshBtn = document.querySelector('.refresh-btn');
@@ -358,14 +373,20 @@ async function updateAllPrices() {
       }, 500);
     });
 
-    // Обновляем значения
-    document.querySelector('.asset-item:nth-child(1) .price').textContent = formatPrice(btcPrice);
-    document.querySelector('.asset-item:nth-child(2) .price').textContent = formatPrice(ethPrice);
-    document.querySelector('.asset-item:nth-child(3) .price').textContent = formatPrice(tonPrice);
-    document.querySelector('.asset-item:nth-child(4) .price').textContent = formatPrice(fiatPrices.USD);
-    document.querySelector('.asset-item:nth-child(5) .price').textContent = formatPrice(fiatPrices.EUR);
-    document.querySelector('.asset-item:nth-child(6) .price').textContent = formatPrice(fiatPrices.CNY);
-    document.querySelector('.asset-item:nth-child(7) .price').textContent = formatPrice(fiatPrices.AED);
+    // Обновляем значения с проверкой на undefined
+    const prices = [
+      btcPrice,
+      ethPrice,
+      tonPrice,
+      fiatPrices?.USD,
+      fiatPrices?.EUR,
+      fiatPrices?.CNY,
+      fiatPrices?.AED
+    ];
+
+    priceElements.forEach((element, index) => {
+      element.textContent = formatPrice(prices[index]);
+    });
 
     // Подстраиваем размер шрифта после обновления цен
     adjustPriceFontSize();
@@ -567,12 +588,37 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Получение финансовых новостей из локального HTML файла
- * @returns {Promise<Array>} Массив новостей
+ * Получение финансовых новостей из API РБК через CORS-прокси
+ * 
+ * Функция выполняет следующие действия:
+ * 1. Делает запрос к API РБК через CORS-прокси
+ * 2. Парсит полученный HTML
+ * 3. Извлекает первые 8 новостей
+ * 4. В случае ошибки показывает заглушку
+ * 
+ * @returns {Promise<Array>} Массив новостей в формате:
+ *   {
+ *     text: string,      // Текст новости
+ *     link: string,      // Ссылка на новость
+ *     category: string,  // Категория новости
+ *     description: string // Описание новости (пустое)
+ *   }
  */
 async function getFinancialNews() {
   try {
-    const response = await fetch('rbc.ru_api_v1_finance_news.html');
+    const corsProxy = 'https://api.allorigins.win/raw?url=';
+    const targetUrl = encodeURIComponent('https://www.rbc.ru/api/v1/finance/news');
+    
+    const response = await fetch(corsProxy + targetUrl, {
+      method: 'GET',
+      headers: {
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Language': 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0',
+        'Origin': window.location.origin,
+        'Referer': 'https://www.rbc.ru/'
+      }
+    });
     
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -629,7 +675,13 @@ async function getFinancialNews() {
 
 /**
  * Обновление списка новостей на странице
- * @param {Array} news - Массив новостей
+ * 
+ * Функция:
+ * 1. Находит элемент списка новостей
+ * 2. Преобразует массив новостей в HTML-разметку
+ * 3. Обновляет содержимое списка
+ * 
+ * @param {Array} news - Массив новостей для отображения
  */
 function updateNewsList(news) {
   const newsList = document.querySelector('.news-list');
