@@ -4,17 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FIIT - Регистрация</title>
+    <!-- Подключение основного файла стилей -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Подключение шрифтов Google Fonts для улучшения типографики -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <!-- Подключение Font Awesome для иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="auth-container">
-        <div class="auth-card">
-            <!-- Логотип -->
-            <div class="logo">
-                <h1>FIIT</h1>
-            </div>
+    <!-- Верхняя панель с логотипом и настройками темы -->
+    <!-- <div class="top-bar" style="text-align: center; width: 100%;">
+        
+    </div> -->
 
+    <!-- Контейнер для аутентификации -->
+    <div class="auth-container" style="width: 100%;">
+        <div class="logo">
+            <a href="#top" title="Наверх">
+                <img src="https://raw.githubusercontent.com/Bobr2610/FIIT/main/Logo.png" alt="Логотип FIIT">
+            </a>
+        </div>
+
+       
+        <!-- Селектор темы с кнопкой переключения -->
+        <div class="theme-selector">
+            <label for="colorScheme">Тема:</label>
+            <select id="colorScheme">
+                <option value="light">Светлая</option>
+                <option value="dark">Темная</option>
+                <option value="colorblind">Высокий контраст</option>
+            </select>
+            <button class="theme-toggle" title="Переключить тему">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+        <div class="auth-card" style="background-color: var(--card-bg); border-radius: var(--border-radius); padding: var(--spacing-md); box-shadow: var(--shadow-sm);">
             <!-- Форма регистрации -->
             <form class="auth-form">
                 <div class="form-group">
