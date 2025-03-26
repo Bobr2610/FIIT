@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIIT - Регистрация</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <!-- Логотип -->
+            <div class="logo">
+                <h1>FIIT</h1>
+            </div>
+
+            <!-- Форма регистрации -->
+            <form class="auth-form">
+                <div class="form-group">
+                    <input type="text" 
+                           id="username" 
+                           class="form-input" 
+                           placeholder="Введите имя пользователя"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" 
+                           id="email" 
+                           class="form-input" 
+                           placeholder="Введите свой email"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" 
+                           id="password" 
+                           class="form-input" 
+                           placeholder="Введите пароль"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" 
+                           id="confirm-password" 
+                           class="form-input" 
+                           placeholder="Подтвердите пароль"
+                           required>
+                </div>
+
+                <button type="submit" class="auth-btn">
+                    Зарегистрироваться
+                </button>
+            </form>
+
+            <!-- Ссылка на вход -->
+            <div class="auth-footer">
+                <p>Уже имеется аккаунт? <a href="#" class="auth-link">Войдите</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
