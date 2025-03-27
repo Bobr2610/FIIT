@@ -25,7 +25,10 @@ git clone https://github.com/Bobr2610/FIIT
 cd FIIT
 ```
 
-## 4. Сборка контейнера
+## 4. Настройка файлов окружения
+Скопировать файл `config/.env.example` в эту же папку, назвав его `.env`, и заполнить его.
+
+## 5. Сборка контейнера
 ```shell
 docker compose up --build
 ```
