@@ -1,5 +1,7 @@
-![alt text](https://github.com/Bobr2610/Python_team/blob/main/Logo.png?raw=true)
-# ExchangeDashboard (FIIT – Financial Intelligent Investment Tracker)
+![alt text](logo.png "FIIT")
+
+# FIIT – Financial Intelligent Investment Tracker
+
 ## Команда
 1. **Белянский Кирилл** : Lead Frontend Developer
 2. **Сальманов Эльдар** : Lead Backend Developer
@@ -11,34 +13,35 @@
 ## 1. Установка внешних зависимостей
 
 Для запуска проекта требуется
-1. [Python](https://www.python.org/)
-2. [Poetry](https://python-poetry.org/)
+1. [Docker](https://www.docker.com/)
 
 ## 2. Клонирование репозитория
 ```shell
-git clone https://github.com/Bobr2610/Python_team
+git clone https://github.com/Bobr2610/FIIT
 ```
 
 ## 3. Переход в папку проекта
 ```shell
-cd Python_team
+cd FIIT
 ```
 
-## 4. Настройка Poetry
+## 4. Сборка контейнера
 ```shell
-poetry config virtualenvs.in-project true
-```
-
-## 5. Установка внутренних зависимостей
-```shell
-poetry install
+docker compose up --build
 ```
 
 ---
 
 # Run
 
-## Запуск проекта
+## Запуск проекта (dev mode)
+
 ```shell
-poetry run python manage.py runserver
+docker compose watch
+```
+
+## Запуск проекта (prod mode)
+
+```shell
+docker compose up
 ```
