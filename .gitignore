@@ -1,11 +1,11 @@
 /.idea
 /.venv
-poetry.lock
 
 __pycache__
 migrations
 
-/config
+config/.env
+poetry.lock
 
 # TODO: позже надо убрать
 db.sqlite3
