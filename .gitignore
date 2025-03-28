@@ -1,9 +1,9 @@
 /.idea
 /.venv
+
+__pycache__
+
+
+config/.env
 poetry.lock
 
-migrations
-
-# TODO: позже надо убрать
-db.sqlite3
-.qodo
