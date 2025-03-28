@@ -2,10 +2,6 @@
 /.venv
 
 __pycache__
-migrations
 
 config/.env
 poetry.lock
-
-# TODO: позже надо убрать
-db.sqlite3

@@ -1,4 +1,3 @@
-from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render

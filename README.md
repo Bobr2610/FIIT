@@ -37,13 +37,15 @@ docker compose up --build
 
 # Run
 
-## Запуск проекта (dev mode)
+## Запуск проекта
+
+### Dev mode
 
 ```shell
 docker compose watch
 ```
 
-## Запуск проекта (prod mode)
+### Production mode
 
 ```shell
 docker compose up
