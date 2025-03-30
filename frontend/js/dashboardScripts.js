@@ -138,6 +138,7 @@ function createChartConfig(type, data, options = {}) {
           title: { display: true, text: 'Месяц' }
         },
         y: {
+          type: 'logarithmic',
           ...options.y,
           display: true,
           title: { display: true, text: options.yAxisTitle || 'Курс' }
