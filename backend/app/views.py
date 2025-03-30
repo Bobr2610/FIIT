@@ -45,8 +45,9 @@ class LoginView(auth_views.LoginView):
 class LogoutView(LoginRequiredMixin, auth_views.LogoutView):
     template_name = 'logout.html'
 
-    next_page = '/login'
+    next_page = '/account/login/'
 
 
-class DashboardView(TemplateView):
+class DashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'dashboard.html'
+    login_url = '/account/login/'
