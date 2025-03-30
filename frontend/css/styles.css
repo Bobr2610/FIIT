@@ -859,6 +859,10 @@ a {
   padding: 0;
 }
 
+.sections-container #news .news-list {
+  margin-left: var(--spacing-md);
+}
+
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
   .sections-container {
@@ -1102,3 +1106,4 @@ a {
   font-weight: 500;
   margin-left: 0.5rem;
 } 
+
