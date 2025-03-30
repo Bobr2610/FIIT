@@ -302,7 +302,7 @@
   font-weight: bold;
 }
 
-[data-theme="colorblind"] .chart-container,
+[data-theme="colorblind"] .form-container, .chart-container,
 [data-theme="colorblind"] .portfolio {
   border: var(--border-width) solid var(--border-color);
 }
@@ -376,6 +376,7 @@
 }
 
 /* Улучшенные стили для форм */
+[data-theme="colorblind"] a.account-btn,
 [data-theme="colorblind"] input,
 [data-theme="colorblind"] select,
 [data-theme="colorblind"] textarea {
@@ -383,6 +384,7 @@
   font-weight: bold;
 }
 
+[data-theme="colorblind"] a.account-btn,
 [data-theme="colorblind"] input:focus,
 [data-theme="colorblind"] select:focus,
 [data-theme="colorblind"] textarea:focus {
@@ -554,7 +556,7 @@ a {
 }
 
 /* Контейнер для графика и секций */
-.chart-container,
+.form-container, .chart-container,
 .tracked-assets {
   background-color: var(--card-bg);
   border-radius: var(--border-radius);
@@ -564,13 +566,17 @@ a {
   transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
-.chart-container:hover,
+.form-container:hover, .chart-container:hover,
 .tracked-assets:hover {
   transform: var(--button-transform);
   box-shadow: var(--shadow-md);
 }
 
-.chart-container h4,
+.form-container .errorlist.nonfield, .form-container .helptext {
+  margin-left: var(--spacing-md);
+}
+
+.form-container h1, .chart-container h4,
 .tracked-assets h3 {
   margin-bottom: var(--spacing-md);
   color: var(--text-primary);
@@ -612,12 +618,12 @@ a {
 
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
-  .chart-container,
+  .form-container, .chart-container,
   .tracked-assets {
     margin: var(--spacing-sm);
   }
 
-  .chart-container h4,
+  .form-container, .chart-container h4,
   .tracked-assets h3 {
     font-size: var(--font-size-md);
   }
@@ -770,7 +776,15 @@ a {
   margin-right: var(--spacing-xs);
 }
 
-.theme-selector select {
+.form-container label {
+  margin-right: var(--spacing-xs);
+}
+
+.form-container .helptext {
+  margin-right: var(--spacing-xs);
+}
+
+.theme-selector select, .form-container input:not(.account-btn) {
   padding: var(--spacing-xs) var(--spacing-sm);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
@@ -781,8 +795,21 @@ a {
   transition: all var(--transition-speed);
 }
 
-.theme-selector select:hover {
+.form-container input, a.account-btn {
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+
+.theme-selector select:hover, .form-container input:not(.account-btn):hover, a.account-btn:hover {
   border-color: var(--accent-primary);
+}
+
+
+input.account-btn, a.account-btn {
+  font-weight: var(--font-weight-normal);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-sm);
 }
 
 .theme-toggle {

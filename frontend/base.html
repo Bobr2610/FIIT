@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ru">
-    <!-- 
+<!-- 
     Основной HTML файл финансовой панели
     Использует современные практики веб-разработки:
     - Семантическая разметка (aside, nav, main)
@@ -13,7 +13,6 @@
 
 <head>
     <meta charset="UTF-8">
-    {% load static %}
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <!-- Мета-тег для корректного отображения на мобильных устройствах -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +22,7 @@
 
     <!-- Подключение Chart.js для создания интерактивных графиков -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+
     {% load static %}
     <!-- Подключение локальных стилей -->
     <link href="{% static 'styles.css' %}" rel="stylesheet">
@@ -32,15 +31,58 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>
         {% block title %}
-            FIIT Финансовая Панель
+        FIIT Финансовая Панель
         {% endblock %}
     </title>
 </head>
-<body>
-{% block content %}
 
-{% endblock %}
-<!-- Подключение скриптов в конце body для оптимизации загрузки -->
-<script src="{% static 'scripts.js' %}"></script>
+<body>
+    {% block sidebar %}
+
+    <aside class="sidebar">
+        <!-- Логотип с ссылкой наверх -->
+        <div class="logo">
+            <a href="#top" title="Наверх">
+                <img src="{% static 'logo.png' %}" alt="Логотип FIIT">
+            </a>
+        </div>
+    </aside>
+
+    {% endblock %}
+
+    <div class="main-content">
+        {% block topbar %}
+
+        <!-- Верхняя панель с аккаунтом и настройками темы -->
+        <div class="top-bar" id="top">
+            
+              <!-- Селектор темы с кнопкой переключения -->
+            <div class="theme-selector">
+                <label for="colorScheme">Тема:</label>
+                <select id="colorScheme">
+                    <option value="light">Светлая</option>
+                    <option value="dark">Темная</option>
+                    <option value="colorblind">Высокий контраст</option>
+                </select>
+                <button class="theme-toggle" title="Переключить тему">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+        </div>
+
+        {% endblock %}
+
+
+        {% block content %}
+
+        {% endblock %}
+    </div>
+    {% block scripts %}
+
+    <!-- Подключение скриптов в конце body для оптимизации загрузки -->
+    <script src="{% static 'scripts.js' %}"></script>
 </body>
+
 </html>
+{% endblock %}

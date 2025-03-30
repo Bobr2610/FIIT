@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
-{% block content %}
-
 {% load static %}
+
+{% block sidebar %}
 
 <!-- Сайдбар - боковая панель навигации -->
 <aside class="sidebar">
@@ -48,21 +48,21 @@
     </div>
 </aside>
 
-<!-- Основной контент страницы -->
-<div class="main-content">
+{% endblock %}
+
+<!-- <div class="main-content"> -->
+
+{% block topbar %}
+
     <!-- Верхняя панель с аккаунтом и настройками темы -->
     <div class="top-bar" id="top">
         <!-- Группа элементов аккаунта -->
         <div class="account-group">
-            <a href="#account" class="account-link">
+            <a href="/account/" class="account-link">
                 <i class="fas fa-user-circle"></i>
                 <span>Аккаунт</span>
             </a>
-            <!-- Кнопки авторизации -->
-            <div class="account-buttons">
-                <button class="account-btn">Войти</button>
-                <button class="account-btn">Зарегистрироваться</button>
-            </div>
+
         </div>
 
         <!-- Добавляем текущее время под логотип -->
@@ -81,6 +81,14 @@
             </button>
         </div>
     </div>
+
+
+{% endblock %}
+
+{% block content %}
+
+<!-- Основной контент страницы -->
+
 
     <!-- Основные секции контента -->
     <!-- Секция оповещений -->
@@ -244,7 +252,12 @@
         <canvas id="fiatChart" height="140"></canvas>
         <small>Фиатные валюты в RUB. Значения в логарифмическом масштабе.</small>
     </div>
-</div>
+
+
+{% endblock %}
+<!-- </div> -->
+
+{% block scripts %}
 
 <script>
     var exchangeratesFile = '{% static "exchangerates.json" %}';

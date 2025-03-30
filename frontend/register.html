@@ -1,17 +1,22 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Register Page
+    Страница регистрации
 {% endblock %}
 
 {% block content %}
-	<h1>
-        Register Form
+<div class="form-container" id="register">
+    <h1>
+        Зарегистрируйте свой аккаунт
     </h1>
 
     <form action="{% url 'app:register' %}" method="post">
         {% csrf_token %}
         {{ form }}
-        <input type="submit">
+        <div class="account-buttons">
+            <input type="submit" class="account-btn" value="Зарегистрироваться">
+            <a id="login" class="account-btn" href="/account/login/">Войти</a>
+        </div>
     </form>
+</div>
 {% endblock %}
