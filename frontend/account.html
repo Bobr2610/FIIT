@@ -1,24 +1,29 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Account Page
+    Управление аккаунтом
 {% endblock %}
 
 {% block content %}
-	<h1>
-        User Information
+<div class="form-container" id="account">
+    <h1>
+        Управление вашим аккаунтом
     </h1>
 
-    {% if user.is_authenticated %}
-        <h1>
-            You are logged in!
-        </h1>
+    <form action="{% url 'app:account' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <div class="account-buttons">
+            <input type="submit" class="account-btn" value="Сохранить изменения">
+        </div>
+    </form>
 
-        {% if user.is_authenticated %}
-            <form action="{% url 'app:logout' %}" method="post">
-                {% csrf_token %}
-                <input type="submit" value="Выйти">
-            </form>
-        {% endif %}
-    {% endif %}
+    <form method="post" action="{% url 'app:logout' %}">
+        {% csrf_token %}
+        <div class="account-buttons">
+            <input type="submit" class="account-btn" value="Выйти">
+        </div>
+    </form>
+    
+</div>
 {% endblock %}
