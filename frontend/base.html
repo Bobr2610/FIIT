@@ -2,14 +2,37 @@
 
 <!DOCTYPE html>
 <html lang="ru">
+    <!-- 
+    Основной HTML файл финансовой панели
+    Использует современные практики веб-разработки:
+    - Семантическая разметка (aside, nav, main)
+    - Адаптивный дизайн
+    - Доступность (ARIA-атрибуты, семантические теги)
+    - Оптимизация производительности (асинхронная загрузка скриптов)
+    -->
+
 <head>
     <meta charset="UTF-8">
-
+    {% load static %}
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <!-- Мета-тег для корректного отображения на мобильных устройствах -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Подключение шрифтов Google Fonts для улучшения типографики -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+
+    <!-- Подключение Chart.js для создания интерактивных графиков -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    {% load static %}
+    <!-- Подключение локальных стилей -->
+    <link href="{% static 'styles.css' %}" rel="stylesheet">
+
+    <!-- Подключение Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>
         {% block title %}
-            Base Title
+            FIIT Финансовая Панель
         {% endblock %}
     </title>
 </head>
@@ -17,5 +40,7 @@
 {% block content %}
 
 {% endblock %}
+<!-- Подключение скриптов в конце body для оптимизации загрузки -->
+<script src="{% static 'scripts.js' %}"></script>
 </body>
 </html>

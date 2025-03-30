@@ -1,11 +1,255 @@
 {% extends "base.html" %}
 
-{% block title %}
-    Dashboard Page
-{% endblock %}
-
 {% block content %}
-	<h1>
-        Dashboard Charts
-    </h1>
+
+{% load static %}
+
+<!-- Сайдбар - боковая панель навигации -->
+<aside class="sidebar">
+    <!-- Логотип с ссылкой наверх -->
+    <div class="logo">
+        <a href="#top" title="Наверх">
+            <img src="{% static 'logo.png' %}" alt="Логотип FIIT">
+        </a>
+    </div>
+
+    <!-- Основная навигация с иконками -->
+    <nav class="main-nav">
+        <!-- Каждый пункт навигации имеет иконку и текст -->
+        <a href="#alerts" class="nav-item">
+            <i class="fas fa-bell"></i>
+            <span>Оповещения</span>
+        </a>
+        <a href="#portfolio" class="nav-item">
+            <i class="fas fa-wallet"></i>
+            <span>Портфель</span>
+        </a>
+        <a href="#news" class="nav-item">
+            <i class="fas fa-newspaper"></i>
+            <span>Курсы и новости</span>
+        </a>
+        <a href="#dashboard" class="nav-item">
+            <i class="fas fa-chart-line"></i>
+            <span>Обзор рынка</span>
+        </a>
+        <a href="#cryptoAssets" class="nav-item">
+            <i class="fab fa-bitcoin"></i>
+            <span>Криптовалюты</span>
+        </a>
+        <a href="#fiatAssets" class="nav-item">
+            <i class="fas fa-money-bill-wave"></i>
+            <span>Фиатные валюты</span>
+        </a>
+    </nav>
+
+    <!-- Нижняя панель -->
+    <div class="sidebar-footer">
+        <!-- Тут можно что-то вставить полезное -->
+    </div>
+</aside>
+
+<!-- Основной контент страницы -->
+<div class="main-content">
+    <!-- Верхняя панель с аккаунтом и настройками темы -->
+    <div class="top-bar" id="top">
+        <!-- Группа элементов аккаунта -->
+        <div class="account-group">
+            <a href="#account" class="account-link">
+                <i class="fas fa-user-circle"></i>
+                <span>Аккаунт</span>
+            </a>
+            <!-- Кнопки авторизации -->
+            <div class="account-buttons">
+                <button class="account-btn">Войти</button>
+                <button class="account-btn">Зарегистрироваться</button>
+            </div>
+        </div>
+
+        <!-- Добавляем текущее время под логотип -->
+        <span class="current-time"></span>
+
+        <!-- Селектор темы с кнопкой переключения -->
+        <div class="theme-selector">
+            <label for="colorScheme">Тема:</label>
+            <select id="colorScheme">
+                <option value="light">Светлая</option>
+                <option value="dark">Темная</option>
+                <option value="colorblind">Высокий контраст</option>
+            </select>
+            <button class="theme-toggle" title="Переключить тему">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Основные секции контента -->
+    <!-- Секция оповещений -->
+    <div class="chart-container" id="alerts">
+        <h4>Оповещения</h4>
+        <p>
+            Выберите валюту для отслеживания и получайте уведомления по электронной почте или Telegram, когда
+            достигаются
+            заданные пороговые значения.
+        </p>
+    </div>
+
+    <!-- Секция портфеля с таблицей -->
+    <div class="portfolio" id="portfolio">
+        <h4>Ваш портфель</h4>
+        <div class="balance">Баланс: 40 150 RUB</div>
+        <!-- Таблица с данными портфеля -->
+        <table class="portfolio-table">
+            <thead>
+                <tr>
+                    <th>Валюта</th>
+                    <th>Количество</th>
+                    <th>Текущий курс</th>
+                    <th>Общая стоимость</th>
+                    <th>Изменение, %</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>USD</td>
+                    <td>100 <i class="fas fa-arrow-up trend-up"></i></td>
+                    <td>92,5 <i class="fas fa-arrow-up trend-up"></i></td>
+                    <td>9 250 <i class="fas fa-arrow-up trend-up"></i></td>
+                    <td>+2,5% <i class="fas fa-arrow-up trend-up"></i></td>
+                </tr>
+                <tr>
+                    <td>BTC</td>
+                    <td>0,01 </td>
+                    <td>2 450 000 <i class="fas fa-arrow-up trend-up"></i></td>
+                    <td>24 500 <i class="fas fa-arrow-up trend-up"></i></td>
+                    <td>+5,2% <i class="fas fa-arrow-up trend-up"></i></td>
+                </tr>
+                <tr>
+                    <td>CNY</td>
+                    <td>500 <i class="fas fa-arrow-down trend-down"></i></td>
+                    <td>12,8 <i class="fas fa-arrow-down trend-down"></i></td>
+                    <td>6 400 <i class="fas fa-arrow-down trend-down"></i></td>
+                    <td>-1,8% <i class="fas fa-arrow-down trend-down"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Секции отслеживаемых активов и новостей -->
+    <div class="sections-container">
+        <!-- Секция отслеживаемых активов -->
+        <div class="tracked-assets">
+            <!-- Заголовок секции с кнопкой обновления -->
+            <div class="section-header">
+                <div class="header-left">
+                    <h3>Отслеживаемые активы </h3>
+                </div>
+                <button class="refresh-btn" title="Обновить курсы">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
+
+            <!-- Список активов с иконками и ценами -->
+            <div class="assets-list">
+                <!-- Каждый актив имеет иконку, название и текущую цену -->
+                <div class="asset-item">
+                    <i class="fab fa-bitcoin"></i>
+                    <span>BTC</span>
+                    <span class="price">7,142,252 ₽</span>
+                </div>
+
+                <div class="asset-item">
+                    <i class="fab fa-ethereum"></i>
+                    <span>ETH</span>
+                    <span class="price">165,777 ₽</span>
+                </div>
+
+                <div class="asset-item">
+                    <i class="fas fa-coins"></i>
+                    <span>TON</span>
+                    <span class="price">316,80 ₽</span>
+                </div>
+
+                <div class="asset-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>USD</span>
+                    <span class="price">89,70 ₽</span>
+                </div>
+
+                <div class="asset-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>EUR</span>
+                    <span class="price">89,70 ₽</span>
+                </div>
+
+                <div class="asset-item">
+                    <i class="fas fa-yen-sign"></i>
+                    <span>CNY</span>
+                    <span class="price">11,80 ₽</span>
+                </div>
+
+                <div class="asset-item">
+                    <i class="fas fa-money-bill"></i>
+                    <span>AED</span>
+                    <span class="price">22,83 ₽</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Секция новостей -->
+        <div class="chart-container" id="news">
+            <h3>Финансовые новости</h3>
+            <ul class="news-list">
+                <!-- Список новостей с временными метками -->
+                <li>
+                    <strong>12:30</strong> — Рынок криптовалют демонстрирует повышенную волатильность: аналитики
+                    прогнозируют
+                    возможное снижение.
+                </li>
+                <li>
+                    <strong>11:15</strong> — Евро укрепился на фоне свежих экономических данных. Эксперт поделился
+                    своими
+                    выводами.
+                </li>
+                <li>
+                    <strong>10:00</strong> — Рубль стабилизируется по отношению к USD, а спрос на евро заметно растёт.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Панель управления графиками -->
+    <div class="dashboard-header" id="dashboard">
+        <h2>Обзор рынка</h2>
+        <!-- Фильтр временного интервала -->
+        <div class="time-filter">
+            <label for="timeRange">Интервал:</label>
+            <select id="timeRange">
+                <option value="1m">1 месяц</option>
+                <option value="6m">6 месяцев</option>
+                <option value="1y">1 год</option>
+                <option value="3y" selected>3 года</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Графики криптовалют и фиатных валют -->
+    <div class="chart-container" id="cryptoAssets">
+        <h4>Динамика криптовалют</h4>
+        <canvas id="cryptoChart" height="140"></canvas>
+        <small>Криптовалюты в USD. Значения в логарифмическом масштабе.</small>
+    </div>
+
+    <div class="chart-container" id="fiatAssets">
+        <h4>Динамика фиатных валют</h4>
+        <canvas id="fiatChart" height="140"></canvas>
+        <small>Фиатные валюты в RUB. Значения в логарифмическом масштабе.</small>
+    </div>
+</div>
+
+<script>
+    var exchangeratesFile = '{% static "exchangerates.json" %}';
+</script>
+<script src="{% static 'scripts.js' %}"></script>
+<script src="{% static 'dashboardScripts.js' %}"></script>
+
 {% endblock %}
