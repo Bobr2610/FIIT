@@ -120,7 +120,8 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     'frontend/css',
-    'frontend/js'
+    'frontend/js',
+    'frontend/img'
 ]
 
 # Default primary key field type
