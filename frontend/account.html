@@ -16,7 +16,12 @@
 
     <form action="{% url 'app:account' %}" method="post">
         {% csrf_token %}
-        {{ form }}
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        
+        {{ form.email.label_tag }}
+        {{ form.email }}
+
         <div class="account-buttons">
             <input type="submit" class="account-btn" value="Сохранить изменения">
         </div>
