@@ -10,6 +10,10 @@
         Управление вашим аккаунтом
     </h1>
 
+    <div class="current-username">
+        <p>Пользователь: <strong>{{ user.username }}</strong></p>
+    </div>
+
     <form action="{% url 'app:account' %}" method="post">
         {% csrf_token %}
         {{ form }}
