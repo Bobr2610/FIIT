@@ -14,11 +14,9 @@
             You are logged in!
         </h1>
 
-        {% if user.is_authenticated %}
-            <form action="{% url 'app:logout' %}" method="post">
-                {% csrf_token %}
-                <input type="submit" value="Выйти">
-            </form>
-        {% endif %}
+        <form action="{% url 'app:logout' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Выйти">
+        </form>
     {% endif %}
 {% endblock %}

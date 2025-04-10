@@ -25,7 +25,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.getenv('DJANGO_DEBUG', default=0))
 
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', default='127.0.0.1').split(',')
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', default='127.0.0.1').split(',')
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
     'app'
 ]
 
@@ -76,8 +77,12 @@ WSGI_APPLICATION = 'FIIT.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+           'ENGINE': 'django.db.backends.postgresql',
+           'NAME': os.getenv('POSTGRES_DB'),
+           'USER': os.getenv('POSTGRES_USER'),
+           'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+           'HOST': os.getenv('POSTGRES_HOST'),
+           'PORT': os.getenv('POSTGRES_PORT'),
     }
 }
 

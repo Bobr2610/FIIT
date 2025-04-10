@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from django.views.generic import FormView, TemplateView
 
 from .forms import *
+from .models import *
 
 
 class HomeView(TemplateView):
@@ -45,8 +46,17 @@ class LoginView(auth_views.LoginView):
 class LogoutView(LoginRequiredMixin, auth_views.LogoutView):
     template_name = 'logout.html'
 
-    next_page = '/login'
+    next_page = '/account/login'
 
 
-class DashboardView(TemplateView):
+class DashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'dashboard.html'
+
+    login_url = '/account/login'
+
+    def get(self, request, *args, **kwargs):
+        context = {}
+
+        context['currencies'] = Currency.objects.all()
+
+        return render(request, self.template_name, context)

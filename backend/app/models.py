@@ -1,11 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.postgres import fields
 
 
-# TODO
 class Account(User):
-    # login = models.EmailField(unique=True)
-    # password = models.CharField(max_length=128)
     telegram = models.URLField()
 
     def __str__(self):
@@ -20,7 +18,7 @@ class Portfolio(models.Model):
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.account.name # ???
+        return self.account.username + '_portfolio'
 
     class Meta:
         db_table = 'portfolio'
@@ -60,8 +58,7 @@ class Currency(models.Model):
 
 class CurrencyHistory(models.Model):
     currency = models.ForeignKey(Currency, on_delete=models.CASCADE)
-    # TODO
-    # rates = ???
+    rates = fields.ArrayField(models.BigIntegerField())
 
     class Meta:
         db_table = 'currency_history'
@@ -75,4 +72,3 @@ class Rate(models.Model):
     class Meta:
         db_table = 'rate'
         db_table_comment = 'Rate of currency in concrete time'
-

@@ -1,4 +1,4 @@
-![alt text](logo.png "FIIT")
+![alt text](frontend/img/logo.png "FIIT")
 
 # FIIT – Financial Intelligent Investment Tracker
 

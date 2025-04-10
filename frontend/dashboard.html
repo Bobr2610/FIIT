@@ -87,6 +87,11 @@
 
 {% block content %}
 
+    {% for currency in currencies %}
+        <h3>{{ currency.name }}, {{ currency.short_name }}</h3>
+    {% endfor %}
+
+
 <!-- Основной контент страницы -->
 
 
