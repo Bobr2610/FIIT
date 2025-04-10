@@ -22,7 +22,7 @@
         </div>
     </form>
 
-    <form method="post" action="{% url 'app:logout' %}">
+    <form action="{% url 'app:logout' %}">
         {% csrf_token %}
         <div class="account-buttons">
             <input type="submit" class="account-btn" value="Выйти">
