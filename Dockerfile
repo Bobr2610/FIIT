@@ -15,9 +15,8 @@ RUN pip install --upgrade pip &&  \
     poetry config virtualenvs.create false &&  \
     poetry install
 
-RUN python backend/manage.py makemigrations
-
 EXPOSE 8000
 
-CMD python backend/manage.py migrate &&  \
+CMD python backend/manage.py makemigrations &&  \
+    python backend/manage.py migrate &&  \
     python backend/manage.py runserver 0.0.0.0:8000

@@ -44,7 +44,7 @@ services:
         published: 5432
     env_file:
       - "config/.env"
-    image: postgres:13.3
+    image: postgres:15
     restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data/

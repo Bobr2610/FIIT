@@ -14,7 +14,7 @@
             You are logged in!
         </h1>
 
-        <form action="{% url 'app:logout' %}" method="post">
+        <form action="{% url 'app:logout' %}">
             {% csrf_token %}
             <input type="submit" value="Выйти">
         </form>
