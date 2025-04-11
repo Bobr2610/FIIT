@@ -226,9 +226,9 @@ async function getFiatPricesFromMOEX() {
     const prices = {};
     // Получаем массив данных по ценным бумагам из ответа API
     const securities = data.securities.data;
+
     // Получаем массив названий колонок для определения индексов нужных полей
     const columns = data.securities.columns;
-    
     // Находим индексы необходимых колонок в массиве columns:
     // SECID - идентификатор инструмента (например, USD000UTSTOM для доллара)
     // PREVPRICE - цена закрытия предыдущего дня
@@ -236,6 +236,7 @@ async function getFiatPricesFromMOEX() {
     const secIdIndex = columns.indexOf('SECID');
     const prevPriceIndex = columns.indexOf('PREVPRICE');
     const boardIdIndex = columns.indexOf('BOARDID');
+    // const statusIndex = columns.indexOf('STATUS')
     
     // Перебираем все валютные инструменты
     securities.forEach(security => {
@@ -245,6 +246,8 @@ async function getFiatPricesFromMOEX() {
       const price = parseFloat(security[prevPriceIndex]);
       
       // Проверяем что инструмент активен (STATUS='A') и цена является числом
+      // исправить на statusIndex
+      // !isNaN() попробовать заменить на parseFloat(), но, видимо, не получится
       if (security[columns.indexOf('STATUS')] === 'A' && !isNaN(price)) {
         // Для каждой валюты используем соответствующий инструмент расчетами tomorrow (TOM):
         // USD000UTSTOM - доллар США
