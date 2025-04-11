@@ -43,3 +43,25 @@ class LoginForm(AuthenticationForm):
     class Meta:
         model = Account
         fields = ['username', 'password']  # Fields included in the login form
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    """
+    Form for updating user profile information.
+    Includes fields for username and email.
+    """
+    email = forms.EmailField(required=False)  # Field for user's email address
+
+    class Meta:
+        model = Account
+        fields = ['username', 'email']  # Fields included in the form
+
+    def save(self, commit=True):
+        """
+        Saves the profile information to the database.
+        If commit is True, the changes are saved immediately.
+        """
+        profile = super(ProfileUpdateForm, self).save(commit=False)
+        if commit:
+            profile.save()  # Save the profile instance
+        return profile

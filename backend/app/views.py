@@ -8,6 +8,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 from api.models import Currency
 from .forms import *
+from .forms import ProfileUpdateForm
 
 
 class HomeView(TemplateView):
