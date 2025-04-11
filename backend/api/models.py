@@ -3,7 +3,17 @@ from django.contrib.auth.models import AbstractUser
 from django.contrib.postgres import fields
 
 
+# TODO
 class Account(AbstractUser):
+    """Модель аккаунта пользователя.
+
+    Расширяет стандартную модель пользователя Django (User), добавляя дополнительные поля.
+
+    Атрибуты:
+        username (str): Имя пользователя (наследуется от User)
+        email (str): Email пользователя (наследуется от User)
+        telegram (URLField): Ссылка на Telegram пользователя
+    """
     telegram = models.URLField()
 
     def __str__(self):
@@ -15,6 +25,13 @@ class Account(AbstractUser):
 
 
 class Portfolio(models.Model):
+    """Модель портфеля пользователя.
+
+    Представляет собой портфель инвестиций, принадлежащий определенному аккаунту.
+
+    Атрибуты:
+        account (ForeignKey): Связь с моделью Account, указывает на владельца портфеля
+    """
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -26,6 +43,18 @@ class Portfolio(models.Model):
 
 
 class Operation(models.Model):
+    """Модель операции в портфеле.
+
+    Представляет собой операцию покупки или продажи в портфеле пользователя.
+
+    Атрибуты:
+        portfolio (ForeignKey): Связь с портфелем, в котором совершена операция
+        operation_type (str): Тип операции (покупка/продажа)
+        product (str): Название продукта/валюты
+        amount (int): Количество купленных/проданных единиц
+        price (int): Цена за единицу
+        timestamp (DateTime): Время совершения операции
+    """
     OperationType = models.TextChoices('OperationType', 'BUY SELL')
 
     portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
@@ -45,6 +74,14 @@ class Operation(models.Model):
 
 
 class Currency(models.Model):
+    """Модель валюты.
+
+    Представляет информацию о валюте в системе.
+
+    Атрибуты:
+        name (str): Полное название валюты
+        short_name (str): Краткое обозначение валюты (например, USD, EUR)
+    """
     name = models.CharField(max_length=128)
     short_name = models.CharField(max_length=128)
 
@@ -57,6 +94,14 @@ class Currency(models.Model):
 
 
 class CurrencyHistory(models.Model):
+    """Модель истории курсов валюты.
+
+    Хранит историческую информацию об изменениях курса валюты.
+
+    Атрибуты:
+        currency (ForeignKey): Связь с валютой, для которой хранится история
+    TODO: Добавить поле rates для хранения исторических значений курса
+    """
     currency = models.ForeignKey(Currency, on_delete=models.CASCADE)
     rates = fields.ArrayField(models.BigIntegerField())
 

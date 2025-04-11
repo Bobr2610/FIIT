@@ -14,7 +14,8 @@ dependencies = [
     "djangorestframework (>=3.15.2,<4.0.0)",
     "djangorestframework-simplejwt[token-blacklist] (>=5.5.0,<6.0.0)",
     "psycopg (>=3.2.6,<4.0.0)",
-    "psycopg-binary (>=3.2.6,<4.0.0)"
+    "psycopg-binary (>=3.2.6,<4.0.0)",
+    "drf-yasg (>=1.21.7,<2.0.0)"
 ]
 
 [tool.poetry]
