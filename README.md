@@ -28,24 +28,11 @@ cd FIIT
 ## 4. Настройка файлов окружения
 Скопировать файл `config/.env.example` в эту же папку, назвав его `.env`, и заполнить его.
 
-## 5. Сборка контейнера
-```shell
-docker compose up --build
-```
-
 ---
 
 # Run
 
 ## Запуск проекта
-
-### Dev mode
-
-```shell
-docker compose watch
-```
-
-### Production mode
 
 ```shell
 docker compose up
