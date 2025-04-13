@@ -2,9 +2,9 @@
 
 Содержит маршруты для:
 1. Веб-интерфейса (регистрация, вход, личный кабинет, дашборд)
-2. REST API эндпоинтов (пользователи, счета, портфели, операции, валюты)
+2. REST конечных точек API (пользователи, счета, портфели, операции, валюты)
 
-API эндпоинты доступны по префиксу /api/ и используют ViewSet'ы
+Конечная точка APIы доступны по префиксу /api/ и используют ViewSet'ы
 для реализации стандартных CRUD операций.
 """
 
@@ -18,10 +18,10 @@ from .api_views import (
 
 app_name = 'app'
 
-# Регистрация API эндпоинтов через DefaultRouter
+# Регистрация конечных точек API через DefaultRouter
 router = DefaultRouter()
 router.register(r'api/users', UserViewSet)  # Управление пользователями
-router.register(r'api/accounts', AccountViewSet, basename='user-account')  # Управление аккаунтами
+router.register(r'api/accounts', AccountViewSet, basename='user-accounts')  # Управление аккаунтами
 router.register(r'api/portfolios', PortfolioViewSet)  # Управление портфелями
 router.register(r'api/operations', OperationViewSet)  # Управление операциями
 router.register(r'api/currencies', CurrencyViewSet)  # Управление валютами
