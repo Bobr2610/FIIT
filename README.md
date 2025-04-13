@@ -34,12 +34,12 @@ cd FIIT
 docker compose watch
 ```
 
-## 6. Сборка контейнера
-:
+## 6. Сборка контейнера:
 ```shell
 docker compose up
 ```
-> **Warning**
+
+> [!Warning]
 >
 > `docker compose up --build` может ломать контейнеры. **TODO**: исправить.
 >
