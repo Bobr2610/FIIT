@@ -9,8 +9,8 @@ services:
   server:
     build:
       context: .
-    deploy:
-      replicas: 1
+    # deploy:
+    #   replicas: 1
     ports:
       - target: 8000
         published: 8000
@@ -31,23 +31,39 @@ services:
     restart: always
     depends_on:
       - db
+      # db:
+      #   condition: service_healthy
     networks:
       - network
 
   db:
-    build:
-      context: .
-    deploy:
-      replicas: 1
+    # TODO
+    # Дирегктива `context: .` ломает сборку
+    # Разобраться, почему, и где должен быть контекст у PostgreSQL
+    # build:
+    #   context: .
+    # deploy:
+    #   replicas: 1
+    image: postgres:15
     ports:
       - target: 5432
         published: 5432
     env_file:
       - "config/.env"
-    image: postgres:15
     restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data/
+    # TODO
+    # Не находятся переменные среды:
+    # warning msg="The \"POSTGRES_PASSWORD\" variable is not set.
+    # Научиться собирать переменные среды в compose
+    # healthcheck:
+    #   test: ["CMD-SHELL", "pg_isready -U '${POSTGRES_USER}' -d '${POSTGRES_DB}'"]
+    #   interval: 10s
+    #   timeout: 5s
+    #   retries: 5
+    # environment:
+    #   PGPASSWORD: ${POSTGRES_PASSWORD}
     networks:
       - network
 
