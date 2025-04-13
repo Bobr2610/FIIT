@@ -475,8 +475,10 @@ a {
 .sidebar nav {
   background-color: var(--card-bg);
   border-radius: var(--border-radius);
-  padding: var(--spacing-sm);
   box-shadow: var(--shadow-sm);
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  border: var(--border-width-md) solid var(--border-color);
 }
 
 .sidebar nav a {
@@ -926,7 +928,6 @@ input.account-btn, a.account-btn {
   align-items: center;
   margin-bottom: var(--spacing-md);
   padding-bottom: var(--spacing-sm);
-  border-bottom: var(--border-width-md) solid var(--border-color);
 }
 
 .tracked-assets h3 {
