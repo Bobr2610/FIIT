@@ -32,6 +32,10 @@ cd FIIT
 ```shell
 docker compose up --build
 ```
+Если контейнеры не запускаются, удалить контейнеры и образы и использовать команду:
+```shell
+docker compose up
+```
 
 ---
 

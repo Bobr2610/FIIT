@@ -16,7 +16,6 @@ RUN pip install --upgrade pip &&  \
     poetry install
 
 EXPOSE 8000
-EXPOSE 5432
 
 CMD python backend/manage.py makemigrations &&  \
     python backend/manage.py migrate &&  \
