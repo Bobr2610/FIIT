@@ -529,6 +529,7 @@ a {
   justify-content: space-between;
   align-items: center;
   margin-top: var(--spacing-md);
+  border: var(--border-width-md) solid var(--border-color);
   margin-bottom: var(--spacing-md);
   background-color: var(--card-bg);
   padding: var(--spacing-md);
