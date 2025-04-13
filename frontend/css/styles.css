@@ -464,6 +464,7 @@ a {
   background-color: var(--card-bg);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-sm);
+  border: var(--border-width-md) solid var(--border-color);
 }
 
 .sidebar .logo img {
@@ -525,6 +526,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: var(--spacing-md);
   margin-bottom: var(--spacing-md);
   background-color: var(--card-bg);
   padding: var(--spacing-md);
@@ -596,7 +598,6 @@ a {
   align-items: center;
   margin-bottom: var(--spacing-md);
   padding-bottom: var(--spacing-sm);
-  border-bottom: var(--border-width-md) solid var(--border-color);
 }
 
 .tracked-assets .section-header h3 {
