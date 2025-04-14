@@ -57,29 +57,17 @@ class LoginView(FormView):
     form_class = LoginForm
     success_url = reverse_lazy('app:account')
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
+
     def form_valid(self, form):
-        email = form.cleaned_data['email']
-        password = form.cleaned_data['password']
-
-        user = authenticate(self.request,
-                            email=email,
-                            password=password)
-
-        if user is not None:
-            login(self.request,
-                  user)
-
-            response = redirect(self.get_success_url())
-
-            refresh = RefreshToken.for_user(user)
-
-            response.set_cookie('access_token', str(refresh.access_token), httponly=True)
-
-            return response
-
-        form.add_error(None, "Invalid credentials")
-
-        return self.form_invalid(form)
+        login(self.request, form.get_user())
+        response = redirect(self.get_success_url())
+        refresh = RefreshToken.for_user(form.get_user())
+        response.set_cookie('access_token', str(refresh.access_token), httponly=True)
+        return response
 
 
 class LogoutView(View):
@@ -94,14 +82,15 @@ class LogoutView(View):
         return response
 
 
-class AccountView(LoginRequiredMixin, UpdateView):
-    model = Account
-    form_class = ProfileUpdateForm
-    template_name = 'account.html'
-    success_url = reverse_lazy('app:account')
+# Устарело, см class AccountView выше
+# class AccountView(LoginRequiredMixin, UpdateView):
+#     model = Account
+#     form_class = ProfileUpdateForm
+#     template_name = 'account.html'
+#     success_url = reverse_lazy('app:account')
 
-    def get_object(self, queryset=None):
-        return self.request.user
+#     def get_object(self, queryset=None):
+#         return self.request.user
 
 
 # class ChangePasswordView(LoginRequiredMixin, FormView):
@@ -128,9 +117,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
 
     def get(self, request, *args, **kwargs):
         context = {}
-
         context['currencies'] = Currency.objects.all()
-
         return render(request,
                       self.template_name,
                       context)

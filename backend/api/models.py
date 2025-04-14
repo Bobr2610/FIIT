@@ -64,9 +64,9 @@ class Operation(models.Model):
     price = models.PositiveIntegerField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
-    # TODO
+    # TODO протестировать и реализовать метод
     def __str__(self):
-        return "..."
+        return f"{self.operation_type} {self.amount} {self.product} at {self.price}"
 
     class Meta:
         db_table = 'operation'
@@ -100,7 +100,7 @@ class CurrencyHistory(models.Model):
 
     Атрибуты:
         currency (ForeignKey): Связь с валютой, для которой хранится история
-    TODO: Добавить поле rates для хранения исторических значений курса
+        rates (ArrayField): Массив исторических значений курса
     """
     currency = models.ForeignKey(Currency, on_delete=models.CASCADE)
     rates = fields.ArrayField(models.BigIntegerField())
@@ -111,6 +111,14 @@ class CurrencyHistory(models.Model):
 
 
 class Rate(models.Model):
+    """Модель курса валюты.
+
+    Хранит информацию о курсе валюты в конкретный момент времени.
+
+    Атрибуты:
+        cost (int): Стоимость валюты
+        timestamp (DateTime): Время фиксации курса
+    """
     cost = models.PositiveIntegerField()
     timestamp = models.DateTimeField(auto_now_add=True)
 

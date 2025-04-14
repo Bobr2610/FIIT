@@ -645,6 +645,8 @@ a {
   padding: var(--spacing-md);
   box-shadow: var(--shadow-sm);
   transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  border: var(--border-width-md) solid var(--border-color);
+  margin-bottom: var(--spacing-md);
 }
 
 .portfolio:hover {

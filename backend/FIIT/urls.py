@@ -37,7 +37,7 @@ schema_view = get_schema_view(
     openapi.Info(
         title="FIIT API",
         default_version='v1',
-        description="API documentation for FIIT project",
+        description="Документация API проекта FIIT",
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
@@ -45,8 +45,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    path('api/v1/', include('api.urls')),
+    # path('api/v1/', include('api.urls')),
     path('', include('app.urls')),
     path('api-auth/', include('rest_framework.urls')),
     # TODO: путь ошибки
