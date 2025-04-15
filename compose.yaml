@@ -41,8 +41,6 @@ services:
     ports:
       - target: 5432
         published: 5432
-    build:
-      context: .
     deploy:
       replicas: 1
     restart: always
@@ -60,8 +58,6 @@ services:
         published: 8080
     depends_on:
       - db
-    build:
-      context: .
     deploy:
       replicas: 1
     restart: always
@@ -77,8 +73,6 @@ services:
     ports:
       - target: 6379
         published: 6379
-    build:
-      context: .
     deploy:
       replicas: 1
     restart: always
@@ -96,8 +90,6 @@ services:
         published: 5540
     depends_on:
       - redis
-    build:
-      context: .
     deploy:
       replicas: 1
     restart: always
@@ -143,8 +135,6 @@ services:
         published: 5555
     depends_on:
       - celery-worker
-    build:
-      context: .
     command: celery --broker=redis://redis:6379/0 flower --port=5555
     deploy:
       replicas: 1
