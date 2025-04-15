@@ -8,11 +8,37 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 from api.models import Currency
 from .forms import *
+from .forms import ProfileUpdateForm
 
 
 class HomeView(TemplateView):
     template_name = 'home.html'
 
+
+class AccountView(LoginRequiredMixin, TemplateView):
+    template_name = 'account.html'
+
+    login_url = 'login/'
+
+    def get(self, request, *args, **kwargs):
+        """
+        Handles GET requests to display the account management page.
+        Pre-fills the form with the current user's information.
+        """
+        form = AccountForm(instance=request.user)
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        """
+        Handles POST requests to update the user's account information.
+        Validates the form and saves changes if valid.
+        Redirects to the account page upon successful update.
+        """
+        form = AccountForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()  # Save the updated user information
+            return redirect('app:account')  # Redirect to the account page
+        return render(request, self.template_name, {'form': form})
 
 class RegisterView(FormView):
     template_name = 'register.html'
@@ -21,10 +47,8 @@ class RegisterView(FormView):
 
     def form_valid(self, form):
         user = form.save(commit=False)
-
         user.set_password(form.cleaned_data['password1'])
         user.save()
-
         return super().form_valid(form)
 
 
@@ -33,29 +57,17 @@ class LoginView(FormView):
     form_class = LoginForm
     success_url = reverse_lazy('app:account')
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
+
     def form_valid(self, form):
-        email = form.cleaned_data['email']
-        password = form.cleaned_data['password']
-
-        user = authenticate(self.request,
-                            email=email,
-                            password=password)
-
-        if user is not None:
-            login(self.request,
-                  user)
-
-            response = redirect(self.get_success_url())
-
-            refresh = RefreshToken.for_user(user)
-
-            response.set_cookie('access_token', str(refresh.access_token), httponly=True)
-
-            return response
-
-        form.add_error(None, "Invalid credentials")
-
-        return self.form_invalid(form)
+        login(self.request, form.get_user())
+        response = redirect(self.get_success_url())
+        refresh = RefreshToken.for_user(form.get_user())
+        response.set_cookie('access_token', str(refresh.access_token), httponly=True)
+        return response
 
 
 class LogoutView(View):
@@ -70,14 +82,15 @@ class LogoutView(View):
         return response
 
 
-class AccountView(LoginRequiredMixin, UpdateView):
-    model = Account
-    form_class = ProfileUpdateForm
-    template_name = 'account.html'
-    success_url = reverse_lazy('app:account')
+# Устарело, см class AccountView выше
+# class AccountView(LoginRequiredMixin, UpdateView):
+#     model = Account
+#     form_class = ProfileUpdateForm
+#     template_name = 'account.html'
+#     success_url = reverse_lazy('app:account')
 
-    def get_object(self, queryset=None):
-        return self.request.user
+#     def get_object(self, queryset=None):
+#         return self.request.user
 
 
 # class ChangePasswordView(LoginRequiredMixin, FormView):
@@ -104,9 +117,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
 
     def get(self, request, *args, **kwargs):
         context = {}
-
         context['currencies'] = Currency.objects.all()
-
         return render(request,
                       self.template_name,
                       context)

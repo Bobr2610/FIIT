@@ -20,6 +20,10 @@
   --spacing-lg: 24px;
   --spacing-xl: 32px;
   
+  /* Толщина границ */
+  --border-width-md: 1px;
+  --border-width-md: 2px;
+  
   /* Тени для создания глубины */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -90,10 +94,10 @@
   --chart-bg-opacity: 0.1;
 
   /* Значения по умолчанию для графиков */
-  --chart-line-width: 2px;
+  --chart-line-width: var(--border-width-md);
   --chart-point-radius: 3px;
   --chart-point-hover-radius: 5px;
-  --chart-point-border-width: 2px;
+  --chart-point-border-width: var(--border-width-md);
   --chart-point-hover-border-width: 3px;
   --chart-line-tension: 0.3;
 
@@ -167,7 +171,7 @@
   
   /* Границы и разделители */
   --border-color: #000000;
-  --border-width: 2px;
+  --border-width: var(--border-width-md);
   
   /* Цвета статусов - безопасные для дальтоников */
   --success-color: #006400;
@@ -194,8 +198,8 @@
   /* Дополнительные стили для улучшения читаемости */
   --link-underline: underline;
   --focus-outline: 3px solid #000000;
-  --button-border: 2px solid #000000;
-  --input-border: 2px solid #000000;
+  --button-border: var(--border-width-md) solid #000000;
+  --input-border: var(--border-width-md) solid #000000;
   --text-decoration-thickness: 2px;
   --text-decoration-style: solid;
   
@@ -450,7 +454,7 @@ a {
   flex-direction: column;
   padding: var(--spacing-md);
   box-shadow: var(--shadow-sm);
-  border-right: 1px solid var(--border-color);
+  border-right: var(--border-width-md) solid var(--border-color);
 }
 
 .sidebar .logo {
@@ -460,6 +464,7 @@ a {
   background-color: var(--card-bg);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-sm);
+  border: var(--border-width-md) solid var(--border-color);
 }
 
 .sidebar .logo img {
@@ -470,8 +475,10 @@ a {
 .sidebar nav {
   background-color: var(--card-bg);
   border-radius: var(--border-radius);
-  padding: var(--spacing-sm);
   box-shadow: var(--shadow-sm);
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  border: var(--border-width-md) solid var(--border-color);
 }
 
 .sidebar nav a {
@@ -521,6 +528,8 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: var(--spacing-md);
+  border: var(--border-width-md) solid var(--border-color);
   margin-bottom: var(--spacing-md);
   background-color: var(--card-bg);
   padding: var(--spacing-md);
@@ -542,7 +551,7 @@ a {
 
 .dashboard-header select {
   padding: var(--spacing-sm);
-  border: 1px solid var(--border-color);
+  border: var(--border-width-md) solid var(--border-color);
   border-radius: var(--border-radius);
   background-color: var(--card-bg);
   color: var(--text-primary);
@@ -564,6 +573,7 @@ a {
   box-shadow: var(--shadow-sm);
   margin-bottom: var(--spacing-md);
   transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  border: var(--border-width-md) solid var(--border-color);
 }
 
 .form-container:hover, .chart-container:hover,
@@ -591,7 +601,6 @@ a {
   align-items: center;
   margin-bottom: var(--spacing-md);
   padding-bottom: var(--spacing-sm);
-  border-bottom: 1px solid var(--border-color);
 }
 
 .tracked-assets .section-header h3 {
@@ -636,6 +645,8 @@ a {
   padding: var(--spacing-md);
   box-shadow: var(--shadow-sm);
   transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  border: var(--border-width-md) solid var(--border-color);
+  margin-bottom: var(--spacing-md);
 }
 
 .portfolio:hover {
@@ -669,12 +680,12 @@ a {
   text-align: left;
   color: var(--text-primary);
   font-weight: 500;
-  border-bottom: 2px solid var(--border-color);
+  border-bottom: var(--border-width-md) solid var(--border-color);
 }
 
 .portfolio td {
   padding: var(--spacing-sm);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: var(--border-width-md) solid var(--border-color);
   color: var(--text-primary);
 }
 
@@ -684,7 +695,7 @@ a {
 
 .portfolio-table td {
   padding: var(--spacing-sm);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: var(--border-width-md) solid var(--border-color);
   color: var(--text-primary);
 }
 
@@ -708,7 +719,7 @@ a {
   align-items: center;
   padding: var(--spacing-md);
   background-color: var(--card-bg);
-  border-bottom: 1px solid var(--border-color);
+  border: var(--border-width-md) solid var(--border-color);
   margin-bottom: var(--spacing-md);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-sm);
@@ -747,7 +758,7 @@ a {
 
 .account-btn {
   padding: var(--button-padding);
-  border: 1px solid var(--accent-primary);
+  border: var(--border-width-md) solid var(--border-color);
   border-radius: var(--border-radius);
   background-color: transparent;
   color: var(--accent-primary);
@@ -760,6 +771,7 @@ a {
   background-color: var(--accent-primary);
   color: var(--bg-primary);
   transform: var(--button-transform);
+  border-color: var(--accent-primary);
 }
 
 /* Селектор темы */
@@ -786,13 +798,13 @@ a {
 
 .theme-selector select, .form-container input:not(.account-btn) {
   padding: var(--spacing-xs) var(--spacing-sm);
-  border: 1px solid var(--border-color);
+  border: var(--border-width-md) solid var(--border-color);
   border-radius: var(--border-radius);
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-size: var(--font-size-sm);
   cursor: pointer;
-  transition: all var(--transition-speed);
+  transition: all var(--transition-speed) ease;
 }
 
 .form-container input, a.account-btn {
@@ -815,7 +827,7 @@ input.account-btn, a.account-btn {
 .theme-toggle {
   width: var(--theme-toggle-size);
   height: var(--theme-toggle-size);
-  border: none;
+  border: var(--border-width-md) solid var(--border-color);
   border-radius: 50%;
   background-color: var(--bg-secondary);
   color: var(--text-secondary);
@@ -906,11 +918,11 @@ input.account-btn, a.account-btn {
 /* Отслеживаемые активы */
 .tracked-assets {
   margin-top: var(--spacing-md);
-
   padding: var(--spacing-md);
   background-color: var(--card-bg);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-sm);
+  border: var(--border-width-md) solid var(--border-color);
 }
 
 .tracked-assets .section-header {
@@ -919,7 +931,6 @@ input.account-btn, a.account-btn {
   align-items: center;
   margin-bottom: var(--spacing-md);
   padding-bottom: var(--spacing-sm);
-  border-bottom: 1px solid var(--border-color);
 }
 
 .tracked-assets h3 {
@@ -959,7 +970,7 @@ input.account-btn, a.account-btn {
   background-color: var(--bg-secondary);
   border-radius: var(--border-radius);
   transition: all var(--transition-speed) ease;
-  border: 1px solid var(--border-color);
+  border: var(--border-width-md) solid var(--border-color);
   min-width: 0;
   position: relative;
   width: 100%;
@@ -1028,7 +1039,7 @@ input.account-btn, a.account-btn {
     align-items: center;
     justify-content: space-between;
     border-right: none;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: var(--border-width-md) solid var(--border-color);
   }
 
   .sidebar .logo {
@@ -1132,5 +1143,5 @@ input.account-btn, a.account-btn {
   color: var(--text-primary);
   font-weight: 500;
   margin-left: 0.5rem;
-} 
+}
 
