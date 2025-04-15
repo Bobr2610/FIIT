@@ -6,17 +6,22 @@
 # a password of your choosing to it before running `docker compose up`.
 
 services:
-  server:
-    build:
-      context: .
-    # deploy:
-    #   replicas: 1
+  app:
     ports:
       - target: 8000
         published: 8000
+    depends_on:
+      - db
+      - redis
+    build:
+      context: .
+#    working_dir: /fiit/backend
+#    command: gunicorn FIIT.wsgi:application --bind 0.0.0.0:8000 --workers 4
+    deploy:
+      replicas: 1
+    restart: always
     env_file:
-      - "config/.env"
-    image: fiit:latest
+      - config/.env
     develop:
       watch:
         - path: backend/
@@ -28,47 +33,184 @@ services:
         - path: config/
           action: sync+restart
           target: fiit/config/
-    restart: always
-    depends_on:
-      - db
-      # db:
-      #   condition: service_healthy
     networks:
       - network
 
   db:
-    # TODO
-    # Дирегктива `context: .` ломает сборку
-    # Разобраться, почему, и где должен быть контекст у PostgreSQL
-    # build:
-    #   context: .
-    # deploy:
-    #   replicas: 1
     image: postgres:15
     ports:
       - target: 5432
         published: 5432
-    env_file:
-      - "config/.env"
+    deploy:
+      replicas: 1
     restart: always
+    env_file:
+      - config/.env
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
-    # TODO
-    # Не находятся переменные среды:
-    # warning msg="The \"POSTGRES_PASSWORD\" variable is not set.
-    # Научиться собирать переменные среды в compose
-    # healthcheck:
-    #   test: ["CMD-SHELL", "pg_isready -U '${POSTGRES_USER}' -d '${POSTGRES_DB}'"]
-    #   interval: 10s
-    #   timeout: 5s
-    #   retries: 5
-    # environment:
-    #   PGPASSWORD: ${POSTGRES_PASSWORD}
+      - postgres_data:/data
     networks:
       - network
 
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    ports:
+      - target: 80
+        published: 8080
+    depends_on:
+      - db
+    deploy:
+      replicas: 1
+    restart: always
+    env_file:
+      - config/.env
+    volumes:
+      - pgadmin_data:/data
+    networks:
+      - network
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - target: 6379
+        published: 6379
+    deploy:
+      replicas: 1
+    restart: always
+    env_file:
+      - config/.env
+    volumes:
+      - redis_data:/data
+    networks:
+      - network
+
+  redis-insight:
+    image: redis/redisinsight:latest
+    ports:
+      - target: 5540
+        published: 5540
+    depends_on:
+      - redis
+    deploy:
+      replicas: 1
+    restart: always
+    volumes:
+      - redis_insight_data:/data
+    networks:
+      - network
+
+  celery-worker:
+    depends_on:
+      - app
+    build:
+      context: .
+    working_dir: /fiit/backend
+    command: celery -A FIIT worker --loglevel=info
+    deploy:
+      replicas: 1
+    restart: always
+    env_file:
+      - config/.env
+    networks:
+      - network
+
+  celery-beat:
+    depends_on:
+      - app
+    build:
+      context: .
+    working_dir: /fiit/backend
+    command: celery -A FIIT beat --loglevel=info
+    deploy:
+      replicas: 1
+    restart: always
+    env_file:
+      - config/.env
+    networks:
+      - network
+
+  flower:
+    image: mher/flower
+    ports:
+      - target: 5555
+        published: 5555
+    depends_on:
+      - celery-worker
+    command: celery --broker=redis://redis:6379/0 flower --port=5555
+    deploy:
+      replicas: 1
+    restart: always
+    env_file:
+      - config/.env
+    networks:
+      - network
+
+#  prometheus:
+#    image: prom/prometheus
+#    ports:
+#      - target: 9090
+#        published: 9090
+#    depends_on:
+#      - celery-worker
+#    build:
+#      context: .
+#    command:
+#      - '--config.file=/etc/prometheus/prometheus.yml'
+#    deploy:
+#      replicas: 1
+#    restart: always
+#    volumes:
+#      - ./prometheus:/etc/prometheus
+#    networks:
+#      - network
+
+#  grafana:
+#    image: grafana/grafana
+#    ports:
+#      - target: 3000
+#        published: 3000
+#    depends_on:
+#      - prometheus
+#    build:
+#      context: .
+#    environment:
+#      - GF_SECURITY_ADMIN_USER=admin
+#      - GF_SECURITY_ADMIN_PASSWORD=admin
+#    deploy:
+#      replicas: 1
+#    restart: always
+#    env_file:
+#      - config/.env
+#    volumes:
+#      - grafana_data:/var/lib/grafana
+#      - ./grafana/provisioning:/etc/grafana/provisioning
+#    networks:
+#      - network
+
+#  nginx:
+#    image: nginx:alpine
+#    ports:
+#      - target: 80
+#        published: 80
+#      - target: 443
+#        published: 443
+#    depends_on:
+#      - app
+#    build:
+#      context: .
+#    deploy:
+#      replicas: 1
+#    restart: always
+#    volumes:
+#      - ./nginx/conf.d:/etc/nginx/conf.d
+#      - static_volume:/app/backend/static
+#    networks:
+#      - network
+
 volumes:
   postgres_data:
+  pgadmin_data:
+  redis_data:
+  redis_insight_data:
 
 networks:
   network:
