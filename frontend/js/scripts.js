@@ -1,113 +1,180 @@
 /**
- * Управление темами оформления
- * 
- * Функционал включает:
- * 1. Загрузку сохраненной темы
- * 2. Переключение тем через селектор
- * 3. Переключение тем через кнопку
- * 4. Сохранение выбранной темы
- * 5. Обновление иконки темы
+ * Основной файл скриптов для FIIT
+ * Управляет темами, временем и уведомлениями
  */
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM загружен, инициализация всех компонентов');
+
+  // Инициализация темы
+  initThemeManagement();
+
+  // Инициализация уведомлений
+  initNotifications();
+
+  // Обновление времени
+  initDateTime();
+
+  // Инициализация кнопки обновления
+  initRefreshButton();
+});
+
+/**
+ * Инициализация управления темами
+ */
+function initThemeManagement() {
   const themeSelect = document.getElementById('colorScheme');
   const themeToggle = document.querySelector('.theme-toggle');
+
+  // Проверка наличия элементов темы
+  if (!themeSelect || !themeToggle) {
+    console.log('Элементы управления темой не найдены');
+    return;
+  }
+
   const themeIcon = themeToggle.querySelector('i');
 
   // Загрузка сохраненной темы из localStorage
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
   themeSelect.value = savedTheme;
-  updateThemeIcon(savedTheme);
+  updateThemeIcon(savedTheme, themeIcon);
 
   // Обработчик изменения темы через селектор
-  themeSelect.addEventListener('change', handleThemeChange);
-
-  // Обработчик переключения темы через кнопку
-  themeToggle.addEventListener('click', handleThemeToggle);
-
-  // Добавляем обработчик для кнопки обновления
-  const refreshBtn = document.querySelector('.refresh-btn');
-  if (refreshBtn) {
-    refreshBtn.addEventListener('click', updateAllPrices);
-  }
-
-  /**
-   * Обработчик изменения темы через селектор
-   * @param {Event} e - Событие изменения
-   */
-  function handleThemeChange(e) {
+  themeSelect.addEventListener('change', function(e) {
     const theme = e.target.value;
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
-    updateThemeIcon(theme);
+    updateThemeIcon(theme, themeIcon);
     location.reload(); // Перезагрузка страницы для применения новой темы
-  }
+  });
 
-  /**
-   * Обработчик переключения темы через кнопку
-   */
-  function handleThemeToggle() {
+  // Обработчик переключения темы через кнопку
+  themeToggle.addEventListener('click', function() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const themes = ['light', 'dark', 'colorblind'];
     const currentIndex = themes.indexOf(currentTheme);
     const nextTheme = themes[(currentIndex + 1) % themes.length];
-    
+
     document.documentElement.setAttribute('data-theme', nextTheme);
     themeSelect.value = nextTheme;
     localStorage.setItem('theme', nextTheme);
-    updateThemeIcon(nextTheme);
+    updateThemeIcon(nextTheme, themeIcon);
     location.reload(); // Перезагрузка страницы для применения новой темы
-  }
-
-  /**
-   * Обновление иконки темы
-   * @param {string} theme - Текущая тема
-   */
-  function updateThemeIcon(theme) {
-    switch(theme) {
-      case 'dark':
-        themeIcon.className = 'fas fa-moon';
-        break;
-      case 'light':
-        themeIcon.className = 'fas fa-sun';
-        break;
-      case 'colorblind':
-        themeIcon.className = 'fas fa-eye';
-        break;
-    }
-  }
-});
-
-/**
- * Обновление даты и времени
- * 
- * Функция:
- * 1. Форматирует текущую дату и время
- * 2. Обновляет элемент на странице
- * 3. Обновляется каждую секунду
- */
-function updateDateTime() {
-  const timeElement = document.querySelector('.current-time');
-  if (!timeElement) return;
-
-  const now = new Date();
-  const options = {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false
-  };
-
-  timeElement.textContent = now.toLocaleString('ru-RU', options);
+  });
 }
 
-// Добавляем вызов функции при загрузке страницы
-document.addEventListener('DOMContentLoaded', () => {
-  // ... existing code ...
-  
-  // Обновляем время каждую минуту
+/**
+ * Обновление иконки темы
+ * @param {string} theme - Текущая тема
+ * @param {Element} iconElement - Элемент иконки
+ */
+function updateThemeIcon(theme, iconElement) {
+  if (!iconElement) return;
+
+  switch(theme) {
+    case 'dark':
+      iconElement.className = 'fas fa-moon';
+      break;
+    case 'light':
+      iconElement.className = 'fas fa-sun';
+      break;
+    case 'colorblind':
+      iconElement.className = 'fas fa-eye';
+      break;
+  }
+}
+
+/**
+ * Инициализация даты и времени
+ */
+function initDateTime() {
+  const timeElement = document.querySelector('.current-time');
+  if (!timeElement) {
+    console.log('Элемент времени не найден');
+    return;
+  }
+
+  // Функция обновления времени
+  function updateDateTime() {
+    const now = new Date();
+    const options = {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    };
+
+    timeElement.textContent = now.toLocaleString('ru-RU', options);
+  }
+
+  // Первоначальное обновление и установка интервала
   updateDateTime();
   setInterval(updateDateTime, 60000);
-}); 
+}
+
+/**
+ * Инициализация кнопки обновления
+ */
+function initRefreshButton() {
+  const refreshBtn = document.querySelector('.refresh-btn');
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', function() {
+      console.log('Обновление данных...');
+      // Здесь должна быть функция updateAllPrices, но она не определена в вашем коде
+      // Рекомендую определить её или вызывать другую функцию
+    });
+  }
+}
+
+/**
+ * Инициализация системы уведомлений
+ */
+function initNotifications() {
+  console.log('Инициализация уведомлений');
+
+  const notificationToggle = document.getElementById('notificationToggle');
+  const notificationPanel = document.getElementById('notificationPanel');
+
+  console.log('Элементы уведомлений:', {
+    notificationToggle: notificationToggle ? 'Найден' : 'Не найден',
+    notificationPanel: notificationPanel ? 'Найден' : 'Не найден'
+  });
+
+  if (notificationToggle && notificationPanel) {
+    console.log('Добавляем обработчик клика для уведомлений');
+
+    // Прямая проверка работы обработчика
+    notificationToggle.onclick = function(event) {
+      console.log('Клик на кнопке уведомлений через onclick');
+    };
+
+    notificationToggle.addEventListener('click', function(event) {
+      console.log('Кнопка уведомлений нажата через addEventListener');
+      event.preventDefault();
+      event.stopPropagation();
+
+      // Проверяем текущее состояние
+      const isHidden = notificationPanel.classList.contains('hidden');
+      console.log('Текущее состояние панели: ' + (isHidden ? 'скрыта' : 'видима'));
+
+      // Переключаем состояние
+      notificationPanel.classList.toggle('hidden');
+
+      // Проверяем новое состояние
+      console.log('Новое состояние панели: ' +
+        (notificationPanel.classList.contains('hidden') ? 'скрыта' : 'видима'));
+    });
+
+    // Закрывать панель при клике вне её
+    document.addEventListener('click', function(event) {
+      if (!notificationToggle.contains(event.target) &&
+          !notificationPanel.contains(event.target)) {
+        notificationPanel.classList.add('hidden');
+      }
+    });
+  } else {
+    console.log('Элементы уведомлений не найдены');
+  }
+}

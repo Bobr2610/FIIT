@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block notifications %}
+    Уведомления
+{% endblock %}
+
 {% block sidebar %}
 
 <!-- Сайдбар - боковая панель навигации -->
@@ -16,10 +20,6 @@
     <!-- Основная навигация с иконками -->
     <nav class="main-nav">
         <!-- Каждый пункт навигации имеет иконку и текст -->
-        <a href="#alerts" class="nav-item">
-            <i class="fas fa-bell"></i>
-            <span>Оповещения</span>
-        </a>
         <a href="#portfolio" class="nav-item">
             <i class="fas fa-wallet"></i>
             <span>Портфель</span>
@@ -80,6 +80,22 @@
                 <i class="fas fa-moon"></i>
             </button>
         </div>
+
+        <!--Уведомления для пользователя-->
+        <div class="notification-container">
+            <button id="notificationToggle"
+                    class="notification-icon"
+                    aria-label="Уведомления">
+                <i class="fas fa-bell"></i>
+            </button>
+
+            <!-- popover -->
+            <div id="notificationPanel" class="notification-panel hidden">
+                <p style="padding:16px;color:var(--text-secondary);">
+                    Здесь будут показываться уведомления
+                </p>
+            </div>
+        </div>
     </div>
 
 
@@ -96,16 +112,6 @@
 
 
     <!-- Основные секции контента -->
-    <!-- Секция оповещений -->
-    <div class="chart-container" id="alerts">
-        <h4>Оповещения</h4>
-        <p>
-            Выберите валюту для отслеживания и получайте уведомления по электронной почте или Telegram, когда
-            достигаются
-            заданные пороговые значения.
-        </p>
-    </div>
-
     <!-- Секция портфеля с таблицей -->
     <div class="portfolio" id="portfolio">
         <h4>Ваш портфель</h4>
@@ -146,6 +152,27 @@
             </tbody>
         </table>
     </div>
+
+    <!-- Секция новостей -->
+        <div class="chart-container" id="news">
+            <h3>Финансовые новости</h3>
+            <ul class="news-list">
+                <!-- Список новостей с временными метками -->
+                <li>
+                    <strong>12:30</strong> — Рынок криптовалют демонстрирует повышенную волатильность: аналитики
+                    прогнозируют
+                    возможное снижение.
+                </li>
+                <li>
+                    <strong>11:15</strong> — Евро укрепился на фоне свежих экономических данных. Эксперт поделился
+                    своими
+                    выводами.
+                </li>
+                <li>
+                    <strong>10:00</strong> — Рубль стабилизируется по отношению к USD, а спрос на евро заметно растёт.
+                </li>
+            </ul>
+        </div>
 
     <!-- Секции отслеживаемых активов и новостей -->
     <div class="sections-container">
@@ -208,27 +235,9 @@
             </div>
         </div>
 
-        <!-- Секция новостей -->
-        <div class="chart-container" id="news">
-            <h3>Финансовые новости</h3>
-            <ul class="news-list">
-                <!-- Список новостей с временными метками -->
-                <li>
-                    <strong>12:30</strong> — Рынок криптовалют демонстрирует повышенную волатильность: аналитики
-                    прогнозируют
-                    возможное снижение.
-                </li>
-                <li>
-                    <strong>11:15</strong> — Евро укрепился на фоне свежих экономических данных. Эксперт поделился
-                    своими
-                    выводами.
-                </li>
-                <li>
-                    <strong>10:00</strong> — Рубль стабилизируется по отношению к USD, а спрос на евро заметно растёт.
-                </li>
-            </ul>
-        </div>
+
     </div>
+
 
     <!-- Панель управления графиками -->
     <div class="dashboard-header" id="dashboard">
