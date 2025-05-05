@@ -1195,3 +1195,207 @@ input.account-btn, a.account-btn {
     gap:var(--spacing-sm);
     margin-left:0;
 }
+
+/* Стили для графиков и информации о валютах */
+.chart-layout {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    align-items: flex-start;
+}
+
+.chart-area {
+    flex: 0 0 420px;
+    max-width: 420px;
+    min-width: 320px;
+    padding-right: var(--spacing-xl);
+}
+
+.currency-info {
+    flex: 1;
+    min-width: 260px;
+    max-width: 350px;
+    padding: var(--spacing-md);
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    border: var(--border-width-md) solid var(--border-color);
+    box-shadow: var(--shadow-md);
+}
+
+.currency-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: var(--border-width-md) solid var(--border-color);
+}
+
+.currency-name {
+    font-size: var(--font-size-lg);
+    margin: 0;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.currency-details {
+    margin: var(--spacing-md) 0;
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+}
+
+.currency-stats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background: var(--bg-tertiary);
+    border-radius: var(--border-radius);
+    margin: var(--spacing-md) 0;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-xs) 0;
+}
+
+.stat-label {
+    font-weight: 500;
+}
+
+.trading-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.action-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: 1.5px solid transparent;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: var(--font-size-md);
+    box-shadow: var(--shadow-md);
+    transition: all 0.2s;
+    outline: none;
+}
+
+.action-btn i {
+    font-size: var(--font-size-md);
+}
+
+.buy-btn {
+    background: var(--success-color);
+    color: #fff;
+    border-color: var(--success-color);
+}
+
+.buy-btn:hover, .buy-btn:focus {
+    background: #fff;
+    color: var(--success-color);
+    border-color: var(--success-color);
+    box-shadow: 0 0 0 2px var(--success-color);
+}
+
+.sell-btn {
+    background: var(--danger-color);
+    color: #fff;
+    border-color: var(--danger-color);
+}
+
+.sell-btn:hover, .sell-btn:focus {
+    background: #fff;
+    color: var(--danger-color);
+    border-color: var(--danger-color);
+    box-shadow: 0 0 0 2px var(--danger-color);
+}
+
+.currency-selector {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: var(--bg-primary);
+    border-radius: 999px;
+    padding: 4px 10px;
+    border: var(--border-width-md) solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    margin-left: auto;
+}
+
+.selector-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--bg-secondary);
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: var(--font-size-lg);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+
+.selector-btn:hover, .selector-btn:focus {
+    background: var(--accent-primary);
+    color: #fff;
+    box-shadow: 0 0 0 2px var(--accent-primary);
+}
+
+.current-currency {
+    font-weight: 600;
+    color: var(--text-primary);
+    min-width: 40px;
+    text-align: center;
+    font-size: var(--font-size-md);
+    letter-spacing: 1px;
+}
+
+/* Адаптивность для графиков */
+@media (max-width: 1200px) {
+    .chart-layout {
+        flex-direction: column;
+    }
+    .chart-area {
+        max-width: 100%;
+        min-width: 0;
+        padding-right: 0;
+        margin-bottom: var(--spacing-md);
+    }
+    .currency-info {
+        max-width: 100%;
+    }
+}
+
+/* Анимация обновления статистики */
+.stat-value {
+    transition: opacity 0.3s ease;
+}
+
+.stat-value.updating {
+    opacity: 0.3;
+}
+
+/* Анимация вращения для иконки обновления */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Убираем легенду Chart.js */
+.chart-container canvas + div, 
+.chart-container .chartjs-legend {
+    display: none !important;
+}

@@ -1,3 +1,53 @@
+// Добавим новые константы в начало файла
+const CURRENCY_INFO = {
+  crypto: {
+    BTC: {
+      name: 'Bitcoin',
+      description: 'Bitcoin - первая и самая популярная криптовалюта в мире. Создана в 2009 году.',
+      color: '#F7931A'
+    },
+    ETH: {
+      name: 'Ethereum',
+      description: 'Ethereum - платформа для создания децентрализованных приложений на блокчейне.',
+      color: '#627EEA'
+    },
+    TON: {
+      name: 'Toncoin',
+      description: 'TON - быстрая и масштабируемая блокчейн-платформа.',
+      color: '#0088CC'
+    }
+  },
+  fiat: {
+    USD: {
+      name: 'Доллар США',
+      description: 'Доллар США - основная резервная валюта мира.',
+      color: '#85bb65'
+    },
+    EUR: {
+      name: 'Евро',
+      description: 'Евро - единая валюта Европейского союза.',
+      color: '#0066ff'
+    },
+    CNY: {
+      name: 'Китайский Юань',
+      description: 'Юань - официальная валюта Китайской Народной Республики.',
+      color: '#ff0000'
+    },
+    AED: {
+      name: 'Дирхам ОАЭ',
+      description: 'Дирхам - официальная валюта Объединенных Арабских Эмиратов.',
+      color: '#00732f'
+    }
+  }
+};
+
+// Добавим переменные для текущих валют
+let currentCrypto = 'BTC';
+let currentFiat = 'USD';
+
+// Глобальная переменная для хранения загруженных данных
+let chartData = null;
+
 // Запуск инициализации при загрузке страницы
 window.addEventListener('load', initializeCharts);
 
@@ -67,6 +117,10 @@ function combineYearlyData(yearlyData) {
  * от выбранного временного интервала (1 месяц, 6 месяцев, 1 год, 3 года).
  */
 function getDataForInterval(data, interval) {
+  if (!data) {
+    console.warn('Нет данных для выбранной валюты!');
+    return [];
+  }
   if (interval === '1m') {
     // Для месячного интервала используем ежедневные данные
     return data.daily_2025_01 || [];
@@ -341,20 +395,40 @@ const NUMBER_FORMAT_OPTIONS = {
 
 /**
  * Форматирует число в цену в рублях
- * 
- * Функция:
- * 1. Проверяет наличие значения
- * 2. Форматирует число с учетом локали
- * 3. Добавляет символ рубля
- * 
  * @param {number} price - Число для форматирования
  * @returns {string} Отформатированная цена в рублях
  */
 function formatPrice(price) {
-  if (price === undefined || price === null) {
+  if (price === undefined || price === null || isNaN(price)) {
     return '— ₽';
   }
-  return `${price.toLocaleString('ru-RU', NUMBER_FORMAT_OPTIONS)} ₽`;
+  
+  // Округляем до соответствующей точности в зависимости от величины числа
+  let formattedPrice;
+  if (price >= 1000000) {
+    // Для больших чисел (миллионы+) округляем до тысяч
+    formattedPrice = (Math.round(price / 1000) / 1000).toLocaleString('ru-RU', {
+      minimumFractionDigits: 3,
+      maximumFractionDigits: 3
+    }) + ' млн ₽';
+  } else if (price >= 10000) {
+    // Для чисел от 10,000 до 999,999 округляем до целых
+    formattedPrice = Math.round(price).toLocaleString('ru-RU') + ' ₽';
+  } else if (price >= 100) {
+    // Для средних чисел (100-9,999) округляем до десятых
+    formattedPrice = price.toLocaleString('ru-RU', {
+      minimumFractionDigits: 1,
+      maximumFractionDigits: 1
+    }) + ' ₽';
+  } else {
+    // Для маленьких чисел используем два десятичных разряда
+    formattedPrice = price.toLocaleString('ru-RU', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }) + ' ₽';
+  }
+  
+  return formattedPrice;
 }
 
 /**
@@ -416,6 +490,262 @@ async function updateAllPrices() {
 }
 
 /**
+ * Обновление информации о валюте
+ * @param {string} type - Тип валюты ('crypto' или 'fiat')
+ * @param {string} currency - Код валюты
+ * @param {Array} data - Массив данных для расчета статистики
+ */
+function updateCurrencyInfo(type, currency, data) {
+  const container = document.querySelector(`#${type}Assets`);
+  const info = CURRENCY_INFO[type][currency];
+  
+  // Обновляем название и описание
+  container.querySelector('.currency-name').textContent = `${info.name} (${currency})`;
+  container.querySelector('.currency-details').textContent = info.description;
+  container.querySelector('.current-currency').textContent = currency;
+  
+  // Рассчитываем статистику
+  const stats = calculateStats(data);
+  
+  // Обновляем статистику с анимацией
+  const elements = {
+    median: container.querySelector('.median'),
+    average: container.querySelector('.average'),
+    outliers: container.querySelector('.outliers')
+  };
+  
+  // Добавляем класс для анимации
+  Object.values(elements).forEach(el => el.classList.add('updating'));
+  
+  // Обновляем значения с задержкой для анимации
+  setTimeout(() => {
+    elements.median.textContent = formatPrice(stats.median);
+    elements.average.textContent = formatPrice(stats.average);
+    elements.outliers.textContent = stats.outliers;
+    
+    // Убираем класс анимации
+    Object.values(elements).forEach(el => el.classList.remove('updating'));
+  }, 300);
+}
+
+/**
+ * Расчет статистических показателей
+ * @param {Array} data - Массив значений
+ * @returns {Object} Объект со статистическими показателями
+ */
+function calculateStats(data) {
+  if (!data || data.length === 0) {
+    return {
+      median: 0,
+      average: 0,
+      outliers: '0 значений'
+    };
+  }
+
+  // Копируем данные и сортируем для расчетов
+  const sortedData = [...data].sort((a, b) => a - b);
+  const n = sortedData.length;
+  
+  // Медиана
+  let median;
+  if (n % 2 === 0) {
+    // Для четного количества элементов берем среднее двух центральных
+    median = (sortedData[n/2 - 1] + sortedData[n/2]) / 2;
+  } else {
+    // Для нечетного берем центральный
+    median = sortedData[Math.floor(n/2)];
+  }
+  
+  // Среднее значение - сумма всех значений, деленная на их количество
+  const sum = sortedData.reduce((acc, value) => acc + value, 0);
+  const average = sum / n;
+  
+  // Расчет выбросов по методу межквартильного размаха (IQR)
+  const q1Index = Math.floor(n * 0.25);
+  const q3Index = Math.floor(n * 0.75);
+  
+  const q1 = sortedData[q1Index]; // 1й квартиль (25%)
+  const q3 = sortedData[q3Index]; // 3й квартиль (75%)
+  
+  const iqr = q3 - q1; // Межквартильный размах
+  
+  // Границы для определения выбросов
+  const lowerBound = q1 - 1.5 * iqr;
+  const upperBound = q3 + 1.5 * iqr;
+  
+  // Подсчет выбросов - значений, выходящих за границы
+  const outliers = sortedData.filter(value => 
+    value < lowerBound || value > upperBound
+  ).length;
+  
+  return {
+    median,
+    average,
+    outliers: `${outliers} знач.`
+  };
+}
+
+/**
+ * Обработчики для кнопок покупки и продажи
+ */
+function initTradingButtons() {
+  document.querySelectorAll('.trading-buttons').forEach(container => {
+    const buyBtn = container.querySelector('.buy-btn');
+    const sellBtn = container.querySelector('.sell-btn');
+    
+    buyBtn.addEventListener('click', () => {
+      alert('Функция покупки будет доступна в следующем обновлении');
+    });
+    
+    sellBtn.addEventListener('click', () => {
+      alert('Функция продажи будет доступна в следующем обновлении');
+    });
+  });
+}
+
+/**
+ * Инициализация переключателей валют
+ */
+function initCurrencySelectors() {
+  ['crypto', 'fiat'].forEach(type => {
+    const container = document.querySelector(`#${type}Assets`);
+    const currencies = Object.keys(CURRENCY_INFO[type]);
+    const prevBtn = container.querySelector('.selector-btn.prev');
+    const nextBtn = container.querySelector('.selector-btn.next');
+    
+    function updateCurrency(direction) {
+      const currentValue = type === 'crypto' ? currentCrypto : currentFiat;
+      const currentIndex = currencies.indexOf(currentValue);
+      const newIndex = (currentIndex + direction + currencies.length) % currencies.length;
+      const newCurrency = currencies[newIndex];
+      
+      if (type === 'crypto') {
+        currentCrypto = newCurrency;
+      } else {
+        currentFiat = newCurrency;
+      }
+      
+      // Получаем текущий интервал
+      const timeRange = document.getElementById('timeRange');
+      updateCharts(timeRange.value);
+    }
+    
+    prevBtn.addEventListener('click', () => updateCurrency(-1));
+    nextBtn.addEventListener('click', () => updateCurrency(1));
+  });
+}
+
+/**
+ * Определение количества месяцев для интервала
+ */
+function getMonthCount(interval) {
+  switch(interval) {
+    case '1m': return 1;
+    case '6m': return 6;
+    case '1y': return 12;
+    case '3y': return 36;
+    default: return 36;
+  }
+}
+
+// Маппинг для ключей фиатных валют
+const fiatKeyMap = {
+    USD: 'USD/RUB',
+    EUR: 'EUR/RUB',
+    CNY: 'CNY/RUB',
+    AED: 'AED/RUB'
+};
+
+// Модифицируем функцию updateCharts
+function updateCharts(interval) {
+  if (!chartData) {
+    console.error('Данные графиков не загружены');
+    return;
+  }
+
+  const isDaily = interval === '1m';
+  const labels = isDaily ? generateLabels(null, null, true) : baseLabels.slice(-getMonthCount(interval));
+
+  // Подготовка данных для криптовалют
+  const cryptoData = getDataForInterval(chartData.crypto[currentCrypto], interval);
+  const cryptoDatasets = [{
+    label: currentCrypto,
+    data: cryptoData,
+    borderColor: CURRENCY_INFO.crypto[currentCrypto].color,
+    tension: 0.3
+  }];
+
+  // Подготовка данных для фиатных валют (с учетом правильного ключа)
+  const fiatData = getDataForInterval(chartData.fiat[fiatKeyMap[currentFiat]], interval);
+  const fiatDatasets = [{
+    label: currentFiat,
+    data: fiatData,
+    borderColor: CURRENCY_INFO.fiat[currentFiat].color,
+    tension: 0.3
+  }];
+
+  // Настройки для графиков
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { display: false },
+      tooltip: { enabled: true }
+    },
+    scales: {
+      x: {
+        display: true,
+        grid: { display: false },
+        ticks: {
+          maxRotation: 0,
+          autoSkip: true,
+          maxTicksLimit: 12
+        }
+      },
+      y: {
+        type: 'logarithmic',
+        display: true,
+        grid: {
+          color: 'rgba(0, 0, 0, 0.1)'
+        }
+      }
+    }
+  };
+
+  // Обновление графиков
+  if (!window.cryptoChart) {
+    const cryptoCtx = document.getElementById('cryptoChart').getContext('2d');
+    window.cryptoChart = new Chart(cryptoCtx, {
+      type: 'line',
+      data: { labels, datasets: cryptoDatasets },
+      options: chartOptions
+    });
+  } else {
+    window.cryptoChart.data.labels = labels;
+    window.cryptoChart.data.datasets = cryptoDatasets;
+    window.cryptoChart.update('none');
+  }
+
+  if (!window.fiatChart) {
+    const fiatCtx = document.getElementById('fiatChart').getContext('2d');
+    window.fiatChart = new Chart(fiatCtx, {
+      type: 'line',
+      data: { labels, datasets: fiatDatasets },
+      options: chartOptions
+    });
+  } else {
+    window.fiatChart.data.labels = labels;
+    window.fiatChart.data.datasets = fiatDatasets;
+    window.fiatChart.update('none');
+  }
+
+  // Обновляем информацию о валютах
+  updateCurrencyInfo('crypto', currentCrypto, cryptoData);
+  updateCurrencyInfo('fiat', currentFiat, fiatData);
+}
+
+/**
  * Инициализация графиков и загрузка данных
  * 
  * Основная функция, которая:
@@ -426,75 +756,19 @@ async function updateAllPrices() {
  */
 async function initializeCharts() {
   try {
-    // Загрузка данных из JSON файла
     const response = await fetch(exchangeratesFile);
-    const data = await response.json();
-    let baseLabels = generateLabels("2023-01-01", 36);
-    let cryptoChart, fiatChart;
+    chartData = await response.json();
+    
+    // Генерируем метки для временной оси
+    window.baseLabels = generateLabels("2023-01-01", 36);
 
-    // Обновляем курс BTC каждые 30 секунд
-    updateAllPrices();
-    setInterval(updateAllPrices, 30000);
+    // Инициализация переключателей валют
+    initCurrencySelectors();
+    
+    // Инициализация кнопок торговли
+    initTradingButtons();
 
-    /**
-     * Обновление графиков при изменении интервала
-     * @param {string} interval - Выбранный интервал
-     */
-    function updateCharts(interval) {
-      const isDaily = interval === '1m';
-      const labels = isDaily ? generateLabels(null, null, true) : baseLabels.slice(-getMonthCount(interval));
-
-      // Подготовка данных для криптовалют
-      const cryptoDatasets = Object.keys(data.crypto).map(currency => ({
-        label: currency,
-        data: getDataForInterval(data.crypto[currency], interval),
-        tension: 0.3 // Сглаживание линий графика
-      }));
-
-      // Подготовка данных для фиатных валют
-      const fiatDatasets = Object.keys(data.fiat).map(currency => ({
-        label: currency,
-        data: getDataForInterval(data.fiat[currency], interval),
-        tension: 0.3
-      }));
-
-      // Создание или обновление графика криптовалют
-      if (!cryptoChart) {
-        const cryptoCtx = document.getElementById('cryptoChart').getContext('2d');
-        cryptoChart = new Chart(cryptoCtx, createChartConfig('line', { labels: labels, datasets: cryptoDatasets }));
-      } else {
-        cryptoChart.data.labels = labels;
-        cryptoChart.data.datasets = cryptoDatasets;
-        cryptoChart.update();
-      }
-
-      // Создание или обновление графика фиатных валют
-      if (!fiatChart) {
-        const fiatCtx = document.getElementById('fiatChart').getContext('2d');
-        fiatChart = new Chart(fiatCtx, createChartConfig('line', { labels: labels, datasets: fiatDatasets }));
-      } else {
-        fiatChart.data.labels = labels;
-        fiatChart.data.datasets = fiatDatasets;
-        fiatChart.update();
-      }
-    }
-
-    /**
-     * Определение количества месяцев для интервала
-     * @param {string} interval - Выбранный интервал
-     * @returns {number} Количество месяцев
-     */
-    function getMonthCount(interval) {
-      switch(interval) {
-        case '1m': return 1;
-        case '6m': return 6;
-        case '1y': return 12;
-        case '3y': return 36;
-        default: return 36;
-      }
-    }
-
-    // Инициализация с дефолтным интервалом (3 года)
+    // Обновляем графики с начальными значениями
     updateCharts('3y');
 
     // Обработчик изменения интервала
@@ -625,4 +899,71 @@ document.addEventListener('DOMContentLoaded', () => {
   // Получаем новости каждые 5 минут
   getFinancialNews();
   setInterval(getFinancialNews, 5 * 60 * 1000);
+});
+
+// --- Переключение валют для графиков (crypto/fiat) ---
+function setupCurrencySwitchers() {
+  // Криптовалюты
+  const cryptoPrev = document.querySelector('#cryptoAssets .selector-btn.prev');
+  const cryptoNext = document.querySelector('#cryptoAssets .selector-btn.next');
+  cryptoPrev.addEventListener('click', () => {
+    const keys = Object.keys(CURRENCY_INFO.crypto);
+    let idx = keys.indexOf(currentCrypto);
+    idx = (idx - 1 + keys.length) % keys.length;
+    currentCrypto = keys[idx];
+    const timeRange = document.getElementById('timeRange');
+    updateCharts(timeRange.value);
+  });
+  cryptoNext.addEventListener('click', () => {
+    const keys = Object.keys(CURRENCY_INFO.crypto);
+    let idx = keys.indexOf(currentCrypto);
+    idx = (idx + 1) % keys.length;
+    currentCrypto = keys[idx];
+    const timeRange = document.getElementById('timeRange');
+    updateCharts(timeRange.value);
+  });
+  // Фиатные валюты
+  const fiatPrev = document.querySelector('#fiatAssets .selector-btn.prev');
+  const fiatNext = document.querySelector('#fiatAssets .selector-btn.next');
+  fiatPrev.addEventListener('click', () => {
+    const keys = Object.keys(CURRENCY_INFO.fiat);
+    let idx = keys.indexOf(currentFiat);
+    idx = (idx - 1 + keys.length) % keys.length;
+    currentFiat = keys[idx];
+    const timeRange = document.getElementById('timeRange');
+    updateCharts(timeRange.value);
+  });
+  fiatNext.addEventListener('click', () => {
+    const keys = Object.keys(CURRENCY_INFO.fiat);
+    let idx = keys.indexOf(currentFiat);
+    idx = (idx + 1) % keys.length;
+    currentFiat = keys[idx];
+    const timeRange = document.getElementById('timeRange');
+    updateCharts(timeRange.value);
+  });
+}
+
+// --- Автоматическое обновление графиков при смене темы ---
+function setupThemeChartRefresh() {
+  const themeSelect = document.getElementById('colorScheme');
+  if (themeSelect) {
+    themeSelect.addEventListener('change', () => {
+      setTimeout(() => {
+        const timeRange = document.getElementById('timeRange');
+        updateCharts(timeRange.value);
+      }, 300); // Ждём применения темы
+    });
+  }
+  // Также слушаем событие изменения data-theme (например, при переключении кнопкой)
+  const observer = new MutationObserver(() => {
+    const timeRange = document.getElementById('timeRange');
+    updateCharts(timeRange.value);
+  });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+}
+
+// --- Инициализация ---
+document.addEventListener('DOMContentLoaded', () => {
+  setupCurrencySwitchers();
+  setupThemeChartRefresh();
 }); 

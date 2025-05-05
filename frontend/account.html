@@ -53,5 +53,33 @@
         </div>
     </form>
     
+    <div class="notification-settings">
+        <h2>Настройки уведомлений</h2>
+        <form id="notificationSettingsForm" method="post" action="{# TODO: добавить обработчик #}">
+            <div class="form-group">
+                <label for="notifyCurrency">Валюта для уведомлений:</label>
+                <select id="notifyCurrency" name="notifyCurrency">
+                    <option value="BTC">Bitcoin (BTC)</option>
+                    <option value="ETH">Ethereum (ETH)</option>
+                    <option value="TON">Toncoin (TON)</option>
+                    <option value="USD">Доллар США (USD)</option>
+                    <option value="EUR">Евро (EUR)</option>
+                    <option value="CNY">Китайский юань (CNY)</option>
+                    <option value="AED">Дирхам ОАЭ (AED)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="notifyInterval">Частота уведомлений (каждые k часов):</label>
+                <input type="number" id="notifyInterval" name="notifyInterval" min="1" max="168" value="6">
+            </div>
+            <div class="form-group">
+                <label for="notifyThreshold">Порог изменения стоимости для уведомления (%):</label>
+                <input type="number" id="notifyThreshold" name="notifyThreshold" min="0.1" max="100" step="0.1" value="5">
+            </div>
+            <div class="account-buttons">
+                <input type="submit" class="account-btn" value="Сохранить настройки">
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}

@@ -2,10 +2,6 @@
 
 {% load static %}
 
-{% block notifications %}
-    Уведомления
-{% endblock %}
-
 {% block sidebar %}
 
 <!-- Сайдбар - боковая панель навигации -->
@@ -256,15 +252,103 @@
 
     <!-- Графики криптовалют и фиатных валют -->
     <div class="chart-container" id="cryptoAssets">
-        <h4>Динамика криптовалют</h4>
-        <canvas id="cryptoChart" height="140"></canvas>
-        <small>Криптовалюты в USD. Значения в логарифмическом масштабе.</small>
+        <div class="chart-layout">
+            <div class="chart-area">
+                <h4>Динамика криптовалют</h4>
+                <canvas id="cryptoChart" height="80"></canvas>
+            </div>
+            <div class="currency-info">
+                <div class="currency-description">
+                    <div class="currency-header">
+                        <h5 class="currency-name">Bitcoin (BTC)</h5>
+                        <div class="currency-selector">
+                            <button class="selector-btn prev" aria-label="Предыдущая валюта">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <span class="current-currency">BTC</span>
+                            <button class="selector-btn next" aria-label="Следующая валюта">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="currency-details"></p>
+                    <div class="currency-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Медиана:</span>
+                            <span class="stat-value median">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Среднее значение:</span>
+                            <span class="stat-value average">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Выбросы:</span>
+                            <span class="stat-value outliers">-</span>
+                        </div>
+                    </div>
+                    <div class="trading-buttons">
+                        <button class="action-btn buy-btn">
+                            <i class="fas fa-arrow-up"></i>
+                            Купить
+                        </button>
+                        <button class="action-btn sell-btn">
+                            <i class="fas fa-arrow-down"></i>
+                            Продать
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="chart-container" id="fiatAssets">
-        <h4>Динамика фиатных валют</h4>
-        <canvas id="fiatChart" height="140"></canvas>
-        <small>Фиатные валюты в RUB. Значения в логарифмическом масштабе.</small>
+        <div class="chart-layout">
+            <div class="chart-area">
+                <h4>Динамика фиатных валют</h4>
+                <canvas id="fiatChart" height="80"></canvas>
+            </div>
+            <div class="currency-info">
+                <div class="currency-description">
+                    <div class="currency-header">
+                        <h5 class="currency-name">Доллар США (USD)</h5>
+                        <div class="currency-selector">
+                            <button class="selector-btn prev" aria-label="Предыдущая валюта">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <span class="current-currency">USD</span>
+                            <button class="selector-btn next" aria-label="Следующая валюта">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="currency-details"></p>
+                    <div class="currency-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Медиана:</span>
+                            <span class="stat-value median">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Среднее значение:</span>
+                            <span class="stat-value average">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Выбросы:</span>
+                            <span class="stat-value outliers">-</span>
+                        </div>
+                    </div>
+                    <div class="trading-buttons">
+                        <button class="action-btn buy-btn">
+                            <i class="fas fa-arrow-up"></i>
+                            Купить
+                        </button>
+                        <button class="action-btn sell-btn">
+                            <i class="fas fa-arrow-down"></i>
+                            Продать
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
