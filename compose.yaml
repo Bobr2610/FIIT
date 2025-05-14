@@ -7,32 +7,21 @@
 
 services:
   app:
-    ports:
-      - target: 8000
-        published: 8000
     depends_on:
       - db
       - redis
     build:
       context: .
-#    working_dir: /fiit/backend
-#    command: gunicorn FIIT.wsgi:application --bind 0.0.0.0:8000 --workers 4
     deploy:
       replicas: 1
     restart: always
     env_file:
       - config/.env
-    develop:
-      watch:
-        - path: backend/
-          action: sync
-          target: fiit/backend/
-        - path: frontend/
-          action: sync
-          target: fiit/frontend/
-        - path: config/
-          action: sync+restart
-          target: fiit/config/
+    volumes:
+      - app_static_data:/fiit/build/static
+      - ./backend:/fiit/backend
+      - ./config:/fiit/config
+      - ./frontend:/fiit/frontend
     networks:
       - network
 
@@ -186,27 +175,24 @@ services:
 #    networks:
 #      - network
 
-#  nginx:
-#    image: nginx:alpine
-#    ports:
-#      - target: 80
-#        published: 80
-#      - target: 443
-#        published: 443
-#    depends_on:
-#      - app
-#    build:
-#      context: .
-#    deploy:
-#      replicas: 1
-#    restart: always
-#    volumes:
-#      - ./nginx/conf.d:/etc/nginx/conf.d
-#      - static_volume:/app/backend/static
-#    networks:
-#      - network
+  nginx:
+    image: nginx:alpine
+    ports:
+      - target: 80
+        published: 8000
+    depends_on:
+      - app
+    deploy:
+      replicas: 1
+    restart: always
+    volumes:
+      - app_static_data:/fiit/build/static
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - network
 
 volumes:
+  app_static_data:
   postgres_data:
   pgadmin_data:
   redis_data:

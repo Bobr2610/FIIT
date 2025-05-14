@@ -8,15 +8,16 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /fiit
 
-COPY . .
+RUN pip install --upgrade pip && \
+    pip install poetry
 
-RUN pip install --upgrade pip &&  \
-    pip install poetry &&  \
-    poetry config virtualenvs.create false &&  \
+COPY pyproject.toml .
+
+RUN poetry config virtualenvs.create false &&  \
     poetry install
+
+COPY . .
 
 EXPOSE 8000
 
-CMD python backend/manage.py makemigrations &&  \
-    python backend/manage.py migrate &&  \
-    python backend/manage.py runserver 0.0.0.0:8000
+CMD sh scripts/backend/start.sh
