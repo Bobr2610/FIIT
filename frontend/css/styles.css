@@ -118,6 +118,14 @@
   --chart-usd-border-dash: [];
   --chart-aed-border-dash: [];
   --chart-cny-border-dash: [];
+
+  /* Новые переменные для компонентов */
+  --success-color-hover: #218838;
+  --danger-color-hover: #c82333;
+  --accent-primary-hover: #2980b9; /* Darker shade of #3498db */
+  --button-text-color: #ffffff;
+  --border-color-light: #eeeeee; /* Lighter border color */
+  --text-tertiary: #b0b0b0; /* Lighter text color */
 }
 
 /* Темная тема */
@@ -154,6 +162,12 @@
   --chart-usd-color: #42a5f5;
   --chart-aed-color: #ff7043;
   --chart-cny-color: #66bb6a;
+
+  /* Обновленные и новые переменные для темной темы */
+  --bg-tertiary: #393e46; /* As per plan's comment example */
+  --border-color-light: #444444; /* Dark theme specific light border */
+  --text-tertiary: #777777; /* Dark theme specific tertiary text */
+  /* Other new variables like --*-hover and --button-text-color will inherit from :root if not specified here */
 }
 
 /* Тема с высоким контрастом */
@@ -1194,4 +1208,186 @@ input.account-btn, a.account-btn {
     align-items:center;
     gap:var(--spacing-sm);
     margin-left:0;
+}
+
+/* Single Currency Dashboard Styling - Revised */
+.single-currency-dashboard {
+    background-color: var(--background-primary); /* Or transparent, or a very light shade */
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+    /* Removed box-shadow for a flatter look, or use a very subtle one */
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03); */
+    border: 1px solid var(--border-color-light); /* Optional: a light border */
+}
+
+.currency-selector-panel p {
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+.currency-stats-panel h5 {
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    font-size: 1em; /* Slightly smaller */
+    font-weight: 500;
+}
+
+.currency-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Smaller gap */
+    margin-bottom: 15px;
+}
+
+.currency-btn {
+    background-color: var(--background-secondary); /* Lighter background */
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px; /* Smaller padding */
+    border-radius: 16px; /* Still pill-shaped but perhaps smaller */
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 0.85em;
+}
+
+.currency-btn:hover {
+    background-color: var(--background-tertiary);
+    /* color: var(--accent-primary); */ /* Keep text color consistent or use accent */
+}
+
+.currency-btn.active {
+    background-color: var(--accent-primary);
+    color: var(--button-text-color);
+    border-color: var(--accent-primary);
+    font-weight: 500;
+}
+
+.currency-stats-panel {
+    background-color: var(--bg-secondary);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color-light);
+    text-align: left; /* Align text to the left */
+    transition: opacity 0.5s ease-in-out; /* For animation */
+}
+
+.currency-description {
+    margin-bottom: var(--spacing-sm);
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.stats-display p {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    margin-bottom: 5px; /* Compact spacing */
+}
+
+.stats-display span {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Remove grid and animation for stats if a simple list is preferred like in the image */
+.stat-item { /* If you revert to stat-item structure, adjust here */
+    /* display: none; */ /* Or remove if not using the grid anymore */
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 8px 18px; /* Slightly smaller buttons */
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    border: none;
+}
+
+.btn-buy {
+    background-color: var(--success-color); 
+    color: #fff;
+}
+
+.btn-buy:hover {
+    background-color: var(--success-color-hover);
+}
+
+.btn-sell {
+    background-color: var(--danger-color);
+    color: #fff;
+}
+
+.btn-sell:hover {
+    background-color: var(--danger-color-hover);
+}
+
+/* Ensure these variables are defined in your theme settings */
+/* :root {
+    --success-color: #28a745; (example)
+    --success-color-hover: #218838; (example)
+    --danger-color: #dc3545; (example)
+    --danger-color-hover: #c82333; (example)
+} */
+
+/* Стили для кнопок выбора валюты */
+.currency-selector-panel .currency-btn {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+  margin: var(--spacing-xs);
+}
+
+.currency-selector-panel .currency-btn:hover {
+  background-color: var(--bg-tertiary);
+  transform: translateY(-2px);
+}
+
+.currency-selector-panel .currency-btn.active {
+  background-color: var(--accent-primary);
+  color: var(--button-text-color, #ffffff); /* Убедитесь, что --button-text-color определена или используйте #ffffff */
+  border-color: var(--accent-primary);
+  font-weight: bold;
+}
+
+/* Стили для кнопок Купить/Продать */
+.currency-actions .action-btn {
+    padding: var(--button-padding);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    font-weight: bold;
+    border: none;
+    margin: 0 var(--spacing-sm);
+}
+
+.currency-actions .action-btn#buyButton {
+    background-color: var(--success-color);
+    color: var(--button-text-color, #ffffff);
+}
+
+.currency-actions .action-btn#buyButton:hover {
+    background-color: var(--success-color-hover, #218838); /* Добавьте --success-color-hover или используйте значение по умолчанию */
+    transform: translateY(-2px);
+}
+
+.currency-actions .action-btn#sellButton {
+    background-color: var(--danger-color);
+    color: var(--button-text-color, #ffffff);
+}
+
+.currency-actions .action-btn#sellButton:hover {
+    background-color: var(--danger-color-hover, #c82333); /* Добавьте --danger-color-hover или используйте значение по умолчанию */
+    transform: translateY(-2px);
 }

@@ -28,17 +28,9 @@
             <i class="fas fa-newspaper"></i>
             <span>Курсы и новости</span>
         </a>
-        <a href="#dashboard" class="nav-item">
+        <a href="#allAssetsChart" class="nav-item">
             <i class="fas fa-chart-line"></i>
             <span>Обзор рынка</span>
-        </a>
-        <a href="#cryptoAssets" class="nav-item">
-            <i class="fab fa-bitcoin"></i>
-            <span>Криптовалюты</span>
-        </a>
-        <a href="#fiatAssets" class="nav-item">
-            <i class="fas fa-money-bill-wave"></i>
-            <span>Фиатные валюты</span>
         </a>
     </nav>
 
@@ -255,16 +247,42 @@
     </div>
 
     <!-- Графики криптовалют и фиатных валют -->
-    <div class="chart-container" id="cryptoAssets">
-        <h4>Динамика криптовалют</h4>
-        <canvas id="cryptoChart" height="140"></canvas>
-        <small>Криптовалюты в USD. Значения в логарифмическом масштабе.</small>
+    <div class="chart-container" id="allAssetsChart">
+        <h4>Динамика валют</h4>
+        <canvas id="combinedChart" height="140"></canvas>
+        <small>Криптовалюты в USD, Фиатные валюты в RUB. Значения в логарифмическом масштабе.</small>
     </div>
 
-    <div class="chart-container" id="fiatAssets">
-        <h4>Динамика фиатных валют</h4>
-        <canvas id="fiatChart" height="140"></canvas>
-        <small>Фиатные валюты в RUB. Значения в логарифмическом масштабе.</small>
+    <!-- Новый раздел для управления одной валютой (исправленный) -->
+    <div class="single-currency-dashboard">
+        <div class="currency-selector-panel crypto-panel">
+            <p>Выберите криптовалюту для детального анализа:</p>
+            <div class="currency-buttons crypto-buttons">
+                <button class="currency-btn" data-currency="BTC">BTC</button>
+                <button class="currency-btn" data-currency="ETH">ETH</button>
+                <button class="currency-btn" data-currency="TON">TON</button> <!-- Added TON -->
+                <button class="currency-btn" data-currency="USD">USD</button>
+                <button class="currency-btn" data-currency="EUR">EUR</button>
+                <button class="currency-btn" data-currency="CNY">CNY</button>
+                <button class="currency-btn" data-currency="AED">AED</button> <!-- Added AED -->
+            </div>
+        </div>
+
+        <div class="currency-stats-panel">
+            <h5 id="selectedCurrencyName">Статистика для: --</h5>
+            <div id="currencyDescriptionContainer" class="currency-description">
+                <p>Описание: <span id="statDescription">--</span></p>
+            </div>
+            <div class="stats-display">
+                <p>Среднее значение: <span id="statAverage">--</span></p>
+                <p>Медиана: <span id="statMedian">--</span></p>
+                <p>Выбросы (среднее): <span id="statOutliers">--</span></p>
+            </div>
+            <div class="action-buttons">
+                <button id="buyButton" class="btn btn-buy">Купить</button> <!-- Added id -->
+                <button id="sellButton" class="btn btn-sell">Продать</button> <!-- Added id -->
+            </div>
+        </div>
     </div>
 
 
