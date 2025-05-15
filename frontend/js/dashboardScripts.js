@@ -12,6 +12,7 @@ const currencyDescriptions = {
     EUR: 'Евро - официальная валюта 19 из 27 стран-членов Европейского Союза.',
     CNY: 'Китайский юань (женьминьби) - официальная валюта Китайской Народной Республики.',
     AED: 'Дирхам ОАЭ - валюта Объединенных Арабских Эмиратов.'
+    // Убедитесь, что ключи здесь соответствуют тем, что будут использоваться в графике (например, USD, EUR)
 };
 
 // Константа для настроек форматирования чисел (ОПРЕДЕЛЕНА ОДИН РАЗ)
@@ -22,35 +23,72 @@ const NUMBER_FORMAT_OPTIONS = {
 
 // --- ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ---
 
-function generateLabels(yearlyData, dailyDataKey) {
+function generateLabels(currencyData, interval = 'all', dailyDataKey = null) {
     const labels = [];
-    if (dailyDataKey && yearlyData[dailyDataKey]) { 
+    const allYears = Object.keys(currencyData).filter(k => k.match(/^\d{4}$/)).sort(); // Получаем все доступные годы
+
+    if (dailyDataKey && currencyData[dailyDataKey] && interval === '1m') {
         const year = dailyDataKey.split('_')[1];
         const month = dailyDataKey.split('_')[2];
-        const daysInMonth = yearlyData[dailyDataKey].length; 
+        const daysInMonth = currencyData[dailyDataKey].length;
         for (let i = 1; i <= daysInMonth; i++) {
             labels.push(`${year}-${month}-${i < 10 ? '0' + i : i}`);
         }
-    } else { 
-        const years = ['2023', '2024', '2025'].filter(year => yearlyData[year] && yearlyData[year].length > 0);
-        years.forEach(year => {
-            for (let month = 1; month <= 12; month++) {
-                if (yearlyData[year] && yearlyData[year][month -1] !== undefined) { // Check if yearlyData[year] exists
-                     labels.push(`${year}-${month < 10 ? '0' + month : month}`);
+    } else {
+        let yearsToProcess = allYears;
+        if (interval === '1y') {
+            yearsToProcess = allYears.slice(-1); // Последний год
+        } else if (interval === '3y') {
+            yearsToProcess = allYears.slice(-3); // Последние 3 года
+        }
+        // Для 'all' используем все доступные годы (yearsToProcess уже содержит их)
+
+        yearsToProcess.forEach(year => {
+            if (currencyData[year]) {
+                for (let month = 1; month <= 12; month++) {
+                    // Проверяем, есть ли данные за этот месяц в годовом массиве
+                    if (currencyData[year][month - 1] !== undefined) {
+                         labels.push(`${year}-${month < 10 ? '0' + month : month}`);
+                    }
                 }
             }
         });
     }
-    return [...new Set(labels)].sort(); 
+    return [...new Set(labels)].sort();
 }
 
-function combineYearlyData(currencyData) {
+function combineYearlyData(currencyData, interval = 'all') {
     let combined = [];
-    if (currencyData && currencyData['2023']) combined = combined.concat(currencyData['2023']);
-    if (currencyData && currencyData['2024']) combined = combined.concat(currencyData['2024']);
-    if (currencyData && currencyData['2025']) combined = combined.concat(currencyData['2025']);
-    // If data is directly an array (e.g. daily data for 1m interval)
-    if(Array.isArray(currencyData)) return currencyData;
+    const allYears = Object.keys(currencyData).filter(k => k.match(/^\d{4}$/)).sort();
+
+    if (interval === '1m') {
+        // Если есть ключ daily_ для последнего месяца последнего года, используем его
+        const lastYear = allYears.length > 0 ? allYears[allYears.length - 1] : null;
+        if (lastYear) {
+            const dailyKeysForLastYear = Object.keys(currencyData).filter(k => k.startsWith(`daily_${lastYear}_`)).sort();
+            if (dailyKeysForLastYear.length > 0) {
+                const lastMonthDailyKey = dailyKeysForLastYear[dailyKeysForLastYear.length -1];
+                if(currencyData[lastMonthDailyKey]) return currencyData[lastMonthDailyKey];
+            }
+        }
+        // Если нет дневных данных за последний месяц, возвращаем пустой массив или данные за последний год (как запасной вариант)
+        // Для простоты пока вернем данные за последний год, если 1m запрошен, но нет daily
+        if (lastYear && currencyData[lastYear]) return currencyData[lastYear];
+        return [];
+    }
+
+    let yearsToProcess = allYears;
+    if (interval === '1y') {
+        yearsToProcess = allYears.slice(-1);
+    } else if (interval === '3y') {
+        yearsToProcess = allYears.slice(-3);
+    }
+
+    yearsToProcess.forEach(year => {
+        if (currencyData[year]) {
+            combined = combined.concat(currencyData[year]);
+        }
+    });
     return combined;
 }
 
@@ -63,13 +101,27 @@ function getRandomColor(alpha = 1) {
 
 function calculateStats(dataArray) {
     if (!dataArray || dataArray.length === 0) return { average: '--', median: '--', outliers: '--' };
-    const sortedData = [...dataArray].sort((a, b) => a - b);
+
+    // Убедимся, что все элементы в dataArray являются числами
+    const numericData = dataArray.map(Number).filter(n => !isNaN(n));
+    if (numericData.length === 0) return { average: '--', median: '--', outliers: '--' };
+
+    const sortedData = [...numericData].sort((a, b) => a - b);
     const sum = sortedData.reduce((acc, val) => acc + val, 0);
     const average = sum / sortedData.length;
     const mid = Math.floor(sortedData.length / 2);
     const median = sortedData.length % 2 !== 0 ? sortedData[mid] : (sortedData[mid - 1] + sortedData[mid]) / 2;
-    // A more robust outlier detection might be needed, this is a simple example
-    const outliers = sortedData.filter(val => val > average * 2 || val < average / 2).length;
+
+    // Расчет выбросов с использованием IQR (Interquartile Range)
+    const q1Index = Math.floor(sortedData.length / 4);
+    const q3Index = Math.floor((3 * sortedData.length) / 4);
+    const q1 = sortedData.length % 4 === 0 ? (sortedData[q1Index -1] + sortedData[q1Index]) / 2 : sortedData[q1Index];
+    const q3 = sortedData.length % 4 === 0 ? (sortedData[q3Index -1] + sortedData[q3Index]) / 2 : sortedData[q3Index];
+    const iqr = q3 - q1;
+    const lowerBound = q1 - 1.5 * iqr;
+    const upperBound = q3 + 1.5 * iqr;
+    const outliers = sortedData.filter(val => val < lowerBound || val > upperBound).length;
+
     return {
         average: average.toFixed(2),
         median: median.toFixed(2),
@@ -206,36 +258,44 @@ async function updateAllPrices() { // ОДНА ВЕРСИЯ
 
 // --- ОСНОВНАЯ ЛОГИКА ДЭШБОРДА ---
 
-function processChartData(rawData) {
+function processChartData(rawData, interval = 'all') {
     const datasets = [];
-    let allLabelsSet = new Set(); // Use a Set for unique labels initially
+    let allLabelsSet = new Set();
 
     const processCurrencyType = (currencyTypeData, type) => {
-        for (const currencyCode in currencyTypeData) {
-            const currencyData = currencyTypeData[currencyCode];
+        for (const currencyCodeWithPair in currencyTypeData) {
+            const baseCurrencyCode = currencyCodeWithPair.split('/')[0].toUpperCase();
+            const currencyData = currencyTypeData[currencyCodeWithPair];
             let combinedData;
             let currentLabels;
+            let dailyKeyForLabels = null;
 
-            // Check for daily data (e.g., 'daily_2025_01')
-            const dailyKey = Object.keys(currencyData).find(k => k.startsWith('daily_'));
-            if (dailyKey) {
-                combinedData = currencyData[dailyKey];
-                currentLabels = generateLabels({ [dailyKey]: currencyData[dailyKey] }, dailyKey);
+            if (interval === '1m') {
+                const allYears = Object.keys(currencyData).filter(k => k.match(/^\d{4}$/)).sort();
+                const lastYear = allYears.length > 0 ? allYears[allYears.length - 1] : null;
+                if (lastYear) {
+                    const dailyKeysForLastYear = Object.keys(currencyData).filter(k => k.startsWith(`daily_${lastYear}_`)).sort();
+                    if (dailyKeysForLastYear.length > 0) {
+                        dailyKeyForLabels = dailyKeysForLastYear[dailyKeysForLastYear.length - 1];
+                    }
+                }
+                combinedData = combineYearlyData(currencyData, interval);
+                currentLabels = generateLabels(currencyData, interval, dailyKeyForLabels);
             } else {
-                combinedData = combineYearlyData(currencyData);
-                currentLabels = generateLabels(currencyData); 
+                combinedData = combineYearlyData(currencyData, interval);
+                currentLabels = generateLabels(currencyData, interval);
             }
-            
+
             currentLabels.forEach(label => allLabelsSet.add(label));
 
             datasets.push({
-                label: currencyCode.toUpperCase(), // Standardize to uppercase
+                label: baseCurrencyCode,
                 data: combinedData,
-                borderColor: getRandomColor(), 
-                backgroundColor: getRandomColor(0.1),
+                // borderColor: getRandomColor(), // Цвет будет устанавливаться динамически
+                // backgroundColor: getRandomColor(0.1), // Цвет будет устанавливаться динамически
                 tension: 0.3,
-                fill: false, 
-                hidden: true // Initially hide all datasets
+                fill: false,
+                hidden: true
             });
         }
     };
@@ -248,175 +308,241 @@ function processChartData(rawData) {
 }
 
 function updateStatsDisplay(currency, stats) {
+    console.log('Updating stats display for:', currency, 'with stats:', stats); 
     const statsPanel = document.querySelector('.currency-stats-panel');
-    if(statsPanel) statsPanel.style.opacity = 0; 
-    setTimeout(() => {
-        document.getElementById('selectedCurrencyName').textContent = `Статистика для: ${currency.toUpperCase()}`;
-        document.getElementById('statDescription').textContent = currencyDescriptions[currency.toUpperCase()] || 'Описание для данной валюты отсутствует.';
-        document.getElementById('statAverage').textContent = stats.average;
-        document.getElementById('statMedian').textContent = stats.median;
-        document.getElementById('statOutliers').textContent = stats.outliers;
-        if(statsPanel) statsPanel.style.opacity = 1; 
-    }, 300); 
+
+    if (statsPanel) {
+        // Убираем анимацию opacity и просто делаем панель видимой
+        statsPanel.style.display = 'block'; // Убедимся, что панель отображается
+        statsPanel.style.opacity = '1'; // Убедимся, что панель не прозрачная
+
+        const selectedCurrencyNameEl = document.getElementById('selectedCurrencyName');
+        const statDescriptionEl = document.getElementById('statDescription');
+        const statAverageEl = document.getElementById('statAverage');
+        const statMedianEl = document.getElementById('statMedian');
+        const statOutliersEl = document.getElementById('statOutliers');
+
+        if (selectedCurrencyNameEl) selectedCurrencyNameEl.textContent = `Статистика для: ${currency ? currency.toUpperCase() : 'Н/Д'}`;
+        if (statDescriptionEl) statDescriptionEl.textContent = currencyDescriptions[currency ? currency.toUpperCase() : ''] || 'Описание для данной валюты отсутствует.';
+        if (statAverageEl) statAverageEl.textContent = stats && stats.average !== undefined ? stats.average : '--';
+        if (statMedianEl) statMedianEl.textContent = stats && stats.median !== undefined ? stats.median : '--';
+        if (statOutliersEl) statOutliersEl.textContent = stats && stats.outliers !== undefined ? stats.outliers : '--';
+        
+        console.log('Stats panel updated and made visible.');
+    } else {
+        console.error('Currency stats panel not found!'); 
+    }
 }
 
-function updateCombinedChartForSingleCurrency(selectedCurrency) {
+function updateCombinedChartForSingleCurrency(selectedCurrency, interval) { // interval теперь обязательный параметр
     if (!combinedChartInstance || !allChartData.datasets) return;
+    console.log(`Updating chart for ${selectedCurrency} with interval ${interval} and color ${currentChartColor}`);
 
-    const upperSelectedCurrency = selectedCurrency.toUpperCase();
-    let datasetToShow = null;
+    fetch(exchangeratesFile)
+        .then(response => response.json())
+        .then(rawData => {
+            allChartData = processChartData(rawData, interval); // Передаем актуальный interval
+            console.log(`Processed chart data for interval ${interval}:`, allChartData);
 
-    allChartData.datasets.forEach(d => {
-        if (d.label.toUpperCase() === upperSelectedCurrency) {
-            d.hidden = false;
-            datasetToShow = d;
-        } else {
-            d.hidden = true;
-        }
-    });
+            const upperSelectedCurrency = selectedCurrency.toUpperCase();
+            let datasetToShow = null;
 
-    if (datasetToShow) {
-        combinedChartInstance.data.datasets = allChartData.datasets; // Pass all, hidden flags will manage visibility
-        combinedChartInstance.update();
-        const stats = calculateStats(datasetToShow.data);
-        updateStatsDisplay(selectedCurrency, stats);
-    } else {
-        // If no specific dataset found, maybe clear the chart or show a message
-        combinedChartInstance.data.datasets = [];
-        combinedChartInstance.update();
-        updateStatsDisplay(selectedCurrency, { average: '--', median: '--', outliers: '--', description: 'Данные не найдены.' });
-    }
+            allChartData.datasets.forEach(d => {
+                if (d.label.toUpperCase() === upperSelectedCurrency) {
+                    d.hidden = false;
+                    d.borderColor = currentChartColor; // Устанавливаем выбранный цвет
+                    d.backgroundColor = currentChartColor.replace('rgb', 'rgba').replace(')', ', 0.1)'); // Для заливки
+                    datasetToShow = d;
+                } else {
+                    d.hidden = true;
+                }
+            });
+
+            if (datasetToShow) {
+                combinedChartInstance.data.labels = allChartData.labels;
+                combinedChartInstance.data.datasets = allChartData.datasets;
+                combinedChartInstance.update();
+                const stats = calculateStats(datasetToShow.data);
+                console.log('Calling updateStatsDisplay from updateCombinedChartForSingleCurrency (dataset found)'); // Логирование
+                updateStatsDisplay(selectedCurrency, stats); // Убедимся, что вызывается здесь
+            } else {
+                console.warn(`Dataset for ${selectedCurrency} not found after processing for interval ${interval}`);
+                combinedChartInstance.data.labels = [];
+                combinedChartInstance.data.datasets = [];
+                combinedChartInstance.update();
+                console.log('Calling updateStatsDisplay from updateCombinedChartForSingleCurrency (dataset NOT found)'); // Логирование
+                updateStatsDisplay(selectedCurrency, { average: '--', median: '--', outliers: '--', description: 'Данные не найдены.' });
+            }
+        })
+        .catch(error => {
+            console.error(`Error fetching or processing data for interval ${interval}:`, error);
+            const chartWrapper = document.querySelector('.chart-wrapper');
+            if (chartWrapper) {
+                chartWrapper.innerHTML = `<p style="color: red; text-align: center;">Не удалось загрузить данные для графика: ${error.message}. Проверьте консоль.</p>`;
+            }
+            console.log('Calling updateStatsDisplay from updateCombinedChartForSingleCurrency (catch block)'); // Логирование
+            updateStatsDisplay(selectedCurrency, { average: 'Ошибка', median: 'Ошибка', outliers: 'Ошибка', description: 'Не удалось загрузить данные.' });
+        });
 }
 
 async function initializeDashboard() {
-    console.log("Initializing dashboard..."); // Отладка
-    try {
-        // Initialize UI elements from scripts.js if they exist
-        if (typeof initThemeSwitcher === 'function') initThemeSwitcher();
-        if (typeof initDateTime === 'function') initDateTime();
-        if (typeof initNotificationToggle === 'function') initNotificationToggle();
+    console.log('[initializeDashboard] Initializing...');
+    const chartCanvas = document.getElementById('combinedChart');
+    const timeRangeSelect = document.getElementById('timeRange'); // Объявляем здесь
+    const colorPicker = document.getElementById('chartColorPicker'); // Объявляем здесь
 
-        console.log("Fetching data from:", exchangeratesFile); // Отладка - проверяем путь к файлу
-        const response = await fetch(exchangeratesFile); // Используем глобальную переменную, установленную в HTML
+    if (timeRangeSelect) {
+        currentInterval = timeRangeSelect.value; // Initialize from dropdown
+    }
+    if (colorPicker) {
+        currentChartColor = colorPicker.value; // Initialize from color picker
+    }
+
+    if (!chartCanvas) {
+        console.error('Error: Chart canvas element (combinedChart) not found.');
+        updateStatsDisplay('Ошибка', { average: '!', median: '!', outliers: '!', description: 'Элемент графика не найден.' });
+        return;
+    }
+
+    try {
+        const response = await fetch(exchangeratesFile); // exchangeratesFile is global from HTML
         if (!response.ok) {
-            console.error(`HTTP error! status: ${response.status} while fetching ${exchangeratesFile}`);
             throw new Error(`HTTP error! status: ${response.status} while fetching ${exchangeratesFile}`);
         }
-        const rawData = await response.json();
-        console.log("Raw data fetched:", rawData); // Отладка - смотрим сырые данные
+        window.exchangeRatesData = await response.json(); // Store globally for easier access
+        console.log('[initializeDashboard] Exchange rates data loaded:', window.exchangeRatesData);
 
-        allChartData = processChartData(rawData);
-        console.log("Processed chart data:", allChartData); // Отладка - смотрим обработанные данные
+        allChartData = processChartData(window.exchangeRatesData, currentInterval);
+        console.log('[initializeDashboard] Processed chart data:', allChartData);
 
-        const ctx = document.getElementById('combinedChart').getContext('2d');
-        if (!ctx) {
-            console.error("Canvas context 'combinedChart' not found!");
-            throw new Error("Canvas context 'combinedChart' not found!");
+        if (!allChartData.labels || !allChartData.datasets || allChartData.datasets.length === 0) {
+            console.error('[initializeDashboard] No data available to display on the chart after processing.');
+            updateStatsDisplay('Нет данных', { average: '--', median: '--', outliers: '--', description: 'Нет данных для отображения на графике.' });
+            // return; // Optional: stop if no data, or draw an empty chart
         }
-        if (combinedChartInstance) combinedChartInstance.destroy();
 
-        const initialCurrencyCode = allChartData.datasets.length > 0 ? allChartData.datasets[0].label : 'BTC';
-        console.log("Initial currency code:", initialCurrencyCode); // Отладка
-        
-        allChartData.datasets.forEach(ds => {
-            ds.hidden = ds.label.toUpperCase() !== initialCurrencyCode.toUpperCase();
-        });
+        const ctx = chartCanvas.getContext('2d');
+        if (combinedChartInstance) {
+            combinedChartInstance.destroy();
+        }
 
         combinedChartInstance = new Chart(ctx, {
             type: 'line',
-            data: { 
+            data: {
                 labels: allChartData.labels,
-                datasets: allChartData.datasets
+                datasets: allChartData.datasets.map(ds => ({
+                    ...ds,
+                    hidden: true, // Initially hide all datasets
+                    borderColor: currentChartColor, // Apply initial color
+                    backgroundColor: currentChartColor.replace('rgb', 'rgba').replace(')', ', 0.1)') // Apply initial color with opacity
+                }))
             },
-            options: { 
-                responsive: true, 
+            options: {
+                responsive: true,
                 maintainAspectRatio: false,
-                scales: { 
-                    y: { 
-                        type: 'logarithmic', 
-                        ticks: { callback: value => Number(value.toString()).toLocaleString() } 
+                scales: {
+                    y: {
+                        beginAtZero: false, // Для логарифмической шкалы лучше не начинать с нуля
+                        type: 'logarithmic', // Логарифмическая шкала
+                        ticks: {
+                            color: getComputedStyle(document.documentElement).getPropertyValue('--chart-text-color').trim(),
+                            callback: function(value, index, values) {
+                                // Показываем только основные метки, чтобы избежать переполнения
+                                if (value === 1 || value === 10 || value === 100 || value === 1000 || value === 10000 || value === 100000 || value === 1000000 || value === 10000000) {
+                                    if (value >= 1000000) return (value / 1000000).toLocaleString(undefined, NUMBER_FORMAT_OPTIONS) + 'M';
+                                    if (value >= 1000) return (value / 1000).toLocaleString(undefined, NUMBER_FORMAT_OPTIONS) + 'K';
+                                    return value.toLocaleString(undefined, NUMBER_FORMAT_OPTIONS);
+                                }
+                                return ''; // Скрываем остальные метки
+                            }
+                        },
+                        grid: { color: getComputedStyle(document.documentElement).getPropertyValue('--chart-grid-color').trim() }
                     },
-                    x: { 
-                        ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 15 }
+                    x: {
+                        ticks: { color: getComputedStyle(document.documentElement).getPropertyValue('--chart-text-color').trim() },
+                        grid: { color: getComputedStyle(document.documentElement).getPropertyValue('--chart-grid-color').trim() }
                     }
                 },
-                plugins: { 
+                plugins: {
                     legend: { 
-                        display: true, 
-                        position: 'top',
-                        labels: {
-                            filter: (legendItem, chartData) => {
-                                const dataset = chartData.datasets[legendItem.datasetIndex];
-                                return !dataset.hidden;
-                            }
-                        }
-                    }, 
-                    tooltip: { 
-                        mode: 'index', 
-                        intersect: false, 
-                        callbacks: { 
-                           label: context => `${context.dataset.label || ''}: ${context.parsed.y !== null ? Number(context.parsed.y.toString()).toLocaleString() : ''}` 
-                        }
-                    }
-                } 
+                        display: false // Убедимся, что легенда отключена
+                    },
+                    tooltip: { mode: 'index', intersect: false }
+                },
+                animation: { duration: 500, easing: 'easeInOutQuart' }
             }
         });
-        console.log("Chart instance created:", combinedChartInstance); // Отладка
+        console.log('[initializeDashboard] Chart instance created.');
 
-        const initialDataset = allChartData.datasets.find(d => d.label.toUpperCase() === initialCurrencyCode.toUpperCase());
-        if (initialDataset) {
-            console.log("Initial dataset for stats:", initialDataset); // Отладка
-            updateStatsDisplay(initialDataset.label, calculateStats(initialDataset.data));
-            const activeButton = document.querySelector(`.currency-btn[data-currency="${initialDataset.label.toUpperCase()}"]`);
-            if (activeButton) activeButton.classList.add('active');
-        } else {
-            console.warn("Initial dataset not found for stats display."); // Отладка
-            updateStatsDisplay('--', { average: '--', median: '--', outliers: '--' });
+        // Determine initial currency to display
+        const currencyButtons = document.querySelectorAll('.currency-selector-panel .currency-btn');
+        let initialCurrencyCode = 'BTC'; // По умолчанию BTC
+
+        if (currencyButtons.length > 0) {
+            // Устанавливаем активное состояние для первой кнопки, если она есть
+            const firstButton = currencyButtons[0];
+            if (firstButton) {
+                firstButton.classList.add('active');
+                initialCurrencyCode = firstButton.getAttribute('data-currency');
+            }
+            
+            // Можно добавить логику для выбора предпочтительной валюты, если BTC не первая
+            // Например, найти кнопку BTC и сделать ее активной:
+            const btcButton = Array.from(currencyButtons).find(btn => btn.getAttribute('data-currency') === 'BTC');
+            if (btcButton) {
+                currencyButtons.forEach(btn => btn.classList.remove('active')); // Сначала убираем active у всех
+                btcButton.classList.add('active');
+                initialCurrencyCode = 'BTC';
+            } else if (firstButton) { // Если BTC нет, оставляем активной первую
+                 currencyButtons.forEach(btn => btn.classList.remove('active'));
+                 firstButton.classList.add('active');
+                 initialCurrencyCode = firstButton.getAttribute('data-currency');
+            }
         }
+        console.log('[initializeDashboard] Initial currency code set to:', initialCurrencyCode);
 
-        document.querySelectorAll('.currency-btn').forEach(button => {
+        updateCombinedChartForSingleCurrency(initialCurrencyCode, currentInterval);
+
+        // Event listeners for currency buttons
+        currencyButtons.forEach(button => {
             button.addEventListener('click', () => {
-                const selectedCurrency = button.dataset.currency;
-                console.log("Currency button clicked:", selectedCurrency); // Отладка
-                updateCombinedChartForSingleCurrency(selectedCurrency);
-                document.querySelectorAll('.currency-btn').forEach(btn => btn.classList.remove('active'));
+                currencyButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
+                const selectedCurrency = button.getAttribute('data-currency');
+                updateCombinedChartForSingleCurrency(selectedCurrency, currentInterval);
             });
         });
 
-        const buyButton = document.getElementById('buyButton');
-        const sellButton = document.getElementById('sellButton');
-        if(buyButton) buyButton.addEventListener('click', () => {
-            const activeCurrency = document.querySelector('.currency-btn.active')?.dataset.currency || 'валюты';
-            alert(`Покупка ${activeCurrency.toUpperCase()} (в разработке)`);
-        });
-        if(sellButton) sellButton.addEventListener('click', () => {
-            const activeCurrency = document.querySelector('.currency-btn.active')?.dataset.currency || 'валюты';
-            alert(`Продажа ${activeCurrency.toUpperCase()} (в разработке)`);
-        });
-        console.log("Dashboard initialized successfully."); // Отладка
-        
+        // Обработчик для выпадающего списка интервалов
+        if (timeRangeSelect) {
+            timeRangeSelect.addEventListener('change', (event) => {
+                currentInterval = event.target.value;
+                const activeButton = document.querySelector('.currency-selector-panel .currency-btn.active');
+                const selectedCurrency = activeButton ? activeButton.getAttribute('data-currency') : initialCurrencyCode;
+                updateCombinedChartForSingleCurrency(selectedCurrency, currentInterval);
+            });
+        }
+
+        // Обработчик для выбора цвета
+        if (colorPicker) {
+            colorPicker.addEventListener('input', (event) => {
+                currentChartColor = event.target.value;
+                const activeButton = document.querySelector('.currency-selector-panel .currency-btn.active');
+                const selectedCurrency = activeButton ? activeButton.getAttribute('data-currency') : initialCurrencyCode;
+                updateCombinedChartForSingleCurrency(selectedCurrency, currentInterval);
+            });
+        }
+
+        console.log('[initializeDashboard] Initialization complete.');
+
     } catch (error) {
-        console.error("Error initializing dashboard:", error);
-        const chartContainer = document.getElementById('combinedChart')?.parentElement;
-        if (chartContainer) chartContainer.innerHTML = `<p style="color:var(--text-error, red); text-align:center; padding: 20px;">Не удалось загрузить данные для графика: ${error.message}</p>`;
-        updateStatsDisplay('Ошибка', { average: 'N/A', median: 'N/A', outliers: 'N/A', description: 'Не удалось загрузить данные.' });
+        console.error('[initializeDashboard] Error during initialization:', error);
+        const chartWrapper = document.querySelector('.chart-wrapper');
+        if (chartWrapper) {
+            chartWrapper.innerHTML = `<p style="color: red; text-align: center;">Не удалось инициализировать график: ${error.message}. Проверьте консоль.</p>`;
+        }
+        updateStatsDisplay('Ошибка', { average: '!', median: '!', outliers: '!', description: 'Ошибка инициализации графика.' });
     }
 }
 
-// --- ИНИЦИАЛИЗАЦИЯ ПРИ ЗАГРУЗКЕ СТРАНИЦЫ ---
-
-document.addEventListener('DOMContentLoaded', () => {
-    initializeDashboard();
-    updateAllPrices(); // Первоначальное обновление цен в шапке
-    setInterval(updateAllPrices, 30000); // Периодическое обновление цен
-});
-
-// Обработчик изменения размера окна для подстройки шрифта цен
-window.addEventListener('resize', adjustPriceFontSize);
-
-// Обработчик для кнопки обновления цен
-const refreshButton = document.querySelector('.refresh-btn');
-if (refreshButton) {
-    refreshButton.addEventListener('click', updateAllPrices);
-}
+document.addEventListener('DOMContentLoaded', initializeDashboard);

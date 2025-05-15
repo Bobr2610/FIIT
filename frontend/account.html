@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 
+{% block body_attributes %}id="account-page"{% endblock %}
+
 {% block title %}
     Управление аккаунтом
 {% endblock %}
 
-{% block notifications_button %}
-    <!--Уведомления для пользователя-->
+{% block topbar_right_เพิ่มเติม %}
+    <!--Уведомления для пользователя (перенесено сюда для страницы аккаунта)-->
     <div class="notification-container">
         <button id="notificationToggle"
                 class="notification-icon"
                 aria-label="Уведомления">
             <i class="fas fa-bell"></i>
         </button>
-
-        <!-- popover -->
         <div id="notificationPanel" class="notification-panel hidden">
             <p style="padding:16px;color:var(--text-secondary);">
                 Здесь будут показываться уведомления
@@ -24,38 +24,40 @@
 
 {% block content %}
 
-<div class="form-container" id="account">
+<div class="account-form-container card"> {# Изменяем класс для общих стилей карточек и добавляем новый для специфики #}
     <h1>
         Управление вашим аккаунтом
     </h1>
 
-    <div class="current-username">
+    <div class="user-info-section">
         <p>Пользователь: <strong>{{ user.username }}</strong></p>
     </div>
 
-    <form action="{% url 'app:account' %}" method="post">
+    <form action="{% url 'app:account' %}" method="post" class="account-form">
         {% csrf_token %}
-        {{ form.username.label_tag }}
-        {{ form.username }}
-        
-        {{ form.email.label_tag }}
-        {{ form.email }}
-
-        <div class="account-buttons">
-            <input type="submit" class="account-btn" value="Сохранить изменения">
+        <div class="form-group">
+            {{ form.username.label_tag }}
+            {{ form.username }}
+        </div>
+        <div class="form-group">
+            {{ form.email.label_tag }}
+            {{ form.email }}
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Сохранить изменения</button> {# Используем btn классы #}
         </div>
     </form>
 
-    <form action="{% url 'app:logout' %}">
+    <form action="{% url 'app:logout' %}" method="post" class="account-form"> {# Добавляем method="post" для logout #}
         {% csrf_token %}
-        <div class="account-buttons">
-            <input type="submit" class="account-btn" value="Выйти">
+        <div class="form-actions">
+            <button type="submit" class="btn btn-danger">Выйти</button> {# Используем btn классы #}
         </div>
     </form>
     
-    <div class="notification-settings">
+    <div class="notification-settings-section">
         <h2>Настройки уведомлений</h2>
-        <form id="notificationSettingsForm" method="post" action="{# TODO: добавить обработчик #}">
+        <form id="notificationSettingsForm" method="post" action="{# TODO: добавить обработчик #}" class="settings-form">
             <div class="form-group">
                 <label for="notifyCurrency">Валюта для уведомлений:</label>
                 <select id="notifyCurrency" name="notifyCurrency">
@@ -76,8 +78,8 @@
                 <label for="notifyThreshold">Порог изменения стоимости для уведомления (%):</label>
                 <input type="number" id="notifyThreshold" name="notifyThreshold" min="0.1" max="100" step="0.1" value="5">
             </div>
-            <div class="account-buttons">
-                <input type="submit" class="account-btn" value="Сохранить настройки">
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Сохранить настройки</button> {# Используем btn классы #}
             </div>
         </form>
     </div>
