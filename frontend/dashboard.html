@@ -31,11 +31,6 @@
         <a href="#trackedAssets" class="nav-item">
             <i class="fas fa-binoculars"></i>
             <span>Отслеживаемые</span>
-        </a>
-        <a href="#marketOverview" class="nav-item">
-            <i class="fas fa-chart-line"></i>
-            <span>Обзор рынка</span>
-        </a>
         <a href="#allAssetsChart" class="nav-item">
             <i class="fas fa-chart-pie"></i>
             <span>График</span>
@@ -68,32 +63,35 @@
         <!-- Добавляем текущее время под логотип -->
         <span class="current-time"></span>
 
-        <!-- Селектор темы с кнопкой переключения -->
-        <div class="theme-selector">
-            <label for="colorScheme">Тема:</label>
-            <select id="colorScheme">
-                <option value="light">Светлая</option>
-                <option value="dark">Темная</option>
-                <option value="colorblind">Высокий контраст</option>
-            </select>
-            <button class="theme-toggle" title="Переключить тему">
-                <i class="fas fa-moon"></i>
-            </button>
-        </div>
+        <!-- Правые контролы: Селектор темы и Уведомления -->
+        <div class="header-right-controls">
+            <!-- Селектор темы с кнопкой переключения -->
+            <div class="theme-selector">
+                <label for="colorScheme">Тема:</label>
+                <select id="colorScheme">
+                    <option value="light">Светлая</option>
+                    <option value="dark">Темная</option>
+                    <option value="colorblind">Высокий контраст</option>
+                </select>
+                <button class="theme-toggle" title="Переключить тему">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
 
-        <!--Уведомления для пользователя-->
-        <div class="notification-container">
-            <button id="notificationToggle"
-                    class="notification-icon"
-                    aria-label="Уведомления">
-                <i class="fas fa-bell"></i>
-            </button>
+            <!--Уведомления для пользователя-->
+            <div class="notification-container">
+                <button id="notificationToggle"
+                        class="notification-icon"
+                        aria-label="Уведомления">
+                    <i class="fas fa-bell"></i>
+                </button>
 
-            <!-- popover -->
-            <div id="notificationPanel" class="notification-panel hidden">
-                <p style="padding:16px;color:var(--text-secondary);">
-                    Здесь будут показываться уведомления
-                </p>
+                <!-- popover -->
+                <div id="notificationPanel" class="notification-panel hidden">
+                    <p style="padding:16px;color:var(--text-secondary);">
+                        Здесь будут показываться уведомления
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -139,7 +137,7 @@
             <div class="header-left">
                 <h3>Отслеживаемые активы </h3>
             </div>
-            <button class="refresh-btn" title="Обновить курсы">
+            <button class="refresh-btn styled-refresh-btn" title="Обновить курсы">
                 <i class="fas fa-sync-alt"></i>
             </button>
         </div>

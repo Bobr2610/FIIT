@@ -1,36 +1,60 @@
 {% extends "base.html" %}
 
-{% block body_attributes %}id="account-page"{% endblock %}
+{% block body_attributes %}id="account-page" class="main-content"{% endblock %} {# Добавляем main-content для центрирования #}
 
 {% block title %}
     Управление аккаунтом
 {% endblock %}
 
-{% block topbar_right_เพิ่มเติม %}
-    <!--Уведомления для пользователя (перенесено сюда для страницы аккаунта)-->
-    <div class="notification-container">
-        <button id="notificationToggle"
-                class="notification-icon"
-                aria-label="Уведомления">
-            <i class="fas fa-bell"></i>
-        </button>
-        <div id="notificationPanel" class="notification-panel hidden">
-            <p style="padding:16px;color:var(--text-secondary);">
-                Здесь будут показываться уведомления
-            </p>
+{% block topbar %}
+    <!-- Верхняя панель для страницы аккаунта может быть упрощена или стандартной -->
+    <div class="top-bar" id="top">
+        <div class="account-group">
+            <a href="{% url 'app:dashboard' %}" class="account-link">
+                <i class="fas fa-arrow-left"></i>
+                <span>Назад к панели</span>
+            </a>
+        </div>
+        <span class="current-time"></span>
+        <div class="header-right-controls">
+            <div class="theme-selector">
+                <label for="colorScheme">Тема:</label>
+                <select id="colorScheme">
+                    <option value="light">Светлая</option>
+                    <option value="dark">Темная</option>
+                    <option value="colorblind">Высокий контраст</option>
+                </select>
+                <button class="theme-toggle" title="Переключить тему">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="notification-container">
+                <button id="notificationToggle"
+                        class="notification-icon"
+                        aria-label="Уведомления">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <div id="notificationPanel" class="notification-panel hidden">
+                    <p style="padding:16px;color:var(--text-secondary);">
+                        Здесь будут показываться уведомления
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
 
 {% block content %}
 
-<div class="account-form-container card"> {# Изменяем класс для общих стилей карточек и добавляем новый для специфики #}
+<div class="account-form-container card">
     <h1>
         Управление вашим аккаунтом
     </h1>
 
     <div class="user-info-section">
         <p>Пользователь: <strong>{{ user.username }}</strong></p>
+        {# Можно добавить Email если он есть в user объекте и это безопасно #}
+        {# <p>Email: <strong>{{ user.email }}</strong></p> #}
     </div>
 
     <form action="{% url 'app:account' %}" method="post" class="account-form">
@@ -44,14 +68,14 @@
             {{ form.email }}
         </div>
         <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Сохранить изменения</button> {# Используем btn классы #}
+            <button type="submit" class="btn btn-primary">Сохранить изменения</button>
         </div>
     </form>
 
-    <form action="{% url 'app:logout' %}" method="post" class="account-form"> {# Добавляем method="post" для logout #}
+    <form action="{% url 'app:logout' %}" method="post" class="account-form">
         {% csrf_token %}
         <div class="form-actions">
-            <button type="submit" class="btn btn-danger">Выйти</button> {# Используем btn классы #}
+            <button type="submit" class="btn btn-danger">Выйти</button>
         </div>
     </form>
     
@@ -79,7 +103,7 @@
                 <input type="number" id="notifyThreshold" name="notifyThreshold" min="0.1" max="100" step="0.1" value="5">
             </div>
             <div class="form-actions">
-                <button type="submit" class="btn btn-primary">Сохранить настройки</button> {# Используем btn классы #}
+                <button type="submit" class="btn btn-primary">Сохранить настройки</button>
             </div>
         </form>
     </div>

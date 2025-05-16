@@ -1,7 +1,7 @@
 /* Глобальные переменные */
 :root {
   /* Размеры элементов интерфейса */
-  --sidebar-width: 260px;
+  --sidebar-width: 190px; /* Обновленная ширина боковой панели */
   --header-height: 65px;
   --border-radius: 6px;
   --spacing-xs: 5px;
@@ -174,8 +174,8 @@ a { text-decoration: none; color: inherit; }
 }
 .account-link i { font-size: var(--font-size-lg); color: var(--text-secondary); }
 .account-link:hover, .account-link:hover i { color: var(--accent-primary); }
-.current-time { font-size: var(--font-size-xs); color: var(--text-secondary); }
-.header-right-controls { display: flex; align-items: center; gap: var(--spacing-md); }
+.current-time { font-size: var(--font-size-xs); color: var(--text-secondary); margin-left: auto; /* Добавлено для выравнивания времени */ }
+.header-right-controls { display: flex; align-items: center; gap: var(--spacing-md); margin-left: var(--spacing-md); /* Добавлен отступ слева */ }
 .theme-selector { display: flex; align-items: center; gap: var(--spacing-xs); }
 .theme-selector label { color: var(--text-secondary); font-size: var(--font-size-sm); margin-bottom: 0; }
 .theme-selector select {
@@ -265,99 +265,200 @@ a { text-decoration: none; color: inherit; }
     margin-bottom: var(--spacing-sm); padding-bottom: 0; border-bottom: none;
 }
 .tracked-assets .section-header h3 { font-size: var(--font-size-lg); font-weight: 500; margin: 0; }
-.refresh-btn { font-size: var(--font-size-md); /* Стили как у .theme-toggle */ }
-.assets-list { display: flex; flex-direction: column; gap: var(--spacing-xs); }
-.asset-item {
-  display: flex; align-items: center; padding: var(--spacing-sm) 0;
-  border-bottom: var(--border-width-sm) solid var(--border-color-light); font-size: var(--font-size-sm);
-}
-.asset-item:last-child { border-bottom: none; }
-.asset-item i {
-  font-size: var(--font-size-lg); color: var(--accent-primary);
-  margin-right: var(--spacing-sm); width: var(--nav-icon-width); text-align: center;
-}
-.asset-item span:not(.price) { color: var(--text-primary); font-weight: 500; }
-.asset-item .price { margin-left: auto; font-weight: 500; color: var(--text-secondary); }
+/* Стили для кнопки `.refresh-btn.styled-refresh-btn` из предыдущего ответа остаются актуальными. Убедитесь, что класс `styled-refresh-btn` добавлен к кнопке в <mcfile name="dashboard.html" path="/Users/kirill_bel/PycharmProjects/Python_team/frontend/dashboard.html"></mcfile>, как было показано ранее.
 
-/* Обзор рынка и графики */
-.dashboard-header { /* Карточка для "Обзор рынка" и его контролов */
-    /* background-color: var(--card-bg); /* Уже наследуется от .card */
-    /* padding: var(--spacing-md); */
-    /* border-radius: var(--border-radius); */
-    /* border: 1px solid var(--border-color); */
-    /* box-shadow: var(--shadow-sm); */
-    /* margin-bottom: var(--spacing-md); */
+**2. Дизайн для страницы настроек аккаунта и уведомлений (затрагивает `styles.css` и `account.html`)**
+
+Сначала добавим стили в <mcfile name="styles.css" path="/Users/kirill_bel/PycharmProjects/Python_team/frontend/css/styles.css"></mcfile>:
+```css
+/* Стили для страницы аккаунта */
+#account-page .main-content {
+    max-width: 800px; /* Ограничиваем ширину для лучшей читаемости */
+    margin-left: auto; /* Центрируем, если сайдбар скрыт или страница без него */
+    margin-right: auto;
+    padding-top: var(--spacing-lg); /* Дополнительный отступ сверху */
 }
-.dashboard-header h2 { /* Заголовок "Обзор рынка" */
-    font-size: var(--font-size-lg); font-weight: 500; margin: 0;
-    margin-bottom: var(--spacing-md);
-    color: var(--text-primary); /* Цвет текста для заголовка */
+
+.account-form-container {
+    /* Стили .card уже применены, добавляем специфичные */
+    padding: var(--spacing-lg);
 }
-[data-theme="dark"] .dashboard-header h2 { /* Уточнение для темной темы */
-    color: var(--text-primary); /* Должен быть светлым */
+
+.account-form-container h1 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-primary);
+    text-align: center;
 }
-.controls-container { display: flex; justify-content: space-between; align-items: center; gap: var(--spacing-md); }
-.time-filter, .color-picker-container { display: flex; align-items: center; gap: var(--spacing-xs); }
-.controls-container label {
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary); /* Лейблы в контролах */
-}
-[data-theme="dark"] .controls-container label {
-    color: var(--dark-theme-controls-text); /* Лейблы в темной теме */
-}
-.controls-container select, .controls-container input[type="color"] {
-    padding: 5px var(--spacing-xs); font-size: var(--font-size-sm);
+
+.user-info-section {
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: var(--bg-secondary);
     border-radius: var(--border-radius);
-    background-color: var(--controls-bg); /* Используем переменные для фона контролов */
-    color: var(--text-primary-on-controls);      /* Используем переменные для текста контролов */
-    border: 1px solid var(--controls-border);  /* Используем переменные для границ контролов */
-}
-.controls-container input[type="color"] {
-    width: 40px; height: calc(1.2em + 10px + 2px); padding: 2px;
+    border: 1px solid var(--border-color-light);
 }
 
-.chart-container { /* Карточка для самого графика и статистики */ }
-.chart-and-stats-container { display: flex; flex-direction: column; gap: var(--spacing-md); }
-.chart-wrapper {
-    width: 100%; height: 350px; background-color: var(--card-bg); /* Фон как у карточки */
-    padding: var(--spacing-sm); border-radius: var(--border-radius);
+.user-info-section p {
+    font-size: var(--font-size-md);
+    color: var(--text-secondary);
+}
+
+.user-info-section strong {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.account-form .form-group,
+.settings-form .form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.account-form label,
+.settings-form label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.account-form input[type="text"],
+.account-form input[type="email"],
+.settings-form input[type="number"],
+.settings-form select {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--controls-border);
+    background-color: var(--controls-bg);
+    color: var(--text-primary-on-controls);
+    font-size: var(--font-size-md);
+    transition: border-color var(--transition-speed);
+}
+
+.account-form input[type="text"]:focus,
+.account-form input[type="email"]:focus,
+.settings-form input[type="number"]:focus,
+.settings-form select:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px rgba(var(--accent-primary), 0.2);
+}
+
+.form-actions {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: var(--font-size-md);
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--accent-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #005bb5; /* Darken accent color */
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #cc2e2e; /* Darken danger color */
+}
+
+.notification-settings-section {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-color-light);
+}
+
+.notification-settings-section h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+/* Адаптивность для страницы аккаунта */
+@media (max-width: 768px) {
+    #account-page .main-content {
+        margin-left: var(--spacing-sm); /* Убираем авто-отступы на мобильных */
+        margin-right: var(--spacing-sm);
+    }
+    .account-form-container h1 {
+        font-size: var(--font-size-xl);
+    }
+    .notification-settings-section h2 {
+        font-size: var(--font-size-lg);
+    }
+    .form-actions {
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Стили для страницы logout */
+.logout-container {
+    text-align: center;
+    padding: var(--spacing-lg);
+    max-width: 500px;
+    margin: var(--spacing-lg) auto;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
     border: 1px solid var(--border-color);
 }
-.currency-selector-panel { display: flex; flex-wrap: wrap; gap: var(--spacing-sm); margin-bottom: var(--spacing-md); }
-.currency-btn {
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border: 1px solid var(--controls-border); /* Граница кнопки выбора валюты */
-    background-color: var(--controls-bg);   /* Фон кнопки выбора валюты */
-    color: var(--text-primary-on-controls);       /* Текст кнопки выбора валюты */
-    cursor: pointer; border-radius: var(--border-radius);
-    transition: background-color var(--transition-speed), color var(--transition-speed);
-    font-size: var(--font-size-sm);
-}
-.currency-btn:hover { background-color: var(--hover-bg); color: var(--accent-primary); }
-.currency-btn.active {
-    background-color: var(--accent-primary); color: white;
-    border-color: var(--accent-primary); font-weight: 500;
-}
-.currency-stats-panel {
-    padding: var(--spacing-md); background: var(--bg-secondary); /* Фон чуть отличается от карточки */
-    border-radius: var(--border-radius); border: 1px solid var(--border-color);
-}
-.currency-stats-panel h5 { margin-top: 0; margin-bottom: var(--spacing-sm); font-size: var(--font-size-md); font-weight: 500; }
-.currency-description p, .stats-display p { font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: var(--spacing-xs); }
-.stats-display p span { font-weight: 500; color: var(--text-primary); margin-left: var(--spacing-xs); }
 
-.action-buttons { display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-md); }
-.action-buttons .btn { /* Компактные кнопки */
-    flex-grow: 1; padding: var(--spacing-xs) var(--spacing-sm); /* Уменьшаем padding */
-    border-radius: var(--border-radius); cursor: pointer; text-align: center;
-    font-weight: 500; color: white;
-    font-size: var(--font-size-sm); /* Можно еще уменьшить шрифт, если нужно */
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
+.logout-container h1 {
+    font-size: var(--font-size-xl);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
 }
-.action-buttons .btn-buy { background-color: var(--success-color); }
-.action-buttons .btn-buy:hover { background-color: #29b34c; }
-.action-buttons .btn-sell { background-color: var(--danger-color); }
-.action-buttons .btn-sell:hover { background-color: #fa2a20; }
+
+.logout-container p {
+    font-size: var(--font-size-md);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.logout-container .account-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.logout-container .account-btn {
+    /* Стили .btn уже частично покрывают, но можно уточнить */
+    background-color: var(--accent-primary);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    text-decoration: none;
+}
+
+.logout-container .account-btn:hover {
+    background-color: #005bb5;
+}
+
+
+/* Убедимся, что body на странице аккаунта имеет правильный фон */
+body#account-page {
+    background-color: var(--bg-secondary);
+}
 
 /* Адаптивность */
 @media (max-width: 768px) {
