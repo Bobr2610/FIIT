@@ -1,6 +1,6 @@
 import os
 from celery import Celery
-
+from celery.schedules import crontab
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FIIT.settings')
 
@@ -11,9 +11,7 @@ app.autodiscover_tasks()
 
 @app.on_after_configure.connect
 def setup_periodic_tasks(sender: Celery, **kwargs):
-    sender.add_periodic_task(300.0, update_currencies.s(), name='update currencies')
-
-
-@app.task
-def update_currencies():
-    print('TODO: !!!Hello!!!')
+    sender.conf.beat_schedule['update-currency-rates'] = {
+        'task': 'app.tasks.update_currency_rates',
+        'schedule': crontab(minute='*/5'),
+    }
