@@ -8,6 +8,9 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /fiit
 
+RUN apt update && \
+    apt install dos2unix
+
 RUN pip install --upgrade pip && \
     pip install poetry
 
@@ -17,6 +20,8 @@ RUN poetry config virtualenvs.create false &&  \
     poetry install
 
 COPY . .
+
+RUN find -type f -name "*.sh" -exec dos2unix {} \;
 
 EXPOSE 8000
 
