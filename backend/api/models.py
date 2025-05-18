@@ -16,7 +16,7 @@ class Account(AbstractUser):
 class Portfolio(models.Model):
     account = models.ForeignKey('Account', on_delete=models.CASCADE)
     balance = models.PositiveIntegerField()
-    # TODO: add currencies
+    currencies = models.ManyToManyField('CurrencyBalance', related_name='portfolios', blank=True)
     operations = models.ManyToManyField('Operation', related_name='portfolios', blank=True)
     notify_threshold = models.FloatField(null=True, blank=True)
     watches = models.ManyToManyField('Watch', related_name='portfolios', blank=True)
@@ -27,6 +27,19 @@ class Portfolio(models.Model):
     class Meta:
         db_table = 'portfolio'
         db_table_comment = 'Portfolio Of User'
+
+
+class CurrencyBalance(models.Model):
+    portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
+    currency = models.ForeignKey('Currency', on_delete=models.CASCADE)
+    amount = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return f'{self.portfolio} {self.currency} {self.amount}'
+
+    class Meta:
+        db_table = 'currency_balance'
+        db_table_comment = 'Currency Balance In Portfolio'
 
 
 class Operation(models.Model):
@@ -76,8 +89,7 @@ class Rate(models.Model):
 class Watch(models.Model):
     portfolio = models.ForeignKey('Portfolio', on_delete=models.CASCADE)
     currency = models.ForeignKey('Currency', on_delete=models.CASCADE)
-    # TODO: change notify time type?
-    notify_time = models.FloatField()
+    notify_time = models.TimeField()
 
     def __str__(self):
         return f'{self.portfolio} {self.currency} {self.notify_time}'

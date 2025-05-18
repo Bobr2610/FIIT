@@ -5,91 +5,115 @@ from django.contrib.auth.password_validation import validate_password
 from .models import *
 
 
-class RegistrationSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
-    password2 = serializers.CharField(write_only=True, required=True)
-
-    class Meta:
-        model = Account
-        fields = ('email', 'username', 'password', 'password2', 'telegram')
-        extra_kwargs = {
-            'telegram': {'required': False}
-        }
+class AuthSerializer(serializers.Serializer):
+    username = serializers.CharField()
+    password = serializers.CharField(write_only=True)
+    password2 = serializers.CharField(write_only=True, required=False)
+    email = serializers.EmailField(required=False)
+    telegram = serializers.CharField(required=False)
 
     def validate(self, attrs):
-        if attrs['password'] != attrs['password2']:
-            raise serializers.ValidationError({"password": "Пароли не совпадают"})
+        action = self.context.get('action')
+        
+        if action == 'register':
+            if not attrs.get('email'):
+                raise serializers.ValidationError({"email": "Email обязателен при регистрации"})
+            if not attrs.get('password'):
+                raise serializers.ValidationError({"password": "Пароль обязателен при регистрации"})
+            if not attrs.get('password2'):
+                raise serializers.ValidationError({"password2": "Подтверждение пароля обязательно при регистрации"})
+            
+            if attrs['password'] != attrs['password2']:
+                raise serializers.ValidationError({"password": "Пароли не совпадают"})
+            
+            if Account.objects.filter(username=attrs['username']).exists():
+                raise serializers.ValidationError({"username": "Пользователь с таким именем уже существует"})
+            if Account.objects.filter(email=attrs['email']).exists():
+                raise serializers.ValidationError({"email": "Пользователь с такой почтой уже существует"})
+        
+        elif action == 'login':
+            if not attrs.get('username') or not attrs.get('password'):
+                raise serializers.ValidationError("Необходимо указать имя пользователя и пароль")
+            
+            user = authenticate(username=attrs['username'], password=attrs['password'])
+            if not user:
+                raise serializers.ValidationError('Неверные учетные данные')
+            attrs['user'] = user
+        
         return attrs
 
     def create(self, validated_data):
-        validated_data.pop('password2')
+        validated_data.pop('password2', None)
         user = Account.objects.create_user(**validated_data)
         return user
-
-
-class LoginSerializer(serializers.Serializer):
-    username = serializers.CharField(required=True)
-    password = serializers.CharField(required=True, write_only=True)
-
-    def validate(self, attrs):
-        user = authenticate(username=attrs['username'], password=attrs['password'])
-        if not user:
-            raise serializers.ValidationError('Неверные учетные данные')
-        attrs['user'] = user
-        return attrs
-
-
-class ChangePasswordSerializer(serializers.Serializer):
-    old_password = serializers.CharField(required=True, write_only=True)
-    new_password = serializers.CharField(required=True, write_only=True, validators=[validate_password])
-    new_password2 = serializers.CharField(required=True, write_only=True)
-
-    def validate(self, attrs):
-        if attrs['new_password'] != attrs['new_password2']:
-            raise serializers.ValidationError({"new_password": "Пароли не совпадают"})
-        return attrs
-
-
-class UpdateUserSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Account
-        fields = ('email', 'username', 'telegram')
-        extra_kwargs = {
-            'email': {'required': False}
-        }
-
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Account
-        fields = ('id', 'username', 'email')
-        read_only_fields = ('id',)
 
 
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
         fields = ('id', 'username', 'email', 'telegram', 'date_joined')
-        read_only_fields = ('id', 'date_joined')
+        read_only_fields = fields
+
+
+class AccountUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Account
+        fields = ('email', 'telegram')
+        extra_kwargs = {
+            'email': {'required': False},
+            'telegram': {'required': False}
+        }
+
+
+class PasswordChangeSerializer(serializers.Serializer):
+    old_password = serializers.CharField(write_only=True)
+    new_password = serializers.CharField(write_only=True, validators=[validate_password])
+    new_password2 = serializers.CharField(write_only=True)
+
+    def validate(self, attrs):
+        if attrs['new_password'] != attrs['new_password2']:
+            raise serializers.ValidationError({"new_password": "Пароли не совпадают"})
+        
+        if not self.context['user'].check_password(attrs['old_password']):
+            raise serializers.ValidationError({"old_password": "Неверный пароль"})
+        
+        return attrs
+
+    def save(self, **kwargs):
+        user = self.context['user']
+        user.set_password(self.validated_data['new_password'])
+        user.save()
+        return user
 
 
 class PortfolioSerializer(serializers.ModelSerializer):
     account = AccountSerializer(read_only=True)
     operations_count = serializers.SerializerMethodField()
     watches_count = serializers.SerializerMethodField()
+    currencies_count = serializers.SerializerMethodField()
 
     class Meta:
         model = Portfolio
         fields = ('id', 'account', 'balance', 'notify_threshold', 
-                 'operations_count', 'watches_count')
-        read_only_fields = ('id',)
+                 'operations_count', 'watches_count', 'currencies_count')
+        read_only_fields = ('id', 'account')
 
     def get_operations_count(self, obj):
         return obj.operations.count()
 
     def get_watches_count(self, obj):
         return obj.watches.count()
+
+    def get_currencies_count(self, obj):
+        return CurrencyBalance.objects.filter(portfolio=obj).count()
+
+
+class PortfolioOperationSerializer(serializers.Serializer):
+    currency_id = serializers.PrimaryKeyRelatedField(
+        queryset=Currency.objects.all(),
+        source='currency'
+    )
+    amount = serializers.DecimalField(max_digits=20, decimal_places=8)
 
 
 class CurrencySerializer(serializers.ModelSerializer):
@@ -98,7 +122,7 @@ class CurrencySerializer(serializers.ModelSerializer):
     class Meta:
         model = Currency
         fields = ('id', 'name', 'short_name', 'description', 'current_rate')
-        read_only_fields = ('id',)
+        read_only_fields = fields
 
     def get_current_rate(self, obj):
         latest_rate = obj.rate_set.order_by('-timestamp').first()
@@ -117,6 +141,30 @@ class RateSerializer(serializers.ModelSerializer):
         model = Rate
         fields = ('id', 'currency', 'currency_id', 'cost', 'timestamp')
         read_only_fields = ('id', 'timestamp')
+
+
+class CurrencyBalanceSerializer(serializers.ModelSerializer):
+    currency = CurrencySerializer(read_only=True)
+    current_price = serializers.SerializerMethodField()
+    total_value = serializers.SerializerMethodField()
+
+    class Meta:
+        model = CurrencyBalance
+        fields = ('currency', 'amount', 'current_price', 'total_value')
+        read_only_fields = fields
+
+    def get_current_price(self, obj):
+        try:
+            return obj.currency.rate_set.latest('timestamp').cost
+        except Rate.DoesNotExist:
+            return None
+
+    def get_total_value(self, obj):
+        try:
+            current_price = obj.currency.rate_set.latest('timestamp').cost
+            return obj.amount * current_price
+        except Rate.DoesNotExist:
+            return None
 
 
 class OperationSerializer(serializers.ModelSerializer):

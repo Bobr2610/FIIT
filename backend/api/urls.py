@@ -1,18 +1,29 @@
 from django.urls import path
-
 from .views import *
 
 app_name = 'api'
 
 urlpatterns = [
-    path('auth/register/', RegisterView.as_view(), name='register'),
-    path('auth/login/', LoginView.as_view(), name='login'),
-    path('auth/logout/', LogoutView.as_view(), name='logout'),
-    path('auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('auth/change-password/', ChangePasswordView.as_view(), name='change-password'),
+    path('auth/register/', AuthViewSet.as_view({
+        'post': 'register'
+    }), name='auth-register'),
+    path('auth/login/', AuthViewSet.as_view({
+        'post': 'login'
+    }), name='auth-login'),
+    path('auth/logout/', AuthViewSet.as_view({
+        'post': 'logout'
+    }), name='auth-logout'),
+    path('auth/refresh/', AuthViewSet.as_view({
+        'post': 'refresh'
+    }), name='auth-refresh'),
 
-    path('users/me/', UserViewSet.as_view({'get': 'me'}), name='user-me'),
-    path('users/me/update/', UserViewSet.as_view({'post': 'update_profile'}), name='user-update'),
+    path('accounts/me/', AccountViewSet.as_view({
+        'get': 'me',
+        'patch': 'update'
+    }), name='account-me'),
+    path('accounts/me/change-password/', AccountViewSet.as_view({
+        'post': 'change_password'
+    }), name='account-change-password'),
 
     path('portfolios/', PortfolioViewSet.as_view({
         'get': 'list',
@@ -24,6 +35,15 @@ urlpatterns = [
         'patch': 'partial_update',
         'delete': 'destroy'
     }), name='portfolio-detail'),
+    path('portfolios/<int:pk>/currencies/', PortfolioViewSet.as_view({
+        'get': 'currencies'
+    }), name='portfolio-currencies'),
+    path('portfolios/<int:pk>/buy/', PortfolioViewSet.as_view({
+        'post': 'buy'
+    }), name='portfolio-buy'),
+    path('portfolios/<int:pk>/sell/', PortfolioViewSet.as_view({
+        'post': 'sell'
+    }), name='portfolio-sell'),
     path('portfolios/<int:pk>/operations/', PortfolioViewSet.as_view({
         'get': 'operations'
     }), name='portfolio-operations'),
