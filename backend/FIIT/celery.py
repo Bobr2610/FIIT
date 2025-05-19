@@ -1,6 +1,5 @@
 import os
 from celery import Celery
-from django.apps import apps
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FIIT.settings')
 
@@ -11,9 +10,6 @@ app.autodiscover_tasks()
 
 @app.on_after_configure.connect
 def setup_periodic_tasks(sender: Celery, **kwargs):
-    if not apps.is_installed('django_celery_beat'):
-        return #TODO
-
     from django_celery_beat.models import CrontabSchedule, PeriodicTask
 
     schedule, _ = CrontabSchedule.objects.get_or_create(

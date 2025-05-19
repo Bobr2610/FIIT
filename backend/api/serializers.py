@@ -5,46 +5,38 @@ from django.contrib.auth.password_validation import validate_password
 from .models import *
 
 
-class AuthSerializer(serializers.Serializer):
+class AuthLoginSerializer(serializers.Serializer):
     username = serializers.CharField()
     password = serializers.CharField(write_only=True)
-    password2 = serializers.CharField(write_only=True, required=False)
-    email = serializers.EmailField(required=False)
+
+    def validate(self, attrs):
+        user = authenticate(username=attrs['username'], password=attrs['password'])
+
+        if not user:
+            raise serializers.ValidationError('Неверные учетные данные')
+
+        attrs['user'] = user
+
+        return attrs
+
+
+class AuthRegisterSerializer(serializers.Serializer):
+    username = serializers.CharField(required=True)
+    password = serializers.CharField(write_only=True, required=True)
+    email = serializers.EmailField(required=True)
     telegram = serializers.CharField(required=False)
 
     def validate(self, attrs):
-        action = self.context.get('action')
-        
-        if action == 'register':
-            if not attrs.get('email'):
-                raise serializers.ValidationError({"email": "Email обязателен при регистрации"})
-            if not attrs.get('password'):
-                raise serializers.ValidationError({"password": "Пароль обязателен при регистрации"})
-            if not attrs.get('password2'):
-                raise serializers.ValidationError({"password2": "Подтверждение пароля обязательно при регистрации"})
-            
-            if attrs['password'] != attrs['password2']:
-                raise serializers.ValidationError({"password": "Пароли не совпадают"})
-            
-            if Account.objects.filter(username=attrs['username']).exists():
-                raise serializers.ValidationError({"username": "Пользователь с таким именем уже существует"})
-            if Account.objects.filter(email=attrs['email']).exists():
-                raise serializers.ValidationError({"email": "Пользователь с такой почтой уже существует"})
-        
-        elif action == 'login':
-            if not attrs.get('username') or not attrs.get('password'):
-                raise serializers.ValidationError("Необходимо указать имя пользователя и пароль")
-            
-            user = authenticate(username=attrs['username'], password=attrs['password'])
-            if not user:
-                raise serializers.ValidationError('Неверные учетные данные')
-            attrs['user'] = user
-        
+        if Account.objects.filter(username=attrs['username']).exists():
+            raise serializers.ValidationError({"username": "Пользователь с таким именем уже существует"})
+        if Account.objects.filter(email=attrs['email']).exists():
+            raise serializers.ValidationError({"email": "Пользователь с такой почтой уже существует"})
+
         return attrs
 
     def create(self, validated_data):
-        validated_data.pop('password2', None)
         user = Account.objects.create_user(**validated_data)
+
         return user
 
 
@@ -73,10 +65,10 @@ class PasswordChangeSerializer(serializers.Serializer):
     def validate(self, attrs):
         if attrs['new_password'] != attrs['new_password2']:
             raise serializers.ValidationError({"new_password": "Пароли не совпадают"})
-        
+
         if not self.context['user'].check_password(attrs['old_password']):
             raise serializers.ValidationError({"old_password": "Неверный пароль"})
-        
+
         return attrs
 
     def save(self, **kwargs):
@@ -94,8 +86,8 @@ class PortfolioSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Portfolio
-        fields = ('id', 'account', 'balance', 'notify_threshold', 
-                 'operations_count', 'watches_count', 'currencies_count')
+        fields = ('id', 'account', 'balance', 'notify_threshold',
+                  'operations_count', 'watches_count', 'currencies_count')
         read_only_fields = ('id', 'account')
 
     def get_operations_count(self, obj):
@@ -185,8 +177,8 @@ class OperationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Operation
         fields = ('id', 'portfolio', 'portfolio_id', 'operation_type',
-                 'currency', 'currency_id', 'amount', 'price',
-                 'total_amount', 'timestamp')
+                  'currency', 'currency_id', 'amount', 'price',
+                  'total_amount', 'timestamp')
         read_only_fields = ('id', 'timestamp')
 
     def get_total_amount(self, obj):
@@ -210,5 +202,5 @@ class WatchSerializer(serializers.ModelSerializer):
     class Meta:
         model = Watch
         fields = ('id', 'portfolio', 'portfolio_id', 'currency',
-                 'currency_id', 'notify_time')
+                  'currency_id', 'notify_time')
         read_only_fields = ('id',)

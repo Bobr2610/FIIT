@@ -9,7 +9,8 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /fiit
 
 RUN apt update && \
-    apt install dos2unix
+    apt install -y dos2unix && \
+    apt clean
 
 RUN pip install --upgrade pip && \
     pip install poetry

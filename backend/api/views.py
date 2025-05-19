@@ -10,7 +10,7 @@ from django_celery_beat.models import PeriodicTask, CrontabSchedule
 
 from .serializers import *
 
-class AuthViewSet(viewsets.ViewSet):
+class AuthViewSet(viewsets.GenericViewSet):
     """
     ViewSet для аутентификации пользователей.
 
@@ -40,12 +40,20 @@ class AuthViewSet(viewsets.ViewSet):
             return [IsAuthenticated()]
         return [AllowAny()]
 
+    def get_serializer_class(self):
+        if self.action == 'register':
+            return AuthRegisterSerializer
+        elif self.action == 'login':
+            return AuthLoginSerializer
+
+        raise RuntimeError('Unknown action!')
+
     @action(detail=False, methods=['post'])
     def register(self, request):
         """
         Регистрация нового пользователя.
         """
-        serializer = AuthSerializer(data=request.data)
+        serializer = self.get_serializer(data=request.data)
         serializer.context['action'] = 'register'
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
@@ -61,7 +69,7 @@ class AuthViewSet(viewsets.ViewSet):
         """
         Авторизация пользователя.
         """
-        serializer = AuthSerializer(data=request.data)
+        serializer = self.get_serializer(data=request.data)
         serializer.context['action'] = 'login'
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
