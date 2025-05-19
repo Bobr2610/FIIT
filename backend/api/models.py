@@ -1,127 +1,99 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.contrib.postgres import fields
 
 
-# TODO
 class Account(AbstractUser):
-    """Модель аккаунта пользователя.
-
-    Расширяет стандартную модель пользователя Django (User), добавляя дополнительные поля.
-
-    Атрибуты:
-        username (str): Имя пользователя (наследуется от User)
-        email (str): Email пользователя (наследуется от User)
-        telegram (URLField): Ссылка на Telegram пользователя
-    """
-    telegram = models.URLField()
+    telegram = models.CharField(max_length=128)
 
     def __str__(self):
         return self.username
 
     class Meta:
         db_table = 'account'
-        db_table_comment = 'User account'
+        db_table_comment = 'User Account'
 
 
 class Portfolio(models.Model):
-    """Модель портфеля пользователя.
-
-    Представляет собой портфель инвестиций, принадлежащий определенному аккаунту.
-
-    Атрибуты:
-        account (ForeignKey): Связь с моделью Account, указывает на владельца портфеля
-    """
-    account = models.ForeignKey(Account, on_delete=models.CASCADE)
+    account = models.ForeignKey('Account', on_delete=models.CASCADE)
+    balance = models.PositiveIntegerField()
+    currencies = models.ManyToManyField('CurrencyBalance', related_name='portfolios', blank=True)
+    operations = models.ManyToManyField('Operation', related_name='portfolios', blank=True)
+    notify_threshold = models.FloatField(null=True, blank=True)
+    watches = models.ManyToManyField('Watch', related_name='portfolios', blank=True)
 
     def __str__(self):
-        return self.account.username + '_portfolio'
+        return f'{self.account.username} {self.balance}'
 
     class Meta:
         db_table = 'portfolio'
-        db_table_comment = 'Portfolio of user'
+        db_table_comment = 'Portfolio Of User'
+
+
+class CurrencyBalance(models.Model):
+    portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
+    currency = models.ForeignKey('Currency', on_delete=models.CASCADE)
+    amount = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return f'{self.portfolio} {self.currency} {self.amount}'
+
+    class Meta:
+        db_table = 'currency_balance'
+        db_table_comment = 'Currency Balance In Portfolio'
 
 
 class Operation(models.Model):
-    """Модель операции в портфеле.
-
-    Представляет собой операцию покупки или продажи в портфеле пользователя.
-
-    Атрибуты:
-        portfolio (ForeignKey): Связь с портфелем, в котором совершена операция
-        operation_type (str): Тип операции (покупка/продажа)
-        product (str): Название продукта/валюты
-        amount (int): Количество купленных/проданных единиц
-        price (int): Цена за единицу
-        timestamp (DateTime): Время совершения операции
-    """
     OperationType = models.TextChoices('OperationType', 'BUY SELL')
 
     portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
     operation_type = models.CharField(max_length=128, choices=OperationType)
-    product = models.CharField(max_length=128)
+    currency = models.ForeignKey('Currency', on_delete=models.CASCADE)
     amount = models.PositiveIntegerField()
     price = models.PositiveIntegerField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
-    # TODO протестировать и реализовать метод
     def __str__(self):
-        return f"{self.operation_type} {self.amount} {self.product} at {self.price}"
+        return f"{self.operation_type} {self.currency} {self.amount} * {self.price} -> {self.amount * self.price}"
 
     class Meta:
         db_table = 'operation'
-        db_table_comment = 'Operations in portfolio'
+        db_table_comment = 'Operations In Portfolio'
 
 
 class Currency(models.Model):
-    """Модель валюты.
-
-    Представляет информацию о валюте в системе.
-
-    Атрибуты:
-        name (str): Полное название валюты
-        short_name (str): Краткое обозначение валюты (например, USD, EUR)
-    """
     name = models.CharField(max_length=128)
     short_name = models.CharField(max_length=128)
+    description = models.TextField()
 
     def __str__(self):
-        return self.short_name
+        return f'{self.name} {self.short_name}'
 
     class Meta:
         db_table = 'currency'
         db_table_comment = 'Currencies'
 
 
-class CurrencyHistory(models.Model):
-    """Модель истории курсов валюты.
-
-    Хранит историческую информацию об изменениях курса валюты.
-
-    Атрибуты:
-        currency (ForeignKey): Связь с валютой, для которой хранится история
-        rates (ArrayField): Массив исторических значений курса
-    """
-    currency = models.ForeignKey(Currency, on_delete=models.CASCADE)
-    rates = fields.ArrayField(models.BigIntegerField())
-
-    class Meta:
-        db_table = 'currency_history'
-        db_table_comment = 'History of currency rate'
-
-
 class Rate(models.Model):
-    """Модель курса валюты.
-
-    Хранит информацию о курсе валюты в конкретный момент времени.
-
-    Атрибуты:
-        cost (int): Стоимость валюты
-        timestamp (DateTime): Время фиксации курса
-    """
+    currency = models.ForeignKey('Currency', on_delete=models.CASCADE)
     cost = models.PositiveIntegerField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f'{self.currency} {self.cost} {self.timestamp}'
+
     class Meta:
         db_table = 'rate'
-        db_table_comment = 'Rate of currency in concrete time'
+        db_table_comment = 'Rate Of Currency'
+
+
+class Watch(models.Model):
+    portfolio = models.ForeignKey('Portfolio', on_delete=models.CASCADE)
+    currency = models.ForeignKey('Currency', on_delete=models.CASCADE)
+    notify_time = models.TimeField()
+
+    def __str__(self):
+        return f'{self.portfolio} {self.currency} {self.notify_time}'
+
+    class Meta:
+        db_table = 'watch'
+        db_table_comment = 'Watch Of Currency'
