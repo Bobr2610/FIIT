@@ -442,19 +442,29 @@ async function initializeDashboard() {
                 maintainAspectRatio: false,
                 scales: {
                     y: {
-                        beginAtZero: false, // Для логарифмической шкалы лучше не начинать с нуля
-                        type: 'logarithmic', // Логарифмическая шкала
+                        beginAtZero: false, 
+                        type: 'logarithmic', 
                         ticks: {
                             color: getComputedStyle(document.documentElement).getPropertyValue('--chart-text-color').trim(),
                             callback: function(value, index, values) {
-                                // Показываем только основные метки, чтобы избежать переполнения
-                                if (value === 1 || value === 10 || value === 100 || value === 1000 || value === 10000 || value === 100000 || value === 1000000 || value === 10000000) {
+                                // Показываем метки для 1, 2, 5 на каждом порядке величины
+                                const logValue = Math.log10(value);
+                                const remainder = logValue - Math.floor(logValue);
+                                
+                                // Проверяем, близко ли значение к 1, 2, 5 (с учетом погрешности для логарифмов)
+                                const isOne = Math.abs(remainder) < 0.001 || Math.abs(remainder - 1) < 0.001;
+                                const isTwo = Math.abs(remainder - Math.log10(2)) < 0.001;
+                                const isFive = Math.abs(remainder - Math.log10(5)) < 0.001;
+
+                                if (isOne || isTwo || isFive) {
                                     if (value >= 1000000) return (value / 1000000).toLocaleString(undefined, NUMBER_FORMAT_OPTIONS) + 'M';
                                     if (value >= 1000) return (value / 1000).toLocaleString(undefined, NUMBER_FORMAT_OPTIONS) + 'K';
                                     return value.toLocaleString(undefined, NUMBER_FORMAT_OPTIONS);
                                 }
                                 return ''; // Скрываем остальные метки
-                            }
+                            },
+                            // Можно также попробовать увеличить максимальное количество тиков, если Chart.js это поддерживает для логарифмической шкалы
+                            // maxTicksLimit: 15 // Например, но это может не сработать как ожидается с логарифмической шкалой и callback
                         },
                         grid: { color: getComputedStyle(document.documentElement).getPropertyValue('--chart-grid-color').trim() }
                     },
