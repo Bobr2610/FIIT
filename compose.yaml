@@ -108,7 +108,7 @@ services:
     build:
       context: .
     working_dir: /fiit/backend
-    command: celery -A FIIT beat --loglevel=info
+    command: celery -A FIIT beat --loglevel=info --scheduler django_celery_beat.schedulers:DatabaseScheduler
     deploy:
       replicas: 1
     restart: always
