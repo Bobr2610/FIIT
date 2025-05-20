@@ -10,10 +10,7 @@
 {% block topbar %}
     <!-- Стандартная верхняя панель -->
     <div class="top-bar" id="top">
-        <div class="account-group">
-            <img src="{% static 'img/logo.png' %}" alt="FIIT Logo" style="height: 30px; margin-right: 8px; vertical-align: middle;">
-            <span style="font-weight: 500; font-size: var(--font-size-lg); vertical-align: middle;">FIIT</span>
-        </div>
+
         <span class="current-time"></span>
         <div class="header-right-controls">
             <div class="theme-selector">
@@ -27,12 +24,6 @@
                     <i class="fas fa-moon"></i>
                 </button>
             </div>
-            {% if user.is_authenticated %}
-                <a href="{% url 'app:dashboard' %}" class="btn btn-primary btn-sm-padding">Панель</a>
-            {% else %}
-                <a href="{% url 'app:login' %}" class="btn btn-outline btn-sm-padding" style="margin-right: 5px;">Вход</a>
-                <a href="{% url 'app:register' %}" class="btn btn-primary btn-sm-padding">Регистрация</a>
-            {% endif %}
         </div>
     </div>
 {% endblock %}
@@ -72,8 +63,8 @@
             </div>
             <div class="feature-card card">
                 <i class="fas fa-newspaper"></i>
-                <h3>Аналитика и новости</h3>
-                <p>Доступ к актуальным финансовым новостям и аналитическим обзорам.</p>
+                <h3>Аналитика</h3>
+                <p>Доступ к актуальным аналитическим обзорам.</p>
             </div>
             <div class="feature-card card">
                 <i class="fas fa-user-shield"></i>
