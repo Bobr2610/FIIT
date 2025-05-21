@@ -123,6 +123,60 @@
   --controls-border: #000000;
 }
 
+/* Улучшение контрастности для темы colorblind */
+[data-theme="colorblind"] body {
+    --text-primary: #000000;
+    --text-secondary: #1a1a1a;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f0f0f0;
+    --accent-primary: #0052cc; /* Более темный синий для акцента */
+    --accent-secondary: #003380; /* Еще более темный синий для акцента при наведении */
+    --border-color: #333333;
+    --border-color-light: #666666;
+    --card-bg: #ffffff;
+    --card-border: #1a1a1a;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --controls-bg: #e6e6e6;
+    --controls-border: #1a1a1a;
+    --text-primary-on-controls: #000000;
+    --hover-bg: #cccccc;
+    --button-text-color: #ffffff;
+    --button-hover-bg: #003380;
+}
+
+[data-theme="colorblind"] a {
+    color: #0052cc;
+}
+
+[data-theme="colorblind"] a:hover {
+    color: #003380;
+}
+
+[data-theme="colorblind"] .button-primary,
+[data-theme="colorblind"] button {
+    background-color: #0052cc;
+    color: #ffffff;
+    border: 1px solid #003380;
+}
+
+[data-theme="colorblind"] .button-primary:hover,
+[data-theme="colorblind"] button:hover {
+    background-color: #003380;
+}
+
+[data-theme="colorblind"] input,
+[data-theme="colorblind"] select,
+[data-theme="colorblind"] textarea {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+[data-theme="colorblind"] input::placeholder,
+[data-theme="colorblind"] textarea::placeholder {
+    color: #4d4d4d;
+}
+
 
 /* Глобальные стили */
 * { box-sizing: border-box; margin: 0; padding: 0; }

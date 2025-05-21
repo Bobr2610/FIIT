@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initThemeManagement() {
   const themeSelect = document.getElementById('colorScheme');
   const themeToggle = document.querySelector('.theme-toggle');
+  const logoImage = document.getElementById('logoImage'); // Добавляем ссылку на логотип
 
   // Проверка наличия элементов темы
   if (!themeSelect || !themeToggle) {
@@ -38,6 +39,7 @@ function initThemeManagement() {
   document.documentElement.setAttribute('data-theme', savedTheme);
   themeSelect.value = savedTheme;
   updateThemeIcon(savedTheme, themeIcon);
+  updateLogo(savedTheme, logoImage); // Обновляем логотип при инициализации
 
   // Обработчик изменения темы через селектор
   themeSelect.addEventListener('change', function(e) {
@@ -45,6 +47,7 @@ function initThemeManagement() {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
     updateThemeIcon(theme, themeIcon);
+    updateLogo(theme, logoImage); // Обновляем логотип при смене темы
     location.reload(); // Перезагрузка страницы для применения новой темы
   });
 
@@ -59,6 +62,7 @@ function initThemeManagement() {
     themeSelect.value = nextTheme;
     localStorage.setItem('theme', nextTheme);
     updateThemeIcon(nextTheme, themeIcon);
+    updateLogo(nextTheme, logoImage); // Обновляем логотип при смене темы
     location.reload(); // Перезагрузка страницы для применения новой темы
   });
 }
@@ -81,6 +85,38 @@ function updateThemeIcon(theme, iconElement) {
     case 'colorblind':
       iconElement.className = 'fas fa-eye';
       break;
+  }
+}
+
+/**
+ * Обновление логотипа в зависимости от темы
+ * @param {string} theme - Текущая тема
+ * @param {Element} logoElement - Элемент изображения логотипа
+ */
+function updateLogo(theme, logoElement) {
+  if (!logoElement) {
+    console.log('Элемент логотипа не найден');
+    return;
+  }
+  // Пути к изображениям логотипов необходимо будет скорректировать
+  // в зависимости от того, как они доступны в вашем проекте (например, через Django staticfiles)
+  // Здесь предполагается, что у вас есть переменные blackLogoPath и whiteLogoPath,
+  // указывающие на правильные пути к файлам.
+  const blackLogoPath = '/static/blacklogo.png'; // Обновленный путь без img/
+  const whiteLogoPath = '/static/whitelogo.png'; // Обновленный путь без img/
+
+  switch(theme) {
+    case 'dark':
+      logoElement.src = blackLogoPath;
+      break;
+    case 'light':
+      logoElement.src = whiteLogoPath;
+      break;
+    case 'colorblind': // В режиме высокого контраста используется светлый логотип
+      logoElement.src = whiteLogoPath;
+      break;
+    default:
+      logoElement.src = whiteLogoPath; // Логотип по умолчанию
   }
 }
 
