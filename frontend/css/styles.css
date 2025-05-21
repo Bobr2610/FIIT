@@ -568,6 +568,83 @@ a { text-decoration: none; color: inherit; }
     box-shadow: var(--shadow-md);
 }
 
+/* Стили для модального окна */
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Оставаться на месте */
+    z-index: 1001; /* Поверх всего остального */
+    left: 0;
+    top: 0;
+    width: 100%; /* Полная ширина */
+    height: 100%; /* Полная высота */
+    overflow: auto; /* Включить прокрутку, если нужно */
+    background-color: rgba(0,0,0,0.4); /* Черный с непрозрачностью */
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 15% auto; /* 15% сверху и по центру */
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    width: 80%; /* Может быть изменено в зависимости от предпочтений */
+    max-width: 500px; /* Максимальная ширина */
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+}
+
+.close-button {
+    color: var(--text-secondary);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--text-primary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: var(--text-primary);
+}
+
+.modal-content p {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-secondary);
+}
+
+.modal-content .form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.modal-content input[type="number"] {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--controls-border);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--controls-bg);
+    color: var(--text-primary-on-controls);
+    font-size: var(--font-size-sm);
+}
+
+.modal-content #modalActionButton {
+    width: 100%;
+    padding: var(--spacing-md);
+    font-size: var(--font-size-md);
+    margin-top: var(--spacing-sm);
+}
+
 /* Стили для страницы аккаунта */
 #account-page .main-content {
     max-width: 800px; /* Ограничиваем ширину для лучшей читаемости */

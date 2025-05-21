@@ -301,6 +301,94 @@ async function updateAllPrices() { // ОДНА ВЕРСИЯ
   }
 }
 
+// --- ЛОГИКА МОДАЛЬНОГО ОКНА ТРАНЗАКЦИЙ ---
+let currentTransactionType = ''; // 'buy' или 'sell'
+let currentTransactionCurrency = ''; // Код валюты (BTC, ETH, и т.д.)
+let currentCurrencyPrice = 0; // Цена выбранной валюты
+
+function openTransactionModal(type, currency) {
+    currentTransactionType = type;
+    currentTransactionCurrency = currency;
+
+    const modal = document.getElementById('transactionModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalCurrency = document.getElementById('modalCurrency');
+    const modalActionButton = document.getElementById('modalActionButton');
+    const quantityInput = document.getElementById('modalQuantity');
+
+    // Пытаемся получить актуальную цену из отображаемых на странице
+    // Это упрощение, в реальном приложении цена должна браться из более надежного источника
+    const assetItems = document.querySelectorAll('.tracked-assets-container .asset-item');
+    let priceFound = false;
+    assetItems.forEach(item => {
+        const symbolElement = item.querySelector('span:not(.price)');
+        if (symbolElement && symbolElement.textContent.trim().toUpperCase() === currency.toUpperCase()) {
+            const priceElement = item.querySelector('.price');
+            if (priceElement) {
+                const priceText = priceElement.textContent.replace(/[^0-9,.]/g, '').replace(',', '.');
+                currentCurrencyPrice = parseFloat(priceText);
+                if (!isNaN(currentCurrencyPrice)) {
+                    priceFound = true;
+                }
+            }
+        }
+    });
+
+    if (!priceFound) {
+        // Если цену не нашли на странице, можно попробовать взять из данных графика
+        // или установить заглушку и показать предупреждение
+        console.warn(`Цена для ${currency} не найдена на странице. Используется заглушка.`);
+        currentCurrencyPrice = 0; // Заглушка, если цена не найдена
+    }
+
+
+    if (modal && modalTitle && modalCurrency && modalActionButton && quantityInput) {
+        modalTitle.textContent = type === 'buy' ? `Покупка ${currency}` : `Продажа ${currency}`;
+        modalCurrency.textContent = currency;
+        modalActionButton.textContent = type === 'buy' ? 'Купить' : 'Продать';
+        modalActionButton.className = `btn ${type === 'buy' ? 'btn-buy' : 'btn-sell'}`;
+        quantityInput.value = 1; // Сброс количества
+        updateModalTotalCost(); // Обновить итоговую стоимость
+        modal.style.display = 'block';
+    }
+}
+
+function closeTransactionModal() {
+    const modal = document.getElementById('transactionModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+function updateModalTotalCost() {
+    const quantityInput = document.getElementById('modalQuantity');
+    const totalCostSpan = document.getElementById('modalTotalCost');
+    if (quantityInput && totalCostSpan) {
+        const quantity = parseFloat(quantityInput.value);
+        if (!isNaN(quantity) && quantity > 0 && currentCurrencyPrice > 0) {
+            const totalCost = quantity * currentCurrencyPrice;
+            totalCostSpan.textContent = formatPrice(totalCost); // Используем существующую функцию форматирования
+        } else {
+            totalCostSpan.textContent = '--';
+        }
+    }
+}
+
+function handleModalAction() {
+    const quantityInput = document.getElementById('modalQuantity');
+    const quantity = parseFloat(quantityInput.value);
+
+    if (isNaN(quantity) || quantity <= 0) {
+        alert('Пожалуйста, введите корректное количество.');
+        return;
+    }
+
+    // Здесь будет логика для выполнения покупки/продажи
+    // Например, отправка запроса на сервер
+    alert(`${currentTransactionType === 'buy' ? 'Покупка' : 'Продажа'} ${quantity} ${currentTransactionCurrency} по цене ${formatPrice(currentCurrencyPrice)} за единицу. Итого: ${document.getElementById('modalTotalCost').textContent}`);
+    closeTransactionModal();
+}
+
 // --- ОСНОВНАЯ ЛОГИКА ДЭШБОРДА ---
 
 function processChartData(rawData, interval = 'all') {
@@ -600,4 +688,54 @@ async function initializeDashboard() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', initializeDashboard);
+document.addEventListener('DOMContentLoaded', () => {
+    initializeDashboard();
+
+    // --- ИНИЦИАЛИЗАЦИЯ МОДАЛЬНОГО ОКНА ---
+    const buyButton = document.getElementById('buyButton');
+    const sellButton = document.getElementById('sellButton');
+    const modal = document.getElementById('transactionModal');
+    const closeButton = modal ? modal.querySelector('.close-button') : null;
+    const modalActionButton = document.getElementById('modalActionButton');
+    const quantityInput = document.getElementById('modalQuantity');
+
+    if (buyButton) {
+        buyButton.addEventListener('click', () => {
+            const selectedCurrency = combinedChartInstance && combinedChartInstance.data.datasets.find(ds => !ds.hidden)?.label;
+            if (selectedCurrency) {
+                openTransactionModal('buy', selectedCurrency);
+            }
+        });
+    }
+
+    if (sellButton) {
+        sellButton.addEventListener('click', () => {
+            const selectedCurrency = combinedChartInstance && combinedChartInstance.data.datasets.find(ds => !ds.hidden)?.label;
+            if (selectedCurrency) {
+                openTransactionModal('sell', selectedCurrency);
+            }
+        });
+    }
+
+    if (closeButton) {
+        closeButton.addEventListener('click', closeTransactionModal);
+    }
+
+    if (modalActionButton) {
+        modalActionButton.addEventListener('click', handleModalAction);
+    }
+
+    if (quantityInput) {
+        quantityInput.addEventListener('input', updateModalTotalCost);
+    }
+
+    // Закрытие модального окна при клике вне его
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeTransactionModal();
+        }
+    });
+    // --- КОНЕЦ ИНИЦИАЛИЗАЦИИ МОДАЛЬНОГО ОКНА ---
+
+    updateAllPrices(); // Первоначальное обновление цен для модального окна
+});
