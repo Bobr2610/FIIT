@@ -1,7 +1,7 @@
 // Глобальные переменные
 let allChartData = { labels: [], datasets: [] };
 let combinedChartInstance = null;
-// const exchangeratesFile = 'js/exchangerates.json'; // Удаляем или комментируем эту строку
+// const exchangeratesFile = 'js/exchangerates.json'; // Эта строка должна быть удалена или закомментирована
 
 // Описания валют
 const currencyDescriptions = {
@@ -130,6 +130,51 @@ function calculateStats(dataArray) {
 }
 
 // --- ФУНКЦИИ ДЛЯ РАБОТЫ С API И ОБНОВЛЕНИЯ ЦЕН ---
+
+// Функция для получения CSRF токена (пример, вам нужно адаптировать)
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+async function fetchRatesFromAPI() {
+    // TODO: Implement token retrieval (access and refresh tokens)
+    const accessToken = localStorage.getItem('accessToken'); // Пример: получение токена из localStorage
+    const csrfToken = getCookie('csrftoken'); // Пример: получение CSRF токена
+
+    const headers = {
+        'Content-Type': 'application/json',
+        // 'Authorization': `Bearer ${accessToken}`, // Раскомментируйте и адаптируйте, если используете Bearer токен
+    };
+    if (csrfToken) {
+        headers['X-CSRFToken'] = csrfToken;
+    }
+
+    try {
+        const response = await fetch('/api/v1/rates/', { // Используем ваш API эндпоинт
+            method: 'GET',
+            headers: headers
+        });
+        if (!response.ok) {
+            // TODO: Implement refresh token logic if applicable (e.g., on 401 Unauthorized)
+            throw new Error(`HTTP error! status: ${response.status} while fetching /api/v1/rates/`);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Error fetching rates from API:', error);
+        throw error; // Перебрасываем ошибку для обработки выше
+    }
+}
 
 async function getBTCPriceFromBinance() {
   try {

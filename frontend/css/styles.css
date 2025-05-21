@@ -55,6 +55,19 @@
   --dark-theme-controls-text: #e1e1e1; /* Светлый текст для темной темы на контролах */
   --dark-theme-controls-bg: #3a3a3a;   /* Фон для контролов в темной теме */
   --dark-theme-controls-border: #505050;
+
+  /* Добавленные переменные из плана */
+  --primary-color: #007bff; /* Пример значения */
+  --secondary-color: #6c757d; /* Пример значения */
+  --white-color: #ffffff;
+  --border-radius-large: 12px; /* Пример значения */
+  --border-radius-sm: 4px; /* Пример значения */
+  --shadow-large: 0 10px 20px rgba(0,0,0,0.1);
+  --font-weight-bold: 700;
+
+  --button-bg: var(--accent-primary);
+  --button-text: #ffffff;
+  --button-border: var(--accent-primary);
 }
 
 /* Темная тема */
@@ -181,13 +194,22 @@ a { text-decoration: none; color: inherit; }
 .header-right-controls { display: flex; align-items: center; gap: var(--spacing-md); margin-left: var(--spacing-md); /* Добавлен отступ слева */ }
 .theme-selector { display: flex; align-items: center; gap: var(--spacing-xs); }
 .theme-selector label { color: var(--text-secondary); font-size: var(--font-size-sm); margin-bottom: 0; }
+.theme-selector select,
+.market-overview-header select,
+.market-overview-header input[type="color"] {
+    padding: var(--spacing-xs) var(--spacing-sm); /* или 5px var(--spacing-xs) если это важно */
+    border-radius: var(--border-radius);
+    border: 1px solid var(--controls-border);
+    background-color: var(--controls-bg);
+    color: var(--text-primary-on-controls);
+    font-size: var(--font-size-sm);
+    /* height: auto; line-height: 1.2; - если применимо ко всем */
+}
+
 .theme-selector select {
-  padding: 5px var(--spacing-xs); font-size: var(--font-size-sm);
-  border-radius: var(--border-radius);
-  background-color: var(--controls-bg); /* Фон для контролов */
-  color: var(--text-primary-on-controls); /* Текст для контролов */
-  border: var(--border-width-sm) solid var(--controls-border); /* Граница для контролов */
-  height: auto; line-height: 1.2;
+    height: auto; /* специфичное свойство, если нужно */
+    line-height: 1.2; /* специфичное свойство, если нужно */
+    /* padding: 5px var(--spacing-xs); если отличается от общего */
 }
 .theme-selector select:hover { border-color: var(--accent-primary); }
 .theme-toggle, .notification-icon {
@@ -304,14 +326,21 @@ a { text-decoration: none; color: inherit; }
 .news-section li:last-child { border-bottom: none; }
 .news-section .news-time { color: var(--text-secondary); margin-right: var(--spacing-sm); font-weight: 500; }
 
-/* Секция отслеживаемые активы */
+/* Оптимизированные стили для отслеживаемых активов */
+.tracked-assets-container {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
 .tracked-assets-container .section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--spacing-md); /* Увеличил отступ снизу */
+    margin-bottom: var(--spacing-md);
     padding-bottom: var(--spacing-sm);
-    border-bottom: 1px solid var(--border-color-light); /* Добавил разделитель */
+    border-bottom: 1px solid var(--border-color-light);
 }
 
 .tracked-assets-container .section-header h3 {
@@ -323,785 +352,167 @@ a { text-decoration: none; color: inherit; }
 
 .tracked-assets-container .assets-list {
     display: flex;
-    flex-direction: column; /* Располагаем элементы вертикально */
-    gap: var(--spacing-sm); /* Промежуток между элементами */
+    flex-direction: column;
+    gap: var(--spacing-sm);
 }
 
 .tracked-assets-container .asset-item {
     display: flex;
     align-items: center;
-    padding: var(--spacing-sm);
-    background-color: var(--bg-secondary); /* Легкий фон для каждого элемента */
+    padding: var(--spacing-md);
+    background-color: var(--bg-secondary);
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color-light);
-    transition: background-color var(--transition-speed);
+    transition: all var(--transition-speed) ease;
 }
 
 .tracked-assets-container .asset-item:hover {
     background-color: var(--hover-bg);
+    transform: translateX(5px);
+    box-shadow: var(--shadow-sm);
 }
 
 .tracked-assets-container .asset-item i {
-    margin-right: var(--spacing-sm);
-    color: var(--accent-primary);
     font-size: var(--font-size-lg);
-    width: 24px; /* Фиксированная ширина для иконок */
+    color: var(--accent-primary);
+    width: 30px;
     text-align: center;
+    margin-right: var(--spacing-md);
 }
 
 .tracked-assets-container .asset-item span:not(.price) {
     font-size: var(--font-size-md);
+    font-weight: 500;
     color: var(--text-primary);
-    flex-grow: 1; /* Позволяет названию валюты занять доступное пространство */
+    flex-grow: 1;
 }
 
 .tracked-assets-container .asset-item .price {
     font-size: var(--font-size-md);
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
-    margin-left: var(--spacing-sm); /* Небольшой отступ слева от цены */
+    margin-left: auto;
+    padding-left: var(--spacing-md);
+    min-width: 120px;
+    text-align: right;
 }
 
+/* Улучшенные стили для кнопки обновления */
 .refresh-btn {
-    background-color: var(--button-bg);
-    color: var(--button-text);
-    border: 1px solid var(--button-border);
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--accent-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
     cursor: pointer;
-    transition: background-color var(--transition-speed), color var(--transition-speed);
-    font-size: var(--font-size-xs);
+    transition: all var(--transition-speed) ease;
 }
 
 .refresh-btn:hover {
-    background-color: var(--hover-bg);
-    color: var(--text-primary);
-}
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-    transition: background-color var(--transition-speed);
+    background-color: var(--accent-primary-dark, #005bb5);
+    transform: scale(1.05);
 }
 
-.styled-refresh-btn:hover {
-    background-color: #005bb5; /* Darken accent color */
+.refresh-btn i {
+    font-size: var(--font-size-md);
 }
 
-.styled-refresh-btn i {
-    font-size: 1em; /* Размер иконки относительно текста кнопки */
+.refresh-btn:active {
+    transform: scale(0.95);
 }
 
-/* Обзор рынка */
-.market-overview-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--spacing-md);
-}
-
-.market-overview-header h2 {
-    font-size: var(--font-size-xl);
-    color: var(--text-primary);
-    margin: 0; /* Убираем стандартный отступ у заголовка */
-}
-
-.market-overview-header .controls-container {
-    display: flex;
-    gap: var(--spacing-md);
-    align-items: center;
-    flex-wrap: wrap; /* Позволяет переносить элементы на новую строку на малых экранах */
-}
-
-.market-overview-header .time-filter,
-.market-overview-header .color-picker-container {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-}
-
-.market-overview-header label {
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-}
-
-.market-overview-header select,
-.market-overview-header input[type="color"] {
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: var(--border-radius);
-    border: 1px solid var(--controls-border);
-    background-color: var(--controls-bg);
-    color: var(--text-primary-on-controls);
-    font-size: var(--font-size-sm);
-}
-
-/* График и статистика */
+/* Улучшенные стили для графика */
 .main-chart-area .chart-wrapper {
     position: relative;
-    height: 450px; /* Увеличена высота графика */
+    height: 600px; /* Увеличена высота графика */
     width: 100%;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
 }
 
+/* Улучшенные стили для кнопок выбора валюты */
 .currency-selector-panel {
     display: flex;
-    flex-wrap: wrap; /* Позволяет кнопкам переноситься */
-    gap: var(--spacing-xs);
-    margin-bottom: var(--spacing-md);
-    justify-content: center; /* Центрируем кнопки */
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    justify-content: center;
 }
 
 .currency-selector-panel .currency-btn {
-    padding: var(--spacing-xs) var(--spacing-md); /* Уменьшил паддинги для компактности */
-    margin-right: var(--spacing-xs); /* Небольшой отступ между кнопками */
-    border: 1px solid var(--controls-border);
-    border-radius: var(--border-radius-sm);
-    background-color: var(--card-bg); /* Или var(--controls-bg) */
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--card-bg);
     color: var(--text-primary);
+    font-weight: 500;
     cursor: pointer;
-    transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+    transition: all var(--transition-speed) ease;
+    min-width: 80px;
 }
 
 .currency-selector-panel .currency-btn:hover {
-    background-color: var(--hover-bg);
     border-color: var(--accent-primary);
+    background-color: var(--hover-bg);
 }
 
 .currency-selector-panel .currency-btn.active {
     background-color: var(--accent-primary);
-    color: white; /* Или другой контрастный цвет для текста на активной кнопке */
+    color: white;
     border-color: var(--accent-primary);
-    font-weight: 500;
+    box-shadow: var(--shadow-sm);
 }
 
-.currency-stats {
-    background-color: var(--card-bg);
-    padding: var(--spacing-md);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-md);
-    margin-top: var(--spacing-lg);
-    border-left: 5px solid var(--accent-primary);
-}
-
-.currency-stats h3 {
-    color: var(--accent-primary);
-    margin-bottom: var(--spacing-md);
-    font-size: var(--font-size-lg);
-}
-
-.currency-stats p {
-    font-size: var(--font-size-md);
-    line-height: 1.6;
-    margin-bottom: var(--spacing-sm);
-    color: var(--text-secondary);
-}
-
-.currency-stats p strong {
-    color: var(--text-primary);
-    font-weight: 500; /* Maintained from original context for strong tags */
-}
-
-/* Styles for action buttons, adapted for .currency-stats */
-/* These are assumed to be part of the .currency-stats component */
-.currency-stats .action-buttons {
+/* Улучшенные стили для кнопок купить/продать */
+.action-buttons {
     display: flex;
-    gap: var(--spacing-sm);
-    margin-top: var(--spacing-md);
-    justify-content: flex-start;
-}
-
-.currency-stats .btn-buy,
-.currency-stats .btn-sell {
-    padding: var(--spacing-sm) var(--spacing-lg);
-    font-size: var(--font-size-md);
-    min-width: 100px;
-}
-
-.btn-buy, .btn-sell {
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: var(--border-radius);
-    border: none;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: var(--font-size-md);
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
-    color: white;
-}
-
-.btn-buy {
-    background-color: var(--success-color);
-}
-
-.btn-buy:hover {
-    background-color: #28a745; /* Darken success color */
-}
-
-.btn-sell {
-    background-color: var(--danger-color);
-}
-
-.btn-sell:hover {
-    background-color: #dc3545; /* Darken danger color */
-}
-
-
-/* Стили для страницы аккаунта */
-#account-page .main-content {
-    max-width: 800px; /* Ограничиваем ширину для лучшей читаемости */
-    margin-left: auto; /* Центрируем, если сайдбар скрыт или страница без него */
-    margin-right: auto;
-    padding-top: var(--spacing-lg); /* Дополнительный отступ сверху */
-}
-
-.account-form-container {
-    /* Стили .card уже применены, добавляем специфичные */
-    padding: var(--spacing-lg);
-}
-
-.account-form-container h1 {
-    font-size: var(--font-size-2xl);
-    margin-bottom: var(--spacing-lg);
-    color: var(--text-primary);
-    text-align: center;
-}
-
-.user-info-section {
-    margin-bottom: var(--spacing-lg);
-    padding: var(--spacing-md);
-    background-color: var(--bg-secondary);
-    border-radius: var(--border-radius);
-    border: 1px solid var(--border-color-light);
-}
-
-.user-info-section p {
-    font-size: var(--font-size-md);
-    color: var(--text-secondary);
-}
-
-.user-info-section strong {
-    color: var(--text-primary);
-    font-weight: 500;
-}
-
-.account-form .form-group,
-.settings-form .form-group {
-    margin-bottom: var(--spacing-md);
-}
-
-.account-form label,
-.settings-form label {
-    display: block;
-    font-weight: 500;
-    margin-bottom: var(--spacing-xs);
-    color: var(--text-secondary);
-    font-size: var(--font-size-sm);
-}
-
-.account-form input[type="text"],
-.account-form input[type="email"],
-.settings-form input[type="number"],
-.settings-form select {
-    width: 100%;
-    padding: var(--spacing-sm);
-    border-radius: var(--border-radius);
-    border: 1px solid var(--controls-border);
-    background-color: var(--controls-bg);
-    color: var(--text-primary-on-controls);
-    font-size: var(--font-size-md);
-    transition: border-color var(--transition-speed);
-}
-
-.account-form input[type="text"]:focus,
-.account-form input[type="email"]:focus,
-.settings-form input[type="number"]:focus,
-.settings-form select:focus {
-    outline: none;
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 0 2px rgba(var(--accent-primary), 0.2);
-}
-
-.form-actions {
+    gap: var(--spacing-md);
     margin-top: var(--spacing-lg);
-    display: flex;
-    gap: var(--spacing-sm);
-}
-
-.btn {
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: var(--border-radius);
-    border: none;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: var(--font-size-md);
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
-    text-align: center;
-}
-
-.btn-primary {
-    background-color: var(--accent-primary);
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: #005bb5; /* Darken accent color */
-}
-
-.btn-danger {
-    background-color: var(--danger-color);
-    color: white;
-}
-
-.btn-danger:hover {
-    background-color: #cc2e2e; /* Darken danger color */
-}
-
-.notification-settings-section {
-    margin-top: var(--spacing-lg);
-    padding-top: var(--spacing-lg);
-    border-top: 1px solid var(--border-color-light);
-}
-
-.notification-settings-section h2 {
-    font-size: var(--font-size-xl);
-    margin-bottom: var(--spacing-md);
-    color: var(--text-primary);
-}
-
-/* Адаптивность для страницы аккаунта */
-@media (max-width: 768px) {
-    #account-page .main-content {
-        margin-left: var(--spacing-sm); /* Убираем авто-отступы на мобильных */
-        margin-right: var(--spacing-sm);
-    }
-    .account-form-container h1 {
-        font-size: var(--font-size-xl);
-    }
-    .notification-settings-section h2 {
-        font-size: var(--font-size-lg);
-    }
-    .form-actions {
-        flex-direction: column;
-    }
-    .btn {
-        width: 100%;
-    }
-}
-
-/* Стили для страницы logout */
-.logout-container {
-    text-align: center;
-    padding: var(--spacing-lg);
-    max-width: 500px;
-    margin: var(--spacing-lg) auto;
-    background-color: var(--card-bg);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--border-color);
-}
-
-.logout-container h1 {
-    font-size: var(--font-size-xl);
-    color: var(--text-primary);
-    margin-bottom: var(--spacing-md);
-}
-
-.logout-container p {
-    font-size: var(--font-size-md);
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-lg);
-}
-
-.logout-container .account-buttons {
-    display: flex;
     justify-content: center;
 }
 
-.logout-container .account-btn {
-    /* Стили .btn уже частично покрывают, но можно уточнить */
-    background-color: var(--accent-primary);
-    color: white;
-    padding: var(--spacing-sm) var(--spacing-lg);
-    text-decoration: none;
-}
-
-.logout-container .account-btn:hover {
-    background-color: #005bb5;
-}
-
-
-/* Убедимся, что body на странице аккаунта имеет правильный фон */
-body#account-page {
-    background-color: var(--bg-secondary);
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-  body { flex-direction: column; }
-  .sidebar {
-    position: static; width: 100%; height: auto;
-    border-right: none; border-bottom: 1px solid var(--border-color);
-  }
-  .main-content { margin-left: 0; padding: var(--spacing-sm); }
-  .top-bar { flex-direction: column; height: auto; gap: var(--spacing-sm); padding: var(--spacing-sm); }
-  .current-time { order: -1; width: 100%; text-align: center; }
-  .header-right-controls { width: 100%; justify-content: space-around; }
-  .portfolio .balance { font-size: var(--font-size-xl); }
-  .portfolio-table th, .portfolio-table td { font-size: var(--font-size-xs); padding: var(--spacing-xs); }
-  .controls-container { flex-direction: column; align-items: stretch; }
-  .time-filter, .color-picker-container { justify-content: space-between; }
-  .chart-wrapper { height: 250px; }
-}
-
-/* Styles for the Home Page - Modern Minimalist Design */
-
-/* Общие стили для .home-container остаются, но можно немного скорректировать отступы */
-.home-container {
-    max-width: 1100px; /* Немного уменьшим для более компактного вида */
-    margin: 0 auto;
-    padding: 20px;
-    color: var(--text-color);
-}
-
-/* Hero Section - Минимализм */
-.hero-section {
-    text-align: center;
-    padding: 80px 20px; /* Больше вертикального пространства */
-    margin-bottom: 60px;
-    background-color: transparent; /* Убираем фон карточки, если основной фон страницы подходит */
-    border-radius: 0; /* Убираем скругление, если не используем фон карточки */
-    border-bottom: 1px solid var(--border-color-light); /* Тонкая линия для разделения */
-}
-
-.hero-content h1 {
-    font-size: clamp(2.5rem, 5vw, 3.8rem); /* Адаптивный размер шрифта */
-    color: var(--text-color); /* Основной цвет текста, акцент через размер и жирность */
-    margin-bottom: 20px;
-    font-weight: 600; /* Чуть менее жирный, чем стандартный bold */
-}
-
-.hero-content .subtitle {
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-    margin-bottom: 25px;
-    color: var(--text-color-secondary);
-    font-weight: 300; /* Легкий шрифт */
-}
-
-.hero-content p {
-    font-size: clamp(0.95rem, 2vw, 1.1rem);
-    line-height: 1.7;
-    margin-bottom: 35px;
-    max-width: 700px; /* Ограничиваем ширину для лучшей читаемости */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.hero-actions .btn {
-    margin: 5px;
-    padding: 14px 30px;
-    font-size: clamp(0.9rem, 2vw, 1rem);
-    border-radius: var(--border-radius-md); /* Мягкие скругления */
-    transition: all 0.3s ease;
-}
-
-.hero-actions .btn-primary {
-    background-color: var(--primary-color);
-    color: var(--button-text-color, #fff);
-    border: 1px solid var(--primary-color);
-}
-
-.hero-actions .btn-primary:hover {
-    background-color: var(--primary-color-dark);
-    border-color: var(--primary-color-dark);
-    transform: translateY(-2px);
-}
-
-.hero-actions .btn-outline {
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-}
-
-.hero-actions .btn-outline:hover {
-    background-color: var(--primary-color-light-transparent, rgba(0, 123, 255, 0.1)); /* Светлый фон при наведении */
-    color: var(--primary-color-dark);
-    transform: translateY(-2px);
-}
-
-/* Features Section - Минимализм */
-.features-section, .about-us-section {
-    padding: 60px 0; /* Убираем боковые отступы, если home-container их уже имеет */
-    margin-bottom: 60px;
-    background-color: transparent; /* Убираем фон карточки */
-    border-bottom: 1px solid var(--border-color-light); /* Тонкая линия для разделения */
-}
-
-.features-section:last-of-type, .about-us-section:last-of-type {
-    border-bottom: none; /* Убираем линию у последней секции перед футером */
-}
-
-.features-section h2, .about-us-section h2 {
-    text-align: center;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    margin-bottom: 50px;
-    color: var(--text-color);
-    font-weight: 500;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px; /* Немного уменьшим гэп */
-}
-
-.feature-card {
-    padding: 30px 25px;
-    text-align: center;
-    background-color: var(--card-bg-color); /* Возвращаем фон для карточек фич */
-    border: 1px solid var(--border-color-light);
-    border-radius: var(--border-radius-lg); /* Более выраженные скругления для карточек */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Легкая тень */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-}
-
-.feature-card i {
-    font-size: 2.2rem; /* 35px, немного меньше */
-    color: var(--primary-color);
-    margin-bottom: 20px;
-}
-
-.feature-card h3 {
-    font-size: var(--font-size-lg);
-    margin-bottom: 12px;
-    color: var(--text-color);
-    font-weight: 500;
-}
-
-.feature-card p {
-    font-size: var(--font-size-sm);
-    color: var(--text-color-secondary);
-    line-height: 1.6;
-}
-
-/* About Us Section - Минимализм */
-.about-us-section p {
-    font-size: clamp(0.95rem, 2vw, 1.1rem);
-    line-height: 1.8;
-    text-align: left;
-    margin-bottom: 20px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.about-us-section ul {
-    list-style: none;
-    padding-left: 0;
-    max-width: 600px;
-    margin: 30px auto;
-}
-
-.about-us-section ul li {
-    font-size: var(--font-size-md);
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border-color-extralight, #eee); /* Очень светлая линия */
-    color: var(--text-color);
-    font-weight: 400;
-}
-
-.about-us-section ul li:last-child {
-    border-bottom: none;
-}
-
-/* Home Footer - Минимализм */
-.home-footer {
-    text-align: center;
-    padding: 40px 0;
-    margin-top: 20px; /* Уменьшаем отступ, т.к. убрали border у последней секции */
-    font-size: var(--font-size-sm);
-    color: var(--text-color-secondary);
-    background-color: transparent;
-    border-top: 1px solid var(--border-color-light);
-}
-
-.home-footer a {
-    color: var(--text-color-secondary); /* Менее контрастные ссылки в футере */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.home-footer a:hover {
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-/* Убираем класс .card из секций, если они не должны иметь фон и тень */
-.home-page .hero-section.card,
-.home-page .features-section.card,
-.home-page .about-us-section.card {
-    background-color: transparent;
-    border-radius: 0;
-    box-shadow: none;
-    /* border-bottom: 1px solid var(--border-color-light); /* Перенесено выше */
-}
-
-/* Если вы хотите, чтобы секции все же имели фон, но более минималистичный: */
-/*
-.home-page .hero-section.card,
-.home-page .features-section.card,
-.home-page .about-us-section.card {
-    background-color: var(--background-color-offset, #f9f9f9); 
-    border-radius: var(--border-radius-md);
-    box-shadow: none; 
-    border: 1px solid var(--border-color-light);
-}
-*/
-
-/* Responsive adjustments for home page - могут остаться прежними или быть доработаны */
-@media (max-width: 768px) {
-    .hero-content h1 {
-        /* font-size: var(--font-size-xxl); уже покрыто clamp() */
-    }
-    .hero-content .subtitle {
-        /* font-size: var(--font-size-lg); уже покрыто clamp() */
-    }
-    .hero-actions .btn {
-        display: block;
-        margin: 10px auto;
-        width: 80%;
-        max-width: 300px;
-    }
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-    .features-section h2, .about-us-section h2 {
-        margin-bottom: 30px;
-    }
-    .feature-card {
-        padding: 25px 20px;
-    }
-}
-
-/* Ensure main-content on home page takes full height if needed, or adjust as per layout */
-.home-page.main-content {
-    /* If you have a sticky footer or specific layout needs */
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* min-height: calc(100vh - var(--top-bar-height, 60px)); */ /* Adjust var if top-bar height is different */
-}
-
-.btn-sm-padding {
-    padding: 0.375rem 0.75rem; /* Примерные значения для кнопок Вход/Регистрация в top-bar */
-    font-size: var(--font-size-sm);
-}
-
-/* Базовый стиль для всех кнопок */
-.btn {
-    display: inline-block; /* или inline-flex для выравнивания иконок */
-    padding: var(--spacing-sm) var(--spacing-md);
-    font-size: var(--font-size-md);
-    font-weight: 500;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    border: 1px solid transparent; /* Базовая рамка, цвет меняется модификаторами */
+.btn-buy, .btn-sell {
+    padding: var(--spacing-md) var(--spacing-xl);
     border-radius: var(--border-radius);
-    transition: color var(--transition-speed) ease-in-out, 
-                background-color var(--transition-speed) ease-in-out, 
-                border-color var(--transition-speed) ease-in-out, 
-                box-shadow var(--transition-speed) ease-in-out;
-    user-select: none; /* Предотвращение выделения текста на кнопке */
-}
-
-.btn:hover {
-    /* Общий стиль для hover, можно переопределить */
-    opacity: 0.9;
-}
-
-.btn:focus {
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(var(--accent-primary-rgb), 0.25); /* Пример фокуса, цвет от акцента */
-}
-
-.btn.disabled, .btn:disabled {
-    opacity: 0.65;
-    cursor: not-allowed;
-}
-
-/* Модификаторы */
-.btn-primary {
-    color: white; /* или var(--button-text-on-primary) */
-    background-color: var(--accent-primary);
-    border-color: var(--accent-primary);
-}
-
-.btn-primary:hover {
-    background-color: #005bb5; /* Darken accent color, лучше через переменную */
-    border-color: #0052a3;
-}
-
-.btn-danger {
-    color: white;
-    background-color: var(--danger-color);
-    border-color: var(--danger-color);
-}
-
-.btn-danger:hover {
-    background-color: #cc2e2e;
-    border-color: #bf2b2b;
-}
-
-/* Применение к существующим кнопкам */
-.currency-btn {
-    /* Наследует от .btn, если добавить класс .btn в HTML */
-    /* или копируем/адаптируем базовые стили .btn */
-    padding: var(--spacing-xs) var(--spacing-sm); /* Пример переопределения */
-    background-color: var(--card-bg);
-    color: var(--text-primary);
-    border: 1px solid var(--controls-border);
-}
-
-.currency-btn.active {
-    background-color: var(--accent-primary);
-    color: white;
-    border-color: var(--accent-primary);
-}
-
-.refresh-btn {
-    /* Аналогично .currency-btn */
-    padding: var(--spacing-xs) var(--spacing-sm);
-    background-color: var(--button-bg);
-    color: var(--button-text);
-    border: 1px solid var(--button-border);
+    font-weight: 600;
+    font-size: var(--font-size-md);
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    min-width: 120px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .btn-buy {
-    /* Может наследовать от .btn */
-    color: white;
     background-color: var(--success-color);
-    border-color: var(--success-color);
+    color: white;
+    border: none;
 }
 
 .btn-buy:hover {
-    background-color: #28a745; /* Darken success color */
-    border-color: #24933d;
+    background-color: var(--success-color-dark, #28a745);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-sell {
-    /* Может наследовать от .btn */
-    color: white;
     background-color: var(--danger-color);
-    border-color: var(--danger-color);
+    color: white;
+    border: none;
 }
 
 .btn-sell:hover {
-    background-color: #dc3545; /* Darken danger color */
-    border-color: #c82333;
+    background-color: var(--danger-color-dark, #dc3545);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
-
 
 /* Стили для страницы аккаунта */
 #account-page .main-content {
@@ -1793,6 +1204,3 @@ body.home-page {
     text-decoration: underline;
     color: var(--link-color-hover, var(--accent-primary-dark, #0056b3));
 }
-
-/* Убедитесь, что глобальные стили для .card и .btn не конфликтуют 
-   или адаптируйте их при необходимости. */
