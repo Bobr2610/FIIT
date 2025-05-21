@@ -1,5 +1,7 @@
 python backend/manage.py makemigrations
 python backend/manage.py migrate
+python backend/manage.py loaddata currencies.json
+python backend/manage.py loaddata rates.json
 python backend/manage.py collectstatic --clear --no-input
 python backend/manage.py createsuperuser --noinput
 

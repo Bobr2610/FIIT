@@ -1,0 +1,11 @@
+[
+  {
+    "model": "api.rate",
+    "pk": 1,
+    "fields": {
+      "currency": 1,
+      "cost": 88,
+      "timestamp": "2025-05-19 17:08:25+03:00"
+    }
+  }
+]
