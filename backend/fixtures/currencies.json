@@ -1,0 +1,20 @@
+[
+  {
+    "model": "api.currency",
+    "pk": 1,
+    "fields": {
+      "name": "US Dollar",
+      "short_name": "USD",
+      "description": "About US Dollar"
+    }
+  },
+  {
+    "model": "api.currency",
+    "pk": 2,
+    "fields": {
+      "name": "Euro",
+      "short_name": "EUR",
+      "description": "About Euro"
+    }
+  }
+]
