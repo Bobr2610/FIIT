@@ -1,0 +1,8668 @@
+[
+    {
+        "date": "2020-05-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 79.1813
+    },
+    {
+        "date": "2020-05-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 77.7965
+    },
+    {
+        "date": "2020-05-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 78.4431
+    },
+    {
+        "date": "2020-05-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 77.8823
+    },
+    {
+        "date": "2020-05-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 77.7854
+    },
+    {
+        "date": "2020-05-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 77.9069
+    },
+    {
+        "date": "2020-05-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 78.2611
+    },
+    {
+        "date": "2020-05-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 78.5489
+    },
+    {
+        "date": "2020-06-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 77.6376
+    },
+    {
+        "date": "2020-06-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 76.7782
+    },
+    {
+        "date": "2020-06-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 76.6243
+    },
+    {
+        "date": "2020-06-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 77.3245
+    },
+    {
+        "date": "2020-06-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 77.9658
+    },
+    {
+        "date": "2020-06-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 77.1861
+    },
+    {
+        "date": "2020-06-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 77.3481
+    },
+    {
+        "date": "2020-06-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 77.9229
+    },
+    {
+        "date": "2020-06-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 78.5225
+    },
+    {
+        "date": "2020-06-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 79.1451
+    },
+    {
+        "date": "2020-06-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 79.0434
+    },
+    {
+        "date": "2020-06-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 78.3829
+    },
+    {
+        "date": "2020-06-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 78.2924
+    },
+    {
+        "date": "2020-06-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 78.0047
+    },
+    {
+        "date": "2020-06-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 77.8285
+    },
+    {
+        "date": "2020-06-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 77.6832
+    },
+    {
+        "date": "2020-06-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 77.759
+    },
+    {
+        "date": "2020-06-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 78.0589
+    },
+    {
+        "date": "2020-06-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 77.5413
+    },
+    {
+        "date": "2020-06-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 78.6812
+    },
+    {
+        "date": "2020-07-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 78.9929
+    },
+    {
+        "date": "2020-07-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 79.1901
+    },
+    {
+        "date": "2020-07-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 79.5181
+    },
+    {
+        "date": "2020-07-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 79.2207
+    },
+    {
+        "date": "2020-07-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.5581
+    },
+    {
+        "date": "2020-07-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 81.4676
+    },
+    {
+        "date": "2020-07-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.4062
+    },
+    {
+        "date": "2020-07-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.4134
+    },
+    {
+        "date": "2020-07-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.2689
+    },
+    {
+        "date": "2020-07-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.0937
+    },
+    {
+        "date": "2020-07-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.623
+    },
+    {
+        "date": "2020-07-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.8392
+    },
+    {
+        "date": "2020-07-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 81.2318
+    },
+    {
+        "date": "2020-07-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 81.6821
+    },
+    {
+        "date": "2020-07-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.3902
+    },
+    {
+        "date": "2020-07-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 81.2499
+    },
+    {
+        "date": "2020-07-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 81.5904
+    },
+    {
+        "date": "2020-07-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.1893
+    },
+    {
+        "date": "2020-07-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.1031
+    },
+    {
+        "date": "2020-07-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.7759
+    },
+    {
+        "date": "2020-07-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.261
+    },
+    {
+        "date": "2020-07-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.912
+    },
+    {
+        "date": "2020-07-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.2532
+    },
+    {
+        "date": "2020-08-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.2889
+    },
+    {
+        "date": "2020-08-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.2253
+    },
+    {
+        "date": "2020-08-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.5011
+    },
+    {
+        "date": "2020-08-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.625
+    },
+    {
+        "date": "2020-08-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.6178
+    },
+    {
+        "date": "2020-08-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.1722
+    },
+    {
+        "date": "2020-08-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.8258
+    },
+    {
+        "date": "2020-08-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.9246
+    },
+    {
+        "date": "2020-08-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.956
+    },
+    {
+        "date": "2020-08-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.0399
+    },
+    {
+        "date": "2020-08-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.4092
+    },
+    {
+        "date": "2020-08-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.4666
+    },
+    {
+        "date": "2020-08-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.3401
+    },
+    {
+        "date": "2020-08-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.4037
+    },
+    {
+        "date": "2020-08-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.4261
+    },
+    {
+        "date": "2020-08-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.7343
+    },
+    {
+        "date": "2020-08-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.903
+    },
+    {
+        "date": "2020-08-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.059
+    },
+    {
+        "date": "2020-08-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.2254
+    },
+    {
+        "date": "2020-08-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.996
+    },
+    {
+        "date": "2020-08-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.7448
+    },
+    {
+        "date": "2020-09-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.8266
+    },
+    {
+        "date": "2020-09-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.1547
+    },
+    {
+        "date": "2020-09-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.7369
+    },
+    {
+        "date": "2020-09-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.1353
+    },
+    {
+        "date": "2020-09-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.0384
+    },
+    {
+        "date": "2020-09-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.4771
+    },
+    {
+        "date": "2020-09-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.7369
+    },
+    {
+        "date": "2020-09-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.5663
+    },
+    {
+        "date": "2020-09-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.3036
+    },
+    {
+        "date": "2020-09-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.6768
+    },
+    {
+        "date": "2020-09-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.5819
+    },
+    {
+        "date": "2020-09-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.3614
+    },
+    {
+        "date": "2020-09-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.8644
+    },
+    {
+        "date": "2020-09-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.6313
+    },
+    {
+        "date": "2020-09-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.9578
+    },
+    {
+        "date": "2020-09-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.0063
+    },
+    {
+        "date": "2020-09-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.4813
+    },
+    {
+        "date": "2020-09-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.2508
+    },
+    {
+        "date": "2020-09-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.9818
+    },
+    {
+        "date": "2020-09-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.6637
+    },
+    {
+        "date": "2020-09-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.479
+    },
+    {
+        "date": "2020-09-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.0237
+    },
+    {
+        "date": "2020-10-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.4302
+    },
+    {
+        "date": "2020-10-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.7237
+    },
+    {
+        "date": "2020-10-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.5779
+    },
+    {
+        "date": "2020-10-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.6599
+    },
+    {
+        "date": "2020-10-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.5184
+    },
+    {
+        "date": "2020-10-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.8129
+    },
+    {
+        "date": "2020-10-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.699
+    },
+    {
+        "date": "2020-10-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.7163
+    },
+    {
+        "date": "2020-10-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.0037
+    },
+    {
+        "date": "2020-10-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.0732
+    },
+    {
+        "date": "2020-10-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.7065
+    },
+    {
+        "date": "2020-10-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.4542
+    },
+    {
+        "date": "2020-10-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.3041
+    },
+    {
+        "date": "2020-10-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.3115
+    },
+    {
+        "date": "2020-10-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.5603
+    },
+    {
+        "date": "2020-10-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.3448
+    },
+    {
+        "date": "2020-10-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.3563
+    },
+    {
+        "date": "2020-10-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.4142
+    },
+    {
+        "date": "2020-10-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.4489
+    },
+    {
+        "date": "2020-10-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.3552
+    },
+    {
+        "date": "2020-10-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.2632
+    },
+    {
+        "date": "2020-10-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.6011
+    },
+    {
+        "date": "2020-10-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.6284
+    },
+    {
+        "date": "2020-11-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.757
+    },
+    {
+        "date": "2020-11-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.3447
+    },
+    {
+        "date": "2020-11-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.1229
+    },
+    {
+        "date": "2020-11-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.3514
+    },
+    {
+        "date": "2020-11-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.4953
+    },
+    {
+        "date": "2020-11-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.3557
+    },
+    {
+        "date": "2020-11-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.0468
+    },
+    {
+        "date": "2020-11-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.8104
+    },
+    {
+        "date": "2020-11-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.3222
+    },
+    {
+        "date": "2020-11-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.1729
+    },
+    {
+        "date": "2020-11-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.3903
+    },
+    {
+        "date": "2020-11-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.2314
+    },
+    {
+        "date": "2020-11-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.3484
+    },
+    {
+        "date": "2020-11-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.2643
+    },
+    {
+        "date": "2020-11-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.9347
+    },
+    {
+        "date": "2020-11-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.8934
+    },
+    {
+        "date": "2020-11-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.888
+    },
+    {
+        "date": "2020-11-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.0291
+    },
+    {
+        "date": "2020-11-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.4629
+    },
+    {
+        "date": "2020-12-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.2037
+    },
+    {
+        "date": "2020-12-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.3096
+    },
+    {
+        "date": "2020-12-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.3052
+    },
+    {
+        "date": "2020-12-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.1946
+    },
+    {
+        "date": "2020-12-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.2618
+    },
+    {
+        "date": "2020-12-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.9695
+    },
+    {
+        "date": "2020-12-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.2044
+    },
+    {
+        "date": "2020-12-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.9418
+    },
+    {
+        "date": "2020-12-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.133
+    },
+    {
+        "date": "2020-12-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.7744
+    },
+    {
+        "date": "2020-12-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.5847
+    },
+    {
+        "date": "2020-12-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.1846
+    },
+    {
+        "date": "2020-12-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.3229
+    },
+    {
+        "date": "2020-12-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.2887
+    },
+    {
+        "date": "2020-12-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.8262
+    },
+    {
+        "date": "2020-12-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.0029
+    },
+    {
+        "date": "2020-12-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.0699
+    },
+    {
+        "date": "2020-12-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.9822
+    },
+    {
+        "date": "2020-12-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.3487
+    },
+    {
+        "date": "2020-12-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.8749
+    },
+    {
+        "date": "2020-12-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.127
+    },
+    {
+        "date": "2020-12-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.2074
+    },
+    {
+        "date": "2020-12-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.6824
+    },
+    {
+        "date": "2021-01-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.7932
+    },
+    {
+        "date": "2021-01-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.8123
+    },
+    {
+        "date": "2021-01-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.3227
+    },
+    {
+        "date": "2021-01-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.7831
+    },
+    {
+        "date": "2021-01-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.6475
+    },
+    {
+        "date": "2021-01-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.2546
+    },
+    {
+        "date": "2021-01-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.3304
+    },
+    {
+        "date": "2021-01-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.2064
+    },
+    {
+        "date": "2021-01-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.1483
+    },
+    {
+        "date": "2021-01-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.9677
+    },
+    {
+        "date": "2021-01-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.4087
+    },
+    {
+        "date": "2021-01-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.1458
+    },
+    {
+        "date": "2021-01-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.6701
+    },
+    {
+        "date": "2021-01-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.2186
+    },
+    {
+        "date": "2021-01-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.131
+    },
+    {
+        "date": "2021-01-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.2963
+    },
+    {
+        "date": "2021-02-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.5426
+    },
+    {
+        "date": "2021-02-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.625
+    },
+    {
+        "date": "2021-02-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.5624
+    },
+    {
+        "date": "2021-02-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.9206
+    },
+    {
+        "date": "2021-02-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.885
+    },
+    {
+        "date": "2021-02-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.4019
+    },
+    {
+        "date": "2021-02-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.5286
+    },
+    {
+        "date": "2021-02-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.5684
+    },
+    {
+        "date": "2021-02-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.4388
+    },
+    {
+        "date": "2021-02-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.6052
+    },
+    {
+        "date": "2021-02-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.9754
+    },
+    {
+        "date": "2021-02-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.9441
+    },
+    {
+        "date": "2021-02-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.0809
+    },
+    {
+        "date": "2021-02-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.87
+    },
+    {
+        "date": "2021-02-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.5427
+    },
+    {
+        "date": "2021-02-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.6604
+    },
+    {
+        "date": "2021-02-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.6691
+    },
+    {
+        "date": "2021-02-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.4995
+    },
+    {
+        "date": "2021-02-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.3743
+    },
+    {
+        "date": "2021-03-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.4461
+    },
+    {
+        "date": "2021-03-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.5652
+    },
+    {
+        "date": "2021-03-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.8768
+    },
+    {
+        "date": "2021-03-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.9421
+    },
+    {
+        "date": "2021-03-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.9334
+    },
+    {
+        "date": "2021-03-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.1736
+    },
+    {
+        "date": "2021-03-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.9587
+    },
+    {
+        "date": "2021-03-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.7585
+    },
+    {
+        "date": "2021-03-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.7981
+    },
+    {
+        "date": "2021-03-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.3508
+    },
+    {
+        "date": "2021-03-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.9852
+    },
+    {
+        "date": "2021-03-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.9693
+    },
+    {
+        "date": "2021-03-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.1173
+    },
+    {
+        "date": "2021-03-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.433
+    },
+    {
+        "date": "2021-03-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.6573
+    },
+    {
+        "date": "2021-03-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.767
+    },
+    {
+        "date": "2021-03-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.0515
+    },
+    {
+        "date": "2021-03-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.9768
+    },
+    {
+        "date": "2021-03-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.2576
+    },
+    {
+        "date": "2021-03-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.349
+    },
+    {
+        "date": "2021-03-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.8821
+    },
+    {
+        "date": "2021-04-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.7452
+    },
+    {
+        "date": "2021-04-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.9523
+    },
+    {
+        "date": "2021-04-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.5916
+    },
+    {
+        "date": "2021-04-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.9958
+    },
+    {
+        "date": "2021-04-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.1821
+    },
+    {
+        "date": "2021-04-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.3321
+    },
+    {
+        "date": "2021-04-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.6192
+    },
+    {
+        "date": "2021-04-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.7809
+    },
+    {
+        "date": "2021-04-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.0669
+    },
+    {
+        "date": "2021-04-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.9162
+    },
+    {
+        "date": "2021-04-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.5391
+    },
+    {
+        "date": "2021-04-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.2307
+    },
+    {
+        "date": "2021-04-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.4602
+    },
+    {
+        "date": "2021-04-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.476
+    },
+    {
+        "date": "2021-04-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.7507
+    },
+    {
+        "date": "2021-04-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.2913
+    },
+    {
+        "date": "2021-04-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.0423
+    },
+    {
+        "date": "2021-04-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.4676
+    },
+    {
+        "date": "2021-04-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.4468
+    },
+    {
+        "date": "2021-04-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.4666
+    },
+    {
+        "date": "2021-04-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.4289
+    },
+    {
+        "date": "2021-04-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.1513
+    },
+    {
+        "date": "2021-05-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.585
+    },
+    {
+        "date": "2021-05-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.451
+    },
+    {
+        "date": "2021-05-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.7742
+    },
+    {
+        "date": "2021-05-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.6788
+    },
+    {
+        "date": "2021-05-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.506
+    },
+    {
+        "date": "2021-05-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.004
+    },
+    {
+        "date": "2021-05-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.8475
+    },
+    {
+        "date": "2021-05-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.9343
+    },
+    {
+        "date": "2021-05-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.6249
+    },
+    {
+        "date": "2021-05-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.6584
+    },
+    {
+        "date": "2021-05-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.9057
+    },
+    {
+        "date": "2021-05-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.1006
+    },
+    {
+        "date": "2021-05-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.7708
+    },
+    {
+        "date": "2021-05-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.9446
+    },
+    {
+        "date": "2021-05-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.6877
+    },
+    {
+        "date": "2021-05-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.9545
+    },
+    {
+        "date": "2021-05-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.9392
+    },
+    {
+        "date": "2021-05-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.6555
+    },
+    {
+        "date": "2021-05-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.6731
+    },
+    {
+        "date": "2021-06-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.3778
+    },
+    {
+        "date": "2021-06-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.5958
+    },
+    {
+        "date": "2021-06-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.6895
+    },
+    {
+        "date": "2021-06-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.2644
+    },
+    {
+        "date": "2021-06-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.7545
+    },
+    {
+        "date": "2021-06-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.653
+    },
+    {
+        "date": "2021-06-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.6433
+    },
+    {
+        "date": "2021-06-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.8114
+    },
+    {
+        "date": "2021-06-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.8065
+    },
+    {
+        "date": "2021-06-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.3274
+    },
+    {
+        "date": "2021-06-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.211
+    },
+    {
+        "date": "2021-06-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.3536
+    },
+    {
+        "date": "2021-06-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.7012
+    },
+    {
+        "date": "2021-06-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.9943
+    },
+    {
+        "date": "2021-06-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.8942
+    },
+    {
+        "date": "2021-06-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.0677
+    },
+    {
+        "date": "2021-06-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.7137
+    },
+    {
+        "date": "2021-06-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.3283
+    },
+    {
+        "date": "2021-06-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.1919
+    },
+    {
+        "date": "2021-06-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.1657
+    },
+    {
+        "date": "2021-06-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.2026
+    },
+    {
+        "date": "2021-07-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.5118
+    },
+    {
+        "date": "2021-07-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.4113
+    },
+    {
+        "date": "2021-07-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.0748
+    },
+    {
+        "date": "2021-07-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.0272
+    },
+    {
+        "date": "2021-07-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.0034
+    },
+    {
+        "date": "2021-07-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.5588
+    },
+    {
+        "date": "2021-07-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.7755
+    },
+    {
+        "date": "2021-07-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.1397
+    },
+    {
+        "date": "2021-07-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.605
+    },
+    {
+        "date": "2021-07-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.782
+    },
+    {
+        "date": "2021-07-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.3917
+    },
+    {
+        "date": "2021-07-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.8316
+    },
+    {
+        "date": "2021-07-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.5673
+    },
+    {
+        "date": "2021-07-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.6097
+    },
+    {
+        "date": "2021-07-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.7727
+    },
+    {
+        "date": "2021-07-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.5983
+    },
+    {
+        "date": "2021-07-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.9227
+    },
+    {
+        "date": "2021-07-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.8451
+    },
+    {
+        "date": "2021-07-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.3171
+    },
+    {
+        "date": "2021-07-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.9919
+    },
+    {
+        "date": "2021-07-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.9173
+    },
+    {
+        "date": "2021-07-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.8624
+    },
+    {
+        "date": "2021-07-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.9913
+    },
+    {
+        "date": "2021-08-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.7717
+    },
+    {
+        "date": "2021-08-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.5578
+    },
+    {
+        "date": "2021-08-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.4112
+    },
+    {
+        "date": "2021-08-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.6529
+    },
+    {
+        "date": "2021-08-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.4621
+    },
+    {
+        "date": "2021-08-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.4378
+    },
+    {
+        "date": "2021-08-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.3578
+    },
+    {
+        "date": "2021-08-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.6257
+    },
+    {
+        "date": "2021-08-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.3457
+    },
+    {
+        "date": "2021-08-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.2195
+    },
+    {
+        "date": "2021-08-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.5072
+    },
+    {
+        "date": "2021-08-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.4804
+    },
+    {
+        "date": "2021-08-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.121
+    },
+    {
+        "date": "2021-08-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.615
+    },
+    {
+        "date": "2021-08-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.8646
+    },
+    {
+        "date": "2021-08-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.7838
+    },
+    {
+        "date": "2021-08-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.8058
+    },
+    {
+        "date": "2021-08-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.5814
+    },
+    {
+        "date": "2021-08-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.0576
+    },
+    {
+        "date": "2021-08-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.0304
+    },
+    {
+        "date": "2021-08-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.8104
+    },
+    {
+        "date": "2021-09-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.666
+    },
+    {
+        "date": "2021-09-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.3949
+    },
+    {
+        "date": "2021-09-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.297
+    },
+    {
+        "date": "2021-09-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.5366
+    },
+    {
+        "date": "2021-09-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.5743
+    },
+    {
+        "date": "2021-09-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.8922
+    },
+    {
+        "date": "2021-09-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.9114
+    },
+    {
+        "date": "2021-09-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.4677
+    },
+    {
+        "date": "2021-09-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.1478
+    },
+    {
+        "date": "2021-09-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.115
+    },
+    {
+        "date": "2021-09-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.988
+    },
+    {
+        "date": "2021-09-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.0674
+    },
+    {
+        "date": "2021-09-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.3622
+    },
+    {
+        "date": "2021-09-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.4614
+    },
+    {
+        "date": "2021-09-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.8785
+    },
+    {
+        "date": "2021-09-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.8568
+    },
+    {
+        "date": "2021-09-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.4889
+    },
+    {
+        "date": "2021-09-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.204
+    },
+    {
+        "date": "2021-09-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.6823
+    },
+    {
+        "date": "2021-09-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.0355
+    },
+    {
+        "date": "2021-09-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.6752
+    },
+    {
+        "date": "2021-09-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.8755
+    },
+    {
+        "date": "2021-10-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.305
+    },
+    {
+        "date": "2021-10-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.4577
+    },
+    {
+        "date": "2021-10-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.6355
+    },
+    {
+        "date": "2021-10-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.1723
+    },
+    {
+        "date": "2021-10-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.9251
+    },
+    {
+        "date": "2021-10-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.6053
+    },
+    {
+        "date": "2021-10-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.1248
+    },
+    {
+        "date": "2021-10-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.9273
+    },
+    {
+        "date": "2021-10-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.0934
+    },
+    {
+        "date": "2021-10-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.0028
+    },
+    {
+        "date": "2021-10-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.3347
+    },
+    {
+        "date": "2021-10-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.7276
+    },
+    {
+        "date": "2021-10-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.4592
+    },
+    {
+        "date": "2021-10-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.6841
+    },
+    {
+        "date": "2021-10-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.6162
+    },
+    {
+        "date": "2021-10-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.6399
+    },
+    {
+        "date": "2021-10-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.4979
+    },
+    {
+        "date": "2021-10-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 81.7418
+    },
+    {
+        "date": "2021-10-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.7019
+    },
+    {
+        "date": "2021-10-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 81.0289
+    },
+    {
+        "date": "2021-10-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 81.8393
+    },
+    {
+        "date": "2021-10-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.2898
+    },
+    {
+        "date": "2021-11-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.1687
+    },
+    {
+        "date": "2021-11-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.9577
+    },
+    {
+        "date": "2021-11-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.8112
+    },
+    {
+        "date": "2021-11-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.5355
+    },
+    {
+        "date": "2021-11-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.6497
+    },
+    {
+        "date": "2021-11-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 81.787
+    },
+    {
+        "date": "2021-11-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 81.6552
+    },
+    {
+        "date": "2021-11-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.2173
+    },
+    {
+        "date": "2021-11-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.7736
+    },
+    {
+        "date": "2021-11-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.5244
+    },
+    {
+        "date": "2021-11-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.3553
+    },
+    {
+        "date": "2021-11-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.2583
+    },
+    {
+        "date": "2021-11-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.5845
+    },
+    {
+        "date": "2021-11-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.7715
+    },
+    {
+        "date": "2021-11-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.1718
+    },
+    {
+        "date": "2021-11-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.6394
+    },
+    {
+        "date": "2021-11-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.6793
+    },
+    {
+        "date": "2021-11-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.9526
+    },
+    {
+        "date": "2021-11-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.482
+    },
+    {
+        "date": "2021-12-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.8234
+    },
+    {
+        "date": "2021-12-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.8354
+    },
+    {
+        "date": "2021-12-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.8105
+    },
+    {
+        "date": "2021-12-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.2406
+    },
+    {
+        "date": "2021-12-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.1138
+    },
+    {
+        "date": "2021-12-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.7114
+    },
+    {
+        "date": "2021-12-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.364
+    },
+    {
+        "date": "2021-12-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.3444
+    },
+    {
+        "date": "2021-12-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.1158
+    },
+    {
+        "date": "2021-12-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.866
+    },
+    {
+        "date": "2021-12-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.8299
+    },
+    {
+        "date": "2021-12-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.2375
+    },
+    {
+        "date": "2021-12-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.1571
+    },
+    {
+        "date": "2021-12-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.5026
+    },
+    {
+        "date": "2021-12-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.6187
+    },
+    {
+        "date": "2021-12-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.3213
+    },
+    {
+        "date": "2021-12-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.1541
+    },
+    {
+        "date": "2021-12-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.1223
+    },
+    {
+        "date": "2021-12-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.93
+    },
+    {
+        "date": "2021-12-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.9363
+    },
+    {
+        "date": "2021-12-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.2194
+    },
+    {
+        "date": "2021-12-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.204
+    },
+    {
+        "date": "2021-12-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.0695
+    },
+    {
+        "date": "2022-01-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.1315
+    },
+    {
+        "date": "2022-01-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.8784
+    },
+    {
+        "date": "2022-01-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.6709
+    },
+    {
+        "date": "2022-01-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.4556
+    },
+    {
+        "date": "2022-01-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.8894
+    },
+    {
+        "date": "2022-01-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.8609
+    },
+    {
+        "date": "2022-01-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.0216
+    },
+    {
+        "date": "2022-01-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.1318
+    },
+    {
+        "date": "2022-01-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.8215
+    },
+    {
+        "date": "2022-01-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.9054
+    },
+    {
+        "date": "2022-01-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.5925
+    },
+    {
+        "date": "2022-01-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.9286
+    },
+    {
+        "date": "2022-01-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.1511
+    },
+    {
+        "date": "2022-01-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.468
+    },
+    {
+        "date": "2022-01-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.6419
+    },
+    {
+        "date": "2022-02-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.5032
+    },
+    {
+        "date": "2022-02-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.7869
+    },
+    {
+        "date": "2022-02-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.2826
+    },
+    {
+        "date": "2022-02-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.561
+    },
+    {
+        "date": "2022-02-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.1163
+    },
+    {
+        "date": "2022-02-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.5181
+    },
+    {
+        "date": "2022-02-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.892
+    },
+    {
+        "date": "2022-02-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.3784
+    },
+    {
+        "date": "2022-02-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.3798
+    },
+    {
+        "date": "2022-02-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.3574
+    },
+    {
+        "date": "2022-02-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.8451
+    },
+    {
+        "date": "2022-02-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.2656
+    },
+    {
+        "date": "2022-02-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.306
+    },
+    {
+        "date": "2022-02-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.1308
+    },
+    {
+        "date": "2022-02-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.1489
+    },
+    {
+        "date": "2022-02-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.3379
+    },
+    {
+        "date": "2022-02-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.882
+    },
+    {
+        "date": "2022-02-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.7688
+    },
+    {
+        "date": "2022-02-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.5994
+    },
+    {
+        "date": "2022-03-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.4772
+    },
+    {
+        "date": "2022-03-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.9112
+    },
+    {
+        "date": "2022-03-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 114.5544
+    },
+    {
+        "date": "2022-03-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 124.0161
+    },
+    {
+        "date": "2022-03-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 116.5312
+    },
+    {
+        "date": "2022-03-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 115.6212
+    },
+    {
+        "date": "2022-03-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 126.4395
+    },
+    {
+        "date": "2022-03-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 132.9581
+    },
+    {
+        "date": "2022-03-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 128.9523
+    },
+    {
+        "date": "2022-03-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 127.2343
+    },
+    {
+        "date": "2022-03-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 122.4522
+    },
+    {
+        "date": "2022-03-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 118.7601
+    },
+    {
+        "date": "2022-03-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 115.9311
+    },
+    {
+        "date": "2022-03-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 114.3996
+    },
+    {
+        "date": "2022-03-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 115.6002
+    },
+    {
+        "date": "2022-03-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 114.7833
+    },
+    {
+        "date": "2022-03-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 113.2613
+    },
+    {
+        "date": "2022-03-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.4679
+    },
+    {
+        "date": "2022-03-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.2662
+    },
+    {
+        "date": "2022-03-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.6714
+    },
+    {
+        "date": "2022-03-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.0085
+    },
+    {
+        "date": "2022-03-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.696
+    },
+    {
+        "date": "2022-04-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.493
+    },
+    {
+        "date": "2022-04-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.1468
+    },
+    {
+        "date": "2022-04-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.3872
+    },
+    {
+        "date": "2022-04-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.7289
+    },
+    {
+        "date": "2022-04-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.5998
+    },
+    {
+        "date": "2022-04-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.293
+    },
+    {
+        "date": "2022-04-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 81.7064
+    },
+    {
+        "date": "2022-04-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.9752
+    },
+    {
+        "date": "2022-04-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.7939
+    },
+    {
+        "date": "2022-04-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.7219
+    },
+    {
+        "date": "2022-04-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.0024
+    },
+    {
+        "date": "2022-04-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.0715
+    },
+    {
+        "date": "2022-04-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.4289
+    },
+    {
+        "date": "2022-04-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.9674
+    },
+    {
+        "date": "2022-04-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.2705
+    },
+    {
+        "date": "2022-04-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 81.2239
+    },
+    {
+        "date": "2022-04-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.0249
+    },
+    {
+        "date": "2022-04-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 77.4651
+    },
+    {
+        "date": "2022-04-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 76.667
+    },
+    {
+        "date": "2022-04-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 75.9224
+    },
+    {
+        "date": "2022-04-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 75.3117
+    },
+    {
+        "date": "2022-04-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 74.5589
+    },
+    {
+        "date": "2022-05-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 72.7815
+    },
+    {
+        "date": "2022-05-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 70.0662
+    },
+    {
+        "date": "2022-05-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 71.0963
+    },
+    {
+        "date": "2022-05-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 72.6314
+    },
+    {
+        "date": "2022-05-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 68.7835
+    },
+    {
+        "date": "2022-05-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 65.7939
+    },
+    {
+        "date": "2022-05-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 65.8166
+    },
+    {
+        "date": "2022-05-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 66.3644
+    },
+    {
+        "date": "2022-05-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 66.6135
+    },
+    {
+        "date": "2022-05-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 64.9358
+    },
+    {
+        "date": "2022-05-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.8953
+    },
+    {
+        "date": "2022-05-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.3851
+    },
+    {
+        "date": "2022-05-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 58.8705
+    },
+    {
+        "date": "2022-05-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 57.921
+    },
+    {
+        "date": "2022-05-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 64.4392
+    },
+    {
+        "date": "2022-05-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 69.4353
+    },
+    {
+        "date": "2022-05-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 64.717
+    },
+    {
+        "date": "2022-06-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.7397
+    },
+    {
+        "date": "2022-06-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 63.6629
+    },
+    {
+        "date": "2022-06-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 64.9053
+    },
+    {
+        "date": "2022-06-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 65.9191
+    },
+    {
+        "date": "2022-06-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 64.8669
+    },
+    {
+        "date": "2022-06-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 64.5699
+    },
+    {
+        "date": "2022-06-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 63.938
+    },
+    {
+        "date": "2022-06-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.0934
+    },
+    {
+        "date": "2022-06-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.9656
+    },
+    {
+        "date": "2022-06-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 59.2481
+    },
+    {
+        "date": "2022-06-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 59.1204
+    },
+    {
+        "date": "2022-06-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 58.9568
+    },
+    {
+        "date": "2022-06-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 59.3299
+    },
+    {
+        "date": "2022-06-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 58.8003
+    },
+    {
+        "date": "2022-06-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 57.4566
+    },
+    {
+        "date": "2022-06-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 55.8307
+    },
+    {
+        "date": "2022-06-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 55.9886
+    },
+    {
+        "date": "2022-06-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 55.964
+    },
+    {
+        "date": "2022-06-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 56.0535
+    },
+    {
+        "date": "2022-06-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 55.8886
+    },
+    {
+        "date": "2022-06-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 53.858
+    },
+    {
+        "date": "2022-07-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 54.6405
+    },
+    {
+        "date": "2022-07-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 56.3584
+    },
+    {
+        "date": "2022-07-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 57.1836
+    },
+    {
+        "date": "2022-07-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.1618
+    },
+    {
+        "date": "2022-07-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 64.326
+    },
+    {
+        "date": "2022-07-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 64.1349
+    },
+    {
+        "date": "2022-07-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.0499
+    },
+    {
+        "date": "2022-07-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.8056
+    },
+    {
+        "date": "2022-07-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 58.7643
+    },
+    {
+        "date": "2022-07-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 58.9002
+    },
+    {
+        "date": "2022-07-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 58.3432
+    },
+    {
+        "date": "2022-07-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 57.8851
+    },
+    {
+        "date": "2022-07-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 57.1526
+    },
+    {
+        "date": "2022-07-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 56.4463
+    },
+    {
+        "date": "2022-07-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 55.826
+    },
+    {
+        "date": "2022-07-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 57.1133
+    },
+    {
+        "date": "2022-07-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 57.7608
+    },
+    {
+        "date": "2022-07-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 58.6741
+    },
+    {
+        "date": "2022-07-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 59.4068
+    },
+    {
+        "date": "2022-07-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.0032
+    },
+    {
+        "date": "2022-07-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.2171
+    },
+    {
+        "date": "2022-07-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.5695
+    },
+    {
+        "date": "2022-08-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 63.2468
+    },
+    {
+        "date": "2022-08-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.2656
+    },
+    {
+        "date": "2022-08-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.1243
+    },
+    {
+        "date": "2022-08-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.0872
+    },
+    {
+        "date": "2022-08-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.361
+    },
+    {
+        "date": "2022-08-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.1615
+    },
+    {
+        "date": "2022-08-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.5542
+    },
+    {
+        "date": "2022-08-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.704
+    },
+    {
+        "date": "2022-08-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.5156
+    },
+    {
+        "date": "2022-08-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.5355
+    },
+    {
+        "date": "2022-08-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.5056
+    },
+    {
+        "date": "2022-08-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.3551
+    },
+    {
+        "date": "2022-08-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.8322
+    },
+    {
+        "date": "2022-08-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.8957
+    },
+    {
+        "date": "2022-08-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 59.3934
+    },
+    {
+        "date": "2022-08-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 59.5344
+    },
+    {
+        "date": "2022-08-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 59.3304
+    },
+    {
+        "date": "2022-08-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 59.5082
+    },
+    {
+        "date": "2022-08-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 59.5983
+    },
+    {
+        "date": "2022-08-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 59.8784
+    },
+    {
+        "date": "2022-08-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 59.9608
+    },
+    {
+        "date": "2022-08-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.5752
+    },
+    {
+        "date": "2022-09-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.2141
+    },
+    {
+        "date": "2022-09-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.2842
+    },
+    {
+        "date": "2022-09-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.2187
+    },
+    {
+        "date": "2022-09-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.1408
+    },
+    {
+        "date": "2022-09-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.4929
+    },
+    {
+        "date": "2022-09-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.5458
+    },
+    {
+        "date": "2022-09-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.6952
+    },
+    {
+        "date": "2022-09-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.8571
+    },
+    {
+        "date": "2022-09-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.3127
+    },
+    {
+        "date": "2022-09-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.9364
+    },
+    {
+        "date": "2022-09-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 59.8368
+    },
+    {
+        "date": "2022-09-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 59.6196
+    },
+    {
+        "date": "2022-09-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 59.874
+    },
+    {
+        "date": "2022-09-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.0426
+    },
+    {
+        "date": "2022-09-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.0507
+    },
+    {
+        "date": "2022-09-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.211
+    },
+    {
+        "date": "2022-09-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 58.9388
+    },
+    {
+        "date": "2022-09-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 56.4751
+    },
+    {
+        "date": "2022-09-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 55.9278
+    },
+    {
+        "date": "2022-09-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 55.9953
+    },
+    {
+        "date": "2022-09-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 55.7232
+    },
+    {
+        "date": "2022-09-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 55.4064
+    },
+    {
+        "date": "2022-10-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 52.7379
+    },
+    {
+        "date": "2022-10-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 54.3947
+    },
+    {
+        "date": "2022-10-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 56.1725
+    },
+    {
+        "date": "2022-10-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 58.0613
+    },
+    {
+        "date": "2022-10-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 58.2392
+    },
+    {
+        "date": "2022-10-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 59.9756
+    },
+    {
+        "date": "2022-10-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.8019
+    },
+    {
+        "date": "2022-10-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.3481
+    },
+    {
+        "date": "2022-10-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.5867
+    },
+    {
+        "date": "2022-10-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.5903
+    },
+    {
+        "date": "2022-10-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.4695
+    },
+    {
+        "date": "2022-10-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.5608
+    },
+    {
+        "date": "2022-10-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.53
+    },
+    {
+        "date": "2022-10-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.1086
+    },
+    {
+        "date": "2022-10-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.4371
+    },
+    {
+        "date": "2022-10-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 59.8378
+    },
+    {
+        "date": "2022-10-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.1575
+    },
+    {
+        "date": "2022-10-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.4648
+    },
+    {
+        "date": "2022-10-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.5682
+    },
+    {
+        "date": "2022-10-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.5718
+    },
+    {
+        "date": "2022-10-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.1328
+    },
+    {
+        "date": "2022-11-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.1196
+    },
+    {
+        "date": "2022-11-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.9668
+    },
+    {
+        "date": "2022-11-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.9216
+    },
+    {
+        "date": "2022-11-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.6071
+    },
+    {
+        "date": "2022-11-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.9013
+    },
+    {
+        "date": "2022-11-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 60.8231
+    },
+    {
+        "date": "2022-11-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.2445
+    },
+    {
+        "date": "2022-11-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.0037
+    },
+    {
+        "date": "2022-11-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 61.5416
+    },
+    {
+        "date": "2022-11-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.1554
+    },
+    {
+        "date": "2022-11-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.6297
+    },
+    {
+        "date": "2022-11-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.6675
+    },
+    {
+        "date": "2022-11-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.5712
+    },
+    {
+        "date": "2022-11-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.4484
+    },
+    {
+        "date": "2022-11-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.1245
+    },
+    {
+        "date": "2022-11-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.1774
+    },
+    {
+        "date": "2022-11-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.285
+    },
+    {
+        "date": "2022-11-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.7814
+    },
+    {
+        "date": "2022-11-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 62.8762
+    },
+    {
+        "date": "2022-11-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 63.3008
+    },
+    {
+        "date": "2022-11-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 63.3882
+    },
+    {
+        "date": "2022-12-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 63.0504
+    },
+    {
+        "date": "2022-12-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 63.8279
+    },
+    {
+        "date": "2022-12-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 64.9868
+    },
+    {
+        "date": "2022-12-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 65.5205
+    },
+    {
+        "date": "2022-12-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 66.1087
+    },
+    {
+        "date": "2022-12-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 65.8966
+    },
+    {
+        "date": "2022-12-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 65.6762
+    },
+    {
+        "date": "2022-12-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 65.8407
+    },
+    {
+        "date": "2022-12-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 66.27
+    },
+    {
+        "date": "2022-12-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 66.7017
+    },
+    {
+        "date": "2022-12-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 67.4478
+    },
+    {
+        "date": "2022-12-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 68.447
+    },
+    {
+        "date": "2022-12-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 68.7798
+    },
+    {
+        "date": "2022-12-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 70.6196
+    },
+    {
+        "date": "2022-12-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 73.3389
+    },
+    {
+        "date": "2022-12-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 75.0914
+    },
+    {
+        "date": "2022-12-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 76.6446
+    },
+    {
+        "date": "2022-12-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 73.0407
+    },
+    {
+        "date": "2022-12-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 72.6226
+    },
+    {
+        "date": "2022-12-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 74.1829
+    },
+    {
+        "date": "2022-12-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 75.66
+    },
+    {
+        "date": "2022-12-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 76.0765
+    },
+    {
+        "date": "2022-12-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 75.6553
+    },
+    {
+        "date": "2023-01-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 75.0785
+    },
+    {
+        "date": "2023-01-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 74.5438
+    },
+    {
+        "date": "2023-01-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 74.1361
+    },
+    {
+        "date": "2023-01-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 72.7908
+    },
+    {
+        "date": "2023-01-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 73.1131
+    },
+    {
+        "date": "2023-01-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 73.8298
+    },
+    {
+        "date": "2023-01-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 74.2646
+    },
+    {
+        "date": "2023-01-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 74.5882
+    },
+    {
+        "date": "2023-01-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 74.4058
+    },
+    {
+        "date": "2023-01-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 74.3434
+    },
+    {
+        "date": "2023-01-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 74.7307
+    },
+    {
+        "date": "2023-01-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 74.6948
+    },
+    {
+        "date": "2023-01-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 74.9564
+    },
+    {
+        "date": "2023-01-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 75.3348
+    },
+    {
+        "date": "2023-01-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 75.4062
+    },
+    {
+        "date": "2023-01-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 75.7799
+    },
+    {
+        "date": "2023-02-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 76.3004
+    },
+    {
+        "date": "2023-02-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 76.2245
+    },
+    {
+        "date": "2023-02-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 76.9564
+    },
+    {
+        "date": "2023-02-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 76.7344
+    },
+    {
+        "date": "2023-02-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 76.0347
+    },
+    {
+        "date": "2023-02-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 75.9087
+    },
+    {
+        "date": "2023-02-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 76.8344
+    },
+    {
+        "date": "2023-02-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 78.3223
+    },
+    {
+        "date": "2023-02-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 78.0542
+    },
+    {
+        "date": "2023-02-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 78.671
+    },
+    {
+        "date": "2023-02-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 79.3355
+    },
+    {
+        "date": "2023-02-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 79.5654
+    },
+    {
+        "date": "2023-02-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 79.9764
+    },
+    {
+        "date": "2023-02-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 79.6104
+    },
+    {
+        "date": "2023-02-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 79.133
+    },
+    {
+        "date": "2023-02-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 79.7588
+    },
+    {
+        "date": "2023-02-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 79.5716
+    },
+    {
+        "date": "2023-02-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 79.623
+    },
+    {
+        "date": "2023-03-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 79.5134
+    },
+    {
+        "date": "2023-03-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.1008
+    },
+    {
+        "date": "2023-03-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.1897
+    },
+    {
+        "date": "2023-03-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.0469
+    },
+    {
+        "date": "2023-03-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.2353
+    },
+    {
+        "date": "2023-03-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.5496
+    },
+    {
+        "date": "2023-03-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.1372
+    },
+    {
+        "date": "2023-03-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.4009
+    },
+    {
+        "date": "2023-03-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.6102
+    },
+    {
+        "date": "2023-03-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.5192
+    },
+    {
+        "date": "2023-03-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 80.8763
+    },
+    {
+        "date": "2023-03-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 81.1418
+    },
+    {
+        "date": "2023-03-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 81.4635
+    },
+    {
+        "date": "2023-03-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.3736
+    },
+    {
+        "date": "2023-03-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.5428
+    },
+    {
+        "date": "2023-03-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.967
+    },
+    {
+        "date": "2023-03-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.1452
+    },
+    {
+        "date": "2023-03-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.3923
+    },
+    {
+        "date": "2023-03-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.2913
+    },
+    {
+        "date": "2023-03-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.775
+    },
+    {
+        "date": "2023-03-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.4859
+    },
+    {
+        "date": "2023-03-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 83.7639
+    },
+    {
+        "date": "2023-04-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.1116
+    },
+    {
+        "date": "2023-04-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.6185
+    },
+    {
+        "date": "2023-04-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.7207
+    },
+    {
+        "date": "2023-04-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.0954
+    },
+    {
+        "date": "2023-04-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.1294
+    },
+    {
+        "date": "2023-04-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.2892
+    },
+    {
+        "date": "2023-04-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.1737
+    },
+    {
+        "date": "2023-04-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.7271
+    },
+    {
+        "date": "2023-04-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.7599
+    },
+    {
+        "date": "2023-04-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.0035
+    },
+    {
+        "date": "2023-04-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.1637
+    },
+    {
+        "date": "2023-04-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.659
+    },
+    {
+        "date": "2023-04-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.5713
+    },
+    {
+        "date": "2023-04-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.3736
+    },
+    {
+        "date": "2023-04-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.4638
+    },
+    {
+        "date": "2023-04-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.3495
+    },
+    {
+        "date": "2023-04-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.4589
+    },
+    {
+        "date": "2023-04-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.0332
+    },
+    {
+        "date": "2023-04-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.1436
+    },
+    {
+        "date": "2023-04-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.2023
+    },
+    {
+        "date": "2023-04-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.3712
+    },
+    {
+        "date": "2023-05-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.6556
+    },
+    {
+        "date": "2023-05-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.575
+    },
+    {
+        "date": "2023-05-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.9986
+    },
+    {
+        "date": "2023-05-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.9073
+    },
+    {
+        "date": "2023-05-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.1498
+    },
+    {
+        "date": "2023-05-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 82.8877
+    },
+    {
+        "date": "2023-05-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 84.25
+    },
+    {
+        "date": "2023-05-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.0862
+    },
+    {
+        "date": "2023-05-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.1619
+    },
+    {
+        "date": "2023-05-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.5749
+    },
+    {
+        "date": "2023-05-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.4964
+    },
+    {
+        "date": "2023-05-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.277
+    },
+    {
+        "date": "2023-05-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.4963
+    },
+    {
+        "date": "2023-05-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.5502
+    },
+    {
+        "date": "2023-05-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.1995
+    },
+    {
+        "date": "2023-05-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.8767
+    },
+    {
+        "date": "2023-05-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.919
+    },
+    {
+        "date": "2023-05-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 85.9013
+    },
+    {
+        "date": "2023-05-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.5119
+    },
+    {
+        "date": "2023-06-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.5009
+    },
+    {
+        "date": "2023-06-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.5764
+    },
+    {
+        "date": "2023-06-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.101
+    },
+    {
+        "date": "2023-06-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.0318
+    },
+    {
+        "date": "2023-06-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 86.9519
+    },
+    {
+        "date": "2023-06-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.1651
+    },
+    {
+        "date": "2023-06-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 88.0379
+    },
+    {
+        "date": "2023-06-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.0057
+    },
+    {
+        "date": "2023-06-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.3899
+    },
+    {
+        "date": "2023-06-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.0668
+    },
+    {
+        "date": "2023-06-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.9665
+    },
+    {
+        "date": "2023-06-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.6329
+    },
+    {
+        "date": "2023-06-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.7966
+    },
+    {
+        "date": "2023-06-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.0745
+    },
+    {
+        "date": "2023-06-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.0014
+    },
+    {
+        "date": "2023-06-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.943
+    },
+    {
+        "date": "2023-06-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.4933
+    },
+    {
+        "date": "2023-06-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.2969
+    },
+    {
+        "date": "2023-06-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.1373
+    },
+    {
+        "date": "2023-06-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.8644
+    },
+    {
+        "date": "2023-06-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.1052
+    },
+    {
+        "date": "2023-07-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.0195
+    },
+    {
+        "date": "2023-07-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.2582
+    },
+    {
+        "date": "2023-07-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.7382
+    },
+    {
+        "date": "2023-07-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.4144
+    },
+    {
+        "date": "2023-07-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.7163
+    },
+    {
+        "date": "2023-07-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.8189
+    },
+    {
+        "date": "2023-07-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.4155
+    },
+    {
+        "date": "2023-07-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.6775
+    },
+    {
+        "date": "2023-07-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.889
+    },
+    {
+        "date": "2023-07-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.6788
+    },
+    {
+        "date": "2023-07-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.1992
+    },
+    {
+        "date": "2023-07-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.6496
+    },
+    {
+        "date": "2023-07-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.0271
+    },
+    {
+        "date": "2023-07-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.4441
+    },
+    {
+        "date": "2023-07-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.833
+    },
+    {
+        "date": "2023-07-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.6562
+    },
+    {
+        "date": "2023-07-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.3614
+    },
+    {
+        "date": "2023-07-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.6918
+    },
+    {
+        "date": "2023-07-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.7156
+    },
+    {
+        "date": "2023-07-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.2173
+    },
+    {
+        "date": "2023-07-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.9586
+    },
+    {
+        "date": "2023-08-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.9428
+    },
+    {
+        "date": "2023-08-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.6988
+    },
+    {
+        "date": "2023-08-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.9268
+    },
+    {
+        "date": "2023-08-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.531
+    },
+    {
+        "date": "2023-08-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.8379
+    },
+    {
+        "date": "2023-08-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 106.0543
+    },
+    {
+        "date": "2023-08-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.4352
+    },
+    {
+        "date": "2023-08-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 106.8897
+    },
+    {
+        "date": "2023-08-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 107.1563
+    },
+    {
+        "date": "2023-08-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 107.9723
+    },
+    {
+        "date": "2023-08-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 110.6847
+    },
+    {
+        "date": "2023-08-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 106.5736
+    },
+    {
+        "date": "2023-08-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.6591
+    },
+    {
+        "date": "2023-08-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.181
+    },
+    {
+        "date": "2023-08-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.4802
+    },
+    {
+        "date": "2023-08-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.5719
+    },
+    {
+        "date": "2023-08-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.753
+    },
+    {
+        "date": "2023-08-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.2452
+    },
+    {
+        "date": "2023-08-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.4719
+    },
+    {
+        "date": "2023-08-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.2586
+    },
+    {
+        "date": "2023-08-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.2434
+    },
+    {
+        "date": "2023-08-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.4765
+    },
+    {
+        "date": "2023-08-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.4496
+    },
+    {
+        "date": "2023-09-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.9407
+    },
+    {
+        "date": "2023-09-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.6108
+    },
+    {
+        "date": "2023-09-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.4171
+    },
+    {
+        "date": "2023-09-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.9043
+    },
+    {
+        "date": "2023-09-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.0789
+    },
+    {
+        "date": "2023-09-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.2776
+    },
+    {
+        "date": "2023-09-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.8872
+    },
+    {
+        "date": "2023-09-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.5332
+    },
+    {
+        "date": "2023-09-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.5646
+    },
+    {
+        "date": "2023-09-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.1066
+    },
+    {
+        "date": "2023-09-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.2289
+    },
+    {
+        "date": "2023-09-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.0358
+    },
+    {
+        "date": "2023-09-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.0945
+    },
+    {
+        "date": "2023-09-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.9211
+    },
+    {
+        "date": "2023-09-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.3699
+    },
+    {
+        "date": "2023-09-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.3606
+    },
+    {
+        "date": "2023-09-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.2485
+    },
+    {
+        "date": "2023-09-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.2453
+    },
+    {
+        "date": "2023-09-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.9888
+    },
+    {
+        "date": "2023-09-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.978
+    },
+    {
+        "date": "2023-09-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.0979
+    },
+    {
+        "date": "2023-09-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.1631
+    },
+    {
+        "date": "2023-10-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.868
+    },
+    {
+        "date": "2023-10-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.0621
+    },
+    {
+        "date": "2023-10-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.3024
+    },
+    {
+        "date": "2023-10-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.7877
+    },
+    {
+        "date": "2023-10-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 106.01
+    },
+    {
+        "date": "2023-10-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 107.0322
+    },
+    {
+        "date": "2023-10-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.6864
+    },
+    {
+        "date": "2023-10-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.9544
+    },
+    {
+        "date": "2023-10-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.035
+    },
+    {
+        "date": "2023-10-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.5523
+    },
+    {
+        "date": "2023-10-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.52
+    },
+    {
+        "date": "2023-10-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.7527
+    },
+    {
+        "date": "2023-10-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.9059
+    },
+    {
+        "date": "2023-10-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.6255
+    },
+    {
+        "date": "2023-10-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.4257
+    },
+    {
+        "date": "2023-10-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.303
+    },
+    {
+        "date": "2023-10-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.5534
+    },
+    {
+        "date": "2023-10-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.6543
+    },
+    {
+        "date": "2023-10-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.7376
+    },
+    {
+        "date": "2023-10-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.3504
+    },
+    {
+        "date": "2023-10-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.6164
+    },
+    {
+        "date": "2023-11-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.9345
+    },
+    {
+        "date": "2023-11-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.4365
+    },
+    {
+        "date": "2023-11-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.9995
+    },
+    {
+        "date": "2023-11-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.0111
+    },
+    {
+        "date": "2023-11-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.7863
+    },
+    {
+        "date": "2023-11-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.4403
+    },
+    {
+        "date": "2023-11-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.4076
+    },
+    {
+        "date": "2023-11-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.3155
+    },
+    {
+        "date": "2023-11-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.5314
+    },
+    {
+        "date": "2023-11-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.7781
+    },
+    {
+        "date": "2023-11-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.1334
+    },
+    {
+        "date": "2023-11-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.5921
+    },
+    {
+        "date": "2023-11-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.7692
+    },
+    {
+        "date": "2023-11-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.6597
+    },
+    {
+        "date": "2023-11-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.2561
+    },
+    {
+        "date": "2023-11-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.1475
+    },
+    {
+        "date": "2023-11-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.2273
+    },
+    {
+        "date": "2023-11-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.9187
+    },
+    {
+        "date": "2023-11-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.1594
+    },
+    {
+        "date": "2023-11-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.0659
+    },
+    {
+        "date": "2023-11-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.6503
+    },
+    {
+        "date": "2023-12-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.8827
+    },
+    {
+        "date": "2023-12-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.9126
+    },
+    {
+        "date": "2023-12-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.5768
+    },
+    {
+        "date": "2023-12-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.134
+    },
+    {
+        "date": "2023-12-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.1353
+    },
+    {
+        "date": "2023-12-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.8131
+    },
+    {
+        "date": "2023-12-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.8409
+    },
+    {
+        "date": "2023-12-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.0769
+    },
+    {
+        "date": "2023-12-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.403
+    },
+    {
+        "date": "2023-12-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.95
+    },
+    {
+        "date": "2023-12-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.7377
+    },
+    {
+        "date": "2023-12-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.4186
+    },
+    {
+        "date": "2023-12-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.7578
+    },
+    {
+        "date": "2023-12-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.5764
+    },
+    {
+        "date": "2023-12-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.048
+    },
+    {
+        "date": "2023-12-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.5113
+    },
+    {
+        "date": "2023-12-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.2863
+    },
+    {
+        "date": "2023-12-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.5781
+    },
+    {
+        "date": "2023-12-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.1178
+    },
+    {
+        "date": "2023-12-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.3451
+    },
+    {
+        "date": "2023-12-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.5506
+    },
+    {
+        "date": "2023-12-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.1919
+    },
+    {
+        "date": "2024-01-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.9825
+    },
+    {
+        "date": "2024-01-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.8745
+    },
+    {
+        "date": "2024-01-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.5401
+    },
+    {
+        "date": "2024-01-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.7517
+    },
+    {
+        "date": "2024-01-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.0682
+    },
+    {
+        "date": "2024-01-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.6007
+    },
+    {
+        "date": "2024-01-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.0531
+    },
+    {
+        "date": "2024-01-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.5882
+    },
+    {
+        "date": "2024-01-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.3835
+    },
+    {
+        "date": "2024-01-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.8854
+    },
+    {
+        "date": "2024-01-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.8266
+    },
+    {
+        "date": "2024-01-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.1657
+    },
+    {
+        "date": "2024-01-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.6365
+    },
+    {
+        "date": "2024-01-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.0945
+    },
+    {
+        "date": "2024-01-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.9777
+    },
+    {
+        "date": "2024-01-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.7895
+    },
+    {
+        "date": "2024-02-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.1149
+    },
+    {
+        "date": "2024-02-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.4009
+    },
+    {
+        "date": "2024-02-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.6437
+    },
+    {
+        "date": "2024-02-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.2279
+    },
+    {
+        "date": "2024-02-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.444
+    },
+    {
+        "date": "2024-02-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.0936
+    },
+    {
+        "date": "2024-02-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.3543
+    },
+    {
+        "date": "2024-02-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.9364
+    },
+    {
+        "date": "2024-02-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.1512
+    },
+    {
+        "date": "2024-02-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.1917
+    },
+    {
+        "date": "2024-02-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.8133
+    },
+    {
+        "date": "2024-02-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.4099
+    },
+    {
+        "date": "2024-02-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.3523
+    },
+    {
+        "date": "2024-02-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.4889
+    },
+    {
+        "date": "2024-02-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.5589
+    },
+    {
+        "date": "2024-02-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.8968
+    },
+    {
+        "date": "2024-02-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.4425
+    },
+    {
+        "date": "2024-02-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.1776
+    },
+    {
+        "date": "2024-02-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.9214
+    },
+    {
+        "date": "2024-02-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.45
+    },
+    {
+        "date": "2024-03-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.5447
+    },
+    {
+        "date": "2024-03-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.7225
+    },
+    {
+        "date": "2024-03-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.1061
+    },
+    {
+        "date": "2024-03-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.9366
+    },
+    {
+        "date": "2024-03-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.2017
+    },
+    {
+        "date": "2024-03-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.8767
+    },
+    {
+        "date": "2024-03-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.1317
+    },
+    {
+        "date": "2024-03-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.3561
+    },
+    {
+        "date": "2024-03-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.1869
+    },
+    {
+        "date": "2024-03-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.2625
+    },
+    {
+        "date": "2024-03-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.9718
+    },
+    {
+        "date": "2024-03-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.2432
+    },
+    {
+        "date": "2024-03-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.1047
+    },
+    {
+        "date": "2024-03-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.6139
+    },
+    {
+        "date": "2024-03-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.365
+    },
+    {
+        "date": "2024-03-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.217
+    },
+    {
+        "date": "2024-03-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.3651
+    },
+    {
+        "date": "2024-03-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.4121
+    },
+    {
+        "date": "2024-03-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.2704
+    },
+    {
+        "date": "2024-03-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.7057
+    },
+    {
+        "date": "2024-03-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.5299
+    },
+    {
+        "date": "2024-04-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.5661
+    },
+    {
+        "date": "2024-04-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.4116
+    },
+    {
+        "date": "2024-04-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.4277
+    },
+    {
+        "date": "2024-04-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.0668
+    },
+    {
+        "date": "2024-04-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.1259
+    },
+    {
+        "date": "2024-04-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.2236
+    },
+    {
+        "date": "2024-04-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.7473
+    },
+    {
+        "date": "2024-04-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.2333
+    },
+    {
+        "date": "2024-04-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.6793
+    },
+    {
+        "date": "2024-04-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.7264
+    },
+    {
+        "date": "2024-04-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.7934
+    },
+    {
+        "date": "2024-04-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.9341
+    },
+    {
+        "date": "2024-04-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.2787
+    },
+    {
+        "date": "2024-04-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.5316
+    },
+    {
+        "date": "2024-04-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.5797
+    },
+    {
+        "date": "2024-04-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.3648
+    },
+    {
+        "date": "2024-04-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.5609
+    },
+    {
+        "date": "2024-04-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.9118
+    },
+    {
+        "date": "2024-04-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.7079
+    },
+    {
+        "date": "2024-04-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.7187
+    },
+    {
+        "date": "2024-04-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.027
+    },
+    {
+        "date": "2024-05-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.6447
+    },
+    {
+        "date": "2024-05-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.5602
+    },
+    {
+        "date": "2024-05-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.473
+    },
+    {
+        "date": "2024-05-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.3062
+    },
+    {
+        "date": "2024-05-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.9461
+    },
+    {
+        "date": "2024-05-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.8486
+    },
+    {
+        "date": "2024-05-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.6682
+    },
+    {
+        "date": "2024-05-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.8267
+    },
+    {
+        "date": "2024-05-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.8978
+    },
+    {
+        "date": "2024-05-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.7776
+    },
+    {
+        "date": "2024-05-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.5842
+    },
+    {
+        "date": "2024-05-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.2971
+    },
+    {
+        "date": "2024-05-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.8989
+    },
+    {
+        "date": "2024-05-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.8788
+    },
+    {
+        "date": "2024-05-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.0954
+    },
+    {
+        "date": "2024-05-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.3034
+    },
+    {
+        "date": "2024-05-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.2383
+    },
+    {
+        "date": "2024-05-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.891
+    },
+    {
+        "date": "2024-05-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.1347
+    },
+    {
+        "date": "2024-06-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.7908
+    },
+    {
+        "date": "2024-06-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.8721
+    },
+    {
+        "date": "2024-06-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.563
+    },
+    {
+        "date": "2024-06-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.4443
+    },
+    {
+        "date": "2024-06-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.5698
+    },
+    {
+        "date": "2024-06-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.6916
+    },
+    {
+        "date": "2024-06-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.6367
+    },
+    {
+        "date": "2024-06-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.7391
+    },
+    {
+        "date": "2024-06-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.8324
+    },
+    {
+        "date": "2024-06-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.1514
+    },
+    {
+        "date": "2024-06-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.3906
+    },
+    {
+        "date": "2024-06-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.2994
+    },
+    {
+        "date": "2024-06-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.0914
+    },
+    {
+        "date": "2024-06-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.4543
+    },
+    {
+        "date": "2024-06-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.2606
+    },
+    {
+        "date": "2024-06-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.0759
+    },
+    {
+        "date": "2024-06-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.7347
+    },
+    {
+        "date": "2024-06-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.1131
+    },
+    {
+        "date": "2024-06-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.9874
+    },
+    {
+        "date": "2024-06-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.4184
+    },
+    {
+        "date": "2024-07-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.9582
+    },
+    {
+        "date": "2024-07-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.695
+    },
+    {
+        "date": "2024-07-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.5829
+    },
+    {
+        "date": "2024-07-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.9836
+    },
+    {
+        "date": "2024-07-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.57
+    },
+    {
+        "date": "2024-07-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.6624
+    },
+    {
+        "date": "2024-07-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.3447
+    },
+    {
+        "date": "2024-07-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.3206
+    },
+    {
+        "date": "2024-07-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.6817
+    },
+    {
+        "date": "2024-07-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.7588
+    },
+    {
+        "date": "2024-07-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.7849
+    },
+    {
+        "date": "2024-07-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.2637
+    },
+    {
+        "date": "2024-07-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.3046
+    },
+    {
+        "date": "2024-07-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.1018
+    },
+    {
+        "date": "2024-07-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.0371
+    },
+    {
+        "date": "2024-07-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.7591
+    },
+    {
+        "date": "2024-07-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.4598
+    },
+    {
+        "date": "2024-07-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.3758
+    },
+    {
+        "date": "2024-07-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.1711
+    },
+    {
+        "date": "2024-07-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.2641
+    },
+    {
+        "date": "2024-07-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.1381
+    },
+    {
+        "date": "2024-07-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.2947
+    },
+    {
+        "date": "2024-08-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.5149
+    },
+    {
+        "date": "2024-08-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.8499
+    },
+    {
+        "date": "2024-08-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.8291
+    },
+    {
+        "date": "2024-08-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.0409
+    },
+    {
+        "date": "2024-08-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.0265
+    },
+    {
+        "date": "2024-08-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.8419
+    },
+    {
+        "date": "2024-08-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.1333
+    },
+    {
+        "date": "2024-08-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.1844
+    },
+    {
+        "date": "2024-08-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.6852
+    },
+    {
+        "date": "2024-08-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.559
+    },
+    {
+        "date": "2024-08-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.3139
+    },
+    {
+        "date": "2024-08-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.3232
+    },
+    {
+        "date": "2024-08-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.839
+    },
+    {
+        "date": "2024-08-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.9355
+    },
+    {
+        "date": "2024-08-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.204
+    },
+    {
+        "date": "2024-08-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.9508
+    },
+    {
+        "date": "2024-08-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.6207
+    },
+    {
+        "date": "2024-08-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.6125
+    },
+    {
+        "date": "2024-08-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.4927
+    },
+    {
+        "date": "2024-08-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.2911
+    },
+    {
+        "date": "2024-08-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.0798
+    },
+    {
+        "date": "2024-08-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.7714
+    },
+    {
+        "date": "2024-08-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.7622
+    },
+    {
+        "date": "2024-09-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.2613
+    },
+    {
+        "date": "2024-09-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 97.8121
+    },
+    {
+        "date": "2024-09-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.0725
+    },
+    {
+        "date": "2024-09-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.1927
+    },
+    {
+        "date": "2024-09-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.7156
+    },
+    {
+        "date": "2024-09-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.9067
+    },
+    {
+        "date": "2024-09-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.4995
+    },
+    {
+        "date": "2024-09-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.7421
+    },
+    {
+        "date": "2024-09-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.3907
+    },
+    {
+        "date": "2024-09-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.7958
+    },
+    {
+        "date": "2024-09-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.2789
+    },
+    {
+        "date": "2024-09-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.5057
+    },
+    {
+        "date": "2024-09-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.039
+    },
+    {
+        "date": "2024-09-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.249
+    },
+    {
+        "date": "2024-09-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.3773
+    },
+    {
+        "date": "2024-09-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.2191
+    },
+    {
+        "date": "2024-09-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.41
+    },
+    {
+        "date": "2024-09-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.4758
+    },
+    {
+        "date": "2024-09-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.1931
+    },
+    {
+        "date": "2024-09-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.4694
+    },
+    {
+        "date": "2024-10-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.1735
+    },
+    {
+        "date": "2024-10-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.6502
+    },
+    {
+        "date": "2024-10-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.4481
+    },
+    {
+        "date": "2024-10-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.8664
+    },
+    {
+        "date": "2024-10-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.7424
+    },
+    {
+        "date": "2024-10-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.3069
+    },
+    {
+        "date": "2024-10-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.6891
+    },
+    {
+        "date": "2024-10-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 106.4175
+    },
+    {
+        "date": "2024-10-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 106.5074
+    },
+    {
+        "date": "2024-10-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.1095
+    },
+    {
+        "date": "2024-10-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.4854
+    },
+    {
+        "date": "2024-10-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.6757
+    },
+    {
+        "date": "2024-10-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 106.0844
+    },
+    {
+        "date": "2024-10-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.756
+    },
+    {
+        "date": "2024-10-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.8565
+    },
+    {
+        "date": "2024-10-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.4016
+    },
+    {
+        "date": "2024-10-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.866
+    },
+    {
+        "date": "2024-10-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.3815
+    },
+    {
+        "date": "2024-10-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.5139
+    },
+    {
+        "date": "2024-10-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.8094
+    },
+    {
+        "date": "2024-10-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.2229
+    },
+    {
+        "date": "2024-10-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.4375
+    },
+    {
+        "date": "2024-10-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.2211
+    },
+    {
+        "date": "2024-11-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.5231
+    },
+    {
+        "date": "2024-11-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.8415
+    },
+    {
+        "date": "2024-11-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 106.1426
+    },
+    {
+        "date": "2024-11-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 106.8883
+    },
+    {
+        "date": "2024-11-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.7086
+    },
+    {
+        "date": "2024-11-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.5679
+    },
+    {
+        "date": "2024-11-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.451
+    },
+    {
+        "date": "2024-11-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.8522
+    },
+    {
+        "date": "2024-11-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.2533
+    },
+    {
+        "date": "2024-11-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.2901
+    },
+    {
+        "date": "2024-11-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.5016
+    },
+    {
+        "date": "2024-11-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.7072
+    },
+    {
+        "date": "2024-11-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.4606
+    },
+    {
+        "date": "2024-11-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.7338
+    },
+    {
+        "date": "2024-11-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.809
+    },
+    {
+        "date": "2024-11-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 106.0762
+    },
+    {
+        "date": "2024-11-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 107.4252
+    },
+    {
+        "date": "2024-11-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 108.8705
+    },
+    {
+        "date": "2024-11-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 110.4943
+    },
+    {
+        "date": "2024-11-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 113.0947
+    },
+    {
+        "date": "2024-11-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 116.141
+    },
+    {
+        "date": "2024-11-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 114.3149
+    },
+    {
+        "date": "2024-12-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 112.8019
+    },
+    {
+        "date": "2024-12-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 112.02
+    },
+    {
+        "date": "2024-12-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 110.2041
+    },
+    {
+        "date": "2024-12-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 109.7802
+    },
+    {
+        "date": "2024-12-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 106.304
+    },
+    {
+        "date": "2024-12-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.0996
+    },
+    {
+        "date": "2024-12-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 106.2024
+    },
+    {
+        "date": "2024-12-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 108.5588
+    },
+    {
+        "date": "2024-12-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 110.4804
+    },
+    {
+        "date": "2024-12-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 109.0126
+    },
+    {
+        "date": "2024-12-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 108.7016
+    },
+    {
+        "date": "2024-12-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 108.3444
+    },
+    {
+        "date": "2024-12-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 108.5083
+    },
+    {
+        "date": "2024-12-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 107.9576
+    },
+    {
+        "date": "2024-12-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 106.5444
+    },
+    {
+        "date": "2024-12-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.2512
+    },
+    {
+        "date": "2024-12-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.231
+    },
+    {
+        "date": "2024-12-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.9416
+    },
+    {
+        "date": "2024-12-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.2997
+    },
+    {
+        "date": "2024-12-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.9522
+    },
+    {
+        "date": "2024-12-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 106.1028
+    },
+    {
+        "date": "2025-01-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.0893
+    },
+    {
+        "date": "2025-01-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.0464
+    },
+    {
+        "date": "2025-01-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.8556
+    },
+    {
+        "date": "2025-01-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 106.2493
+    },
+    {
+        "date": "2025-01-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 106.0971
+    },
+    {
+        "date": "2025-01-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.8072
+    },
+    {
+        "date": "2025-01-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 104.8609
+    },
+    {
+        "date": "2025-01-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 105.0457
+    },
+    {
+        "date": "2025-01-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.2856
+    },
+    {
+        "date": "2025-01-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.2419
+    },
+    {
+        "date": "2025-01-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.6612
+    },
+    {
+        "date": "2025-01-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 103.187
+    },
+    {
+        "date": "2025-01-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.746
+    },
+    {
+        "date": "2025-01-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.5957
+    },
+    {
+        "date": "2025-01-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.4041
+    },
+    {
+        "date": "2025-01-31",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.7782
+    },
+    {
+        "date": "2025-02-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.1301
+    },
+    {
+        "date": "2025-02-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.491
+    },
+    {
+        "date": "2025-02-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.6852
+    },
+    {
+        "date": "2025-02-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 102.9215
+    },
+    {
+        "date": "2025-02-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.6751
+    },
+    {
+        "date": "2025-02-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 101.2243
+    },
+    {
+        "date": "2025-02-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 100.4991
+    },
+    {
+        "date": "2025-02-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 99.1953
+    },
+    {
+        "date": "2025-02-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 98.0119
+    },
+    {
+        "date": "2025-02-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.9221
+    },
+    {
+        "date": "2025-02-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.8876
+    },
+    {
+        "date": "2025-02-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.8048
+    },
+    {
+        "date": "2025-02-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.6693
+    },
+    {
+        "date": "2025-02-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.0834
+    },
+    {
+        "date": "2025-02-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.4831
+    },
+    {
+        "date": "2025-02-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.0152
+    },
+    {
+        "date": "2025-02-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.5162
+    },
+    {
+        "date": "2025-02-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.9403
+    },
+    {
+        "date": "2025-02-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.1826
+    },
+    {
+        "date": "2025-02-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.0362
+    },
+    {
+        "date": "2025-03-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.5655
+    },
+    {
+        "date": "2025-03-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.853
+    },
+    {
+        "date": "2025-03-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.9034
+    },
+    {
+        "date": "2025-03-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.7035
+    },
+    {
+        "date": "2025-03-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.5975
+    },
+    {
+        "date": "2025-03-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.8609
+    },
+    {
+        "date": "2025-03-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.4443
+    },
+    {
+        "date": "2025-03-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.6639
+    },
+    {
+        "date": "2025-03-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.971
+    },
+    {
+        "date": "2025-03-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.2559
+    },
+    {
+        "date": "2025-03-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.6087
+    },
+    {
+        "date": "2025-03-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.8443
+    },
+    {
+        "date": "2025-03-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 87.5697
+    },
+    {
+        "date": "2025-03-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.8257
+    },
+    {
+        "date": "2025-03-21",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.4633
+    },
+    {
+        "date": "2025-03-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.4262
+    },
+    {
+        "date": "2025-03-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.5252
+    },
+    {
+        "date": "2025-03-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.3409
+    },
+    {
+        "date": "2025-03-27",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.0029
+    },
+    {
+        "date": "2025-03-28",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.5441
+    },
+    {
+        "date": "2025-03-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.6553
+    },
+    {
+        "date": "2025-04-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.4276
+    },
+    {
+        "date": "2025-04-02",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.9643
+    },
+    {
+        "date": "2025-04-03",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.2044
+    },
+    {
+        "date": "2025-04-04",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.1608
+    },
+    {
+        "date": "2025-04-05",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.9855
+    },
+    {
+        "date": "2025-04-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.7742
+    },
+    {
+        "date": "2025-04-09",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.7755
+    },
+    {
+        "date": "2025-04-10",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 95.091
+    },
+    {
+        "date": "2025-04-11",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.6036
+    },
+    {
+        "date": "2025-04-12",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 96.2163
+    },
+    {
+        "date": "2025-04-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.1635
+    },
+    {
+        "date": "2025-04-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.6844
+    },
+    {
+        "date": "2025-04-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.3356
+    },
+    {
+        "date": "2025-04-18",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.2513
+    },
+    {
+        "date": "2025-04-19",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.2232
+    },
+    {
+        "date": "2025-04-22",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.6714
+    },
+    {
+        "date": "2025-04-23",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.04
+    },
+    {
+        "date": "2025-04-24",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.5723
+    },
+    {
+        "date": "2025-04-25",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.7129
+    },
+    {
+        "date": "2025-04-26",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 94.3593
+    },
+    {
+        "date": "2025-04-29",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.1801
+    },
+    {
+        "date": "2025-04-30",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 93.173
+    },
+    {
+        "date": "2025-05-01",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.837
+    },
+    {
+        "date": "2025-05-06",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.9082
+    },
+    {
+        "date": "2025-05-07",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 91.9169
+    },
+    {
+        "date": "2025-05-08",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 92.1439
+    },
+    {
+        "date": "2025-05-13",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.1117
+    },
+    {
+        "date": "2025-05-14",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 89.6956
+    },
+    {
+        "date": "2025-05-15",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.3821
+    },
+    {
+        "date": "2025-05-16",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.1011
+    },
+    {
+        "date": "2025-05-17",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.7062
+    },
+    {
+        "date": "2025-05-20",
+        "currency": "Евро",
+        "code": "EUR",
+        "nominal": 1,
+        "price": 90.5098
+    }
+]

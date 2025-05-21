@@ -1,0 +1,8668 @@
+[
+    {
+        "date": "2020-05-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1791
+    },
+    {
+        "date": "2020-05-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 99.8916
+    },
+    {
+        "date": "2020-05-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.0636
+    },
+    {
+        "date": "2020-05-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.028
+    },
+    {
+        "date": "2020-05-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 99.6942
+    },
+    {
+        "date": "2020-05-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 99.3312
+    },
+    {
+        "date": "2020-05-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 99.3089
+    },
+    {
+        "date": "2020-05-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 99.0079
+    },
+    {
+        "date": "2020-06-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 97.7322
+    },
+    {
+        "date": "2020-06-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 97.0117
+    },
+    {
+        "date": "2020-06-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 96.1038
+    },
+    {
+        "date": "2020-06-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 96.9068
+    },
+    {
+        "date": "2020-06-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 96.8447
+    },
+    {
+        "date": "2020-06-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 96.549
+    },
+    {
+        "date": "2020-06-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 96.8802
+    },
+    {
+        "date": "2020-06-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 97.1023
+    },
+    {
+        "date": "2020-06-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 97.7624
+    },
+    {
+        "date": "2020-06-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 99.2248
+    },
+    {
+        "date": "2020-06-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 98.4911
+    },
+    {
+        "date": "2020-06-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 98.0639
+    },
+    {
+        "date": "2020-06-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 98.3166
+    },
+    {
+        "date": "2020-06-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 98.2898
+    },
+    {
+        "date": "2020-06-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 98.178
+    },
+    {
+        "date": "2020-06-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 97.4292
+    },
+    {
+        "date": "2020-06-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 97.3025
+    },
+    {
+        "date": "2020-06-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 98.1408
+    },
+    {
+        "date": "2020-06-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 97.6638
+    },
+    {
+        "date": "2020-06-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 98.8278
+    },
+    {
+        "date": "2020-07-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 99.5806
+    },
+    {
+        "date": "2020-07-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 99.7568
+    },
+    {
+        "date": "2020-07-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 99.8016
+    },
+    {
+        "date": "2020-07-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 99.7522
+    },
+    {
+        "date": "2020-07-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1424
+    },
+    {
+        "date": "2020-07-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.2742
+    },
+    {
+        "date": "2020-07-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1505
+    },
+    {
+        "date": "2020-07-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1451
+    },
+    {
+        "date": "2020-07-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1664
+    },
+    {
+        "date": "2020-07-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1016
+    },
+    {
+        "date": "2020-07-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1334
+    },
+    {
+        "date": "2020-07-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1292
+    },
+    {
+        "date": "2020-07-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1789
+    },
+    {
+        "date": "2020-07-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.2443
+    },
+    {
+        "date": "2020-07-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.295
+    },
+    {
+        "date": "2020-07-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1475
+    },
+    {
+        "date": "2020-07-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1055
+    },
+    {
+        "date": "2020-07-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1424
+    },
+    {
+        "date": "2020-07-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.2033
+    },
+    {
+        "date": "2020-07-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.2244
+    },
+    {
+        "date": "2020-07-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.2631
+    },
+    {
+        "date": "2020-07-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.3191
+    },
+    {
+        "date": "2020-07-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.4724
+    },
+    {
+        "date": "2020-08-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.5204
+    },
+    {
+        "date": "2020-08-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.6278
+    },
+    {
+        "date": "2020-08-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.5091
+    },
+    {
+        "date": "2020-08-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.5396
+    },
+    {
+        "date": "2020-08-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.5176
+    },
+    {
+        "date": "2020-08-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.5798
+    },
+    {
+        "date": "2020-08-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.5848
+    },
+    {
+        "date": "2020-08-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.5234
+    },
+    {
+        "date": "2020-08-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.5439
+    },
+    {
+        "date": "2020-08-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.5994
+    },
+    {
+        "date": "2020-08-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.534
+    },
+    {
+        "date": "2020-08-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.511
+    },
+    {
+        "date": "2020-08-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.6024
+    },
+    {
+        "date": "2020-08-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.5982
+    },
+    {
+        "date": "2020-08-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.657
+    },
+    {
+        "date": "2020-08-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.7174
+    },
+    {
+        "date": "2020-08-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.7661
+    },
+    {
+        "date": "2020-08-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.7808
+    },
+    {
+        "date": "2020-08-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.9601
+    },
+    {
+        "date": "2020-08-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.9355
+    },
+    {
+        "date": "2020-08-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.8713
+    },
+    {
+        "date": "2020-09-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.7682
+    },
+    {
+        "date": "2020-09-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.7842
+    },
+    {
+        "date": "2020-09-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.8205
+    },
+    {
+        "date": "2020-09-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.0401
+    },
+    {
+        "date": "2020-09-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.9922
+    },
+    {
+        "date": "2020-09-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.0664
+    },
+    {
+        "date": "2020-09-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1183
+    },
+    {
+        "date": "2020-09-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1118
+    },
+    {
+        "date": "2020-09-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.0427
+    },
+    {
+        "date": "2020-09-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.9544
+    },
+    {
+        "date": "2020-09-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.9498
+    },
+    {
+        "date": "2020-09-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.0928
+    },
+    {
+        "date": "2020-09-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.0812
+    },
+    {
+        "date": "2020-09-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.113
+    },
+    {
+        "date": "2020-09-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1007
+    },
+    {
+        "date": "2020-09-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2268
+    },
+    {
+        "date": "2020-09-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2348
+    },
+    {
+        "date": "2020-09-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2423
+    },
+    {
+        "date": "2020-09-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3091
+    },
+    {
+        "date": "2020-09-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.265
+    },
+    {
+        "date": "2020-09-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5345
+    },
+    {
+        "date": "2020-09-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6798
+    },
+    {
+        "date": "2020-10-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5671
+    },
+    {
+        "date": "2020-10-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3797
+    },
+    {
+        "date": "2020-10-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4996
+    },
+    {
+        "date": "2020-10-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.505
+    },
+    {
+        "date": "2020-10-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5615
+    },
+    {
+        "date": "2020-10-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4997
+    },
+    {
+        "date": "2020-10-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4737
+    },
+    {
+        "date": "2020-10-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4728
+    },
+    {
+        "date": "2020-10-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4304
+    },
+    {
+        "date": "2020-10-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4672
+    },
+    {
+        "date": "2020-10-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4675
+    },
+    {
+        "date": "2020-10-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5803
+    },
+    {
+        "date": "2020-10-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6398
+    },
+    {
+        "date": "2020-10-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6409
+    },
+    {
+        "date": "2020-10-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6424
+    },
+    {
+        "date": "2020-10-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.57
+    },
+    {
+        "date": "2020-10-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5577
+    },
+    {
+        "date": "2020-10-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4662
+    },
+    {
+        "date": "2020-10-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.411
+    },
+    {
+        "date": "2020-10-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3841
+    },
+    {
+        "date": "2020-10-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5515
+    },
+    {
+        "date": "2020-10-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7523
+    },
+    {
+        "date": "2020-10-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8403
+    },
+    {
+        "date": "2020-11-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0259
+    },
+    {
+        "date": "2020-11-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9623
+    },
+    {
+        "date": "2020-11-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8146
+    },
+    {
+        "date": "2020-11-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6589
+    },
+    {
+        "date": "2020-11-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.711
+    },
+    {
+        "date": "2020-11-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5689
+    },
+    {
+        "date": "2020-11-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5124
+    },
+    {
+        "date": "2020-11-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6307
+    },
+    {
+        "date": "2020-11-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6893
+    },
+    {
+        "date": "2020-11-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6937
+    },
+    {
+        "date": "2020-11-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6269
+    },
+    {
+        "date": "2020-11-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6037
+    },
+    {
+        "date": "2020-11-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5807
+    },
+    {
+        "date": "2020-11-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.566
+    },
+    {
+        "date": "2020-11-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5326
+    },
+    {
+        "date": "2020-11-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5257
+    },
+    {
+        "date": "2020-11-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4714
+    },
+    {
+        "date": "2020-11-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4803
+    },
+    {
+        "date": "2020-11-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5245
+    },
+    {
+        "date": "2020-12-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5754
+    },
+    {
+        "date": "2020-12-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6138
+    },
+    {
+        "date": "2020-12-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.513
+    },
+    {
+        "date": "2020-12-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4651
+    },
+    {
+        "date": "2020-12-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3698
+    },
+    {
+        "date": "2020-12-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3566
+    },
+    {
+        "date": "2020-12-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2752
+    },
+    {
+        "date": "2020-12-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2126
+    },
+    {
+        "date": "2020-12-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2578
+    },
+    {
+        "date": "2020-12-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1778
+    },
+    {
+        "date": "2020-12-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1557
+    },
+    {
+        "date": "2020-12-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2219
+    },
+    {
+        "date": "2020-12-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.231
+    },
+    {
+        "date": "2020-12-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1693
+    },
+    {
+        "date": "2020-12-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2069
+    },
+    {
+        "date": "2020-12-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4015
+    },
+    {
+        "date": "2020-12-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5075
+    },
+    {
+        "date": "2020-12-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.541
+    },
+    {
+        "date": "2020-12-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4582
+    },
+    {
+        "date": "2020-12-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2973
+    },
+    {
+        "date": "2020-12-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2742
+    },
+    {
+        "date": "2020-12-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2787
+    },
+    {
+        "date": "2020-12-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3119
+    },
+    {
+        "date": "2021-01-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2956
+    },
+    {
+        "date": "2021-01-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5082
+    },
+    {
+        "date": "2021-01-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.483
+    },
+    {
+        "date": "2021-01-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3728
+    },
+    {
+        "date": "2021-01-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4089
+    },
+    {
+        "date": "2021-01-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3569
+    },
+    {
+        "date": "2021-01-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3907
+    },
+    {
+        "date": "2021-01-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3628
+    },
+    {
+        "date": "2021-01-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3416
+    },
+    {
+        "date": "2021-01-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3496
+    },
+    {
+        "date": "2021-01-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4789
+    },
+    {
+        "date": "2021-01-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5575
+    },
+    {
+        "date": "2021-01-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6797
+    },
+    {
+        "date": "2021-01-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6044
+    },
+    {
+        "date": "2021-01-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7637
+    },
+    {
+        "date": "2021-01-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8024
+    },
+    {
+        "date": "2021-02-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6787
+    },
+    {
+        "date": "2021-02-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7498
+    },
+    {
+        "date": "2021-02-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7813
+    },
+    {
+        "date": "2021-02-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7165
+    },
+    {
+        "date": "2021-02-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5919
+    },
+    {
+        "date": "2021-02-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4981
+    },
+    {
+        "date": "2021-02-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4935
+    },
+    {
+        "date": "2021-02-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4712
+    },
+    {
+        "date": "2021-02-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4208
+    },
+    {
+        "date": "2021-02-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4487
+    },
+    {
+        "date": "2021-02-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3513
+    },
+    {
+        "date": "2021-02-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3483
+    },
+    {
+        "date": "2021-02-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4222
+    },
+    {
+        "date": "2021-02-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4004
+    },
+    {
+        "date": "2021-02-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4523
+    },
+    {
+        "date": "2021-02-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4566
+    },
+    {
+        "date": "2021-02-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4304
+    },
+    {
+        "date": "2021-02-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3911
+    },
+    {
+        "date": "2021-02-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5232
+    },
+    {
+        "date": "2021-03-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4599
+    },
+    {
+        "date": "2021-03-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5271
+    },
+    {
+        "date": "2021-03-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3771
+    },
+    {
+        "date": "2021-03-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4074
+    },
+    {
+        "date": "2021-03-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4909
+    },
+    {
+        "date": "2021-03-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3935
+    },
+    {
+        "date": "2021-03-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3691
+    },
+    {
+        "date": "2021-03-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.32
+    },
+    {
+        "date": "2021-03-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3015
+    },
+    {
+        "date": "2021-03-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2612
+    },
+    {
+        "date": "2021-03-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2253
+    },
+    {
+        "date": "2021-03-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2413
+    },
+    {
+        "date": "2021-03-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3282
+    },
+    {
+        "date": "2021-03-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3988
+    },
+    {
+        "date": "2021-03-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4599
+    },
+    {
+        "date": "2021-03-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5756
+    },
+    {
+        "date": "2021-03-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6737
+    },
+    {
+        "date": "2021-03-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6578
+    },
+    {
+        "date": "2021-03-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.583
+    },
+    {
+        "date": "2021-03-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5536
+    },
+    {
+        "date": "2021-03-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5268
+    },
+    {
+        "date": "2021-04-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5385
+    },
+    {
+        "date": "2021-04-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5328
+    },
+    {
+        "date": "2021-04-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.595
+    },
+    {
+        "date": "2021-04-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.665
+    },
+    {
+        "date": "2021-04-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6606
+    },
+    {
+        "date": "2021-04-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8814
+    },
+    {
+        "date": "2021-04-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7728
+    },
+    {
+        "date": "2021-04-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7647
+    },
+    {
+        "date": "2021-04-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8308
+    },
+    {
+        "date": "2021-04-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7969
+    },
+    {
+        "date": "2021-04-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5832
+    },
+    {
+        "date": "2021-04-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7834
+    },
+    {
+        "date": "2021-04-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5833
+    },
+    {
+        "date": "2021-04-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7106
+    },
+    {
+        "date": "2021-04-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7023
+    },
+    {
+        "date": "2021-04-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8264
+    },
+    {
+        "date": "2021-04-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7764
+    },
+    {
+        "date": "2021-04-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5627
+    },
+    {
+        "date": "2021-04-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.524
+    },
+    {
+        "date": "2021-04-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5569
+    },
+    {
+        "date": "2021-04-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5559
+    },
+    {
+        "date": "2021-04-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5036
+    },
+    {
+        "date": "2021-05-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5657
+    },
+    {
+        "date": "2021-05-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6253
+    },
+    {
+        "date": "2021-05-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5643
+    },
+    {
+        "date": "2021-05-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5196
+    },
+    {
+        "date": "2021-05-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.478
+    },
+    {
+        "date": "2021-05-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5381
+    },
+    {
+        "date": "2021-05-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4933
+    },
+    {
+        "date": "2021-05-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5198
+    },
+    {
+        "date": "2021-05-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4989
+    },
+    {
+        "date": "2021-05-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4639
+    },
+    {
+        "date": "2021-05-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4714
+    },
+    {
+        "date": "2021-05-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4449
+    },
+    {
+        "date": "2021-05-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4356
+    },
+    {
+        "date": "2021-05-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4358
+    },
+    {
+        "date": "2021-05-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4353
+    },
+    {
+        "date": "2021-05-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.453
+    },
+    {
+        "date": "2021-05-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4882
+    },
+    {
+        "date": "2021-05-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5208
+    },
+    {
+        "date": "2021-05-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5594
+    },
+    {
+        "date": "2021-06-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5219
+    },
+    {
+        "date": "2021-06-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4865
+    },
+    {
+        "date": "2021-06-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5074
+    },
+    {
+        "date": "2021-06-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4589
+    },
+    {
+        "date": "2021-06-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4318
+    },
+    {
+        "date": "2021-06-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4018
+    },
+    {
+        "date": "2021-06-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3831
+    },
+    {
+        "date": "2021-06-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2779
+    },
+    {
+        "date": "2021-06-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2976
+    },
+    {
+        "date": "2021-06-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2159
+    },
+    {
+        "date": "2021-06-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2192
+    },
+    {
+        "date": "2021-06-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2589
+    },
+    {
+        "date": "2021-06-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.279
+    },
+    {
+        "date": "2021-06-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2126
+    },
+    {
+        "date": "2021-06-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.313
+    },
+    {
+        "date": "2021-06-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3024
+    },
+    {
+        "date": "2021-06-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2134
+    },
+    {
+        "date": "2021-06-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1733
+    },
+    {
+        "date": "2021-06-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1806
+    },
+    {
+        "date": "2021-06-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1786
+    },
+    {
+        "date": "2021-06-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.207
+    },
+    {
+        "date": "2021-07-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2545
+    },
+    {
+        "date": "2021-07-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2787
+    },
+    {
+        "date": "2021-07-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3567
+    },
+    {
+        "date": "2021-07-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3535
+    },
+    {
+        "date": "2021-07-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3362
+    },
+    {
+        "date": "2021-07-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4575
+    },
+    {
+        "date": "2021-07-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6019
+    },
+    {
+        "date": "2021-07-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.483
+    },
+    {
+        "date": "2021-07-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5307
+    },
+    {
+        "date": "2021-07-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4552
+    },
+    {
+        "date": "2021-07-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4519
+    },
+    {
+        "date": "2021-07-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4859
+    },
+    {
+        "date": "2021-07-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4673
+    },
+    {
+        "date": "2021-07-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4674
+    },
+    {
+        "date": "2021-07-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4959
+    },
+    {
+        "date": "2021-07-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5057
+    },
+    {
+        "date": "2021-07-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3967
+    },
+    {
+        "date": "2021-07-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.39
+    },
+    {
+        "date": "2021-07-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4292
+    },
+    {
+        "date": "2021-07-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3527
+    },
+    {
+        "date": "2021-07-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3189
+    },
+    {
+        "date": "2021-07-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3249
+    },
+    {
+        "date": "2021-07-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.329
+    },
+    {
+        "date": "2021-08-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.301
+    },
+    {
+        "date": "2021-08-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2717
+    },
+    {
+        "date": "2021-08-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2631
+    },
+    {
+        "date": "2021-08-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.324
+    },
+    {
+        "date": "2021-08-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3061
+    },
+    {
+        "date": "2021-08-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3473
+    },
+    {
+        "date": "2021-08-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3555
+    },
+    {
+        "date": "2021-08-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4026
+    },
+    {
+        "date": "2021-08-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.358
+    },
+    {
+        "date": "2021-08-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3329
+    },
+    {
+        "date": "2021-08-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3343
+    },
+    {
+        "date": "2021-08-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3388
+    },
+    {
+        "date": "2021-08-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3366
+    },
+    {
+        "date": "2021-08-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4195
+    },
+    {
+        "date": "2021-08-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4403
+    },
+    {
+        "date": "2021-08-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4119
+    },
+    {
+        "date": "2021-08-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4157
+    },
+    {
+        "date": "2021-08-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3899
+    },
+    {
+        "date": "2021-08-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4116
+    },
+    {
+        "date": "2021-08-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4177
+    },
+    {
+        "date": "2021-08-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.378
+    },
+    {
+        "date": "2021-09-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3367
+    },
+    {
+        "date": "2021-09-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3211
+    },
+    {
+        "date": "2021-09-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2747
+    },
+    {
+        "date": "2021-09-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2837
+    },
+    {
+        "date": "2021-09-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.304
+    },
+    {
+        "date": "2021-09-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3285
+    },
+    {
+        "date": "2021-09-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3651
+    },
+    {
+        "date": "2021-09-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3248
+    },
+    {
+        "date": "2021-09-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2957
+    },
+    {
+        "date": "2021-09-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.323
+    },
+    {
+        "date": "2021-09-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2857
+    },
+    {
+        "date": "2021-09-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3198
+    },
+    {
+        "date": "2021-09-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2391
+    },
+    {
+        "date": "2021-09-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2456
+    },
+    {
+        "date": "2021-09-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3406
+    },
+    {
+        "date": "2021-09-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3213
+    },
+    {
+        "date": "2021-09-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.267
+    },
+    {
+        "date": "2021-09-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2584
+    },
+    {
+        "date": "2021-09-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.294
+    },
+    {
+        "date": "2021-09-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2449
+    },
+    {
+        "date": "2021-09-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2263
+    },
+    {
+        "date": "2021-09-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2494
+    },
+    {
+        "date": "2021-10-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2442
+    },
+    {
+        "date": "2021-10-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3114
+    },
+    {
+        "date": "2021-10-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3118
+    },
+    {
+        "date": "2021-10-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2567
+    },
+    {
+        "date": "2021-10-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2566
+    },
+    {
+        "date": "2021-10-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2128
+    },
+    {
+        "date": "2021-10-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1625
+    },
+    {
+        "date": "2021-10-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1281
+    },
+    {
+        "date": "2021-10-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1325
+    },
+    {
+        "date": "2021-10-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.149
+    },
+    {
+        "date": "2021-10-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1569
+    },
+    {
+        "date": "2021-10-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.0802
+    },
+    {
+        "date": "2021-10-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.0619
+    },
+    {
+        "date": "2021-10-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.0871
+    },
+    {
+        "date": "2021-10-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1139
+    },
+    {
+        "date": "2021-10-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.0947
+    },
+    {
+        "date": "2021-10-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.089
+    },
+    {
+        "date": "2021-10-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.9908
+    },
+    {
+        "date": "2021-10-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.8993
+    },
+    {
+        "date": "2021-10-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.9188
+    },
+    {
+        "date": "2021-10-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.0194
+    },
+    {
+        "date": "2021-10-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.0188
+    },
+    {
+        "date": "2021-11-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.101
+    },
+    {
+        "date": "2021-11-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1704
+    },
+    {
+        "date": "2021-11-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1745
+    },
+    {
+        "date": "2021-11-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1595
+    },
+    {
+        "date": "2021-11-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1465
+    },
+    {
+        "date": "2021-11-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.0601
+    },
+    {
+        "date": "2021-11-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1158
+    },
+    {
+        "date": "2021-11-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2369
+    },
+    {
+        "date": "2021-11-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3267
+    },
+    {
+        "date": "2021-11-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3768
+    },
+    {
+        "date": "2021-11-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4108
+    },
+    {
+        "date": "2021-11-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3773
+    },
+    {
+        "date": "2021-11-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4016
+    },
+    {
+        "date": "2021-11-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5175
+    },
+    {
+        "date": "2021-11-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7212
+    },
+    {
+        "date": "2021-11-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6427
+    },
+    {
+        "date": "2021-11-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6758
+    },
+    {
+        "date": "2021-11-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8266
+    },
+    {
+        "date": "2021-11-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7482
+    },
+    {
+        "date": "2021-12-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7547
+    },
+    {
+        "date": "2021-12-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6128
+    },
+    {
+        "date": "2021-12-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6213
+    },
+    {
+        "date": "2021-12-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.578
+    },
+    {
+        "date": "2021-12-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5622
+    },
+    {
+        "date": "2021-12-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6426
+    },
+    {
+        "date": "2021-12-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.622
+    },
+    {
+        "date": "2021-12-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6
+    },
+    {
+        "date": "2021-12-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5542
+    },
+    {
+        "date": "2021-12-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.536
+    },
+    {
+        "date": "2021-12-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5466
+    },
+    {
+        "date": "2021-12-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6029
+    },
+    {
+        "date": "2021-12-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5525
+    },
+    {
+        "date": "2021-12-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5678
+    },
+    {
+        "date": "2021-12-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6482
+    },
+    {
+        "date": "2021-12-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5884
+    },
+    {
+        "date": "2021-12-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5796
+    },
+    {
+        "date": "2021-12-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5162
+    },
+    {
+        "date": "2021-12-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4907
+    },
+    {
+        "date": "2021-12-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4924
+    },
+    {
+        "date": "2021-12-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5353
+    },
+    {
+        "date": "2021-12-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5599
+    },
+    {
+        "date": "2021-12-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6503
+    },
+    {
+        "date": "2022-01-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7907
+    },
+    {
+        "date": "2022-01-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7446
+    },
+    {
+        "date": "2022-01-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7088
+    },
+    {
+        "date": "2022-01-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7246
+    },
+    {
+        "date": "2022-01-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9457
+    },
+    {
+        "date": "2022-01-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9798
+    },
+    {
+        "date": "2022-01-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.018
+    },
+    {
+        "date": "2022-01-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.1011
+    },
+    {
+        "date": "2022-01-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.052
+    },
+    {
+        "date": "2022-01-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0972
+    },
+    {
+        "date": "2022-01-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.219
+    },
+    {
+        "date": "2022-01-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.4324
+    },
+    {
+        "date": "2022-01-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.4864
+    },
+    {
+        "date": "2022-01-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.4054
+    },
+    {
+        "date": "2022-01-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.2258
+    },
+    {
+        "date": "2022-02-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.1789
+    },
+    {
+        "date": "2022-02-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.1255
+    },
+    {
+        "date": "2022-02-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.024
+    },
+    {
+        "date": "2022-02-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.05
+    },
+    {
+        "date": "2022-02-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9558
+    },
+    {
+        "date": "2022-02-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9028
+    },
+    {
+        "date": "2022-02-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8243
+    },
+    {
+        "date": "2022-02-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7592
+    },
+    {
+        "date": "2022-02-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7502
+    },
+    {
+        "date": "2022-02-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7915
+    },
+    {
+        "date": "2022-02-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0416
+    },
+    {
+        "date": "2022-02-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9988
+    },
+    {
+        "date": "2022-02-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.841
+    },
+    {
+        "date": "2022-02-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9516
+    },
+    {
+        "date": "2022-02-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9751
+    },
+    {
+        "date": "2022-02-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.1208
+    },
+    {
+        "date": "2022-02-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6927
+    },
+    {
+        "date": "2022-02-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.7485
+    },
+    {
+        "date": "2022-02-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2325
+    },
+    {
+        "date": "2022-03-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 14.8243
+    },
+    {
+        "date": "2022-03-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 14.534
+    },
+    {
+        "date": "2022-03-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 16.3599
+    },
+    {
+        "date": "2022-03-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 17.6869
+    },
+    {
+        "date": "2022-03-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 16.7449
+    },
+    {
+        "date": "2022-03-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 16.7425
+    },
+    {
+        "date": "2022-03-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 18.3719
+    },
+    {
+        "date": "2022-03-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 19.0415
+    },
+    {
+        "date": "2022-03-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 18.4678
+    },
+    {
+        "date": "2022-03-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 18.2218
+    },
+    {
+        "date": "2022-03-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 17.4743
+    },
+    {
+        "date": "2022-03-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 17.0155
+    },
+    {
+        "date": "2022-03-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 16.5039
+    },
+    {
+        "date": "2022-03-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 16.3332
+    },
+    {
+        "date": "2022-03-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 16.4716
+    },
+    {
+        "date": "2022-03-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 16.3582
+    },
+    {
+        "date": "2022-03-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 16.1891
+    },
+    {
+        "date": "2022-03-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 15.0771
+    },
+    {
+        "date": "2022-03-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 15.031
+    },
+    {
+        "date": "2022-03-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 14.7104
+    },
+    {
+        "date": "2022-03-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.555
+    },
+    {
+        "date": "2022-03-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2388
+    },
+    {
+        "date": "2022-04-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1569
+    },
+    {
+        "date": "2022-04-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1111
+    },
+    {
+        "date": "2022-04-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1372
+    },
+    {
+        "date": "2022-04-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.0993
+    },
+    {
+        "date": "2022-04-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.9838
+    },
+    {
+        "date": "2022-04-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9862
+    },
+    {
+        "date": "2022-04-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7611
+    },
+    {
+        "date": "2022-04-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.4234
+    },
+    {
+        "date": "2022-04-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5043
+    },
+    {
+        "date": "2022-04-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5374
+    },
+    {
+        "date": "2022-04-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7499
+    },
+    {
+        "date": "2022-04-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.563
+    },
+    {
+        "date": "2022-04-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.4818
+    },
+    {
+        "date": "2022-04-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.3602
+    },
+    {
+        "date": "2022-04-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0155
+    },
+    {
+        "date": "2022-04-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.635
+    },
+    {
+        "date": "2022-04-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3057
+    },
+    {
+        "date": "2022-04-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2289
+    },
+    {
+        "date": "2022-04-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1576
+    },
+    {
+        "date": "2022-04-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1223
+    },
+    {
+        "date": "2022-04-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.9613
+    },
+    {
+        "date": "2022-04-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.8518
+    },
+    {
+        "date": "2022-05-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.4877
+    },
+    {
+        "date": "2022-05-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 99.9646
+    },
+    {
+        "date": "2022-05-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.0352
+    },
+    {
+        "date": "2022-05-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.2029
+    },
+    {
+        "date": "2022-05-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 96.905
+    },
+    {
+        "date": "2022-05-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 93.6542
+    },
+    {
+        "date": "2022-05-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 93.6231
+    },
+    {
+        "date": "2022-05-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 94.4705
+    },
+    {
+        "date": "2022-05-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 94.5947
+    },
+    {
+        "date": "2022-05-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 92.395
+    },
+    {
+        "date": "2022-05-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 88.8032
+    },
+    {
+        "date": "2022-05-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.9854
+    },
+    {
+        "date": "2022-05-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.0648
+    },
+    {
+        "date": "2022-05-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.902
+    },
+    {
+        "date": "2022-05-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 94.7641
+    },
+    {
+        "date": "2022-05-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.0616
+    },
+    {
+        "date": "2022-05-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 95.6025
+    },
+    {
+        "date": "2022-06-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 94.0696
+    },
+    {
+        "date": "2022-06-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 93.7092
+    },
+    {
+        "date": "2022-06-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 93.5701
+    },
+    {
+        "date": "2022-06-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 94.1664
+    },
+    {
+        "date": "2022-06-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 93.0979
+    },
+    {
+        "date": "2022-06-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 93.0036
+    },
+    {
+        "date": "2022-06-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 92.6609
+    },
+    {
+        "date": "2022-06-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 90.8111
+    },
+    {
+        "date": "2022-06-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 88.9792
+    },
+    {
+        "date": "2022-06-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 86.0514
+    },
+    {
+        "date": "2022-06-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.4161
+    },
+    {
+        "date": "2022-06-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.5449
+    },
+    {
+        "date": "2022-06-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.5776
+    },
+    {
+        "date": "2022-06-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.7402
+    },
+    {
+        "date": "2022-06-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 82.6992
+    },
+    {
+        "date": "2022-06-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 80.2259
+    },
+    {
+        "date": "2022-06-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 80.0483
+    },
+    {
+        "date": "2022-06-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 80.1826
+    },
+    {
+        "date": "2022-06-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 80.4837
+    },
+    {
+        "date": "2022-06-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 79.7616
+    },
+    {
+        "date": "2022-06-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 76.9846
+    },
+    {
+        "date": "2022-07-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 82.8897
+    },
+    {
+        "date": "2022-07-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.9418
+    },
+    {
+        "date": "2022-07-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.1399
+    },
+    {
+        "date": "2022-07-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 89.4609
+    },
+    {
+        "date": "2022-07-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 95.5793
+    },
+    {
+        "date": "2022-07-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 95.9366
+    },
+    {
+        "date": "2022-07-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 92.8268
+    },
+    {
+        "date": "2022-07-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 92.1024
+    },
+    {
+        "date": "2022-07-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.9476
+    },
+    {
+        "date": "2022-07-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.2451
+    },
+    {
+        "date": "2022-07-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 86.3954
+    },
+    {
+        "date": "2022-07-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.7233
+    },
+    {
+        "date": "2022-07-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.2641
+    },
+    {
+        "date": "2022-07-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 82.5787
+    },
+    {
+        "date": "2022-07-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 81.6011
+    },
+    {
+        "date": "2022-07-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 83.9854
+    },
+    {
+        "date": "2022-07-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.8282
+    },
+    {
+        "date": "2022-07-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 86.3099
+    },
+    {
+        "date": "2022-07-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.8717
+    },
+    {
+        "date": "2022-07-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 90.4128
+    },
+    {
+        "date": "2022-07-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 90.4549
+    },
+    {
+        "date": "2022-07-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 92.1636
+    },
+    {
+        "date": "2022-08-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 92.8229
+    },
+    {
+        "date": "2022-08-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 89.5175
+    },
+    {
+        "date": "2022-08-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 89.4465
+    },
+    {
+        "date": "2022-08-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 89.3362
+    },
+    {
+        "date": "2022-08-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 89.6876
+    },
+    {
+        "date": "2022-08-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 89.613
+    },
+    {
+        "date": "2022-08-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 89.5342
+    },
+    {
+        "date": "2022-08-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 89.5251
+    },
+    {
+        "date": "2022-08-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 90.0583
+    },
+    {
+        "date": "2022-08-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 90.3978
+    },
+    {
+        "date": "2022-08-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 90.4515
+    },
+    {
+        "date": "2022-08-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 90.1556
+    },
+    {
+        "date": "2022-08-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 89.5099
+    },
+    {
+        "date": "2022-08-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 88.274
+    },
+    {
+        "date": "2022-08-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 86.583
+    },
+    {
+        "date": "2022-08-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.1277
+    },
+    {
+        "date": "2022-08-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.1738
+    },
+    {
+        "date": "2022-08-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.3526
+    },
+    {
+        "date": "2022-08-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.1936
+    },
+    {
+        "date": "2022-08-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.4478
+    },
+    {
+        "date": "2022-08-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.2167
+    },
+    {
+        "date": "2022-08-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.383
+    },
+    {
+        "date": "2022-09-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.2611
+    },
+    {
+        "date": "2022-09-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.2835
+    },
+    {
+        "date": "2022-09-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.4365
+    },
+    {
+        "date": "2022-09-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.8418
+    },
+    {
+        "date": "2022-09-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.4706
+    },
+    {
+        "date": "2022-09-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.565
+    },
+    {
+        "date": "2022-09-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.3741
+    },
+    {
+        "date": "2022-09-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.3512
+    },
+    {
+        "date": "2022-09-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.2525
+    },
+    {
+        "date": "2022-09-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 86.6164
+    },
+    {
+        "date": "2022-09-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.6771
+    },
+    {
+        "date": "2022-09-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.4232
+    },
+    {
+        "date": "2022-09-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.4611
+    },
+    {
+        "date": "2022-09-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.5472
+    },
+    {
+        "date": "2022-09-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.4169
+    },
+    {
+        "date": "2022-09-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 86.0242
+    },
+    {
+        "date": "2022-09-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.3825
+    },
+    {
+        "date": "2022-09-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 81.5329
+    },
+    {
+        "date": "2022-09-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 80.9047
+    },
+    {
+        "date": "2022-09-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 81.0556
+    },
+    {
+        "date": "2022-09-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 80.72
+    },
+    {
+        "date": "2022-09-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 79.8495
+    },
+    {
+        "date": "2022-10-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 81.5532
+    },
+    {
+        "date": "2022-10-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 81.3315
+    },
+    {
+        "date": "2022-10-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 81.823
+    },
+    {
+        "date": "2022-10-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 83.637
+    },
+    {
+        "date": "2022-10-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.9078
+    },
+    {
+        "date": "2022-10-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.9359
+    },
+    {
+        "date": "2022-10-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 86.1548
+    },
+    {
+        "date": "2022-10-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.5241
+    },
+    {
+        "date": "2022-10-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 86.698
+    },
+    {
+        "date": "2022-10-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.0486
+    },
+    {
+        "date": "2022-10-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 86.9152
+    },
+    {
+        "date": "2022-10-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.2304
+    },
+    {
+        "date": "2022-10-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.0975
+    },
+    {
+        "date": "2022-10-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.5711
+    },
+    {
+        "date": "2022-10-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.5185
+    },
+    {
+        "date": "2022-10-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 83.732
+    },
+    {
+        "date": "2022-10-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 83.2169
+    },
+    {
+        "date": "2022-10-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 83.2416
+    },
+    {
+        "date": "2022-10-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.7845
+    },
+    {
+        "date": "2022-10-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.3967
+    },
+    {
+        "date": "2022-10-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.3159
+    },
+    {
+        "date": "2022-11-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 83.9469
+    },
+    {
+        "date": "2022-11-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.0548
+    },
+    {
+        "date": "2022-11-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.2847
+    },
+    {
+        "date": "2022-11-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.3037
+    },
+    {
+        "date": "2022-11-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.3154
+    },
+    {
+        "date": "2022-11-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 83.6997
+    },
+    {
+        "date": "2022-11-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 83.9724
+    },
+    {
+        "date": "2022-11-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.0456
+    },
+    {
+        "date": "2022-11-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.4637
+    },
+    {
+        "date": "2022-11-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.4248
+    },
+    {
+        "date": "2022-11-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.3691
+    },
+    {
+        "date": "2022-11-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.0026
+    },
+    {
+        "date": "2022-11-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.4679
+    },
+    {
+        "date": "2022-11-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.7201
+    },
+    {
+        "date": "2022-11-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.7557
+    },
+    {
+        "date": "2022-11-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.7222
+    },
+    {
+        "date": "2022-11-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.3616
+    },
+    {
+        "date": "2022-11-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.38
+    },
+    {
+        "date": "2022-11-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.2448
+    },
+    {
+        "date": "2022-11-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.1256
+    },
+    {
+        "date": "2022-11-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 84.8798
+    },
+    {
+        "date": "2022-12-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 85.3746
+    },
+    {
+        "date": "2022-12-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 86.3709
+    },
+    {
+        "date": "2022-12-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 87.8395
+    },
+    {
+        "date": "2022-12-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 89.3117
+    },
+    {
+        "date": "2022-12-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 89.6835
+    },
+    {
+        "date": "2022-12-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 89.9043
+    },
+    {
+        "date": "2022-12-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 89.7431
+    },
+    {
+        "date": "2022-12-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 89.6236
+    },
+    {
+        "date": "2022-12-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 89.8436
+    },
+    {
+        "date": "2022-12-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 90.3731
+    },
+    {
+        "date": "2022-12-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 91.0864
+    },
+    {
+        "date": "2022-12-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 92.0786
+    },
+    {
+        "date": "2022-12-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 92.4382
+    },
+    {
+        "date": "2022-12-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 94.9964
+    },
+    {
+        "date": "2022-12-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 98.7901
+    },
+    {
+        "date": "2022-12-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.0836
+    },
+    {
+        "date": "2022-12-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.26
+    },
+    {
+        "date": "2022-12-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 97.5884
+    },
+    {
+        "date": "2022-12-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 97.3334
+    },
+    {
+        "date": "2022-12-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 99.4575
+    },
+    {
+        "date": "2022-12-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1469
+    },
+    {
+        "date": "2022-12-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1306
+    },
+    {
+        "date": "2022-12-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 10,
+        "price": 98.9492
+    },
+    {
+        "date": "2023-01-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.2867
+    },
+    {
+        "date": "2023-01-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.22
+    },
+    {
+        "date": "2023-01-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1396
+    },
+    {
+        "date": "2023-01-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.0016
+    },
+    {
+        "date": "2023-01-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.0307
+    },
+    {
+        "date": "2023-01-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1368
+    },
+    {
+        "date": "2023-01-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1146
+    },
+    {
+        "date": "2023-01-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1751
+    },
+    {
+        "date": "2023-01-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.132
+    },
+    {
+        "date": "2023-01-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1227
+    },
+    {
+        "date": "2023-01-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1125
+    },
+    {
+        "date": "2023-01-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.111
+    },
+    {
+        "date": "2023-01-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.1479
+    },
+    {
+        "date": "2023-01-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.2491
+    },
+    {
+        "date": "2023-01-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.2525
+    },
+    {
+        "date": "2023-01-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.3077
+    },
+    {
+        "date": "2023-02-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.4259
+    },
+    {
+        "date": "2023-02-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.3905
+    },
+    {
+        "date": "2023-02-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.4037
+    },
+    {
+        "date": "2023-02-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.4217
+    },
+    {
+        "date": "2023-02-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.3815
+    },
+    {
+        "date": "2023-02-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.4331
+    },
+    {
+        "date": "2023-02-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.5391
+    },
+    {
+        "date": "2023-02-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.7524
+    },
+    {
+        "date": "2023-02-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.6916
+    },
+    {
+        "date": "2023-02-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.7717
+    },
+    {
+        "date": "2023-02-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.8227
+    },
+    {
+        "date": "2023-02-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.8473
+    },
+    {
+        "date": "2023-02-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.8855
+    },
+    {
+        "date": "2023-02-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.8409
+    },
+    {
+        "date": "2023-02-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.7797
+    },
+    {
+        "date": "2023-02-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.8562
+    },
+    {
+        "date": "2023-02-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.8398
+    },
+    {
+        "date": "2023-02-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.7928
+    },
+    {
+        "date": "2023-03-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.7467
+    },
+    {
+        "date": "2023-03-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.9077
+    },
+    {
+        "date": "2023-03-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.9089
+    },
+    {
+        "date": "2023-03-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.9137
+    },
+    {
+        "date": "2023-03-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.8754
+    },
+    {
+        "date": "2023-03-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.8672
+    },
+    {
+        "date": "2023-03-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.8623
+    },
+    {
+        "date": "2023-03-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.8995
+    },
+    {
+        "date": "2023-03-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.9313
+    },
+    {
+        "date": "2023-03-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.9296
+    },
+    {
+        "date": "2023-03-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.9704
+    },
+    {
+        "date": "2023-03-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.0485
+    },
+    {
+        "date": "2023-03-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1226
+    },
+    {
+        "date": "2023-03-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2057
+    },
+    {
+        "date": "2023-03-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1652
+    },
+    {
+        "date": "2023-03-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1547
+    },
+    {
+        "date": "2023-03-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1662
+    },
+    {
+        "date": "2023-03-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1146
+    },
+    {
+        "date": "2023-03-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1098
+    },
+    {
+        "date": "2023-03-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1127
+    },
+    {
+        "date": "2023-03-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1622
+    },
+    {
+        "date": "2023-03-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1847
+    },
+    {
+        "date": "2023-04-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2411
+    },
+    {
+        "date": "2023-04-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3028
+    },
+    {
+        "date": "2023-04-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5308
+    },
+    {
+        "date": "2023-04-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5445
+    },
+    {
+        "date": "2023-04-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7039
+    },
+    {
+        "date": "2023-04-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9582
+    },
+    {
+        "date": "2023-04-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8746
+    },
+    {
+        "date": "2023-04-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9248
+    },
+    {
+        "date": "2023-04-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9142
+    },
+    {
+        "date": "2023-04-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8566
+    },
+    {
+        "date": "2023-04-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8803
+    },
+    {
+        "date": "2023-04-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.852
+    },
+    {
+        "date": "2023-04-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8482
+    },
+    {
+        "date": "2023-04-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8178
+    },
+    {
+        "date": "2023-04-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.847
+    },
+    {
+        "date": "2023-04-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8111
+    },
+    {
+        "date": "2023-04-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.77
+    },
+    {
+        "date": "2023-04-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7664
+    },
+    {
+        "date": "2023-04-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7626
+    },
+    {
+        "date": "2023-04-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7609
+    },
+    {
+        "date": "2023-04-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5659
+    },
+    {
+        "date": "2023-05-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4884
+    },
+    {
+        "date": "2023-05-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4456
+    },
+    {
+        "date": "2023-05-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3488
+    },
+    {
+        "date": "2023-05-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1158
+    },
+    {
+        "date": "2023-05-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.039
+    },
+    {
+        "date": "2023-05-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 10.9119
+    },
+    {
+        "date": "2023-05-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.0844
+    },
+    {
+        "date": "2023-05-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3467
+    },
+    {
+        "date": "2023-05-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.464
+    },
+    {
+        "date": "2023-05-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5124
+    },
+    {
+        "date": "2023-05-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3554
+    },
+    {
+        "date": "2023-05-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.366
+    },
+    {
+        "date": "2023-05-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3499
+    },
+    {
+        "date": "2023-05-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3504
+    },
+    {
+        "date": "2023-05-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3243
+    },
+    {
+        "date": "2023-05-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2816
+    },
+    {
+        "date": "2023-05-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3044
+    },
+    {
+        "date": "2023-05-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2901
+    },
+    {
+        "date": "2023-05-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3615
+    },
+    {
+        "date": "2023-06-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3697
+    },
+    {
+        "date": "2023-06-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3629
+    },
+    {
+        "date": "2023-06-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4139
+    },
+    {
+        "date": "2023-06-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.415
+    },
+    {
+        "date": "2023-06-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3892
+    },
+    {
+        "date": "2023-06-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4163
+    },
+    {
+        "date": "2023-06-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4896
+    },
+    {
+        "date": "2023-06-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5716
+    },
+    {
+        "date": "2023-06-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6681
+    },
+    {
+        "date": "2023-06-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7626
+    },
+    {
+        "date": "2023-06-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7356
+    },
+    {
+        "date": "2023-06-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.733
+    },
+    {
+        "date": "2023-06-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7153
+    },
+    {
+        "date": "2023-06-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7255
+    },
+    {
+        "date": "2023-06-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7059
+    },
+    {
+        "date": "2023-06-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6221
+    },
+    {
+        "date": "2023-06-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6455
+    },
+    {
+        "date": "2023-06-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6875
+    },
+    {
+        "date": "2023-06-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.768
+    },
+    {
+        "date": "2023-06-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7958
+    },
+    {
+        "date": "2023-06-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9894
+    },
+    {
+        "date": "2023-07-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.1588
+    },
+    {
+        "date": "2023-07-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.2923
+    },
+    {
+        "date": "2023-07-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.3722
+    },
+    {
+        "date": "2023-07-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.4484
+    },
+    {
+        "date": "2023-07-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7551
+    },
+    {
+        "date": "2023-07-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6377
+    },
+    {
+        "date": "2023-07-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6231
+    },
+    {
+        "date": "2023-07-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5491
+    },
+    {
+        "date": "2023-07-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5829
+    },
+    {
+        "date": "2023-07-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.581
+    },
+    {
+        "date": "2023-07-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6072
+    },
+    {
+        "date": "2023-07-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5927
+    },
+    {
+        "date": "2023-07-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6351
+    },
+    {
+        "date": "2023-07-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6303
+    },
+    {
+        "date": "2023-07-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6455
+    },
+    {
+        "date": "2023-07-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5784
+    },
+    {
+        "date": "2023-07-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5536
+    },
+    {
+        "date": "2023-07-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5988
+    },
+    {
+        "date": "2023-07-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5766
+    },
+    {
+        "date": "2023-07-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5897
+    },
+    {
+        "date": "2023-07-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6891
+    },
+    {
+        "date": "2023-08-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7949
+    },
+    {
+        "date": "2023-08-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7855
+    },
+    {
+        "date": "2023-08-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.9223
+    },
+    {
+        "date": "2023-08-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.0395
+    },
+    {
+        "date": "2023-08-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1755
+    },
+    {
+        "date": "2023-08-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.41
+    },
+    {
+        "date": "2023-08-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.277
+    },
+    {
+        "date": "2023-08-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.4741
+    },
+    {
+        "date": "2023-08-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.459
+    },
+    {
+        "date": "2023-08-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.5351
+    },
+    {
+        "date": "2023-08-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.8741
+    },
+    {
+        "date": "2023-08-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.3227
+    },
+    {
+        "date": "2023-08-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2065
+    },
+    {
+        "date": "2023-08-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7875
+    },
+    {
+        "date": "2023-08-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7545
+    },
+    {
+        "date": "2023-08-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.862
+    },
+    {
+        "date": "2023-08-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.8734
+    },
+    {
+        "date": "2023-08-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.9215
+    },
+    {
+        "date": "2023-08-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.9407
+    },
+    {
+        "date": "2023-08-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.972
+    },
+    {
+        "date": "2023-08-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.055
+    },
+    {
+        "date": "2023-08-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1096
+    },
+    {
+        "date": "2023-08-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1311
+    },
+    {
+        "date": "2023-09-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1943
+    },
+    {
+        "date": "2023-09-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2479
+    },
+    {
+        "date": "2023-09-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2861
+    },
+    {
+        "date": "2023-09-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.3402
+    },
+    {
+        "date": "2023-09-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.3749
+    },
+    {
+        "date": "2023-09-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.3787
+    },
+    {
+        "date": "2023-09-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.3135
+    },
+    {
+        "date": "2023-09-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1975
+    },
+    {
+        "date": "2023-09-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.9522
+    },
+    {
+        "date": "2023-09-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1735
+    },
+    {
+        "date": "2023-09-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1931
+    },
+    {
+        "date": "2023-09-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2672
+    },
+    {
+        "date": "2023-09-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2387
+    },
+    {
+        "date": "2023-09-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1695
+    },
+    {
+        "date": "2023-09-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2097
+    },
+    {
+        "date": "2023-09-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1335
+    },
+    {
+        "date": "2023-09-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1414
+    },
+    {
+        "date": "2023-09-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1394
+    },
+    {
+        "date": "2023-09-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1504
+    },
+    {
+        "date": "2023-09-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1852
+    },
+    {
+        "date": "2023-09-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2753
+    },
+    {
+        "date": "2023-09-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.3587
+    },
+    {
+        "date": "2023-10-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.4955
+    },
+    {
+        "date": "2023-10-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.5556
+    },
+    {
+        "date": "2023-10-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.5779
+    },
+    {
+        "date": "2023-10-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.6183
+    },
+    {
+        "date": "2023-10-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.7373
+    },
+    {
+        "date": "2023-10-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.8926
+    },
+    {
+        "date": "2023-10-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.6821
+    },
+    {
+        "date": "2023-10-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.6982
+    },
+    {
+        "date": "2023-10-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.284
+    },
+    {
+        "date": "2023-10-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.3026
+    },
+    {
+        "date": "2023-10-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2893
+    },
+    {
+        "date": "2023-10-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2855
+    },
+    {
+        "date": "2023-10-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2881
+    },
+    {
+        "date": "2023-10-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2533
+    },
+    {
+        "date": "2023-10-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.0688
+    },
+    {
+        "date": "2023-10-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.9219
+    },
+    {
+        "date": "2023-10-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.766
+    },
+    {
+        "date": "2023-10-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7084
+    },
+    {
+        "date": "2023-10-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7507
+    },
+    {
+        "date": "2023-10-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7122
+    },
+    {
+        "date": "2023-10-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7071
+    },
+    {
+        "date": "2023-11-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5339
+    },
+    {
+        "date": "2023-11-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7052
+    },
+    {
+        "date": "2023-11-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7042
+    },
+    {
+        "date": "2023-11-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6911
+    },
+    {
+        "date": "2023-11-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6656
+    },
+    {
+        "date": "2023-11-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.663
+    },
+    {
+        "date": "2023-11-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5998
+    },
+    {
+        "date": "2023-11-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5979
+    },
+    {
+        "date": "2023-11-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6122
+    },
+    {
+        "date": "2023-11-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.4948
+    },
+    {
+        "date": "2023-11-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.3348
+    },
+    {
+        "date": "2023-11-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.2479
+    },
+    {
+        "date": "2023-11-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.3104
+    },
+    {
+        "date": "2023-11-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.323
+    },
+    {
+        "date": "2023-11-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.3009
+    },
+    {
+        "date": "2023-11-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.3026
+    },
+    {
+        "date": "2023-11-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.3225
+    },
+    {
+        "date": "2023-11-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.3949
+    },
+    {
+        "date": "2023-11-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.3842
+    },
+    {
+        "date": "2023-11-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.3685
+    },
+    {
+        "date": "2023-11-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.4527
+    },
+    {
+        "date": "2023-12-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.3927
+    },
+    {
+        "date": "2023-12-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5479
+    },
+    {
+        "date": "2023-12-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6897
+    },
+    {
+        "date": "2023-12-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.8073
+    },
+    {
+        "date": "2023-12-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.9511
+    },
+    {
+        "date": "2023-12-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.922
+    },
+    {
+        "date": "2023-12-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7893
+    },
+    {
+        "date": "2023-12-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6503
+    },
+    {
+        "date": "2023-12-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5636
+    },
+    {
+        "date": "2023-12-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.4993
+    },
+    {
+        "date": "2023-12-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5457
+    },
+    {
+        "date": "2023-12-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6091
+    },
+    {
+        "date": "2023-12-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6578
+    },
+    {
+        "date": "2023-12-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.579
+    },
+    {
+        "date": "2023-12-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6577
+    },
+    {
+        "date": "2023-12-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.8124
+    },
+    {
+        "date": "2023-12-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.8598
+    },
+    {
+        "date": "2023-12-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.8379
+    },
+    {
+        "date": "2023-12-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7937
+    },
+    {
+        "date": "2023-12-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.8011
+    },
+    {
+        "date": "2023-12-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6749
+    },
+    {
+        "date": "2023-12-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5762
+    },
+    {
+        "date": "2024-01-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5861
+    },
+    {
+        "date": "2024-01-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.4305
+    },
+    {
+        "date": "2024-01-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.363
+    },
+    {
+        "date": "2024-01-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.2428
+    },
+    {
+        "date": "2024-01-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.152
+    },
+    {
+        "date": "2024-01-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.1217
+    },
+    {
+        "date": "2024-01-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.1935
+    },
+    {
+        "date": "2024-01-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.249
+    },
+    {
+        "date": "2024-01-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.2706
+    },
+    {
+        "date": "2024-01-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.1803
+    },
+    {
+        "date": "2024-01-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.2274
+    },
+    {
+        "date": "2024-01-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.2887
+    },
+    {
+        "date": "2024-01-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.327
+    },
+    {
+        "date": "2024-01-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.4375
+    },
+    {
+        "date": "2024-01-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.449
+    },
+    {
+        "date": "2024-01-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.4066
+    },
+    {
+        "date": "2024-02-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.458
+    },
+    {
+        "date": "2024-02-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5357
+    },
+    {
+        "date": "2024-02-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6002
+    },
+    {
+        "date": "2024-02-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6335
+    },
+    {
+        "date": "2024-02-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5926
+    },
+    {
+        "date": "2024-02-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6484
+    },
+    {
+        "date": "2024-02-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6352
+    },
+    {
+        "date": "2024-02-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5407
+    },
+    {
+        "date": "2024-02-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5526
+    },
+    {
+        "date": "2024-02-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5814
+    },
+    {
+        "date": "2024-02-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5833
+    },
+    {
+        "date": "2024-02-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6566
+    },
+    {
+        "date": "2024-02-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7418
+    },
+    {
+        "date": "2024-02-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7662
+    },
+    {
+        "date": "2024-02-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.797
+    },
+    {
+        "date": "2024-02-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.8039
+    },
+    {
+        "date": "2024-02-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7951
+    },
+    {
+        "date": "2024-02-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7809
+    },
+    {
+        "date": "2024-02-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7357
+    },
+    {
+        "date": "2024-02-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7085
+    },
+    {
+        "date": "2024-03-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5675
+    },
+    {
+        "date": "2024-03-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6316
+    },
+    {
+        "date": "2024-03-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6478
+    },
+    {
+        "date": "2024-03-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.618
+    },
+    {
+        "date": "2024-03-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5061
+    },
+    {
+        "date": "2024-03-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5756
+    },
+    {
+        "date": "2024-03-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5938
+    },
+    {
+        "date": "2024-03-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.644
+    },
+    {
+        "date": "2024-03-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7041
+    },
+    {
+        "date": "2024-03-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7151
+    },
+    {
+        "date": "2024-03-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7328
+    },
+    {
+        "date": "2024-03-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7501
+    },
+    {
+        "date": "2024-03-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7729
+    },
+    {
+        "date": "2024-03-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.8337
+    },
+    {
+        "date": "2024-03-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7519
+    },
+    {
+        "date": "2024-03-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7445
+    },
+    {
+        "date": "2024-03-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7893
+    },
+    {
+        "date": "2024-03-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7844
+    },
+    {
+        "date": "2024-03-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7477
+    },
+    {
+        "date": "2024-03-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6979
+    },
+    {
+        "date": "2024-03-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.671
+    },
+    {
+        "date": "2024-04-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6872
+    },
+    {
+        "date": "2024-04-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7211
+    },
+    {
+        "date": "2024-04-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7145
+    },
+    {
+        "date": "2024-04-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7143
+    },
+    {
+        "date": "2024-04-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7602
+    },
+    {
+        "date": "2024-04-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7696
+    },
+    {
+        "date": "2024-04-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.8004
+    },
+    {
+        "date": "2024-04-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.873
+    },
+    {
+        "date": "2024-04-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.9119
+    },
+    {
+        "date": "2024-04-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.8685
+    },
+    {
+        "date": "2024-04-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.8844
+    },
+    {
+        "date": "2024-04-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.9331
+    },
+    {
+        "date": "2024-04-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.0
+    },
+    {
+        "date": "2024-04-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.976
+    },
+    {
+        "date": "2024-04-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.8816
+    },
+    {
+        "date": "2024-04-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.8484
+    },
+    {
+        "date": "2024-04-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.8396
+    },
+    {
+        "date": "2024-04-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7183
+    },
+    {
+        "date": "2024-04-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6716
+    },
+    {
+        "date": "2024-04-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6347
+    },
+    {
+        "date": "2024-04-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5657
+    },
+    {
+        "date": "2024-05-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6821
+    },
+    {
+        "date": "2024-05-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6972
+    },
+    {
+        "date": "2024-05-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6453
+    },
+    {
+        "date": "2024-05-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5962
+    },
+    {
+        "date": "2024-05-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6243
+    },
+    {
+        "date": "2024-05-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.623
+    },
+    {
+        "date": "2024-05-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6025
+    },
+    {
+        "date": "2024-05-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6113
+    },
+    {
+        "date": "2024-05-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5832
+    },
+    {
+        "date": "2024-05-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5753
+    },
+    {
+        "date": "2024-05-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.51
+    },
+    {
+        "date": "2024-05-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.4613
+    },
+    {
+        "date": "2024-05-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.4274
+    },
+    {
+        "date": "2024-05-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.4266
+    },
+    {
+        "date": "2024-05-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.33
+    },
+    {
+        "date": "2024-05-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.1903
+    },
+    {
+        "date": "2024-05-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.1628
+    },
+    {
+        "date": "2024-05-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.2752
+    },
+    {
+        "date": "2024-05-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.365
+    },
+    {
+        "date": "2024-06-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.4028
+    },
+    {
+        "date": "2024-06-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.3011
+    },
+    {
+        "date": "2024-06-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.2248
+    },
+    {
+        "date": "2024-06-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.2244
+    },
+    {
+        "date": "2024-06-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.2251
+    },
+    {
+        "date": "2024-06-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.229
+    },
+    {
+        "date": "2024-06-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.2213
+    },
+    {
+        "date": "2024-06-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.231
+    },
+    {
+        "date": "2024-06-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0408
+    },
+    {
+        "date": "2024-06-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.1629
+    },
+    {
+        "date": "2024-06-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.1267
+    },
+    {
+        "date": "2024-06-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7964
+    },
+    {
+        "date": "2024-06-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1652
+    },
+    {
+        "date": "2024-06-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5185
+    },
+    {
+        "date": "2024-06-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0455
+    },
+    {
+        "date": "2024-06-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8582
+    },
+    {
+        "date": "2024-06-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8105
+    },
+    {
+        "date": "2024-06-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8748
+    },
+    {
+        "date": "2024-06-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4753
+    },
+    {
+        "date": "2024-06-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5756
+    },
+    {
+        "date": "2024-07-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8019
+    },
+    {
+        "date": "2024-07-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9017
+    },
+    {
+        "date": "2024-07-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8936
+    },
+    {
+        "date": "2024-07-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9896
+    },
+    {
+        "date": "2024-07-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0058
+    },
+    {
+        "date": "2024-07-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9804
+    },
+    {
+        "date": "2024-07-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9469
+    },
+    {
+        "date": "2024-07-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9596
+    },
+    {
+        "date": "2024-07-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9987
+    },
+    {
+        "date": "2024-07-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9766
+    },
+    {
+        "date": "2024-07-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9791
+    },
+    {
+        "date": "2024-07-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0492
+    },
+    {
+        "date": "2024-07-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0537
+    },
+    {
+        "date": "2024-07-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0227
+    },
+    {
+        "date": "2024-07-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0335
+    },
+    {
+        "date": "2024-07-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.974
+    },
+    {
+        "date": "2024-07-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9062
+    },
+    {
+        "date": "2024-07-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8263
+    },
+    {
+        "date": "2024-07-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7408
+    },
+    {
+        "date": "2024-07-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7296
+    },
+    {
+        "date": "2024-07-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8567
+    },
+    {
+        "date": "2024-07-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8368
+    },
+    {
+        "date": "2024-08-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8747
+    },
+    {
+        "date": "2024-08-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7918
+    },
+    {
+        "date": "2024-08-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8307
+    },
+    {
+        "date": "2024-08-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8289
+    },
+    {
+        "date": "2024-08-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.789
+    },
+    {
+        "date": "2024-08-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8074
+    },
+    {
+        "date": "2024-08-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8664
+    },
+    {
+        "date": "2024-08-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8911
+    },
+    {
+        "date": "2024-08-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8576
+    },
+    {
+        "date": "2024-08-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0233
+    },
+    {
+        "date": "2024-08-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0672
+    },
+    {
+        "date": "2024-08-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9319
+    },
+    {
+        "date": "2024-08-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0542
+    },
+    {
+        "date": "2024-08-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.1204
+    },
+    {
+        "date": "2024-08-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.1161
+    },
+    {
+        "date": "2024-08-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.2114
+    },
+    {
+        "date": "2024-08-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9567
+    },
+    {
+        "date": "2024-08-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7747
+    },
+    {
+        "date": "2024-08-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6863
+    },
+    {
+        "date": "2024-08-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7513
+    },
+    {
+        "date": "2024-08-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8357
+    },
+    {
+        "date": "2024-08-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9057
+    },
+    {
+        "date": "2024-08-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0151
+    },
+    {
+        "date": "2024-09-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0532
+    },
+    {
+        "date": "2024-09-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.1106
+    },
+    {
+        "date": "2024-09-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5086
+    },
+    {
+        "date": "2024-09-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5054
+    },
+    {
+        "date": "2024-09-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.5387
+    },
+    {
+        "date": "2024-09-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6262
+    },
+    {
+        "date": "2024-09-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.6952
+    },
+    {
+        "date": "2024-09-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7173
+    },
+    {
+        "date": "2024-09-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7362
+    },
+    {
+        "date": "2024-09-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7178
+    },
+    {
+        "date": "2024-09-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7762
+    },
+    {
+        "date": "2024-09-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.9226
+    },
+    {
+        "date": "2024-09-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.9451
+    },
+    {
+        "date": "2024-09-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1028
+    },
+    {
+        "date": "2024-09-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.0425
+    },
+    {
+        "date": "2024-09-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1134
+    },
+    {
+        "date": "2024-09-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.216
+    },
+    {
+        "date": "2024-09-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.0939
+    },
+    {
+        "date": "2024-09-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1451
+    },
+    {
+        "date": "2024-09-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2163
+    },
+    {
+        "date": "2024-10-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2425
+    },
+    {
+        "date": "2024-10-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.1959
+    },
+    {
+        "date": "2024-10-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.3914
+    },
+    {
+        "date": "2024-10-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.4808
+    },
+    {
+        "date": "2024-10-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.4127
+    },
+    {
+        "date": "2024-10-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.5537
+    },
+    {
+        "date": "2024-10-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.581
+    },
+    {
+        "date": "2024-10-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.6869
+    },
+    {
+        "date": "2024-10-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.6922
+    },
+    {
+        "date": "2024-10-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.4752
+    },
+    {
+        "date": "2024-10-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.4987
+    },
+    {
+        "date": "2024-10-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.5683
+    },
+    {
+        "date": "2024-10-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.5917
+    },
+    {
+        "date": "2024-10-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.5487
+    },
+    {
+        "date": "2024-10-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.4631
+    },
+    {
+        "date": "2024-10-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.4733
+    },
+    {
+        "date": "2024-10-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.5463
+    },
+    {
+        "date": "2024-10-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.5192
+    },
+    {
+        "date": "2024-10-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.5348
+    },
+    {
+        "date": "2024-10-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.5007
+    },
+    {
+        "date": "2024-10-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.6103
+    },
+    {
+        "date": "2024-10-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.5954
+    },
+    {
+        "date": "2024-10-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.5876
+    },
+    {
+        "date": "2024-11-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.6068
+    },
+    {
+        "date": "2024-11-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.6394
+    },
+    {
+        "date": "2024-11-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.6731
+    },
+    {
+        "date": "2024-11-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.7539
+    },
+    {
+        "date": "2024-11-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.6395
+    },
+    {
+        "date": "2024-11-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.624
+    },
+    {
+        "date": "2024-11-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.594
+    },
+    {
+        "date": "2024-11-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.552
+    },
+    {
+        "date": "2024-11-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.4951
+    },
+    {
+        "date": "2024-11-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.598
+    },
+    {
+        "date": "2024-11-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.6596
+    },
+    {
+        "date": "2024-11-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.7992
+    },
+    {
+        "date": "2024-11-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.7597
+    },
+    {
+        "date": "2024-11-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.7744
+    },
+    {
+        "date": "2024-11-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.8224
+    },
+    {
+        "date": "2024-11-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.8821
+    },
+    {
+        "date": "2024-11-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.9427
+    },
+    {
+        "date": "2024-11-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 14.2057
+    },
+    {
+        "date": "2024-11-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 14.4449
+    },
+    {
+        "date": "2024-11-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 14.8382
+    },
+    {
+        "date": "2024-11-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 14.6653
+    },
+    {
+        "date": "2024-11-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 14.7233
+    },
+    {
+        "date": "2024-12-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 14.6258
+    },
+    {
+        "date": "2024-12-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 14.5545
+    },
+    {
+        "date": "2024-12-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 14.2565
+    },
+    {
+        "date": "2024-12-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 14.1399
+    },
+    {
+        "date": "2024-12-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.597
+    },
+    {
+        "date": "2024-12-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.524
+    },
+    {
+        "date": "2024-12-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.6566
+    },
+    {
+        "date": "2024-12-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.8539
+    },
+    {
+        "date": "2024-12-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.9594
+    },
+    {
+        "date": "2024-12-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 14.0096
+    },
+    {
+        "date": "2024-12-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.8603
+    },
+    {
+        "date": "2024-12-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.9613
+    },
+    {
+        "date": "2024-12-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 14.0761
+    },
+    {
+        "date": "2024-12-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 14.186
+    },
+    {
+        "date": "2024-12-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.9897
+    },
+    {
+        "date": "2024-12-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.8254
+    },
+    {
+        "date": "2024-12-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.6624
+    },
+    {
+        "date": "2024-12-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.6054
+    },
+    {
+        "date": "2024-12-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.4716
+    },
+    {
+        "date": "2024-12-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.4434
+    },
+    {
+        "date": "2024-12-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.4272
+    },
+    {
+        "date": "2025-01-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.6934
+    },
+    {
+        "date": "2025-01-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.6866
+    },
+    {
+        "date": "2025-01-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.8184
+    },
+    {
+        "date": "2025-01-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.9486
+    },
+    {
+        "date": "2025-01-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.9197
+    },
+    {
+        "date": "2025-01-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.9143
+    },
+    {
+        "date": "2025-01-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.9338
+    },
+    {
+        "date": "2025-01-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.8302
+    },
+    {
+        "date": "2025-01-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.737
+    },
+    {
+        "date": "2025-01-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.5443
+    },
+    {
+        "date": "2025-01-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.5786
+    },
+    {
+        "date": "2025-01-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.5101
+    },
+    {
+        "date": "2025-01-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.3806
+    },
+    {
+        "date": "2025-01-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.4568
+    },
+    {
+        "date": "2025-01-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.3817
+    },
+    {
+        "date": "2025-01-31",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.3729
+    },
+    {
+        "date": "2025-02-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2638
+    },
+    {
+        "date": "2025-02-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.4095
+    },
+    {
+        "date": "2025-02-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2985
+    },
+    {
+        "date": "2025-02-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.249
+    },
+    {
+        "date": "2025-02-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.0503
+    },
+    {
+        "date": "2025-02-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2365
+    },
+    {
+        "date": "2025-02-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.2421
+    },
+    {
+        "date": "2025-02-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 13.0258
+    },
+    {
+        "date": "2025-02-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.7702
+    },
+    {
+        "date": "2025-02-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.3356
+    },
+    {
+        "date": "2025-02-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.3668
+    },
+    {
+        "date": "2025-02-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.4935
+    },
+    {
+        "date": "2025-02-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.4167
+    },
+    {
+        "date": "2025-02-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.3608
+    },
+    {
+        "date": "2025-02-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.1252
+    },
+    {
+        "date": "2025-02-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.043
+    },
+    {
+        "date": "2025-02-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0634
+    },
+    {
+        "date": "2025-02-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8002
+    },
+    {
+        "date": "2025-02-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.737
+    },
+    {
+        "date": "2025-02-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9563
+    },
+    {
+        "date": "2025-03-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0754
+    },
+    {
+        "date": "2025-03-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.1658
+    },
+    {
+        "date": "2025-03-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.1906
+    },
+    {
+        "date": "2025-03-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.289
+    },
+    {
+        "date": "2025-03-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.2892
+    },
+    {
+        "date": "2025-03-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.2387
+    },
+    {
+        "date": "2025-03-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 12.0798
+    },
+    {
+        "date": "2025-03-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8458
+    },
+    {
+        "date": "2025-03-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.9242
+    },
+    {
+        "date": "2025-03-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.873
+    },
+    {
+        "date": "2025-03-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.8167
+    },
+    {
+        "date": "2025-03-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6
+    },
+    {
+        "date": "2025-03-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2232
+    },
+    {
+        "date": "2025-03-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4337
+    },
+    {
+        "date": "2025-03-21",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6019
+    },
+    {
+        "date": "2025-03-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5779
+    },
+    {
+        "date": "2025-03-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.461
+    },
+    {
+        "date": "2025-03-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5572
+    },
+    {
+        "date": "2025-03-27",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5225
+    },
+    {
+        "date": "2025-03-28",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.497
+    },
+    {
+        "date": "2025-03-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4575
+    },
+    {
+        "date": "2025-04-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7136
+    },
+    {
+        "date": "2025-04-02",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6029
+    },
+    {
+        "date": "2025-04-03",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5258
+    },
+    {
+        "date": "2025-04-04",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4818
+    },
+    {
+        "date": "2025-04-05",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6044
+    },
+    {
+        "date": "2025-04-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.7286
+    },
+    {
+        "date": "2025-04-09",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5664
+    },
+    {
+        "date": "2025-04-10",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.6352
+    },
+    {
+        "date": "2025-04-11",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.5336
+    },
+    {
+        "date": "2025-04-12",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.4471
+    },
+    {
+        "date": "2025-04-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2274
+    },
+    {
+        "date": "2025-04-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.164
+    },
+    {
+        "date": "2025-04-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2812
+    },
+    {
+        "date": "2025-04-18",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1915
+    },
+    {
+        "date": "2025-04-19",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.0889
+    },
+    {
+        "date": "2025-04-22",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.0648
+    },
+    {
+        "date": "2025-04-23",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1123
+    },
+    {
+        "date": "2025-04-24",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3388
+    },
+    {
+        "date": "2025-04-25",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3979
+    },
+    {
+        "date": "2025-04-26",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3506
+    },
+    {
+        "date": "2025-04-29",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2761
+    },
+    {
+        "date": "2025-04-30",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2016
+    },
+    {
+        "date": "2025-05-01",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1713
+    },
+    {
+        "date": "2025-05-06",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.3025
+    },
+    {
+        "date": "2025-05-07",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.2155
+    },
+    {
+        "date": "2025-05-08",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1819
+    },
+    {
+        "date": "2025-05-13",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1789
+    },
+    {
+        "date": "2025-05-14",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1573
+    },
+    {
+        "date": "2025-05-15",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1128
+    },
+    {
+        "date": "2025-05-16",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1143
+    },
+    {
+        "date": "2025-05-17",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1593
+    },
+    {
+        "date": "2025-05-20",
+        "currency": "Китайский юань",
+        "code": "CNY",
+        "nominal": 1,
+        "price": 11.1179
+    }
+]

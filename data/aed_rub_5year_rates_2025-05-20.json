@@ -1,0 +1,4041 @@
+[
+    {
+        "date": "2023-01-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 18.7511
+    },
+    {
+        "date": "2023-01-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 18.744
+    },
+    {
+        "date": "2023-01-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 18.6952
+    },
+    {
+        "date": "2023-01-24",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 18.6847
+    },
+    {
+        "date": "2023-01-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 18.7185
+    },
+    {
+        "date": "2023-01-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 18.7741
+    },
+    {
+        "date": "2023-01-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 18.8201
+    },
+    {
+        "date": "2023-01-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 18.8775
+    },
+    {
+        "date": "2023-01-31",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 18.9471
+    },
+    {
+        "date": "2023-02-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 19.1989
+    },
+    {
+        "date": "2023-02-02",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 19.0911
+    },
+    {
+        "date": "2023-02-03",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 19.0693
+    },
+    {
+        "date": "2023-02-04",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 19.1627
+    },
+    {
+        "date": "2023-02-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 19.2211
+    },
+    {
+        "date": "2023-02-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 19.301
+    },
+    {
+        "date": "2023-02-09",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 19.4871
+    },
+    {
+        "date": "2023-02-10",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 19.8461
+    },
+    {
+        "date": "2023-02-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 19.8182
+    },
+    {
+        "date": "2023-02-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.0465
+    },
+    {
+        "date": "2023-02-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.1101
+    },
+    {
+        "date": "2023-02-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.2036
+    },
+    {
+        "date": "2023-02-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.3555
+    },
+    {
+        "date": "2023-02-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.3536
+    },
+    {
+        "date": "2023-02-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.1588
+    },
+    {
+        "date": "2023-02-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.3811
+    },
+    {
+        "date": "2023-02-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.34
+    },
+    {
+        "date": "2023-02-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.5375
+    },
+    {
+        "date": "2023-03-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.3908
+    },
+    {
+        "date": "2023-03-02",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.4877
+    },
+    {
+        "date": "2023-03-03",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.548
+    },
+    {
+        "date": "2023-03-04",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.5449
+    },
+    {
+        "date": "2023-03-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.5486
+    },
+    {
+        "date": "2023-03-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.5444
+    },
+    {
+        "date": "2023-03-10",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.6656
+    },
+    {
+        "date": "2023-03-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.677
+    },
+    {
+        "date": "2023-03-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.5464
+    },
+    {
+        "date": "2023-03-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.4729
+    },
+    {
+        "date": "2023-03-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.6234
+    },
+    {
+        "date": "2023-03-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.8047
+    },
+    {
+        "date": "2023-03-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.8572
+    },
+    {
+        "date": "2023-03-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.0303
+    },
+    {
+        "date": "2023-03-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.9212
+    },
+    {
+        "date": "2023-03-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.9541
+    },
+    {
+        "date": "2023-03-24",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.778
+    },
+    {
+        "date": "2023-03-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.8157
+    },
+    {
+        "date": "2023-03-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.8485
+    },
+    {
+        "date": "2023-03-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.8561
+    },
+    {
+        "date": "2023-03-30",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.9595
+    },
+    {
+        "date": "2023-03-31",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.9884
+    },
+    {
+        "date": "2023-04-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.053
+    },
+    {
+        "date": "2023-04-04",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.2244
+    },
+    {
+        "date": "2023-04-05",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.6071
+    },
+    {
+        "date": "2023-04-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.6457
+    },
+    {
+        "date": "2023-04-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.9651
+    },
+    {
+        "date": "2023-04-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.4355
+    },
+    {
+        "date": "2023-04-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.2572
+    },
+    {
+        "date": "2023-04-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.3771
+    },
+    {
+        "date": "2023-04-13",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.3535
+    },
+    {
+        "date": "2023-04-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.2398
+    },
+    {
+        "date": "2023-04-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.1944
+    },
+    {
+        "date": "2023-04-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.2268
+    },
+    {
+        "date": "2023-04-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.2212
+    },
+    {
+        "date": "2023-04-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.2335
+    },
+    {
+        "date": "2023-04-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.2255
+    },
+    {
+        "date": "2023-04-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.1894
+    },
+    {
+        "date": "2023-04-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.1324
+    },
+    {
+        "date": "2023-04-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.2062
+    },
+    {
+        "date": "2023-04-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.2291
+    },
+    {
+        "date": "2023-04-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.2108
+    },
+    {
+        "date": "2023-04-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.9246
+    },
+    {
+        "date": "2023-05-03",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.7747
+    },
+    {
+        "date": "2023-05-04",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.596
+    },
+    {
+        "date": "2023-05-05",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.4078
+    },
+    {
+        "date": "2023-05-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.9195
+    },
+    {
+        "date": "2023-05-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.8853
+    },
+    {
+        "date": "2023-05-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 20.6646
+    },
+    {
+        "date": "2023-05-13",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.0239
+    },
+    {
+        "date": "2023-05-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.5409
+    },
+    {
+        "date": "2023-05-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.7804
+    },
+    {
+        "date": "2023-05-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.9946
+    },
+    {
+        "date": "2023-05-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.7965
+    },
+    {
+        "date": "2023-05-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.7606
+    },
+    {
+        "date": "2023-05-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.7684
+    },
+    {
+        "date": "2023-05-24",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.8312
+    },
+    {
+        "date": "2023-05-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.7769
+    },
+    {
+        "date": "2023-05-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.7816
+    },
+    {
+        "date": "2023-05-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.7762
+    },
+    {
+        "date": "2023-05-30",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.7992
+    },
+    {
+        "date": "2023-05-31",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.9683
+    },
+    {
+        "date": "2023-06-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.0518
+    },
+    {
+        "date": "2023-06-02",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.0441
+    },
+    {
+        "date": "2023-06-03",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.0195
+    },
+    {
+        "date": "2023-06-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.1425
+    },
+    {
+        "date": "2023-06-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.1215
+    },
+    {
+        "date": "2023-06-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.1775
+    },
+    {
+        "date": "2023-06-09",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.3504
+    },
+    {
+        "date": "2023-06-10",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.4998
+    },
+    {
+        "date": "2023-06-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.7723
+    },
+    {
+        "date": "2023-06-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.9587
+    },
+    {
+        "date": "2023-06-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.8596
+    },
+    {
+        "date": "2023-06-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.7749
+    },
+    {
+        "date": "2023-06-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.8666
+    },
+    {
+        "date": "2023-06-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.9338
+    },
+    {
+        "date": "2023-06-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.9368
+    },
+    {
+        "date": "2023-06-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.7628
+    },
+    {
+        "date": "2023-06-24",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.8912
+    },
+    {
+        "date": "2023-06-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.0504
+    },
+    {
+        "date": "2023-06-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.1556
+    },
+    {
+        "date": "2023-06-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.3104
+    },
+    {
+        "date": "2023-06-30",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.6956
+    },
+    {
+        "date": "2023-07-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.0633
+    },
+    {
+        "date": "2023-07-04",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.3195
+    },
+    {
+        "date": "2023-07-05",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.3793
+    },
+    {
+        "date": "2023-07-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.5952
+    },
+    {
+        "date": "2023-07-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.2027
+    },
+    {
+        "date": "2023-07-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9627
+    },
+    {
+        "date": "2023-07-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.909
+    },
+    {
+        "date": "2023-07-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.6405
+    },
+    {
+        "date": "2023-07-13",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.6734
+    },
+    {
+        "date": "2023-07-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.551
+    },
+    {
+        "date": "2023-07-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.5355
+    },
+    {
+        "date": "2023-07-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.6179
+    },
+    {
+        "date": "2023-07-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.6912
+    },
+    {
+        "date": "2023-07-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8311
+    },
+    {
+        "date": "2023-07-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.7358
+    },
+    {
+        "date": "2023-07-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.6078
+    },
+    {
+        "date": "2023-07-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.6363
+    },
+    {
+        "date": "2023-07-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.5289
+    },
+    {
+        "date": "2023-07-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.5159
+    },
+    {
+        "date": "2023-07-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.5093
+    },
+    {
+        "date": "2023-07-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.7695
+    },
+    {
+        "date": "2023-08-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9366
+    },
+    {
+        "date": "2023-08-02",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9872
+    },
+    {
+        "date": "2023-08-03",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.2766
+    },
+    {
+        "date": "2023-08-04",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.532
+    },
+    {
+        "date": "2023-08-05",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.812
+    },
+    {
+        "date": "2023-08-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.291
+    },
+    {
+        "date": "2023-08-09",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.1572
+    },
+    {
+        "date": "2023-08-10",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.5178
+    },
+    {
+        "date": "2023-08-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.485
+    },
+    {
+        "date": "2023-08-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.7374
+    },
+    {
+        "date": "2023-08-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.5088
+    },
+    {
+        "date": "2023-08-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.5237
+    },
+    {
+        "date": "2023-08-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.3285
+    },
+    {
+        "date": "2023-08-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.523
+    },
+    {
+        "date": "2023-08-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.4301
+    },
+    {
+        "date": "2023-08-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.6309
+    },
+    {
+        "date": "2023-08-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.6244
+    },
+    {
+        "date": "2023-08-24",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.7132
+    },
+    {
+        "date": "2023-08-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.7013
+    },
+    {
+        "date": "2023-08-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.7859
+    },
+    {
+        "date": "2023-08-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.9928
+    },
+    {
+        "date": "2023-08-30",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.0569
+    },
+    {
+        "date": "2023-08-31",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.1172
+    },
+    {
+        "date": "2023-09-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.2277
+    },
+    {
+        "date": "2023-09-02",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.2295
+    },
+    {
+        "date": "2023-09-05",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.3054
+    },
+    {
+        "date": "2023-09-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.5555
+    },
+    {
+        "date": "2023-09-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.6387
+    },
+    {
+        "date": "2023-09-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.7338
+    },
+    {
+        "date": "2023-09-09",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.6605
+    },
+    {
+        "date": "2023-09-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.2751
+    },
+    {
+        "date": "2023-09-13",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.7837
+    },
+    {
+        "date": "2023-09-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.1311
+    },
+    {
+        "date": "2023-09-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.1805
+    },
+    {
+        "date": "2023-09-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.3092
+    },
+    {
+        "date": "2023-09-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.3136
+    },
+    {
+        "date": "2023-09-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.1983
+    },
+    {
+        "date": "2023-09-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.3054
+    },
+    {
+        "date": "2023-09-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.1581
+    },
+    {
+        "date": "2023-09-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.1488
+    },
+    {
+        "date": "2023-09-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.1763
+    },
+    {
+        "date": "2023-09-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.2014
+    },
+    {
+        "date": "2023-09-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.2735
+    },
+    {
+        "date": "2023-09-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.4094
+    },
+    {
+        "date": "2023-09-30",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.5218
+    },
+    {
+        "date": "2023-10-03",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.8115
+    },
+    {
+        "date": "2023-10-04",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.0263
+    },
+    {
+        "date": "2023-10-05",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.0775
+    },
+    {
+        "date": "2023-10-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.1375
+    },
+    {
+        "date": "2023-10-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.3594
+    },
+    {
+        "date": "2023-10-10",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.5959
+    },
+    {
+        "date": "2023-10-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.208
+    },
+    {
+        "date": "2023-10-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.2205
+    },
+    {
+        "date": "2023-10-13",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.4075
+    },
+    {
+        "date": "2023-10-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.4926
+    },
+    {
+        "date": "2023-10-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.4869
+    },
+    {
+        "date": "2023-10-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.5031
+    },
+    {
+        "date": "2023-10-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.5103
+    },
+    {
+        "date": "2023-10-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.4926
+    },
+    {
+        "date": "2023-10-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.1109
+    },
+    {
+        "date": "2023-10-24",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.7849
+    },
+    {
+        "date": "2023-10-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.4621
+    },
+    {
+        "date": "2023-10-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.3609
+    },
+    {
+        "date": "2023-10-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.4728
+    },
+    {
+        "date": "2023-10-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.3798
+    },
+    {
+        "date": "2023-10-31",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.3869
+    },
+    {
+        "date": "2023-11-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.0538
+    },
+    {
+        "date": "2023-11-02",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.3962
+    },
+    {
+        "date": "2023-11-03",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.367
+    },
+    {
+        "date": "2023-11-04",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.3329
+    },
+    {
+        "date": "2023-11-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.1641
+    },
+    {
+        "date": "2023-11-09",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.1048
+    },
+    {
+        "date": "2023-11-10",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.0311
+    },
+    {
+        "date": "2023-11-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.0656
+    },
+    {
+        "date": "2023-11-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.0833
+    },
+    {
+        "date": "2023-11-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8487
+    },
+    {
+        "date": "2023-11-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.3585
+    },
+    {
+        "date": "2023-11-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.2196
+    },
+    {
+        "date": "2023-11-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.2679
+    },
+    {
+        "date": "2023-11-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.0968
+    },
+    {
+        "date": "2023-11-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9265
+    },
+    {
+        "date": "2023-11-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.0068
+    },
+    {
+        "date": "2023-11-24",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9947
+    },
+    {
+        "date": "2023-11-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.1833
+    },
+    {
+        "date": "2023-11-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.1537
+    },
+    {
+        "date": "2023-11-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.128
+    },
+    {
+        "date": "2023-11-30",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.2026
+    },
+    {
+        "date": "2023-12-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.1203
+    },
+    {
+        "date": "2023-12-02",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.4416
+    },
+    {
+        "date": "2023-12-05",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.6897
+    },
+    {
+        "date": "2023-12-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9373
+    },
+    {
+        "date": "2023-12-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.2642
+    },
+    {
+        "date": "2023-12-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.205
+    },
+    {
+        "date": "2023-12-09",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9531
+    },
+    {
+        "date": "2023-12-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.7746
+    },
+    {
+        "date": "2023-12-13",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.5652
+    },
+    {
+        "date": "2023-12-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.4772
+    },
+    {
+        "date": "2023-12-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.4177
+    },
+    {
+        "date": "2023-12-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.4239
+    },
+    {
+        "date": "2023-12-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.6198
+    },
+    {
+        "date": "2023-12-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.5302
+    },
+    {
+        "date": "2023-12-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.6169
+    },
+    {
+        "date": "2023-12-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9711
+    },
+    {
+        "date": "2023-12-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.0344
+    },
+    {
+        "date": "2023-12-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.0426
+    },
+    {
+        "date": "2023-12-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9712
+    },
+    {
+        "date": "2023-12-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9708
+    },
+    {
+        "date": "2023-12-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.5893
+    },
+    {
+        "date": "2023-12-30",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.4216
+    },
+    {
+        "date": "2024-01-10",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.6165
+    },
+    {
+        "date": "2024-01-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.3414
+    },
+    {
+        "date": "2024-01-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.1748
+    },
+    {
+        "date": "2024-01-13",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9979
+    },
+    {
+        "date": "2024-01-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.874
+    },
+    {
+        "date": "2024-01-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.8654
+    },
+    {
+        "date": "2024-01-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.0583
+    },
+    {
+        "date": "2024-01-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.1419
+    },
+    {
+        "date": "2024-01-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.1224
+    },
+    {
+        "date": "2024-01-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9544
+    },
+    {
+        "date": "2024-01-24",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9401
+    },
+    {
+        "date": "2024-01-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.0389
+    },
+    {
+        "date": "2024-01-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.1406
+    },
+    {
+        "date": "2024-01-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.3746
+    },
+    {
+        "date": "2024-01-30",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.4
+    },
+    {
+        "date": "2024-01-31",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.3128
+    },
+    {
+        "date": "2024-02-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.416
+    },
+    {
+        "date": "2024-02-02",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.5691
+    },
+    {
+        "date": "2024-02-03",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.6869
+    },
+    {
+        "date": "2024-02-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.845
+    },
+    {
+        "date": "2024-02-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.6928
+    },
+    {
+        "date": "2024-02-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.82
+    },
+    {
+        "date": "2024-02-09",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8485
+    },
+    {
+        "date": "2024-02-10",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.7488
+    },
+    {
+        "date": "2024-02-13",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.7994
+    },
+    {
+        "date": "2024-02-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8348
+    },
+    {
+        "date": "2024-02-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8963
+    },
+    {
+        "date": "2024-02-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.003
+    },
+    {
+        "date": "2024-02-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.2006
+    },
+    {
+        "date": "2024-02-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.1628
+    },
+    {
+        "date": "2024-02-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.1461
+    },
+    {
+        "date": "2024-02-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.1705
+    },
+    {
+        "date": "2024-02-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.2558
+    },
+    {
+        "date": "2024-02-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.2232
+    },
+    {
+        "date": "2024-02-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.0626
+    },
+    {
+        "date": "2024-02-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.0154
+    },
+    {
+        "date": "2024-03-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.7358
+    },
+    {
+        "date": "2024-03-02",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8696
+    },
+    {
+        "date": "2024-03-05",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.875
+    },
+    {
+        "date": "2024-03-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8224
+    },
+    {
+        "date": "2024-03-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.5994
+    },
+    {
+        "date": "2024-03-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.7105
+    },
+    {
+        "date": "2024-03-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.6767
+    },
+    {
+        "date": "2024-03-13",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.7466
+    },
+    {
+        "date": "2024-03-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9271
+    },
+    {
+        "date": "2024-03-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9519
+    },
+    {
+        "date": "2024-03-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.0157
+    },
+    {
+        "date": "2024-03-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.0464
+    },
+    {
+        "date": "2024-03-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.1121
+    },
+    {
+        "date": "2024-03-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.2379
+    },
+    {
+        "date": "2024-03-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.0374
+    },
+    {
+        "date": "2024-03-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.2176
+    },
+    {
+        "date": "2024-03-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.2624
+    },
+    {
+        "date": "2024-03-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.2075
+    },
+    {
+        "date": "2024-03-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.2122
+    },
+    {
+        "date": "2024-03-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.1226
+    },
+    {
+        "date": "2024-03-30",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.1507
+    },
+    {
+        "date": "2024-04-02",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.1304
+    },
+    {
+        "date": "2024-04-03",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.1941
+    },
+    {
+        "date": "2024-04-04",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.157
+    },
+    {
+        "date": "2024-04-05",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.1343
+    },
+    {
+        "date": "2024-04-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.1642
+    },
+    {
+        "date": "2024-04-09",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.2093
+    },
+    {
+        "date": "2024-04-10",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.2543
+    },
+    {
+        "date": "2024-04-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.3832
+    },
+    {
+        "date": "2024-04-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.5193
+    },
+    {
+        "date": "2024-04-13",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.4437
+    },
+    {
+        "date": "2024-04-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.4838
+    },
+    {
+        "date": "2024-04-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.6158
+    },
+    {
+        "date": "2024-04-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.6839
+    },
+    {
+        "date": "2024-04-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.6207
+    },
+    {
+        "date": "2024-04-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.4434
+    },
+    {
+        "date": "2024-04-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.3919
+    },
+    {
+        "date": "2024-04-24",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.4028
+    },
+    {
+        "date": "2024-04-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.1888
+    },
+    {
+        "date": "2024-04-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.0868
+    },
+    {
+        "date": "2024-04-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.0547
+    },
+    {
+        "date": "2024-04-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9909
+    },
+    {
+        "date": "2024-05-03",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.0657
+    },
+    {
+        "date": "2024-05-04",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9671
+    },
+    {
+        "date": "2024-05-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8638
+    },
+    {
+        "date": "2024-05-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8123
+    },
+    {
+        "date": "2024-05-09",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.0031
+    },
+    {
+        "date": "2024-05-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9511
+    },
+    {
+        "date": "2024-05-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8765
+    },
+    {
+        "date": "2024-05-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8488
+    },
+    {
+        "date": "2024-05-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.758
+    },
+    {
+        "date": "2024-05-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.7753
+    },
+    {
+        "date": "2024-05-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.6845
+    },
+    {
+        "date": "2024-05-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.6176
+    },
+    {
+        "date": "2024-05-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.5578
+    },
+    {
+        "date": "2024-05-24",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.5742
+    },
+    {
+        "date": "2024-05-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.4255
+    },
+    {
+        "date": "2024-05-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.1485
+    },
+    {
+        "date": "2024-05-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.081
+    },
+    {
+        "date": "2024-05-30",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.3047
+    },
+    {
+        "date": "2024-05-31",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.4484
+    },
+    {
+        "date": "2024-06-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.5586
+    },
+    {
+        "date": "2024-06-04",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.3364
+    },
+    {
+        "date": "2024-06-05",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.1681
+    },
+    {
+        "date": "2024-06-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.1644
+    },
+    {
+        "date": "2024-06-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.1689
+    },
+    {
+        "date": "2024-06-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.169
+    },
+    {
+        "date": "2024-06-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.2326
+    },
+    {
+        "date": "2024-06-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.24
+    },
+    {
+        "date": "2024-06-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.0185
+    },
+    {
+        "date": "2024-06-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.2521
+    },
+    {
+        "date": "2024-06-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.2478
+    },
+    {
+        "date": "2024-06-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.6992
+    },
+    {
+        "date": "2024-06-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.4992
+    },
+    {
+        "date": "2024-06-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.2587
+    },
+    {
+        "date": "2024-06-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9509
+    },
+    {
+        "date": "2024-06-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.7912
+    },
+    {
+        "date": "2024-06-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.765
+    },
+    {
+        "date": "2024-06-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9092
+    },
+    {
+        "date": "2024-06-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.1352
+    },
+    {
+        "date": "2024-06-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.3487
+    },
+    {
+        "date": "2024-07-02",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.7705
+    },
+    {
+        "date": "2024-07-03",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9597
+    },
+    {
+        "date": "2024-07-04",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9484
+    },
+    {
+        "date": "2024-07-05",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9947
+    },
+    {
+        "date": "2024-07-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9986
+    },
+    {
+        "date": "2024-07-09",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.0078
+    },
+    {
+        "date": "2024-07-10",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9627
+    },
+    {
+        "date": "2024-07-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9224
+    },
+    {
+        "date": "2024-07-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9586
+    },
+    {
+        "date": "2024-07-13",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.8918
+    },
+    {
+        "date": "2024-07-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9095
+    },
+    {
+        "date": "2024-07-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.0388
+    },
+    {
+        "date": "2024-07-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9856
+    },
+    {
+        "date": "2024-07-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.928
+    },
+    {
+        "date": "2024-07-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9675
+    },
+    {
+        "date": "2024-07-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9021
+    },
+    {
+        "date": "2024-07-24",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.771
+    },
+    {
+        "date": "2024-07-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.5671
+    },
+    {
+        "date": "2024-07-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.2566
+    },
+    {
+        "date": "2024-07-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.2988
+    },
+    {
+        "date": "2024-07-30",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.5685
+    },
+    {
+        "date": "2024-07-31",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.5071
+    },
+    {
+        "date": "2024-08-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.447
+    },
+    {
+        "date": "2024-08-02",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.3583
+    },
+    {
+        "date": "2024-08-03",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.3363
+    },
+    {
+        "date": "2024-08-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.1306
+    },
+    {
+        "date": "2024-08-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.1898
+    },
+    {
+        "date": "2024-08-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.4048
+    },
+    {
+        "date": "2024-08-09",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.5703
+    },
+    {
+        "date": "2024-08-10",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.9597
+    },
+    {
+        "date": "2024-08-13",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.4922
+    },
+    {
+        "date": "2024-08-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.2306
+    },
+    {
+        "date": "2024-08-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.508
+    },
+    {
+        "date": "2024-08-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.1786
+    },
+    {
+        "date": "2024-08-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.2086
+    },
+    {
+        "date": "2024-08-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.382
+    },
+    {
+        "date": "2024-08-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.6955
+    },
+    {
+        "date": "2024-08-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9656
+    },
+    {
+        "date": "2024-08-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8572
+    },
+    {
+        "date": "2024-08-24",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9425
+    },
+    {
+        "date": "2024-08-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9897
+    },
+    {
+        "date": "2024-08-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9097
+    },
+    {
+        "date": "2024-08-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8999
+    },
+    {
+        "date": "2024-08-30",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9026
+    },
+    {
+        "date": "2024-08-31",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8296
+    },
+    {
+        "date": "2024-09-03",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.5068
+    },
+    {
+        "date": "2024-09-04",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.1285
+    },
+    {
+        "date": "2024-09-05",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.2148
+    },
+    {
+        "date": "2024-09-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.426
+    },
+    {
+        "date": "2024-09-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.4581
+    },
+    {
+        "date": "2024-09-10",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.6114
+    },
+    {
+        "date": "2024-09-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8094
+    },
+    {
+        "date": "2024-09-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.851
+    },
+    {
+        "date": "2024-09-13",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8086
+    },
+    {
+        "date": "2024-09-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.7609
+    },
+    {
+        "date": "2024-09-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8175
+    },
+    {
+        "date": "2024-09-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8956
+    },
+    {
+        "date": "2024-09-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.9615
+    },
+    {
+        "date": "2024-09-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.2406
+    },
+    {
+        "date": "2024-09-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.2103
+    },
+    {
+        "date": "2024-09-24",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.3016
+    },
+    {
+        "date": "2024-09-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.2858
+    },
+    {
+        "date": "2024-09-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.1567
+    },
+    {
+        "date": "2024-09-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.162
+    },
+    {
+        "date": "2024-09-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.2451
+    },
+    {
+        "date": "2024-10-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.3838
+    },
+    {
+        "date": "2024-10-02",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.4209
+    },
+    {
+        "date": "2024-10-03",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.7333
+    },
+    {
+        "date": "2024-10-04",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.8751
+    },
+    {
+        "date": "2024-10-05",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.8325
+    },
+    {
+        "date": "2024-10-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.1579
+    },
+    {
+        "date": "2024-10-09",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.1696
+    },
+    {
+        "date": "2024-10-10",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.3984
+    },
+    {
+        "date": "2024-10-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.4777
+    },
+    {
+        "date": "2024-10-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.1589
+    },
+    {
+        "date": "2024-10-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.168
+    },
+    {
+        "date": "2024-10-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.4158
+    },
+    {
+        "date": "2024-10-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.4825
+    },
+    {
+        "date": "2024-10-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.4531
+    },
+    {
+        "date": "2024-10-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.2538
+    },
+    {
+        "date": "2024-10-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.1654
+    },
+    {
+        "date": "2024-10-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.3014
+    },
+    {
+        "date": "2024-10-24",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.3139
+    },
+    {
+        "date": "2024-10-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.3418
+    },
+    {
+        "date": "2024-10-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.3215
+    },
+    {
+        "date": "2024-10-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.4752
+    },
+    {
+        "date": "2024-10-30",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.5013
+    },
+    {
+        "date": "2024-10-31",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.427
+    },
+    {
+        "date": "2024-11-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.4187
+    },
+    {
+        "date": "2024-11-02",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.5324
+    },
+    {
+        "date": "2024-11-03",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.5623
+    },
+    {
+        "date": "2024-11-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.7001
+    },
+    {
+        "date": "2024-11-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.7457
+    },
+    {
+        "date": "2024-11-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.7046
+    },
+    {
+        "date": "2024-11-09",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.6395
+    },
+    {
+        "date": "2024-11-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.6726
+    },
+    {
+        "date": "2024-11-13",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.6728
+    },
+    {
+        "date": "2024-11-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.7844
+    },
+    {
+        "date": "2024-11-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.962
+    },
+    {
+        "date": "2024-11-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.2286
+    },
+    {
+        "date": "2024-11-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.2139
+    },
+    {
+        "date": "2024-11-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.2389
+    },
+    {
+        "date": "2024-11-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.2891
+    },
+    {
+        "date": "2024-11-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.4145
+    },
+    {
+        "date": "2024-11-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.9309
+    },
+    {
+        "date": "2024-11-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 28.2616
+    },
+    {
+        "date": "2024-11-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 28.6073
+    },
+    {
+        "date": "2024-11-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 29.4106
+    },
+    {
+        "date": "2024-11-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 29.8375
+    },
+    {
+        "date": "2024-11-30",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 29.3372
+    },
+    {
+        "date": "2024-12-03",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 29.1833
+    },
+    {
+        "date": "2024-12-04",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 28.9143
+    },
+    {
+        "date": "2024-12-05",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 28.3829
+    },
+    {
+        "date": "2024-12-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 28.1508
+    },
+    {
+        "date": "2024-12-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.0719
+    },
+    {
+        "date": "2024-12-10",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.0595
+    },
+    {
+        "date": "2024-12-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.2382
+    },
+    {
+        "date": "2024-12-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 28.12
+    },
+    {
+        "date": "2024-12-13",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 28.305
+    },
+    {
+        "date": "2024-12-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 28.1635
+    },
+    {
+        "date": "2024-12-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 28.0225
+    },
+    {
+        "date": "2024-12-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 28.0457
+    },
+    {
+        "date": "2024-12-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.9854
+    },
+    {
+        "date": "2024-12-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 28.1608
+    },
+    {
+        "date": "2024-12-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.8676
+    },
+    {
+        "date": "2024-12-24",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.669
+    },
+    {
+        "date": "2024-12-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.1948
+    },
+    {
+        "date": "2024-12-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.1239
+    },
+    {
+        "date": "2024-12-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.0196
+    },
+    {
+        "date": "2024-12-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.3732
+    },
+    {
+        "date": "2024-12-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.6868
+    },
+    {
+        "date": "2025-01-10",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.8533
+    },
+    {
+        "date": "2025-01-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.7507
+    },
+    {
+        "date": "2025-01-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.9668
+    },
+    {
+        "date": "2025-01-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 28.1656
+    },
+    {
+        "date": "2025-01-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.994
+    },
+    {
+        "date": "2025-01-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.8764
+    },
+    {
+        "date": "2025-01-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.8866
+    },
+    {
+        "date": "2025-01-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.7625
+    },
+    {
+        "date": "2025-01-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.2099
+    },
+    {
+        "date": "2025-01-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.7612
+    },
+    {
+        "date": "2025-01-24",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.9837
+    },
+    {
+        "date": "2025-01-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.7566
+    },
+    {
+        "date": "2025-01-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.4485
+    },
+    {
+        "date": "2025-01-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.6755
+    },
+    {
+        "date": "2025-01-30",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.6883
+    },
+    {
+        "date": "2025-01-31",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.6865
+    },
+    {
+        "date": "2025-02-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.6333
+    },
+    {
+        "date": "2025-02-04",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 27.214
+    },
+    {
+        "date": "2025-02-05",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.8301
+    },
+    {
+        "date": "2025-02-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.7
+    },
+    {
+        "date": "2025-02-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.3881
+    },
+    {
+        "date": "2025-02-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.4877
+    },
+    {
+        "date": "2025-02-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.3532
+    },
+    {
+        "date": "2025-02-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 26.0864
+    },
+    {
+        "date": "2025-02-13",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 25.6088
+    },
+    {
+        "date": "2025-02-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.7873
+    },
+    {
+        "date": "2025-02-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.5909
+    },
+    {
+        "date": "2025-02-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8971
+    },
+    {
+        "date": "2025-02-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.8713
+    },
+    {
+        "date": "2025-02-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.6227
+    },
+    {
+        "date": "2025-02-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.1008
+    },
+    {
+        "date": "2025-02-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.0075
+    },
+    {
+        "date": "2025-02-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.0181
+    },
+    {
+        "date": "2025-02-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.5893
+    },
+    {
+        "date": "2025-02-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.3977
+    },
+    {
+        "date": "2025-02-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.8793
+    },
+    {
+        "date": "2025-03-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.0318
+    },
+    {
+        "date": "2025-03-04",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.3022
+    },
+    {
+        "date": "2025-03-05",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.3008
+    },
+    {
+        "date": "2025-03-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.4487
+    },
+    {
+        "date": "2025-03-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.39
+    },
+    {
+        "date": "2025-03-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.2713
+    },
+    {
+        "date": "2025-03-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 24.0673
+    },
+    {
+        "date": "2025-03-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.5717
+    },
+    {
+        "date": "2025-03-13",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.5862
+    },
+    {
+        "date": "2025-03-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.5858
+    },
+    {
+        "date": "2025-03-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.3
+    },
+    {
+        "date": "2025-03-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.956
+    },
+    {
+        "date": "2025-03-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.1925
+    },
+    {
+        "date": "2025-03-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.5592
+    },
+    {
+        "date": "2025-03-21",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.9804
+    },
+    {
+        "date": "2025-03-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.047
+    },
+    {
+        "date": "2025-03-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.8383
+    },
+    {
+        "date": "2025-03-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.9253
+    },
+    {
+        "date": "2025-03-27",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.9289
+    },
+    {
+        "date": "2025-03-28",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.8277
+    },
+    {
+        "date": "2025-03-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.7859
+    },
+    {
+        "date": "2025-04-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.2801
+    },
+    {
+        "date": "2025-04-02",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.1098
+    },
+    {
+        "date": "2025-04-03",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.0231
+    },
+    {
+        "date": "2025-04-04",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.977
+    },
+    {
+        "date": "2025-04-05",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.9482
+    },
+    {
+        "date": "2025-04-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.4688
+    },
+    {
+        "date": "2025-04-09",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.2714
+    },
+    {
+        "date": "2025-04-10",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.4424
+    },
+    {
+        "date": "2025-04-11",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 23.1493
+    },
+    {
+        "date": "2025-04-12",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.8738
+    },
+    {
+        "date": "2025-04-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.537
+    },
+    {
+        "date": "2025-04-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.4099
+    },
+    {
+        "date": "2025-04-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.4886
+    },
+    {
+        "date": "2025-04-18",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.3336
+    },
+    {
+        "date": "2025-04-19",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.0932
+    },
+    {
+        "date": "2025-04-22",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.9904
+    },
+    {
+        "date": "2025-04-23",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.1816
+    },
+    {
+        "date": "2025-04-24",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.4271
+    },
+    {
+        "date": "2025-04-25",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.5612
+    },
+    {
+        "date": "2025-04-26",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.5064
+    },
+    {
+        "date": "2025-04-29",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.477
+    },
+    {
+        "date": "2025-04-30",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.2087
+    },
+    {
+        "date": "2025-05-01",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.1901
+    },
+    {
+        "date": "2025-05-06",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.3046
+    },
+    {
+        "date": "2025-05-07",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.0461
+    },
+    {
+        "date": "2025-05-08",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.018
+    },
+    {
+        "date": "2025-05-13",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 22.0254
+    },
+    {
+        "date": "2025-05-14",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.9333
+    },
+    {
+        "date": "2025-05-15",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.8444
+    },
+    {
+        "date": "2025-05-16",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.8689
+    },
+    {
+        "date": "2025-05-17",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.9929
+    },
+    {
+        "date": "2025-05-20",
+        "currency": "Дирхам ОАЭ",
+        "code": "AED",
+        "nominal": 1,
+        "price": 21.8962
+    }
+]

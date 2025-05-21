@@ -152,10 +152,27 @@ function createChartConfig(type, data, options = {}) {
  * Получение курса BTC с Binance
  * @returns {Promise<number>} Курс BTC в рублях
  */
+async function fetchCurrencyData(currency) {
+  try {
+    const response = await fetch(`/data/${currency}_rub_5year_rates_${new Date().toISOString().split('T')[0]}.json`);
+    if (!response.ok) throw new Error('Failed to fetch currency data');
+    const data = await response.json();
+    return data.rates.map(rate => ({
+      date: rate.date,
+      price: parseFloat(rate.value.replace(',', '.'))
+    }));
+  } catch (error) {
+    console.error('Error fetching currency data:', error);
+    return null;
+  }
+}
+
 async function getBTCPriceFromBinance() {
   try {
     // Получаем курс BTC/USDT
-    const btcUsdtResponse = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT');
+    const currencyData = await fetchCurrencyData('usd');
+if (!currencyData) return null;
+const btcUsdtResponse = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT');
     const btcUsdtData = await btcUsdtResponse.json();
     const btcUsdtPrice = parseFloat(btcUsdtData.price);
 
@@ -425,6 +442,25 @@ async function updateAllPrices() {
  * 4. Обрабатывает ошибки загрузки
  */
 async function initializeCharts() {
+  // Fetch currency data
+  const usdData = await fetchCurrencyData('usd');
+  const eurData = await fetchCurrencyData('eur');
+  const cnyData = await fetchCurrencyData('cny');
+  const aedData = await fetchCurrencyData('aed');
+
+  if (!usdData || !eurData || !cnyData || !aedData) {
+    console.error('Failed to fetch currency data');
+    return;
+  }
+
+  // Process data for charts
+  const usdRates = usdData;
+  const eurRates = eurData;
+  const cnyRates = cnyData;
+  const aedRates = aedData;
+
+  const labels = usdData.map(rate => rate.date);
+
   try {
     // Загрузка данных из JSON файла
     const response = await fetch(exchangeratesFile);
@@ -625,4 +661,4 @@ document.addEventListener('DOMContentLoaded', () => {
   // Получаем новости каждые 5 минут
   getFinancialNews();
   setInterval(getFinancialNews, 5 * 60 * 1000);
-}); 
+});
