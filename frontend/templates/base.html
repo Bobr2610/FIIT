@@ -23,9 +23,9 @@
     <!-- Подключение Chart.js для создания интерактивных графиков -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-{#    {% load static %}#}
+    {% load static %}
     <!-- Подключение локальных стилей -->
-    <link href="{% static 'styles.css' %}" rel="stylesheet">
+    {# <link href="{% static 'styles.css' %}" rel="stylesheet"> #}
 
     <!-- Подключение Font Awesome для иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -42,8 +42,8 @@
     <aside class="sidebar">
         <!-- Логотип с ссылкой наверх -->
         <div class="logo">
-            <a href="{% url 'app:market' %}" title="Наверх">
-                <img src="{% static 'logo.png' %}" alt="Логотип FIIT">
+            <a href="/dashboard" title="Перейти на рынок">
+                <img src="{% static 'logo.png' %}" alt="Логотип FIIT" id="logoImage">
             </a>
         </div>
     </aside>
@@ -51,27 +51,45 @@
     {% endblock %}
 
     <div class="main-content">
-        {% block topbar %}
+            {% block topbar %}
+            <!-- Верхняя панель с аккаунтом и настройками темы -->
+            {# ------ TOP-BAR ------------------------------------------------ #}
+            <div class="top-bar" id="top">
 
-        <!-- Верхняя панель с аккаунтом и настройками темы -->
-        <div class="top-bar" id="top">
-            
-              <!-- Селектор темы с кнопкой переключения -->
-            <div class="theme-selector">
-                <label for="colorScheme">Тема:</label>
-                <select id="colorScheme">
-                    <option value="light">Светлая</option>
-                    <option value="dark">Темная</option>
-                    <option value="colorblind">Высокий контраст</option>
-                </select>
-                <button class="theme-toggle" title="Переключить тему">
-                    <i class="fas fa-moon"></i>
-                </button>
+                {# ЛЕВАЯ зона — аккаунт (показывается только авторизованному) #}
+                {% if user.is_authenticated %}
+                <div class="account-group">
+                    <a href="{% url 'app:account' %}" class="account-link">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Аккаунт: {{ user.username }}</span>
+                    </a>
+                </div>
+                {% endif %}
+
+                {# ЦЕНТР — текущее время #}
+                <span class="current-time"></span>
+
+                {# ПРАВАЯ зона — тема + колокольчик #}
+                <div class="right-controls">
+
+                    <div class="theme-selector">
+                        <label for="colorScheme">Тема:</label>
+                        <select id="colorScheme">
+                            <option value="light">Светлая</option>
+                            <option value="dark">Тёмная</option>
+                            <option value="colorblind">Высокий контраст</option>
+                        </select>
+                        <button class="theme-toggle" title="Переключить тему">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+
+                    {# сюда дочерние шаблоны вставят колокольчик #}
+                    {% block notifications_button %}{% endblock %}
+                </div>
             </div>
 
-        </div>
-
-        {% endblock %}
+            {% endblock %}
 
 
         {% block content %}

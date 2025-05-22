@@ -1,11 +1,102 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block body_attributes %}class="main-content home-page"{% endblock %} {# Для общего стиля фона и специфичных стилей главной #}
 
 {% block title %}
-    Home Page
+    Добро пожаловать в FIIT - Financial Intelligent Investment Tracker
+{% endblock %}
+
+{% block topbar %}
+    <!-- Стандартная верхняя панель -->
+    <div class="top-bar" id="top">
+
+        <span class="current-time"></span>
+        <div class="header-right-controls">
+            <div class="theme-selector">
+                <label for="colorScheme">Тема:</label>
+                <select id="colorScheme">
+                    <option value="light">Светлая</option>
+                    <option value="dark">Темная</option>
+                    <option value="colorblind">Высокий контраст</option>
+                </select>
+                <button class="theme-toggle" title="Переключить тему">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block content %}
-	<h1>
-        Some Content
-    </h1>
+<div class="home-container">
+    <header class="hero-section card">
+        <div class="hero-content">
+            <h1>Добро пожаловать в FIIT!</h1>
+            <p class="subtitle">Ваш умный помощник для отслеживания инвестиций и анализа финансовых рынков.</p>
+            <p>FIIT (Financial Intelligent Investment Tracker) — это инновационная платформа, разработанная для предоставления актуальных данных о курсах валют, криптовалют и других финансовых активов. Наша цель — помочь вам принимать взвешенные инвестиционные решения, предоставляя точную и своевременную информацию.</p>
+            {% if not user.is_authenticated %}
+            <div class="hero-actions">
+                <a href="{% url 'app:register' %}" class="btn btn-primary btn-lg">Начать бесплатно</a>
+                <a href="#features" class="btn btn-outline btn-lg">Узнать больше</a>
+            </div>
+            {% else %}
+             <div class="hero-actions">
+                <a href="{% url 'app:dashboard' %}" class="btn btn-primary btn-lg">Перейти в панель</a>
+            </div>
+            {% endif %}
+        </div>
+    </header>
+
+    <section id="features" class="features-section">
+        <h2>Ключевые возможности FIIT</h2>
+        <div class="features-grid">
+            <div class="feature-card card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Отслеживание активов</h3>
+                <p>Мониторинг цен на акции, криптовалюты, валютные пары в реальном времени.</p>
+            </div>
+            <div class="feature-card card">
+                <i class="fas fa-bell"></i>
+                <h3>Уведомления</h3>
+                <p>Настраиваемые оповещения о достижении целевых цен или значительных изменениях на рынке.</p>
+            </div>
+            <div class="feature-card card">
+                <i class="fas fa-newspaper"></i>
+                <h3>Аналитика</h3>
+                <p>Доступ к актуальным аналитическим обзорам.</p>
+            </div>
+            <div class="feature-card card">
+                <i class="fas fa-user-shield"></i>
+                <h3>Безопасность</h3>
+                <p>Защита ваших данных и инвестиционной информации.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-us" class="about-us-section card">
+        <h2>О команде разработчиков</h2>
+        <p>Проект FIIT был разработан командой энтузиастов, стремящихся сделать финансовые инструменты доступными и понятными для каждого. Мы верим, что технологии могут упростить процесс инвестирования и помочь достичь финансовых целей.</p>
+        <p><strong>Наша команда:</strong></p>
+        <ul>
+            <li>Кирилл Белянский (Frontend)</li>
+            <li>Эльдар Сальманов (Backend, DevOps)</li>
+            <li>Михаил Седов (Fullstuck, TeamLead)</li>
+            <li>Александр Литвак (Fiancial Director)</li>
+        </ul>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Плавный скролл для якорных ссылок
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
 {% endblock %}
