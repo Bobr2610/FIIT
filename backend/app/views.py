@@ -164,7 +164,7 @@ class PortfolioView(LoginRequiredMixin, TemplateView):
         Добавляет список активов пользователя в контекст.
         """
         context = {}
-        portfolio = Portfolio.objects.filter(user=request.user)
+        portfolio = Portfolio.objects.filter(account=request.user)
         context['portfolio'] = portfolio
         return render(request, self.template_name, context)
 
@@ -183,6 +183,18 @@ class MarketView(LoginRequiredMixin, TemplateView):
         Добавляет список всех активов в контекст.
         """
         context = {}
-        context['currencies'] = Currency.objects.all()
-        context['rates'] = Rate.objects.all()
+        currencies = Currency.objects.all()
+        rates = Rate.objects.all().order_by('-timestamp')
+        
+        # Подготавливаем данные для графиков
+        chart_data = {}
+        for currency in currencies:
+            currency_rates = rates.filter(currency=currency)
+            chart_data[currency.short_name] = {
+                'labels': [rate.timestamp.strftime('%Y-%m-%d %H-%M-%S') for rate in currency_rates],
+                'values': [float(rate.cost) for rate in currency_rates]
+            }
+        
+        context['currencies'] = currencies
+        context['chart_data'] = chart_data
         return render(request, self.template_name, context)

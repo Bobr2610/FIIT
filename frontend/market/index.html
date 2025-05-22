@@ -218,17 +218,15 @@
         </div>
         <div class="chart-and-stats-container">
             <div class="chart-wrapper">
-                <canvas id="combinedChart"></canvas>
+                <canvas id="currencyChart"></canvas>
             </div>
             <div class="currency-selector-panel">
-                <!-- Кнопки выбора валют -->
-                <button class="currency-btn active" data-currency="BTC">BTC</button>
-                <button class="currency-btn" data-currency="ETH">ETH</button>
-                <button class="currency-btn" data-currency="TON">TON</button>
-                <button class="currency-btn" data-currency="USD">USD</button>
-                <button class="currency-btn" data-currency="EUR">EUR</button>
-                <button class="currency-btn" data-currency="CNY">CNY</button>
-                <button class="currency-btn" data-currency="AED">AED</button>
+                {% for currency in currencies %}
+                <button class="currency-btn {% if forloop.first %}active{% endif %}" 
+                        data-currency="{{ currency.short_name }}">
+                    {{ currency.short_name }}
+                </button>
+                {% endfor %}
             </div>
             <div class="currency-stats-panel">
                 <h5 id="selectedCurrencyName">Статистика для: --</h5>
@@ -264,6 +262,110 @@
         </div>
     </div>
 
+    <!-- Добавляем скрипт для работы с графиками -->
+    <script>
+        // Получаем данные из контекста Django
+        const chartData = {{ chart_data|safe }};
+        let currencyChart;
+
+        // Функция для создания графика
+        function createChart(currency) {
+            const ctx = document.getElementById('currencyChart').getContext('2d');
+            const data = chartData[currency];
+            
+            if (currencyChart) {
+                currencyChart.destroy();
+            }
+
+            currencyChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        label: currency,
+                        data: data.values,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.4,
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: `График ${currency}`
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            display: true,
+                            title: {
+                                display: true,
+                                text: 'Дата'
+                            }
+                        },
+                        y: {
+                            display: true,
+                            title: {
+                                display: true,
+                                text: 'Курс'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Инициализация графика при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstCurrency = Object.keys(chartData)[0];
+            createChart(firstCurrency);
+            updateCurrencyStats(firstCurrency);
+        });
+
+        // Обработчик изменения временного интервала
+        document.getElementById('timeRange').addEventListener('change', function(e) {
+            const range = e.target.value;
+            // Здесь можно добавить логику фильтрации данных по выбранному интервалу
+        });
+
+        // Обработчик выбора валюты
+        document.querySelectorAll('.currency-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const currency = this.dataset.currency;
+                // Обновляем график и статистику для выбранной валюты
+                createChart(currency);
+                updateCurrencyStats(currency);
+                
+                // Обновляем активную кнопку
+                document.querySelectorAll('.currency-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Функция обновления статистики
+        function updateCurrencyStats(currency) {
+            const data = chartData[currency];
+            if (!data) return;
+
+            const values = data.values;
+            const average = values.reduce((a, b) => a + b, 0) / values.length;
+            const sorted = [...values].sort((a, b) => a - b);
+            const median = sorted[Math.floor(sorted.length / 2)];
+            
+            document.getElementById('selectedCurrencyName').textContent = `Статистика для: ${currency}`;
+            document.getElementById('statAverage').textContent = average.toFixed(2);
+            document.getElementById('statMedian').textContent = median.toFixed(2);
+        }
+    </script>
+
 {% endblock %}
 <!-- </div> -->
 
@@ -273,6 +375,6 @@
     var exchangeratesFile = '{% static "exchangerates.json" %}';
 </script>
 <script src="{% static 'scripts.js' %}"></script>
-<script src="{% static 'dashboardScripts.js' %}"></script>
+{#<script src="{% static 'dashboardScripts.js' %}"></script>#}
 
 {% endblock %}
