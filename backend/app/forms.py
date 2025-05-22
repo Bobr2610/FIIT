@@ -131,20 +131,32 @@ class RegisterForm(UserCreationForm):
     """
     email = forms.EmailField(
         required=True,
-        label='Email'
+        label='Email',
+        widget=forms.EmailInput(attrs={
+            'placeholder': 'Введите email'
+        })
     )
 
     class Meta:
         model = Account
         fields = ['username', 'email']
-        widgets = {
-            'username': forms.TextInput(attrs={
-                'placeholder': 'Введите имя пользователя'
-            }),
-            'email': forms.EmailInput(attrs={
-                'placeholder': 'Введите email'
-            })
-        }
+        # widgets = {
+        #     'email': forms.EmailInput(attrs={
+        #         'placeholder': 'Введите email'
+        #     })
+        # }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget = forms.TextInput(attrs={
+            'placeholder': 'Введите имя пользователя'
+        })
+        self.fields['password1'].widget = forms.PasswordInput(attrs={
+            'placeholder': 'Введите пароль'
+        })
+        self.fields['password2'].widget = forms.PasswordInput(attrs={
+            'placeholder': 'Повторите пароль'
+        })
 
 
 class LoginForm(forms.Form):
