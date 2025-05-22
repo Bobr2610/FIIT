@@ -23,7 +23,7 @@
     <!-- Подключение Chart.js для создания интерактивных графиков -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    {% load static %}
+{#    {% load static %}#}
     <!-- Подключение локальных стилей -->
     <link href="{% static 'styles.css' %}" rel="stylesheet">
 
@@ -42,7 +42,7 @@
     <aside class="sidebar">
         <!-- Логотип с ссылкой наверх -->
         <div class="logo">
-            <a href="/dashboard" title="Наверх">
+            <a href="{% url 'app:market' %}" title="Наверх">
                 <img src="{% static 'logo.png' %}" alt="Логотип FIIT">
             </a>
         </div>

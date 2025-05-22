@@ -131,7 +131,8 @@ APPEND_SLASH = True
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [PROJECT_DIR / 'frontend'],
+        'DIRS': [PROJECT_DIR / 'frontend',
+                 PROJECT_DIR / 'frontend/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -216,7 +217,8 @@ STATIC_ROOT = PROJECT_DIR / 'build/static'
 STATICFILES_DIRS = [
     PROJECT_DIR / 'frontend/css',
     PROJECT_DIR / 'frontend/js',
-    PROJECT_DIR / 'frontend/img'
+    PROJECT_DIR / 'frontend/assets/images',
+    PROJECT_DIR / 'frontend/templates'
 ]
 
 # Default primary key field type

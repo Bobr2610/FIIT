@@ -16,16 +16,20 @@
 
     <form action="{% url 'app:account' %}" method="post">
         {% csrf_token %}
-        {{ form.username.label_tag }}
-        {{ form.username }}
+        {{ account_form.username.label_tag }}
+        {{ account_form.username }}
         
-        {{ form.email.label_tag }}
-        {{ form.email }}
+        {{ account_form.email.label_tag }}
+        {{ account_form.email }}
 
         <div class="account-buttons">
             <input type="submit" class="account-btn" value="Сохранить изменения">
         </div>
     </form>
+
+    <div class="account-buttons">
+        <a href="{% url 'app:change-password' %}" class="account-btn">Изменить пароль</a>
+    </div>
 
     <form action="{% url 'app:logout' %}">
         {% csrf_token %}

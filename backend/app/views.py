@@ -3,49 +3,100 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import FormView, TemplateView, UpdateView
+from django.views.generic import FormView, TemplateView
 from rest_framework_simplejwt.tokens import RefreshToken
+from django.contrib import messages
 
-from api.models import Currency
+from api.models import Currency, Portfolio, Rate
+
 from .forms import *
-from .forms import ProfileUpdateForm
 
 
 class HomeView(TemplateView):
-    template_name = 'home.html'
+    """
+    Представление для главной страницы.
+    """
+    template_name = 'home/index.html'
 
 
 class AccountView(LoginRequiredMixin, TemplateView):
-    template_name = 'account.html'
-
-    login_url = 'login/'
+    """
+    Представление для управления настройками аккаунта пользователя.
+    Включает изменение имени, email, telegram и пароля.
+    """
+    template_name = 'account/index.html'
+    login_url = 'app:login'
 
     def get(self, request, *args, **kwargs):
         """
-        Handles GET requests to display the account management page.
-        Pre-fills the form with the current user's information.
+        Обрабатывает GET запросы для отображения страницы настроек.
+        Заполняет формы текущей информацией пользователя.
         """
-        form = AccountForm(instance=request.user)
-        return render(request, self.template_name, {'form': form})
+        account_form = AccountForm(instance=request.user)
+        password_form = ChangePasswordForm(user=request.user)
+        return render(request, self.template_name, {
+            'account_form': account_form,
+            'password_form': password_form
+        })
 
     def post(self, request, *args, **kwargs):
         """
-        Handles POST requests to update the user's account information.
-        Validates the form and saves changes if valid.
-        Redirects to the account page upon successful update.
+        Обрабатывает POST запросы для обновления настроек.
+        Определяет тип формы и обрабатывает соответственно.
         """
-        form = AccountForm(request.POST, instance=request.user)
-        if form.is_valid():
-            form.save()  # Save the updated user information
-            return redirect('app:account')  # Redirect to the account page
-        return render(request, self.template_name, {'form': form})
+        if 'change_password' in request.POST:
+            password_form = ChangePasswordForm(request.user, request.POST)
+            if password_form.is_valid():
+                password_form.save()
+                return redirect('app:account')
+            account_form = AccountForm(instance=request.user)
+        else:
+            form = AccountForm(request.POST, instance=request.user)
+            if form.is_valid():
+                form.save()
+                return redirect('app:account')
+            account_form = form
+            password_form = ChangePasswordForm(user=request.user)
+
+        return render(request, self.template_name, {
+            'account_form': account_form,
+            'password_form': password_form
+        })
+
+
+class ChangePasswordView(LoginRequiredMixin, FormView):
+    """
+    Представление для смены пароля пользователя.
+    """
+    template_name = 'account/change_password.html'
+    form_class = ChangePasswordForm
+    success_url = reverse_lazy('app:account')
+    login_url = 'app:login'
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+
 
 class RegisterView(FormView):
-    template_name = 'register.html'
+    """
+    Представление для регистрации нового пользователя.
+    Использует RegisterForm.
+    """
+    template_name = 'account/register.html'
     form_class = RegisterForm
     success_url = reverse_lazy('app:login')
 
     def form_valid(self, form):
+        """
+        Обрабатывает успешную валидацию формы.
+        Создает нового пользователя и перенаправляет на страницу входа.
+        """
         user = form.save(commit=False)
         user.set_password(form.cleaned_data['password1'])
         user.save()
@@ -53,16 +104,27 @@ class RegisterView(FormView):
 
 
 class LoginView(FormView):
-    template_name = 'login.html'
+    """
+    Представление для входа пользователя.
+    Использует LoginForm.
+    """
+    template_name = 'account/login.html'
     form_class = LoginForm
     success_url = reverse_lazy('app:account')
 
     def get_form_kwargs(self):
+        """
+        Добавляет текущий запрос в форму.
+        """
         kwargs = super().get_form_kwargs()
         kwargs['request'] = self.request
         return kwargs
 
     def form_valid(self, form):
+        """
+        Обрабатывает успешную валидацию формы.
+        Выполняет вход пользователя и устанавливает JWT токен.
+        """
         login(self.request, form.get_user())
         response = redirect(self.get_success_url())
         refresh = RefreshToken.for_user(form.get_user())
@@ -70,54 +132,57 @@ class LoginView(FormView):
         return response
 
 
-class LogoutView(View):
+class LogoutView(LoginRequiredMixin, View):
+    """
+    Представление для выхода пользователя из системы.
+    """
     success_url = reverse_lazy('app:login')
+    login_url = 'app:login'
 
     def get(self, request):
+        """
+        Обрабатывает GET запросы для выхода пользователя.
+        Удаляет сессию и JWT токен.
+        """
         logout(request)
-
         response = redirect(str(self.success_url))
         response.delete_cookie('access_token')
-
         return response
 
 
-# Устарело, см class AccountView выше
-# class AccountView(LoginRequiredMixin, UpdateView):
-#     model = Account
-#     form_class = ProfileUpdateForm
-#     template_name = 'account.html'
-#     success_url = reverse_lazy('app:account')
-
-#     def get_object(self, queryset=None):
-#         return self.request.user
-
-
-# class ChangePasswordView(LoginRequiredMixin, FormView):
-#     template_name = 'auth/change_password.html'
-#     form_class = PasswordChangeForm
-#     success_url = reverse_lazy('profile')
-#
-#     def form_valid(self, form):
-#         user = self.request.user
-#         old_password = form.cleaned_data['old_password']
-#         new_password = form.cleaned_data['new_password']
-#
-#         if not user.check_password(old_password):
-#             form.add_error('old_password', "Wrong password")
-#             return self.form_invalid(form)
-#
-#         user.set_password(new_password)
-#         user.save()
-#         return super().form_valid(form)
-
-
-class DashboardView(LoginRequiredMixin, TemplateView):
-    template_name = 'dashboard.html'
+class PortfolioView(LoginRequiredMixin, TemplateView):
+    """
+    Представление для просмотра портфеля пользователя.
+    Показывает все активы пользователя и их текущую стоимость.
+    """
+    template_name = 'portfolio/index.html'
+    login_url = 'app:login'
 
     def get(self, request, *args, **kwargs):
+        """
+        Обрабатывает GET запросы для отображения портфеля.
+        Добавляет список активов пользователя в контекст.
+        """
+        context = {}
+        portfolio = Portfolio.objects.filter(user=request.user)
+        context['portfolio'] = portfolio
+        return render(request, self.template_name, context)
+
+
+class MarketView(LoginRequiredMixin, TemplateView):
+    """
+    Представление для просмотра рынка активов.
+    Показывает список всех доступных активов с графиками.
+    """
+    template_name = 'market/index.html'
+    login_url = 'app:login'
+    
+    def get(self, request, *args, **kwargs):
+        """
+        Обрабатывает GET запросы для отображения рынка.
+        Добавляет список всех активов в контекст.
+        """
         context = {}
         context['currencies'] = Currency.objects.all()
-        return render(request,
-                      self.template_name,
-                      context)
+        context['rates'] = Rate.objects.all()
+        return render(request, self.template_name, context)
