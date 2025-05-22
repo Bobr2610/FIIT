@@ -10,7 +10,7 @@
     <!-- Верхняя панель для страницы аккаунта может быть упрощена или стандартной -->
     <div class="top-bar" id="top">
         <div class="account-group">
-            <a href="{% url 'app:dashboard' %}" class="account-link">
+            <a href="{% url 'app:market' %}" class="account-link">
                 <i class="fas fa-arrow-left"></i>
                 <span>Назад к панели</span>
             </a>
@@ -71,6 +71,10 @@
             <button type="submit" class="btn btn-primary">Сохранить изменения</button>
         </div>
     </form>
+
+    <div class="account-buttons">
+        <a href="{% url 'app:change-password' %}" class="account-btn">Изменить пароль</a>
+    </div>
 
     <form action="{% url 'app:logout' %}" class="account-form">
         {% csrf_token %}
