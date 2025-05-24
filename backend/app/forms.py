@@ -1,35 +1,28 @@
 from django import forms
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserCreationForm
-from api.models import Account
+from api.models import *
 
 
 class AccountForm(forms.ModelForm):
     """
     Форма для управления информацией аккаунта пользователя.
-    Включает поля для имени пользователя, email и Telegram.
+    Включает поля для имени пользователя и email.
     """
     email = forms.EmailField(
         required=False,
         label='Email'
     )
-    telegram = forms.CharField(
-        required=False,
-        label='Telegram'
-    )
 
     class Meta:
         model = Account
-        fields = ['username', 'email', 'telegram']
+        fields = ['username', 'email']
         widgets = {
             'username': forms.TextInput(attrs={
                 'placeholder': 'Введите имя пользователя'
             }),
             'email': forms.EmailInput(attrs={
                 'placeholder': 'Введите email'
-            }),
-            'telegram': forms.TextInput(attrs={
-                'placeholder': 'Введите username в Telegram'
             })
         }
 
@@ -140,11 +133,6 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = Account
         fields = ['username', 'email']
-        # widgets = {
-        #     'email': forms.EmailInput(attrs={
-        #         'placeholder': 'Введите email'
-        #     })
-        # }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -210,3 +198,30 @@ class LoginForm(forms.Form):
 
     def get_user(self):
         return self.user_cache
+
+
+class PortfolioOperationForm(forms.Form):
+    """
+    Форма для операций с портфелем (покупка/продажа).
+    """
+    currency = forms.ModelChoiceField(
+        queryset=Currency.objects.all(),
+        label='Валюта'
+    )
+    amount = forms.DecimalField(
+        max_digits=20,
+        decimal_places=8,
+        label='Количество'
+    )
+
+
+class WatchForm(forms.ModelForm):
+    """
+    Форма для добавления валюты в отслеживаемые.
+    """
+    class Meta:
+        model = Watch
+        fields = ['currency', 'notify_time']
+        widgets = {
+            'notify_time': forms.TimeInput(attrs={'type': 'time'})
+        }

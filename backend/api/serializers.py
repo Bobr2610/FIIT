@@ -7,35 +7,61 @@ from .models import *
 
 class AuthLoginSerializer(serializers.Serializer):
     username = serializers.CharField()
-    password = serializers.CharField(write_only=True)
+    password = serializers.CharField()
+
+    class Meta:
+        write_only_fields = ('password',)
 
     def validate(self, data):
         user = authenticate(username=data['username'], password=data['password'])
+
         if not user:
             raise serializers.ValidationError("Неверное имя пользователя или пароль")
+
         data['user'] = user
+
         return data
 
 
 class AuthRegisterSerializer(serializers.ModelSerializer):
-    password2 = serializers.CharField(write_only=True)
+    password_check = serializers.CharField()
 
     class Meta:
         model = Account
-        fields = ('username', 'email', 'password', 'password2')
-        extra_kwargs = {
-            'password': {'write_only': True}
-        }
+        fields = ('username', 'email', 'password', 'password_check')
+        write_only_fields = ('password', 'password_check')
 
     def validate(self, data):
-        if data['password'] != data['password2']:
+        if data['password'] != data['password_check']:
             raise serializers.ValidationError("Пароли не совпадают")
+
         return data
 
     def create(self, validated_data):
-        validated_data.pop('password2')
+        validated_data.pop('password_check')
+
         user = Account.objects.create_user(**validated_data)
+
         return user
+
+
+class AuthRefreshSerializer(serializers.Serializer):
+    refresh = serializers.CharField()
+
+
+class TelegramVerificationLinkSerializer(serializers.Serializer):
+    code = serializers.CharField()
+    chat_id = serializers.IntegerField()
+
+
+class AuthTelegramLinkSerializer(serializers.Serializer):
+    link = serializers.CharField()
+    expires_at = serializers.DateTimeField()
+
+
+class TelegramStatusResponseSerializer(serializers.Serializer):
+    is_verified = serializers.BooleanField()
+    chat_id = serializers.IntegerField(allow_null=True)
 
 
 class AccountSerializer(serializers.ModelSerializer):
@@ -48,30 +74,38 @@ class AccountSerializer(serializers.ModelSerializer):
 class AccountUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
-        fields = ('email',)
+        fields = ('username', 'email')
 
 
 class PasswordChangeSerializer(serializers.Serializer):
-    old_password = serializers.CharField(write_only=True)
-    new_password = serializers.CharField(write_only=True)
-    new_password2 = serializers.CharField(write_only=True)
+    old_password = serializers.CharField()
+    new_password = serializers.CharField()
+    new_password_check = serializers.CharField()
+
+    class Meta:
+        write_only_fields = ('old_password', 'new_password', 'new_password_check')
 
     def validate(self, data):
-        if data['new_password'] != data['new_password2']:
+        if data['new_password'] != data['new_password_check']:
             raise serializers.ValidationError("Новые пароли не совпадают")
+
         return data
 
     def save(self, **kwargs):
         user = self.context['user']
+
         if not user.check_password(self.validated_data['old_password']):
             raise serializers.ValidationError("Неверный текущий пароль")
+
         user.set_password(self.validated_data['new_password'])
         user.save()
+
         return user
 
 
+# TODO: replace counts to objects?
 class PortfolioSerializer(serializers.ModelSerializer):
-    account = AccountSerializer(read_only=True)
+    account = AccountSerializer()
     operations_count = serializers.SerializerMethodField()
     watches_count = serializers.SerializerMethodField()
     currencies_count = serializers.SerializerMethodField()
@@ -105,16 +139,18 @@ class CurrencySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Currency
-        fields = ('id', 'name', 'short_name', 'description', 'current_rate')
+        fields = ('id', 'name', 'short_name', 'description',
+                  'current_rate')
         read_only_fields = fields
 
     def get_current_rate(self, obj):
         latest_rate = obj.rate_set.order_by('-timestamp').first()
+
         return latest_rate.cost if latest_rate else None
 
 
 class RateSerializer(serializers.ModelSerializer):
-    currency = CurrencySerializer(read_only=True)
+    currency = CurrencySerializer()
     currency_id = serializers.PrimaryKeyRelatedField(
         queryset=Currency.objects.all(),
         write_only=True,
@@ -124,11 +160,11 @@ class RateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rate
         fields = ('id', 'currency', 'currency_id', 'cost', 'timestamp')
-        read_only_fields = ('id', 'timestamp')
+        read_only_fields = ('id', 'currency', 'timestamp')
 
 
 class CurrencyBalanceSerializer(serializers.ModelSerializer):
-    currency = CurrencySerializer(read_only=True)
+    currency = CurrencySerializer()
     current_price = serializers.SerializerMethodField()
     total_value = serializers.SerializerMethodField()
 
@@ -146,19 +182,20 @@ class CurrencyBalanceSerializer(serializers.ModelSerializer):
     def get_total_value(self, obj):
         try:
             current_price = obj.currency.rate_set.latest('timestamp').cost
+
             return obj.amount * current_price
         except Rate.DoesNotExist:
             return None
 
 
 class OperationSerializer(serializers.ModelSerializer):
-    portfolio = PortfolioSerializer(read_only=True)
+    portfolio = PortfolioSerializer()
     portfolio_id = serializers.PrimaryKeyRelatedField(
         queryset=Portfolio.objects.all(),
         write_only=True,
         source='portfolio'
     )
-    currency = CurrencySerializer(read_only=True)
+    currency = CurrencySerializer()
     currency_id = serializers.PrimaryKeyRelatedField(
         queryset=Currency.objects.all(),
         write_only=True,
@@ -171,20 +208,20 @@ class OperationSerializer(serializers.ModelSerializer):
         fields = ('id', 'portfolio', 'portfolio_id', 'operation_type',
                   'currency', 'currency_id', 'amount', 'price',
                   'total_amount', 'timestamp')
-        read_only_fields = ('id', 'timestamp')
+        read_only_fields = ('id', 'portfolio', 'currency', 'timestamp')
 
     def get_total_amount(self, obj):
         return obj.amount * obj.price
 
 
 class WatchSerializer(serializers.ModelSerializer):
-    portfolio = PortfolioSerializer(read_only=True)
+    portfolio = PortfolioSerializer()
     portfolio_id = serializers.PrimaryKeyRelatedField(
         queryset=Portfolio.objects.all(),
         write_only=True,
         source='portfolio'
     )
-    currency = CurrencySerializer(read_only=True)
+    currency = CurrencySerializer()
     currency_id = serializers.PrimaryKeyRelatedField(
         queryset=Currency.objects.all(),
         write_only=True,
@@ -195,23 +232,4 @@ class WatchSerializer(serializers.ModelSerializer):
         model = Watch
         fields = ('id', 'portfolio', 'portfolio_id', 'currency',
                   'currency_id', 'notify_time')
-        read_only_fields = ('id',)
-
-
-class TelegramVerificationLinkSerializer(serializers.Serializer):
-    code = serializers.CharField()
-    chat_id = serializers.IntegerField()
-
-
-class RefreshTokenSerializer(serializers.Serializer):
-    refresh = serializers.CharField()
-
-
-class TelegramLinkResponseSerializer(serializers.Serializer):
-    link = serializers.CharField()
-    expires_at = serializers.DateTimeField()
-
-
-class TelegramStatusResponseSerializer(serializers.Serializer):
-    is_verified = serializers.BooleanField()
-    chat_id = serializers.IntegerField(allow_null=True)
+        read_only_fields = ('id', 'portfolio', 'currency')

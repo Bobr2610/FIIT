@@ -7,215 +7,203 @@
 {% endblock %}
 
 {% block content %}
-<div class="portfolio-container">
-    <!-- Общая информация о портфеле -->
-    <div class="portfolio-summary card">
-        <h2>Ваш портфель</h2>
-        <div class="summary-stats">
-            <div class="stat-item">
-                <span class="stat-label">Общая стоимость:</span>
-                <span class="stat-value" id="totalValue">0 RUB</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">Изменение за 24ч:</span>
-                <span class="stat-value" id="dailyChange">0%</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">Активов в портфеле:</span>
-                <span class="stat-value" id="totalAssets">0</span>
+<div class="container py-4">
+    <!-- Основная информация о портфеле -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Общая информация</h5>
+                    <p class="card-text">Баланс: {{ portfolio.balance }} ₽</p>
+                    <p class="card-text">Количество операций: {{ portfolio.operations_count }}</p>
+                    <p class="card-text">Отслеживаемых валют: {{ portfolio.watches_count }}</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- График распределения активов -->
-    <div class="portfolio-distribution card">
-        <h3>Распределение активов</h3>
-        <div class="chart-container">
-            <canvas id="distributionChart"></canvas>
+    <!-- Формы операций -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Покупка валюты</h5>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ buy_form.as_p }}
+                        <button type="submit" name="buy" class="btn btn-primary">Купить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Продажа валюты</h5>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ sell_form.as_p }}
+                        <button type="submit" name="sell" class="btn btn-primary">Продать</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Добавить в отслеживаемые</h5>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ watch_form.as_p }}
+                        <button type="submit" name="add_watch" class="btn btn-primary">Добавить</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Список активов -->
-    <div class="assets-list card">
-        <h3>Ваши активы</h3>
-        <div class="assets-table-container">
-            <table class="assets-table">
-                <thead>
-                    <tr>
-                        <th>Актив</th>
-                        <th>Количество</th>
-                        <th>Стоимость</th>
-                        <th>Доля в портфеле</th>
-                        <th>Изменение 24ч</th>
-                        <th>Действия</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for asset in portfolio %}
-                    <tr>
-                        <td>
-                            <div class="asset-info">
-                                <i class="fas fa-coins"></i>
-                                <span>{{ asset.currency.short_name }}</span>
-                            </div>
-                        </td>
-                        <td>{{ asset.amount }}</td>
-                        <td>{{ asset.current_value }} RUB</td>
-                        <td>
-                            <div class="portfolio-share">
-                                <div class="share-bar">
-                                    <div class="share-fill" style="width: {{ asset.portfolio_share }}%"></div>
-                                </div>
-                                <span>{{ asset.portfolio_share }}%</span>
-                            </div>
-                        </td>
-                        <td class="{% if asset.daily_change > 0 %}positive{% else %}negative{% endif %}">
-                            {{ asset.daily_change }}%
-                        </td>
-                        <td>
-                            <div class="asset-actions">
-                                <button class="btn btn-buy" onclick="showTransactionModal('buy', '{{ asset.currency.short_name }}')">
-                                    Купить
-                                </button>
-                                <button class="btn btn-sell" onclick="showTransactionModal('sell', '{{ asset.currency.short_name }}')">
-                                    Продать
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+    <!-- Текущие балансы валют -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Текущие балансы</h5>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Валюта</th>
+                                    <th>Количество</th>
+                                    <th>Текущий курс</th>
+                                    <th>Стоимость в ₽</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for balance in currency_balances %}
+                                <tr>
+                                    <td>{{ balance.currency.name }} ({{ balance.currency.short_name }})</td>
+                                    <td>{{ balance.amount }}</td>
+                                    <td>{{ balance.currency.current_rate }} ₽</td>
+                                    <td>{{ balance.total_value }} ₽</td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="4" class="text-center">У вас пока нет валют</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- История транзакций -->
-    <div class="transaction-history card">
-        <h3>История транзакций</h3>
-        <div class="transactions-table-container">
-            <table class="transactions-table">
-                <thead>
-                    <tr>
-                        <th>Дата</th>
-                        <th>Тип</th>
-                        <th>Актив</th>
-                        <th>Количество</th>
-                        <th>Стоимость</th>
-                        <th>Статус</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for transaction in transactions %}
-                    <tr>
-                        <td>{{ transaction.date }}</td>
-                        <td class="{% if transaction.type == 'buy' %}positive{% else %}negative{% endif %}">
-                            {{ transaction.type|title }}
-                        </td>
-                        <td>{{ transaction.currency.short_name }}</td>
-                        <td>{{ transaction.amount }}</td>
-                        <td>{{ transaction.value }} RUB</td>
-                        <td>
-                            <span class="status-badge {{ transaction.status }}">
-                                {{ transaction.status|title }}
-                            </span>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+    <!-- История операций -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">История операций</h5>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Дата</th>
+                                    <th>Тип</th>
+                                    <th>Валюта</th>
+                                    <th>Количество</th>
+                                    <th>Стоимость</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for operation in operations %}
+                                <tr>
+                                    <td>{{ operation.timestamp|date:"d.m.Y H:i" }}</td>
+                                    <td>
+                                        {% if operation.operation_type == 'buy' %}
+                                        <span class="badge bg-success">Покупка</span>
+                                        {% else %}
+                                        <span class="badge bg-danger">Продажа</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ operation.currency.name }}</td>
+                                    <td>{{ operation.amount }}</td>
+                                    <td>{{ operation.price|floatformat:2 }} ₽</td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="5" class="text-center">История операций пуста</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Отслеживаемые валюты -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Отслеживаемые валюты</h5>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Валюта</th>
+                                    <th>Текущий курс</th>
+                                    <th>Время уведомления</th>
+                                    <th>Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for watch in watches %}
+                                <tr>
+                                    <td>{{ watch.currency.name }} ({{ watch.currency.short_name }})</td>
+                                    <td>{{ watch.currency.current_rate }} ₽</td>
+                                    <td>{{ watch.notify_time|time:"H:i" }}</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-danger" onclick="deleteWatch({{ watch.id }})">
+                                            Удалить
+                                        </button>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="4" class="text-center">Нет отслеживаемых валют</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+{% endblock %}
 
-<!-- Модальное окно для транзакций -->
-<div id="transactionModal" class="modal">
-    <div class="modal-content">
-        <span class="close-button">&times;</span>
-        <h3 id="modalTitle">Транзакция</h3>
-        <form id="transactionForm">
-            <div class="form-group">
-                <label for="transactionType">Тип операции:</label>
-                <select id="transactionType" name="type">
-                    <option value="buy">Покупка</option>
-                    <option value="sell">Продажа</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="transactionAmount">Количество:</label>
-                <input type="number" id="transactionAmount" name="amount" min="0.01" step="0.01" required>
-            </div>
-            <div class="form-group">
-                <label for="transactionPrice">Цена за единицу:</label>
-                <input type="number" id="transactionPrice" name="price" readonly>
-            </div>
-            <div class="form-group">
-                <label for="transactionTotal">Итоговая стоимость:</label>
-                <input type="number" id="transactionTotal" name="total" readonly>
-            </div>
-            <button type="submit" class="btn btn-primary">Подтвердить</button>
-        </form>
-    </div>
-</div>
-
+{% block extra_js %}
 <script>
-    // Инициализация графика распределения активов
-    document.addEventListener('DOMContentLoaded', function() {
-        const ctx = document.getElementById('distributionChart').getContext('2d');
-        const portfolioData = {
-            labels: [{% for asset in portfolio %}'{{ asset.currency.short_name }}',{% endfor %}],
-            datasets: [{
-                data: [{% for asset in portfolio %}{{ asset.portfolio_share }},{% endfor %}],
-                backgroundColor: [
-                    '#FF6384',
-                    '#36A2EB',
-                    '#FFCE56',
-                    '#4BC0C0',
-                    '#9966FF',
-                    '#FF9F40'
-                ]
-            }]
-        };
-
-        new Chart(ctx, {
-            type: 'doughnut',
-            data: portfolioData,
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'right'
-                    },
-                    title: {
-                        display: true,
-                        text: 'Распределение активов'
-                    }
-                }
+function deleteWatch(watchId) {
+    if (confirm('Вы уверены, что хотите удалить эту валюту из отслеживаемых?')) {
+        fetch(`/api/watches/${watchId}/`, {
+            method: 'DELETE',
+            headers: {
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+            }
+        }).then(response => {
+            if (response.ok) {
+                location.reload();
+            } else {
+                alert('Произошла ошибка при удалении');
             }
         });
-    });
-
-    // Функции для работы с модальным окном транзакций
-    function showTransactionModal(type, currency) {
-        const modal = document.getElementById('transactionModal');
-        const title = document.getElementById('modalTitle');
-        const typeSelect = document.getElementById('transactionType');
-        
-        title.textContent = type === 'buy' ? 'Покупка ' + currency : 'Продажа ' + currency;
-        typeSelect.value = type;
-        
-        modal.style.display = 'block';
     }
-
-    // Закрытие модального окна
-    document.querySelector('.close-button').onclick = function() {
-        document.getElementById('transactionModal').style.display = 'none';
-    }
-
-    // Расчет итоговой стоимости при изменении количества
-    document.getElementById('transactionAmount').addEventListener('input', function() {
-        const amount = parseFloat(this.value) || 0;
-        const price = parseFloat(document.getElementById('transactionPrice').value) || 0;
-        document.getElementById('transactionTotal').value = (amount * price).toFixed(2);
-    });
+}
 </script>
 {% endblock %}

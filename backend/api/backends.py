@@ -4,7 +4,6 @@ from .models import Account
 
 
 class AuthBackend(ModelBackend):
-
     def authenticate(self, request, email=None, password=None, **kwargs):
         try:
             user = Account.objects.get(email=email)

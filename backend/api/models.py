@@ -1,5 +1,8 @@
+from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class Account(AbstractUser):
@@ -13,6 +16,22 @@ class Account(AbstractUser):
         db_table_comment = 'User Account'
         verbose_name = 'Account'
         verbose_name_plural = 'Accounts'
+
+
+class TelegramVerificationLink(models.Model):
+    user = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='telegram_links')
+    code = models.CharField(max_length=32, unique=True)
+    expires_at = models.DateTimeField()
+
+    def __str__(self):
+        # TODO: replace to link
+        return f'{self.user.username} {self.code}'
+
+    class Meta:
+        db_table = 'telegram_verification_link'
+        db_table_comment = 'Telegram Verification Links'
+        verbose_name = 'Telegram Verification Link'
+        verbose_name_plural = 'Telegram Verification Links'
 
 
 class Portfolio(models.Model):
@@ -111,19 +130,3 @@ class Watch(models.Model):
         db_table_comment = 'Watches Of Currencies'
         verbose_name = 'Watch'
         verbose_name_plural = 'Watches'
-
-
-class TelegramVerificationLink(models.Model):
-    user = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='telegram_links')
-    code = models.CharField(max_length=32, unique=True)
-    expires_at = models.DateTimeField()
-
-    def __str__(self):
-        # TODO: replace to link
-        return f'{self.user.username} {self.code}'
-
-    class Meta:
-        db_table = 'telegram_verification_link'
-        db_table_comment = 'Telegram Verification Links'
-        verbose_name = 'Telegram Verification Link'
-        verbose_name_plural = 'Telegram Verification Links'

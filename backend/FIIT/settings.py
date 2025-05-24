@@ -31,6 +31,9 @@ ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS').split(',')
 
 CSRF_TRUSTED_ORIGINS = [f'http://{host}:8000' for host in ALLOWED_HOSTS]
 
+API_URL = os.getenv('SITE_API_URL')
+PORTFOLIO_BALANCE = int(os.getenv('SITE_PORTFOLIO_BALANCE'))
+
 # Application definition
 
 INSTALLED_APPS = [
