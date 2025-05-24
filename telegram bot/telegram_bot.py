@@ -1,8 +1,8 @@
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 
-# Замените 'YOUR_BOT_TOKEN' на ваш реальный токен
-BOT_TOKEN = "7858818679:AAHvcbH152UCIW9jhfgXO4xZgrmvRiJRQTY"
+
+BOT_TOKEN = "7935629622:AAEzgfhaY5Hg1OenXI197gkJYEHIF8damLY"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text('Бот пока что не доступен, он скоро будет готов.')
