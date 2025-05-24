@@ -4,6 +4,7 @@
 
 __pycache__
 
+.DS_Store
 config/.env
 poetry.lock
 .qodo

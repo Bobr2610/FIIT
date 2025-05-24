@@ -1,14 +1,19 @@
+from django.conf import settings
 from django.contrib.auth import login, logout
 from django.db import transaction
-from rest_framework import status, viewsets, permissions
+from django.utils import timezone
+from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from django_celery_beat.models import PeriodicTask, CrontabSchedule
+from datetime import timedelta
+import secrets
 
 from .serializers import *
+from .models import *
 
 class AuthViewSet(viewsets.GenericViewSet):
     """
@@ -20,7 +25,6 @@ class AuthViewSet(viewsets.GenericViewSet):
     * email - электронная почта
     * password - пароль
     * password2 - подтверждение пароля
-    * telegram - ссылка на Telegram (опционально)
 
     login (POST /api/auth/login/):
     Авторизация пользователя
@@ -34,9 +38,20 @@ class AuthViewSet(viewsets.GenericViewSet):
     refresh (POST /api/auth/refresh/):
     Обновление токена доступа
     * refresh - токен обновления
+
+    telegram_link (POST /api/auth/telegram/link/):
+    Генерирует временную ссылку для привязки Telegram
+
+    telegram_verify (POST /api/auth/telegram/verify/):
+    Верифицирует пользователя по коду и привязывает chat_id
+    * code - код верификации
+    * chat_id - ID чата в Telegram
+
+    telegram_status (GET /api/auth/telegram/status/):
+    Возвращает статус привязки Telegram
     """
     def get_permissions(self):
-        if self.action in ['logout']:
+        if self.action in ['logout', 'telegram_link', 'telegram_status']:
             return [IsAuthenticated()]
         return [AllowAny()]
 
@@ -45,14 +60,18 @@ class AuthViewSet(viewsets.GenericViewSet):
             return AuthRegisterSerializer
         elif self.action == 'login':
             return AuthLoginSerializer
-
-        raise RuntimeError('Unknown action!')
+        elif self.action == 'telegram_verify':
+            return TelegramVerificationLinkSerializer
+        elif self.action in ['logout', 'refresh']:
+            return RefreshTokenSerializer
+        elif self.action == 'telegram_link':
+            return TelegramLinkResponseSerializer
+        elif self.action == 'telegram_status':
+            return TelegramStatusResponseSerializer
 
     @action(detail=False, methods=['post'])
     def register(self, request):
-        """
-        Регистрация нового пользователя.
-        """
+        """Регистрация нового пользователя."""
         serializer = self.get_serializer(data=request.data)
         serializer.context['action'] = 'register'
         serializer.is_valid(raise_exception=True)
@@ -66,9 +85,7 @@ class AuthViewSet(viewsets.GenericViewSet):
 
     @action(detail=False, methods=['post'])
     def login(self, request):
-        """
-        Авторизация пользователя.
-        """
+        """Авторизация пользователя."""
         serializer = self.get_serializer(data=request.data)
         serializer.context['action'] = 'login'
         serializer.is_valid(raise_exception=True)
@@ -83,9 +100,7 @@ class AuthViewSet(viewsets.GenericViewSet):
 
     @action(detail=False, methods=['post'])
     def logout(self, request):
-        """
-        Выход из системы.
-        """
+        """Выход из системы."""
         try:
             refresh_token = request.data["refresh"]
             token = RefreshToken(refresh_token)
@@ -97,9 +112,7 @@ class AuthViewSet(viewsets.GenericViewSet):
 
     @action(detail=False, methods=['post'])
     def refresh(self, request):
-        """
-        Обновление токена доступа.
-        """
+        """Обновление токена доступа."""
         try:
             refresh_token = request.data["refresh"]
             token = RefreshToken(refresh_token)
@@ -108,6 +121,71 @@ class AuthViewSet(viewsets.GenericViewSet):
             })
         except Exception:
             return Response(status=status.HTTP_400_BAD_REQUEST)
+
+    @action(detail=False, methods=['post'])
+    def telegram_link(self, request):
+        """Генерирует временную ссылку для привязки Telegram"""
+        # Генерируем уникальный код
+        code = secrets.token_urlsafe(24)
+        
+        # Создаем запись с временной ссылкой
+        link = TelegramVerificationLink.objects.create(
+            user=request.user,
+            code=code,
+            expires_at=timezone.now() + timedelta(minutes=2)
+        )
+        
+        # Формируем ссылку для Telegram
+        bot_username = settings.TELEGRAM_BOT_USERNAME
+        telegram_link = f"https://t.me/{bot_username}?start={code}"
+        
+        serializer = self.get_serializer(data={
+            'link': telegram_link,
+            'expires_at': link.expires_at
+        })
+        serializer.is_valid(raise_exception=True)
+        return Response(serializer.data)
+
+    @action(detail=False, methods=['post'])
+    def telegram_verify(self, request):
+        """Верифицирует пользователя по коду и привязывает chat_id"""
+        serializer = self.get_serializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=400)
+        
+        code = serializer.validated_data['code']
+        chat_id = serializer.validated_data['chat_id']
+        
+        try:
+            # Ищем активную ссылку
+            link = TelegramVerificationLink.objects.get(
+                code=code,
+                expires_at__gt=timezone.now()
+            )
+            
+            # Проверяем, не привязан ли уже этот chat_id к другому пользователю
+            if Account.objects.filter(telegram_chat_id=chat_id).exclude(id=link.user_id).exists():
+                return Response({'error': 'Этот Telegram аккаунт уже привязан к другому пользователю'}, status=400)
+            
+            # Обновляем chat_id пользователя
+            user = link.user
+            user.telegram_chat_id = chat_id
+            user.save()
+            
+            # Удаляем использованную ссылку
+            link.delete()
+            
+            return Response({'status': 'success'})
+        except TelegramVerificationLink.DoesNotExist:
+            return Response({'error': 'Неверный или устаревший код'}, status=400)
+
+    @action(detail=False, methods=['get'])
+    def telegram_status(self, request):
+        """Возвращает статус привязки Telegram"""
+        return Response({
+            'is_verified': bool(request.user.telegram_chat_id),
+            'chat_id': request.user.telegram_chat_id
+        })
 
 
 class AccountViewSet(viewsets.ModelViewSet):

@@ -191,6 +191,23 @@ services:
     networks:
       - network
 
+  bot:
+    depends_on:
+      - app
+    build:
+      context: .
+    working_dir: /fiit/services/bot
+    command: python bot.py
+    deploy:
+      replicas: 1
+    restart: always
+    env_file:
+      - config/.env
+    volumes:
+      - ./services/bot:/fiit/services/bot
+    networks:
+      - network
+
 volumes:
   app_static_data:
   postgres_data:
