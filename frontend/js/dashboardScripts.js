@@ -1,491 +1,241 @@
-// Запуск инициализации при загрузке страницы
-window.addEventListener('load', initializeCharts);
+// Глобальные переменные
+let allChartData = { labels: [], datasets: [] };
+let combinedChartInstance = null;
+// const exchangeratesFile = 'js/exchangerates.json'; // Эта строка должна быть удалена или закомментирована
 
-// Добавляем обработчик изменения размера окна
-window.addEventListener('resize', adjustPriceFontSize);
+// Описания валют
+const currencyDescriptions = {
+    BTC: 'Bitcoin - это децентрализованная цифровая валюта, не имеющая центрального банка или единого администратора.',
+    ETH: 'Ethereum - это децентрализованная блокчейн-платформа с открытым исходным кодом и функциональностью смарт-контрактов.',
+    TON: 'The Open Network (TON) - это быстрый, безопасный и масштабируемый блокчейн-проект.',
+    USD: 'Доллар США - официальная валюта Соединенных Штатов и их территорий.',
+    EUR: 'Евро - официальная валюта 19 из 27 стран-членов Европейского Союза.',
+    CNY: 'Китайский юань (женьминьби) - официальная валюта Китайской Народной Республики.',
+    AED: 'Дирхам ОАЭ - валюта Объединенных Арабских Эмиратов.'
+    // Убедитесь, что ключи здесь соответствуют тем, что будут использоваться в графике (например, USD, EUR)
+};
 
-// Добавляем обработчик для кнопки обновления
-document.querySelector('.refresh-btn').addEventListener('click', updateAllPrices);
+// Константа для настроек форматирования чисел (ОПРЕДЕЛЕНА ОДИН РАЗ)
+const NUMBER_FORMAT_OPTIONS = {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2
+};
 
-// Вызываем функцию при загрузке страницы
-document.addEventListener('DOMContentLoaded', () => {
-  updateAllPrices();
-  // Обновляем цены каждые 30 секунд
-  setInterval(updateAllPrices, 30000);
-});
+// --- ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ---
 
-/**
- * Генерация меток времени для графиков
- * @param {Date} start - Начальная дата
- * @param {number} count - Количество меток
- * @param {boolean} isDaily - Флаг для ежедневных меток
- * @returns {string[]} Массив меток времени
- * 
- * Функция создает метки времени в формате YYYY-MM-DD для графиков.
- * Поддерживает как месячные, так и ежедневные метки.
- */
-function generateLabels(start, count, isDaily = false) {
-  const labels = [];
-  let current = new Date(start);
-  
-  if (isDaily) {
-    // Генерация ежедневных меток для января 2025
-    for (let i = 1; i <= 31; i++) {
-      labels.push('2025-01-' + (i < 10 ? '0' + i : i));
-    }
-  } else {
-    // Генерация месячных меток
-    for (let i = 0; i < count; i++) {
-      const month = current.getMonth() + 1;
-      const year = current.getFullYear();
-      labels.push(year + '-' + (month < 10 ? '0' + month : month));
-      current.setMonth(current.getMonth() + 1);
-    }
-  }
-  return labels;
-}
+function generateLabels(currencyData, interval = 'all', dailyDataKey = null) {
+    const labels = [];
+    const allYears = Object.keys(currencyData).filter(k => k.match(/^\d{4}$/)).sort(); // Получаем все доступные годы
 
-/**
- * Объединение данных по годам в единый массив
- * @param {Object} yearlyData - Объект с данными по годам
- * @returns {number[]} Объединенный массив данных
- * 
- * Функция объединяет массивы данных за 2023, 2024 и 2025 годы
- * в один последовательный массив для построения графика.
- */
-function combineYearlyData(yearlyData) {
-  return [...yearlyData["2023"], ...yearlyData["2024"], ...yearlyData["2025"]];
-}
-
-/**
- * Получение данных в зависимости от выбранного интервала
- * @param {Object} data - Объект с данными
- * @param {string} interval - Выбранный интервал
- * @returns {number[]} Массив данных для графика
- * 
- * Функция возвращает соответствующий набор данных в зависимости
- * от выбранного временного интервала (1 месяц, 6 месяцев, 1 год, 3 года).
- */
-function getDataForInterval(data, interval) {
-  if (!data) {
-    console.warn('Нет данных для интервала', interval);
-    return [];
-  }
-  
-  // Проверяем наличие данных для ежедневного графика
-  if (interval === '1m') {
-    // Для месячного интервала используем ежедневные данные
-    if (data.daily_2025_01 && data.daily_2025_01.some(val => val !== null && val !== undefined)) {
-      console.log('Используем ежедневные данные для месячного интервала');
-      // Заменяем null значения на предыдущие ненулевые или следующие ненулевые
-      const filledData = [...data.daily_2025_01];
-      let lastValidValue = null;
-      
-      // Первый проход - заполняем null значения предыдущими ненулевыми
-      for (let i = 0; i < filledData.length; i++) {
-        if (filledData[i] !== null && filledData[i] !== undefined) {
-          lastValidValue = filledData[i];
-        } else if (lastValidValue !== null) {
-          filledData[i] = lastValidValue;
+    if (dailyDataKey && currencyData[dailyDataKey] && interval === '1m') {
+        const year = dailyDataKey.split('_')[1];
+        const month = dailyDataKey.split('_')[2];
+        const daysInMonth = currencyData[dailyDataKey].length;
+        for (let i = 1; i <= daysInMonth; i++) {
+            labels.push(`${year}-${month}-${i < 10 ? '0' + i : i}`);
         }
-      }
-      
-      // Второй проход - заполняем оставшиеся null значения следующими ненулевыми
-      lastValidValue = null;
-      for (let i = filledData.length - 1; i >= 0; i--) {
-        if (filledData[i] !== null && filledData[i] !== undefined) {
-          lastValidValue = filledData[i];
-        } else if (lastValidValue !== null) {
-          filledData[i] = lastValidValue;
-        }
-      }
-      
-      // Если все еще есть null значения, заменяем их на 0
-      return filledData.map(val => val !== null && val !== undefined ? val : 0);
     } else {
-      console.warn('Нет ежедневных данных, генерируем тестовые данные для месячного интервала');
-      // Если нет ежедневных данных, генерируем тестовые данные
-      return Array(31).fill(0).map((_, i) => 100 + Math.random() * 20 - 10);
-    }
-  }
-  
-  // Для остальных интервалов выбираем данные в зависимости от интервала
-  const monthCount = getMonthCount(interval);
-  
-  // Проверяем наличие годовых данных
-  const hasYearlyData = data['2023']?.length > 0 || data['2024']?.length > 0 || data['2025']?.length > 0;
-  
-  if (!hasYearlyData) {
-    console.warn('Нет годовых данных, генерируем тестовые данные для интервала', interval);
-    // Если нет годовых данных, генерируем тестовые данные
-    return Array(monthCount).fill(0).map((_, i) => 100 + (i / monthCount * 20) + (Math.random() * 10 - 5));
-  }
-  
-  // Если данные за последние 3 года, объединяем все годовые данные
-  if (monthCount >= 36) {
-    console.log('Используем данные за 3 года');
-    return combineYearlyData(data);
-  }
-  
-  // Для 1 года берем данные только за текущий год
-  if (monthCount === 12) {
-    console.log('Используем данные за 1 год');
-    if (data['2025'] && data['2025'].length > 0) {
-      return data['2025'];
-    } else if (data['2024'] && data['2024'].length > 0) {
-      return data['2024'];
-    } else {
-      return data['2023'] || [];
-    }
-  }
-  
-  // Для 6 месяцев берем последние 6 месяцев из текущего года
-  if (monthCount === 6) {
-    console.log('Используем данные за 6 месяцев');
-    const yearData = data['2025'] && data['2025'].length > 0 ? data['2025'] : 
-                    (data['2024'] && data['2024'].length > 0 ? data['2024'] : data['2023']);
-    
-    if (yearData && yearData.length >= 6) {
-      return yearData.slice(-6);
-    } else if (yearData) {
-      // Если данных меньше 6, дополняем их
-      const padding = Array(6 - yearData.length).fill(yearData[0] || 100);
-      return [...padding, ...yearData];
-    } else {
-      return [];
-    }
-  }
-  
-  // Если не удалось определить интервал, возвращаем пустой массив
-  console.warn('Не удалось определить интервал', interval);
-  return [];
-}
-
-/**
- * Создание конфигурации для графика Chart.js
- * @param {string} type - Тип графика
- * @param {Object} data - Данные для графика
- * @param {Object} options - Дополнительные опции
- * @returns {Object} Конфигурация графика
- * 
- * Функция создает конфигурацию для графика с настройками:
- * - Адаптивность
- * - Интерактивность
- * - Подсказки
- * - Легенда
- * - Настройки осей
- */
-function createChartConfig(type, data, options = {}) {
-  // Получаем текущие CSS переменные для стилей
-  const getComputedStyle = window.getComputedStyle(document.documentElement);
-  
-  return {
-    type: 'line',
-    data: {
-      labels: data.labels,
-      datasets: data.datasets.map(dataset => {
-        // Получаем ключ валюты для доступа к CSS переменным
-        const currencyKey = dataset.label.split('/')[0].toLowerCase();
-        
-        // Получаем цвета из CSS переменных
-        const color = getComputedStyle.getPropertyValue(`--chart-${currencyKey}-color`).trim();
-        const bgColor = color.replace(')', `, ${getComputedStyle.getPropertyValue('--chart-bg-opacity').trim()})`);
-        
-        // Получаем стили точек и линий из CSS переменных
-        const pointStyle = getComputedStyle.getPropertyValue(`--chart-${currencyKey}-point-style`).trim().replace(/['"]/g, '');
-        const borderDash = getComputedStyle.getPropertyValue(`--chart-${currencyKey}-border-dash`).trim();
-        
-        return {
-          ...dataset,
-          borderColor: color,
-          backgroundColor: bgColor,
-          // Получаем размеры и стили из CSS переменных
-          borderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-line-width').trim()),
-          pointRadius: parseInt(getComputedStyle.getPropertyValue('--chart-point-radius').trim()),
-          pointHoverRadius: parseInt(getComputedStyle.getPropertyValue('--chart-point-hover-radius').trim()),
-          pointBorderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-point-border-width').trim()),
-          pointHoverBorderWidth: parseInt(getComputedStyle.getPropertyValue('--chart-point-hover-border-width').trim()),
-          pointStyle: pointStyle,
-          borderDash: borderDash === '[]' ? [] : JSON.parse(borderDash),
-          tension: parseFloat(getComputedStyle.getPropertyValue('--chart-line-tension').trim())
-        };
-      })
-    },
-    options: {
-      responsive: true,
-      interaction: { mode: 'index', intersect: false },
-      plugins: {
-        tooltip: { enabled: true },
-        legend: { position: 'bottom' }
-      },
-      scales: {
-        x: {
-          display: true,
-          title: { display: true, text: 'Месяц' }
-        },
-        y: {
-          type: 'logarithmic',
-          ...options.y,
-          display: true,
-          title: { display: true, text: options.yAxisTitle || 'Курс' }
+        let yearsToProcess = allYears;
+        if (interval === '1y') {
+            yearsToProcess = allYears.slice(-1); // Последний год
+        } else if (interval === '3y') {
+            yearsToProcess = allYears.slice(-3); // Последние 3 года
         }
-      }
+        // Для 'all' используем все доступные годы (yearsToProcess уже содержит их)
+
+        yearsToProcess.forEach(year => {
+            if (currencyData[year]) {
+                for (let month = 1; month <= 12; month++) {
+                    // Проверяем, есть ли данные за этот месяц в годовом массиве
+                    if (currencyData[year][month - 1] !== undefined) {
+                         labels.push(`${year}-${month < 10 ? '0' + month : month}`);
+                    }
+                }
+            }
+        });
     }
-  };
+    return [...new Set(labels)].sort();
 }
 
-/**
- * Получение данных о курсах валют через API
- * @param {string} currency - Код валюты (usd, eur, cny, aed, btc, eth, ton)
- * @returns {Promise<Array>} Массив данных о курсах
- */
-async function fetchCurrencyData(currency) {
-  try {
-    // Используем API endpoint для получения данных о курсах
-    const response = await fetch(`/api/v1/rates/?currency=${currency}`);
-    if (!response.ok) {
-      // Если API недоступен, используем локальные файлы как запасной вариант
-      console.warn(`API endpoint недоступен, используем локальные файлы для ${currency}`);
-      try {
-        const fallbackResponse = await fetch(`/data/${currency}_rub_5year_rates_${new Date().toISOString().split('T')[0]}.json`);
-        if (!fallbackResponse.ok) {
-          console.warn(`Локальный файл недоступен для ${currency}, используем тестовые данные`);
-          return generateMockData(currency);
+function combineYearlyData(currencyData, interval = 'all') {
+    let combined = [];
+    const allYears = Object.keys(currencyData).filter(k => k.match(/^\d{4}$/)).sort();
+
+    if (interval === '1m') {
+        // Если есть ключ daily_ для последнего месяца последнего года, используем его
+        const lastYear = allYears.length > 0 ? allYears[allYears.length - 1] : null;
+        if (lastYear) {
+            const dailyKeysForLastYear = Object.keys(currencyData).filter(k => k.startsWith(`daily_${lastYear}_`)).sort();
+            if (dailyKeysForLastYear.length > 0) {
+                const lastMonthDailyKey = dailyKeysForLastYear[dailyKeysForLastYear.length -1];
+                if(currencyData[lastMonthDailyKey]) return currencyData[lastMonthDailyKey];
+            }
         }
-        const fallbackData = await fallbackResponse.json();
-        return fallbackData.map(rate => ({
-          date: rate.date,
-          price: parseFloat(rate.price)
-        }));
-      } catch (fallbackError) {
-        console.warn(`Ошибка при загрузке локального файла для ${currency}:`, fallbackError);
-        return generateMockData(currency);
-      }
+        // Если нет дневных данных за последний месяц, возвращаем пустой массив или данные за последний год (как запасной вариант)
+        // Для простоты пока вернем данные за последний год, если 1m запрошен, но нет daily
+        if (lastYear && currencyData[lastYear]) return currencyData[lastYear];
+        return [];
     }
-    
-    const data = await response.json();
-    // Проверяем, что данные не пустые
-    if (!data || !Array.isArray(data) || data.length === 0) {
-      console.warn(`Получены пустые данные для ${currency}, используем тестовые данные`);
-      return generateMockData(currency);
-    }
-    
-    // Преобразуем данные из API в формат, подходящий для графиков
-    return data.map(rate => ({
-      date: rate.date,
-      price: parseFloat(rate.price)
-    }));
-  } catch (error) {
-    console.error(`Error fetching ${currency} data:`, error);
-    return generateMockData(currency);
-  }
-}
 
-/**
- * Генерация тестовых данных для графиков
- * @param {string} currency - Код валюты
- * @returns {Array} Массив тестовых данных
- */
-function generateMockData(currency) {
-  console.log(`Генерация тестовых данных для ${currency}`);
-  const mockData = [];
-  
-  // Базовые значения для разных валют
-  const baseValues = {
-    'usd': 90,
-    'eur': 100,
-    'cny': 12,
-    'aed': 24,
-    'btc': 5000000,
-    'eth': 300000,
-    'ton': 250
-  };
-  
-  const baseValue = baseValues[currency] || 100;
-  const volatility = baseValue * 0.2; // 20% волатильность
-  
-  // Генерируем данные за 3 года (36 месяцев)
-  const today = new Date();
-  for (let i = 0; i < 36; i++) {
-    const date = new Date(today);
-    date.setMonth(today.getMonth() - 36 + i);
-    
-    // Случайное значение с трендом роста
-    const randomFactor = 0.8 + Math.random() * 0.4; // от 0.8 до 1.2
-    const trendFactor = 1 + (i / 36) * 0.5; // от 1 до 1.5
-    const price = baseValue * randomFactor * trendFactor;
-    
-    mockData.push({
-      date: date.toISOString().split('T')[0],
-      price: price
+    let yearsToProcess = allYears;
+    if (interval === '1y') {
+        yearsToProcess = allYears.slice(-1);
+    } else if (interval === '3y') {
+        yearsToProcess = allYears.slice(-3);
+    }
+
+    yearsToProcess.forEach(year => {
+        if (currencyData[year]) {
+            combined = combined.concat(currencyData[year]);
+        }
     });
-  }
-  
-  // Добавляем ежедневные данные для последнего месяца
-  const lastMonth = new Date(today);
-  lastMonth.setDate(1); // Первый день текущего месяца
-  
-  for (let day = 1; day <= 31; day++) {
-    const date = new Date(lastMonth);
-    date.setDate(day);
-    
-    // Проверяем, что дата не в будущем и валидна
-    if (date > today || date.getMonth() !== lastMonth.getMonth()) continue;
-    
-    const lastPrice = mockData[mockData.length - 1].price;
-    const dailyChange = (Math.random() - 0.5) * 0.05; // ±2.5%
-    const price = lastPrice * (1 + dailyChange);
-    
-    mockData.push({
-      date: date.toISOString().split('T')[0],
-      price: price
-    });
-  }
-  
-  return mockData;
+    return combined;
+}
+
+function getRandomColor(alpha = 1) {
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    return `rgba(${r},${g},${b},${alpha})`;
+}
+
+function calculateStats(dataArray) {
+    if (!dataArray || dataArray.length === 0) return { average: '--', median: '--', outliers: '--' };
+
+    // Убедимся, что все элементы в dataArray являются числами
+    const numericData = dataArray.map(Number).filter(n => !isNaN(n));
+    if (numericData.length === 0) return { average: '--', median: '--', outliers: '--' };
+
+    const sortedData = [...numericData].sort((a, b) => a - b);
+    const sum = sortedData.reduce((acc, val) => acc + val, 0);
+    const average = sum / sortedData.length;
+    const mid = Math.floor(sortedData.length / 2);
+    const median = sortedData.length % 2 !== 0 ? sortedData[mid] : (sortedData[mid - 1] + sortedData[mid]) / 2;
+
+    // Расчет выбросов с использованием IQR (Interquartile Range)
+    const q1Index = Math.floor(sortedData.length / 4);
+    const q3Index = Math.floor((3 * sortedData.length) / 4);
+    const q1 = sortedData.length % 4 === 0 ? (sortedData[q1Index -1] + sortedData[q1Index]) / 2 : sortedData[q1Index];
+    const q3 = sortedData.length % 4 === 0 ? (sortedData[q3Index -1] + sortedData[q3Index]) / 2 : sortedData[q3Index];
+    const iqr = q3 - q1;
+    const lowerBound = q1 - 1.5 * iqr;
+    const upperBound = q3 + 1.5 * iqr;
+    const outliers = sortedData.filter(val => val < lowerBound || val > upperBound).length;
+
+    return {
+        average: average.toFixed(2),
+        median: median.toFixed(2),
+        outliers: outliers
+    };
+}
+
+// --- ФУНКЦИИ ДЛЯ РАБОТЫ С API И ОБНОВЛЕНИЯ ЦЕН ---
+
+// Функция для получения CSRF токена (пример, вам нужно адаптировать)
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+async function fetchRatesFromAPI() {
+    // TODO: Implement token retrieval (access and refresh tokens)
+    const accessToken = localStorage.getItem('accessToken'); // Пример: получение токена из localStorage
+    const csrfToken = getCookie('csrftoken'); // Пример: получение CSRF токена
+
+    const headers = {
+        'Content-Type': 'application/json',
+        // 'Authorization': `Bearer ${accessToken}`, // Раскомментируйте и адаптируйте, если используете Bearer токен
+    };
+    if (csrfToken) {
+        headers['X-CSRFToken'] = csrfToken;
+    }
+
+    try {
+        const response = await fetch('/api/v1/rates/', { // Используем ваш API эндпоинт
+            method: 'GET',
+            headers: headers
+        });
+        if (!response.ok) {
+            // TODO: Implement refresh token logic if applicable (e.g., on 401 Unauthorized)
+            throw new Error(`HTTP error! status: ${response.status} while fetching /api/v1/rates/`);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Error fetching rates from API:', error);
+        throw error; // Перебрасываем ошибку для обработки выше
+    }
 }
 
 async function getBTCPriceFromBinance() {
   try {
-    // Получаем курс BTC/USDT
-    const currencyData = await fetchCurrencyData('usd');
-if (!currencyData) return null;
-const btcUsdtResponse = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT');
+    const btcUsdtResponse = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT');
     const btcUsdtData = await btcUsdtResponse.json();
     const btcUsdtPrice = parseFloat(btcUsdtData.price);
-
-    // Получаем курс USDT/RUB
     const usdtRubResponse = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=USDTRUB');
     const usdtRubData = await usdtRubResponse.json();
     const usdtRubPrice = parseFloat(usdtRubData.price);
-
-    // Рассчитываем курс BTC в рублях
-    const btcRubPrice = btcUsdtPrice * usdtRubPrice;
-    return btcRubPrice;
+    return btcUsdtPrice * usdtRubPrice;
   } catch (error) {
     console.error('Ошибка при получении курса BTC:', error);
     return null;
   }
 }
 
-/**
- * Получение курса ETH с Binance
- * @returns {Promise<number>} Курс ETH в рублях
- */
 async function getETHPriceFromBinance() {
   try {
-    // Получаем курс ETH/USDT
     const ethRubResponse = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=ETHRUB');
     const ethRubData = await ethRubResponse.json();
-    const ethRubPrice = parseFloat(ethRubData.price);
-
-    return ethRubPrice;
+    return parseFloat(ethRubData.price);
   } catch (error) {
     console.error('Ошибка при получении курса ETH:', error);
     return null;
   }
 }
 
-/**
- * Получение текущего курса TON (The Open Network) с биржи Binance
- * Функция делает два запроса к API Binance:
- * 1. Получает курс TON/USDT (TON к USDT)
- * 2. Получает курс USDT/RUB (USDT к рублю)
- * Затем вычисляет итоговый курс TON в рублях путем перемножения этих значений
- * 
- * @returns {Promise<number|null>} Возвращает курс TON в рублях или null в случае ошибки
- */
 async function getTONPriceFromBinance() {
   try {
-    // Делаем запрос к API Binance для получения курса TON/USDT
-    // Используем endpoint /api/v3/ticker/price с параметром symbol=TONUSDT
     const tonUsdtResponse = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=TONUSDT');
     const tonUsdtData = await tonUsdtResponse.json();
-    // Преобразуем строковое значение цены в число с плавающей точкой
     const tonUsdtPrice = parseFloat(tonUsdtData.price);
-
-    // Делаем запрос к API Binance для получения курса USDT/RUB
-    // Используем тот же endpoint с параметром symbol=USDTRUB
     const usdtRubResponse = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=USDTRUB');
     const usdtRubData = await usdtRubResponse.json();
-    // Преобразуем строковое значение цены в число с плавающей точкой
     const usdtRubPrice = parseFloat(usdtRubData.price);
-
-    // Вычисляем итоговый курс TON в рублях путем умножения
-    // курса TON/USDT на курс USDT/RUB
-    const tonRubPrice = tonUsdtPrice * usdtRubPrice;
-    return tonRubPrice;
+    return tonUsdtPrice * usdtRubPrice;
   } catch (error) {
-    // В случае любой ошибки (сетевой, парсинга и т.д.)
-    // логируем её в консоль и возвращаем null
     console.error('Ошибка при получении курса TON:', error);
     return null;
   }
 }
 
-/**
- * Получение курсов фиатных валют с MOEX
- * @returns {Promise<Object>} Курсы валют в рублях
- */
 async function getFiatPricesFromMOEX() {
   try {
-    // Делаем запрос к API Московской биржи для получения данных по валютным инструментам
-    // Используем endpoint /iss/engines/currency/markets/selt/securities.json который возвращает список всех торгуемых валютных пар
     const response = await fetch('https://iss.moex.com/iss/engines/currency/markets/selt/securities.json');
     const data = await response.json();
-    
-    // Создаем пустой объект для хранения курсов валют
     const prices = {};
-    // Получаем массив данных по ценным бумагам из ответа API
     const securities = data.securities.data;
-    // Получаем массив названий колонок для определения индексов нужных полей
     const columns = data.securities.columns;
-    
-    // Находим индексы необходимых колонок в массиве columns:
-    // SECID - идентификатор инструмента (например, USD000UTSTOM для доллара)
-    // PREVPRICE - цена закрытия предыдущего дня
-    // BOARDID - идентификатор режима торгов
     const secIdIndex = columns.indexOf('SECID');
     const prevPriceIndex = columns.indexOf('PREVPRICE');
-    const boardIdIndex = columns.indexOf('BOARDID');
-    
-    // Перебираем все валютные инструменты
     securities.forEach(security => {
-      // Получаем значения нужных полей для текущего инструмента
       const secId = security[secIdIndex];
-      const boardId = security[boardIdIndex];
       const price = parseFloat(security[prevPriceIndex]);
-      
-      // Проверяем что инструмент активен (STATUS='A') и цена является числом
       if (security[columns.indexOf('STATUS')] === 'A' && !isNaN(price)) {
-        // Для каждой валюты используем соответствующий инструмент расчетами tomorrow (TOM):
-        // USD000UTSTOM - доллар США
-        if (secId === 'USD000UTSTOM') {
-          prices.USD = price;
-        }
-        // EUR_RUB__TOM - евро 
-        else if (secId === 'EUR_RUB__TOM') {
-          prices.EUR = price;
-        }
-        // CNYRUB_TOM - китайский юань
-        else if (secId === 'CNYRUB_TOM') {
-          prices.CNY = price;
-        }
-        // AEDRUB_TOD - дирхам ОАЭ
-        else if (secId === 'AEDRUB_TOD') {
-          prices.AED = price;
-        }
+        if (secId === 'USD000UTSTOM') prices.USD = price;
+        else if (secId === 'EUR_RUB__TOM') prices.EUR = price;
+        else if (secId === 'CNYRUB_TOM') prices.CNY = price;
+        else if (secId === 'AEDRUB_TOD') prices.AED = price;
       }
     });
-    
-    // Проверяем наличие всех необходимых курсов
-    const requiredCurrencies = ['USD', 'EUR', 'CNY', 'AED'];
-    const missingCurrencies = requiredCurrencies.filter(currency => !prices[currency]);
-    
-    if (missingCurrencies.length > 0) {
-      console.warn('Не удалось получить курсы для следующих валют:', missingCurrencies);
-    }
-    
     return prices;
   } catch (error) {
     console.error('Ошибка при получении курсов фиатных валют:', error);
@@ -493,34 +243,17 @@ async function getFiatPricesFromMOEX() {
   }
 }
 
-// Функция для подстройки размера шрифта цены
-/**
- * Подстраивает размер шрифта цены под доступное пространство
- * 
- * Функция находит все элементы с ценами и для каждого:
- * 1. Вычисляет доступную ширину с учетом иконки, символа валюты и отступов
- * 2. Начиная с базового размера шрифта 14px, уменьшает его пока текст не поместится
- * 3. Минимальный размер шрифта - 10px
- * 
- * @returns {void}
- */
 function adjustPriceFontSize() {
   const priceElements = document.querySelectorAll('.asset-item .price');
-  
   priceElements.forEach(priceElement => {
     const parentWidth = priceElement.parentElement.offsetWidth;
     const iconWidth = priceElement.parentElement.querySelector('i').offsetWidth;
     const symbolWidth = priceElement.parentElement.querySelector('span:not(.price)').offsetWidth;
-    const padding = 32; // Учитываем padding родителя
-    const gap = 8; // Учитываем gap между элементами
-    
-    // Вычисляем доступную ширину для цены
+    const padding = 32; 
+    const gap = 8; 
     const availableWidth = parentWidth - iconWidth - symbolWidth - padding - gap;
-    
-    // Начинаем с базового размера шрифта
-    let fontSize = 14; // var(--font-size-sm)
-    
-    // Проверяем, помещается ли текст
+    let fontSize = 14; 
+    priceElement.style.fontSize = `${fontSize}px`; // Reset to default before checking
     while (priceElement.scrollWidth > availableWidth && fontSize > 10) {
       fontSize--;
       priceElement.style.fontSize = `${fontSize}px`;
@@ -528,45 +261,17 @@ function adjustPriceFontSize() {
   });
 }
 
-// Константа для настроек форматирования чисел
-const NUMBER_FORMAT_OPTIONS = {
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2
-};
-
-/**
- * Форматирует число в цену в рублях
- * 
- * Функция:
- * 1. Проверяет наличие значения
- * 2. Форматирует число с учетом локали
- * 3. Добавляет символ рубля
- * 
- * @param {number} price - Число для форматирования
- * @returns {string} Отформатированная цена в рублях
- */
-function formatPrice(price) {
+function formatPrice(price) { // ОДНА ВЕРСИЯ
   if (price === undefined || price === null) {
     return '— ₽';
   }
   return `${price.toLocaleString('ru-RU', NUMBER_FORMAT_OPTIONS)} ₽`;
 }
 
-/**
- * Обновление всех курсов в интерфейсе
- * 
- * Функция:
- * 1. Получает актуальные цены с бирж
- * 2. Обновляет отображение цен с анимацией
- * 3. Подстраивает размер шрифта
- * 4. Обрабатывает возможные ошибки
- */
-async function updateAllPrices() {
+async function updateAllPrices() { // ОДНА ВЕРСИЯ
   const refreshBtn = document.querySelector('.refresh-btn');
-  const refreshIcon = refreshBtn.querySelector('i');
-  
-  // Добавляем анимацию вращения
-  refreshIcon.style.animation = 'spin 1s linear infinite';
+  const refreshIcon = refreshBtn ? refreshBtn.querySelector('i') : null;
+  if (refreshIcon) refreshIcon.style.animation = 'spin 1s linear infinite';
   
   try {
     const [btcPrice, ethPrice, tonPrice, fiatPrices] = await Promise.all([
@@ -575,8 +280,6 @@ async function updateAllPrices() {
       getTONPriceFromBinance(),
       getFiatPricesFromMOEX()
     ]);
-
-    // Обновляем цены с анимацией
     const priceElements = document.querySelectorAll('.asset-item .price');
     priceElements.forEach(element => {
       element.style.color = 'var(--accent-primary)';
@@ -584,421 +287,455 @@ async function updateAllPrices() {
         element.style.color = 'var(--text-secondary)';
       }, 500);
     });
-
-    // Обновляем значения с проверкой на undefined
-    const prices = [
-      btcPrice,
-      ethPrice,
-      tonPrice,
-      fiatPrices?.USD,
-      fiatPrices?.EUR,
-      fiatPrices?.CNY,
-      fiatPrices?.AED
-    ];
-
+    const prices = [btcPrice, ethPrice, tonPrice, fiatPrices?.USD, fiatPrices?.EUR, fiatPrices?.CNY, fiatPrices?.AED];
     priceElements.forEach((element, index) => {
-      element.textContent = formatPrice(prices[index]);
+      if (prices[index] !== undefined) { // Ensure price exists before formatting
+        element.textContent = formatPrice(prices[index]);
+      }
     });
-
-    // Подстраиваем размер шрифта после обновления цен
     adjustPriceFontSize();
   } catch (error) {
     console.error('Ошибка при обновлении цен:', error);
   } finally {
-    // Останавливаем анимацию вращения
-    refreshIcon.style.animation = '';
+    if (refreshIcon) refreshIcon.style.animation = '';
   }
 }
 
-/**
- * Инициализация графиков и загрузка данных
- * 
- * Основная функция, которая:
- * 1. Загружает данные из JSON файла
- * 2. Создает графики криптовалют и фиатных валют
- * 3. Настраивает обработчики событий
- * 4. Обрабатывает ошибки загрузки
- */
-async function initializeCharts() {
-  try {
-    console.log('Инициализация графиков...');
-    
-    // Fetch fiat currency data
-    const usdData = await fetchCurrencyData('usd');
-    const eurData = await fetchCurrencyData('eur');
-    const cnyData = await fetchCurrencyData('cny');
-    const aedData = await fetchCurrencyData('aed');
-    
-    // Fetch crypto currency data
-    const btcData = await fetchCurrencyData('btc');
-    const ethData = await fetchCurrencyData('eth');
-    const tonData = await fetchCurrencyData('ton');
+// --- ЛОГИКА МОДАЛЬНОГО ОКНА ТРАНЗАКЦИЙ ---
+let currentTransactionType = ''; // 'buy' или 'sell'
+let currentTransactionCurrency = ''; // Код валюты (BTC, ETH, и т.д.)
+let currentCurrencyPrice = 0; // Цена выбранной валюты
 
-    console.log('Данные получены:', {
-      usd: usdData?.length || 0,
-      eur: eurData?.length || 0,
-      cny: cnyData?.length || 0,
-      aed: aedData?.length || 0,
-      btc: btcData?.length || 0,
-      eth: ethData?.length || 0,
-      ton: tonData?.length || 0
+function openTransactionModal(type, currency) {
+    currentTransactionType = type;
+    currentTransactionCurrency = currency;
+
+    const modal = document.getElementById('transactionModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalCurrency = document.getElementById('modalCurrency');
+    const modalActionButton = document.getElementById('modalActionButton');
+    const quantityInput = document.getElementById('modalQuantity');
+
+    // Пытаемся получить актуальную цену из отображаемых на странице
+    // Это упрощение, в реальном приложении цена должна браться из более надежного источника
+    const assetItems = document.querySelectorAll('.tracked-assets-container .asset-item');
+    let priceFound = false;
+    assetItems.forEach(item => {
+        const symbolElement = item.querySelector('span:not(.price)');
+        if (symbolElement && symbolElement.textContent.trim().toUpperCase() === currency.toUpperCase()) {
+            const priceElement = item.querySelector('.price');
+            if (priceElement) {
+                const priceText = priceElement.textContent.replace(/[^0-9,.]/g, '').replace(',', '.');
+                currentCurrencyPrice = parseFloat(priceText);
+                if (!isNaN(currentCurrencyPrice)) {
+                    priceFound = true;
+                }
+            }
+        }
     });
 
-    // Extract dates for labels from USD data (assuming it's the most complete)
-    const allDates = usdData?.map(rate => rate.date) || [];
-    
-    // Generate base labels for different time intervals
-    let baseLabels = allDates.length > 0 ? allDates : generateDefaultLabels();
-    let cryptoChart, fiatChart;
-    
-    // Функция для генерации дефолтных меток, если данные не получены
-    function generateDefaultLabels() {
-      const labels = [];
-      const today = new Date();
-      const startDate = new Date(today);
-      startDate.setMonth(today.getMonth() - 36); // 3 года назад
-      
-      return generateLabels(startDate, 36);
+    if (!priceFound) {
+        // Если цену не нашли на странице, можно попробовать взять из данных графика
+        // или установить заглушку и показать предупреждение
+        console.warn(`Цена для ${currency} не найдена на странице. Используется заглушка.`);
+        currentCurrencyPrice = 0; // Заглушка, если цена не найдена
     }
-    
-    // Prepare data structure for charts
-    const data = {
-      fiat: {
-        'USD': { '2023': [], '2024': [], '2025': [], daily_2025_01: [] },
-        'EUR': { '2023': [], '2024': [], '2025': [], daily_2025_01: [] },
-        'CNY': { '2023': [], '2024': [], '2025': [], daily_2025_01: [] },
-        'AED': { '2023': [], '2024': [], '2025': [], daily_2025_01: [] }
-      },
-      crypto: {
-        'BTC': { '2023': [], '2024': [], '2025': [], daily_2025_01: [] },
-        'ETH': { '2023': [], '2024': [], '2025': [], daily_2025_01: [] },
-        'TON': { '2023': [], '2024': [], '2025': [], daily_2025_01: [] }
-      }
-    };
-    
-    // Process fiat currency data
-    processRatesData(usdData, data.fiat.USD);
-    processRatesData(eurData, data.fiat.EUR);
-    processRatesData(cnyData, data.fiat.CNY);
-    processRatesData(aedData, data.fiat.AED);
-    
-    // Process crypto currency data
-    if (btcData) processRatesData(btcData, data.crypto.BTC);
-    if (ethData) processRatesData(ethData, data.crypto.ETH);
-    if (tonData) processRatesData(tonData, data.crypto.TON);
-    
-    // Обновляем курс BTC каждые 30 секунд
-    updateAllPrices();
-    setInterval(updateAllPrices, 30000);
-    
-    /**
-     * Обрабатывает данные о курсах и распределяет их по годам
-     * @param {Array} ratesData - Массив данных о курсах
-     * @param {Object} targetObj - Объект для сохранения обработанных данных
-     */
-    function processRatesData(ratesData, targetObj) {
-      if (!ratesData || !ratesData.length) {
-        console.warn('Нет данных для обработки в processRatesData');
+
+
+    if (modal && modalTitle && modalCurrency && modalActionButton && quantityInput) {
+        modalTitle.textContent = type === 'buy' ? `Покупка ${currency}` : `Продажа ${currency}`;
+        modalCurrency.textContent = currency;
+        modalActionButton.textContent = type === 'buy' ? 'Купить' : 'Продать';
+        modalActionButton.className = `btn ${type === 'buy' ? 'btn-buy' : 'btn-sell'}`;
+        quantityInput.value = 1; // Сброс количества
+        updateModalTotalCost(); // Обновить итоговую стоимость
+        modal.style.display = 'block';
+    }
+}
+
+function closeTransactionModal() {
+    const modal = document.getElementById('transactionModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+function updateModalTotalCost() {
+    const quantityInput = document.getElementById('modalQuantity');
+    const totalCostSpan = document.getElementById('modalTotalCost');
+    if (quantityInput && totalCostSpan) {
+        const quantity = parseFloat(quantityInput.value);
+        if (!isNaN(quantity) && quantity > 0 && currentCurrencyPrice > 0) {
+            const totalCost = quantity * currentCurrencyPrice;
+            totalCostSpan.textContent = formatPrice(totalCost); // Используем существующую функцию форматирования
+        } else {
+            totalCostSpan.textContent = '--';
+        }
+    }
+}
+
+function handleModalAction() {
+    const quantityInput = document.getElementById('modalQuantity');
+    const quantity = parseFloat(quantityInput.value);
+
+    if (isNaN(quantity) || quantity <= 0) {
+        alert('Пожалуйста, введите корректное количество.');
         return;
-      }
-      
-      console.log('Обработка данных:', ratesData.length, 'записей');
-      
-      // Инициализируем массивы, если они не существуют
-      if (!targetObj['2023']) targetObj['2023'] = [];
-      if (!targetObj['2024']) targetObj['2024'] = [];
-      if (!targetObj['2025']) targetObj['2025'] = [];
-      if (!targetObj.daily_2025_01) targetObj.daily_2025_01 = Array(31).fill(null);
-      
-      ratesData.forEach(rate => {
-        if (!rate.date || !rate.price) {
-          console.warn('Некорректные данные:', rate);
-          return;
-        }
-        
-        const year = rate.date.substring(0, 4);
-        const month = rate.date.substring(5, 7);
-        const day = rate.date.substring(8, 10);
-        
-        // Распределяем данные по годам
-        if (year === '2023' || year === '2024' || year === '2025') {
-          targetObj[year].push(parseFloat(rate.price));
-        }
-        
-        // Добавляем данные для ежедневного графика января 2025
-        if (year === '2025' && month === '01') {
-          const dayIndex = parseInt(day) - 1;
-          if (dayIndex >= 0 && dayIndex < 31) {
-            targetObj.daily_2025_01[dayIndex] = parseFloat(rate.price);
-          }
-        }
-      });
-      
-      console.log('Обработанные данные:', {
-        '2023': targetObj['2023'].length,
-        '2024': targetObj['2024'].length,
-        '2025': targetObj['2025'].length,
-        'daily': targetObj.daily_2025_01.filter(Boolean).length
-      });
     }
 
-    /**
-     * Обновление графиков при изменении интервала
-     * @param {string} interval - Выбранный интервал
-     */
-    /**
-     * Обновление графиков при изменении интервала
-     * @param {string} interval - Выбранный интервал (1m, 6m, 1y, 3y)
-     */
-    function updateCharts(interval) {
-      const isDaily = interval === '1m';
-      
-      // Определяем метки времени в зависимости от выбранного интервала
-      let labels;
-      if (isDaily) {
-        // Для месячного интервала используем ежедневные метки
-        labels = generateLabels(null, null, true);
-      } else {
-        // Для остальных интервалов генерируем метки на основе текущей даты
-        const monthCount = getMonthCount(interval);
-        const currentDate = new Date();
-        const startDate = new Date(currentDate);
-        startDate.setMonth(currentDate.getMonth() - monthCount + 1);
-        
-        // Генерируем метки для выбранного интервала
-        labels = generateLabels(startDate, monthCount);
-        
-        // Если у нас есть baseLabels из данных, используем их
-        if (baseLabels && baseLabels.length > 0) {
-          // Фильтруем даты, которые входят в выбранный интервал
-          const filteredLabels = baseLabels.filter(date => {
-            const dateObj = new Date(date);
-            return dateObj >= startDate && dateObj <= currentDate;
-          }).slice(-monthCount);
-          
-          // Используем фильтрованные метки, если они есть
-          if (filteredLabels.length > 0) {
-            labels = filteredLabels;
-          }
-        }
-      }
-      
-      console.log('Метки времени для графика:', labels);
-      
-      // Подготовка данных для криптовалют
-      const cryptoDatasets = Object.keys(data.crypto)
-        .map(currency => {
-          const dataForInterval = getDataForInterval(data.crypto[currency], interval);
-          console.log(`Данные для ${currency} (${interval}):`, dataForInterval.length);
-          return {
-            label: currency,
-            data: dataForInterval,
-            tension: 0.3 // Сглаживание линий графика
-          };
-        });
-
-      // Подготовка данных для фиатных валют
-      const fiatDatasets = Object.keys(data.fiat)
-        .map(currency => {
-          const dataForInterval = getDataForInterval(data.fiat[currency], interval);
-          console.log(`Данные для ${currency} (${interval}):`, dataForInterval.length);
-          return {
-            label: currency,
-            data: dataForInterval,
-            tension: 0.3
-          };
-        });
-      
-      // Проверяем, что у нас есть данные для отображения
-      if (cryptoDatasets.length === 0 || cryptoDatasets.every(ds => ds.data.length === 0)) {
-        console.warn('Нет данных для графика криптовалют, добавляем тестовые данные');
-        cryptoDatasets.push({
-          label: 'BTC',
-          data: Array(labels.length).fill(0).map((_, i) => 5000000 + (i * 100000) + (Math.random() * 500000)),
-          tension: 0.3
-        });
-      }
-      
-      if (fiatDatasets.length === 0 || fiatDatasets.every(ds => ds.data.length === 0)) {
-        console.warn('Нет данных для графика фиатных валют, добавляем тестовые данные');
-        fiatDatasets.push({
-          label: 'USD',
-          data: Array(labels.length).fill(0).map((_, i) => 90 + (i * 0.5) + (Math.random() * 2 - 1)),
-          tension: 0.3
-        });
-      }
-
-      // Создание или обновление графика криптовалют
-      if (!cryptoChart) {
-        const cryptoCtx = document.getElementById('cryptoChart').getContext('2d');
-        cryptoChart = new Chart(cryptoCtx, createChartConfig('line', { 
-          labels: labels, 
-          datasets: cryptoDatasets 
-        }, { yAxisTitle: 'Курс (RUB)' }));
-      } else {
-        cryptoChart.data.labels = labels;
-        cryptoChart.data.datasets = cryptoDatasets;
-        cryptoChart.update();
-      }
-
-      // Создание или обновление графика фиатных валют
-      if (!fiatChart) {
-        const fiatCtx = document.getElementById('fiatChart').getContext('2d');
-        fiatChart = new Chart(fiatCtx, createChartConfig('line', { 
-          labels: labels, 
-          datasets: fiatDatasets 
-        }, { yAxisTitle: 'Курс (RUB)' }));
-      } else {
-        fiatChart.data.labels = labels;
-        fiatChart.data.datasets = fiatDatasets;
-        fiatChart.update();
-      }
-    }
-
-    /**
-     * Определение количества месяцев для интервала
-     * @param {string} interval - Выбранный интервал
-     * @returns {number} Количество месяцев
-     */
-    function getMonthCount(interval) {
-      switch(interval) {
-        case '1m': return 1;
-        case '6m': return 6;
-        case '1y': return 12;
-        case '3y': return 36;
-        default: return 36;
-      }
-    }
-
-    // Инициализация с дефолтным интервалом (3 года)
-    updateCharts('3y');
-
-    // Обработчик изменения интервала
-    document.getElementById('timeRange').addEventListener('change', (e) => {
-      updateCharts(e.target.value);
-    });
-
-  } catch (error) {
-    console.error('Ошибка при загрузке данных:', error);
-    alert('Произошла ошибка при загрузке данных. Пожалуйста, обновите страницу.');
-  }
+    // Здесь будет логика для выполнения покупки/продажи
+    // Например, отправка запроса на сервер
+    alert(`${currentTransactionType === 'buy' ? 'Покупка' : 'Продажа'} ${quantity} ${currentTransactionCurrency} по цене ${formatPrice(currentCurrencyPrice)} за единицу. Итого: ${document.getElementById('modalTotalCost').textContent}`);
+    closeTransactionModal();
 }
 
-/**
- * Получение финансовых новостей из API РБК через CORS-прокси
- * 
- * Функция выполняет следующие действия:
- * 1. Делает запрос к API РБК через CORS-прокси
- * 2. Парсит полученный HTML
- * 3. Извлекает первые 8 новостей
- * 4. В случае ошибки показывает заглушку
- * 
- * @returns {Promise<Array>} Массив новостей в формате:
- *   {
- *     text: string,      // Текст новости
- *     link: string,      // Ссылка на новость
- *     category: string,  // Категория новости
- *     description: string // Описание новости (пустое)
- *   }
- */
-async function getFinancialNews() {
-  try {
-    const corsProxy = 'https://api.allorigins.win/raw?url=';
-    const targetUrl = encodeURIComponent('https://www.rbc.ru/api/v1/finance/news');
-    
-    const response = await fetch(corsProxy + targetUrl, {
-      method: 'GET',
-      headers: {
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-        'Accept-Language': 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0',
-        'Origin': window.location.origin,
-        'Referer': 'https://www.rbc.ru/'
-      }
-    });
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    
-    const htmlText = await response.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlText, 'text/html');
-    
-    // Находим корневой элемент с новостями
-    const newsHeader = doc.querySelector('.error__news__header');
-    if (!newsHeader) {
-      throw new Error('Заголовок новостей не найден');
-    }
-    
-    // Находим все новостные блоки и берем только первые 8
-    const newsItems = Array.from(newsHeader.parentElement.querySelectorAll('.error__news__item')).slice(0, 8);
-    
-    // Обрабатываем новости
-    const news = newsItems.map(item => {
-      const linkElement = item.querySelector('.error__news__link');
-      const titleElement = item.querySelector('.error__news__title');
-      
-      return {
-        text: titleElement ? titleElement.textContent.trim() : '',
-        link: linkElement ? linkElement.href : '#',
-        category: 'Новости', // По умолчанию, так как категория не указана в HTML
-        description: '' // Описание отсутствует в текущей структуре
-      };
-    }).filter(item => item.text); // Фильтруем пустые новости
-    
-    if (news.length > 0) {
-      updateNewsList(news);
-      return news;
-    }
-    
-    throw new Error('Новости не найдены в HTML');
-    
-  } catch (error) {
-    console.error('Ошибка при получении новостей:', error);
-    
-    // В случае ошибки показываем заглушку (тоже ограничиваем до 8 новостей)
-    const fallbackNews = [
-      { text: 'Рынок криптовалют демонстрирует повышенную волатильность', link: '#', category: 'Финансы', description: '' },
-      { text: 'Евро укрепился на фоне свежих экономических данных', link: '#', category: 'Экономика', description: '' },
-      { text: 'Рубль стабилизируется по отношению к USD', link: '#', category: 'Финансы', description: '' },
-      { text: 'L\'Oreal предостерег ЕС от «красного флага» на косметику', link: '#', category: 'Бизнес', description: '' },
-      { text: 'Курс доллара в апреле 2025 года: чем закончится трехмесячное ралли рубля', link: '#', category: 'Финансы', description: '' }
-    ].slice(0, 8);
-    updateNewsList(fallbackNews);
-    return fallbackNews;
-  }
+// --- ОСНОВНАЯ ЛОГИКА ДЭШБОРДА ---
+
+function processChartData(rawData, interval = 'all') {
+    const datasets = [];
+    let allLabelsSet = new Set();
+
+    const processCurrencyType = (currencyTypeData, type) => {
+        for (const currencyCodeWithPair in currencyTypeData) {
+            const baseCurrencyCode = currencyCodeWithPair.split('/')[0].toUpperCase();
+            const currencyData = currencyTypeData[currencyCodeWithPair];
+            let combinedData;
+            let currentLabels;
+            let dailyKeyForLabels = null;
+
+            if (interval === '1m') {
+                const allYears = Object.keys(currencyData).filter(k => k.match(/^\d{4}$/)).sort();
+                const lastYear = allYears.length > 0 ? allYears[allYears.length - 1] : null;
+                if (lastYear) {
+                    const dailyKeysForLastYear = Object.keys(currencyData).filter(k => k.startsWith(`daily_${lastYear}_`)).sort();
+                    if (dailyKeysForLastYear.length > 0) {
+                        dailyKeyForLabels = dailyKeysForLastYear[dailyKeysForLastYear.length - 1];
+                    }
+                }
+                combinedData = combineYearlyData(currencyData, interval);
+                currentLabels = generateLabels(currencyData, interval, dailyKeyForLabels);
+            } else {
+                combinedData = combineYearlyData(currencyData, interval);
+                currentLabels = generateLabels(currencyData, interval);
+            }
+
+            currentLabels.forEach(label => allLabelsSet.add(label));
+
+            datasets.push({
+                label: baseCurrencyCode,
+                data: combinedData,
+                // borderColor: getRandomColor(), // Цвет будет устанавливаться динамически
+                // backgroundColor: getRandomColor(0.1), // Цвет будет устанавливаться динамически
+                tension: 0.3,
+                fill: false,
+                hidden: true
+            });
+        }
+    };
+
+    if (rawData.crypto) processCurrencyType(rawData.crypto, 'crypto');
+    if (rawData.fiat) processCurrencyType(rawData.fiat, 'fiat');
+
+    const uniqueSortedLabels = [...allLabelsSet].sort();
+    return { labels: uniqueSortedLabels, datasets };
 }
 
-/**
- * Обновление списка новостей на странице
- * 
- * Функция:
- * 1. Находит элемент списка новостей
- * 2. Преобразует массив новостей в HTML-разметку
- * 3. Обновляет содержимое списка
- * 
- * @param {Array} news - Массив новостей для отображения
- */
-function updateNewsList(news) {
-  const newsList = document.querySelector('.news-list');
-  if (!newsList) return;
-  
-  newsList.innerHTML = news.map(item => `
-    <li>
-      <a href="${item.link}" target="_blank" rel="noopener noreferrer">
-        ${item.text}
-      </a>
-      ${item.description ? `<p class="news-description">${item.description}</p>` : ''}
-    </li>
-  `).join('');
+function updateStatsDisplay(currency, stats) {
+    console.log('Updating stats display for:', currency, 'with stats:', stats); 
+    const statsPanel = document.querySelector('.currency-stats-panel');
+
+    if (statsPanel) {
+        // Убираем анимацию opacity и просто делаем панель видимой
+        statsPanel.style.display = 'block'; // Убедимся, что панель отображается
+        statsPanel.style.opacity = '1'; // Убедимся, что панель не прозрачная
+
+        const selectedCurrencyNameEl = document.getElementById('selectedCurrencyName');
+        const statDescriptionEl = document.getElementById('statDescription');
+        const statAverageEl = document.getElementById('statAverage');
+        const statMedianEl = document.getElementById('statMedian');
+        const statOutliersEl = document.getElementById('statOutliers');
+
+        if (selectedCurrencyNameEl) selectedCurrencyNameEl.textContent = `Статистика для: ${currency ? currency.toUpperCase() : 'Н/Д'}`;
+        if (statDescriptionEl) statDescriptionEl.textContent = currencyDescriptions[currency ? currency.toUpperCase() : ''] || 'Описание для данной валюты отсутствует.';
+        if (statAverageEl) statAverageEl.textContent = stats && stats.average !== undefined ? stats.average : '--';
+        if (statMedianEl) statMedianEl.textContent = stats && stats.median !== undefined ? stats.median : '--';
+        if (statOutliersEl) statOutliersEl.textContent = stats && stats.outliers !== undefined ? stats.outliers : '--';
+        
+        console.log('Stats panel updated and made visible.');
+    } else {
+        console.error('Currency stats panel not found!'); 
+    }
 }
 
-// Добавляем вызов функции при загрузке страницы
+function updateCombinedChartForSingleCurrency(selectedCurrency, interval) { // interval теперь обязательный параметр
+    if (!combinedChartInstance || !allChartData.datasets) return;
+    console.log(`Updating chart for ${selectedCurrency} with interval ${interval} and color ${currentChartColor}`);
+
+    fetch(exchangeratesFile)
+        .then(response => response.json())
+        .then(rawData => {
+            allChartData = processChartData(rawData, interval); // Передаем актуальный interval
+            console.log(`Processed chart data for interval ${interval}:`, allChartData);
+
+            const upperSelectedCurrency = selectedCurrency.toUpperCase();
+            let datasetToShow = null;
+
+            allChartData.datasets.forEach(d => {
+                if (d.label.toUpperCase() === upperSelectedCurrency) {
+                    d.hidden = false;
+                    d.borderColor = currentChartColor; // Устанавливаем выбранный цвет
+                    d.backgroundColor = currentChartColor.replace('rgb', 'rgba').replace(')', ', 0.1)'); // Для заливки
+                    datasetToShow = d;
+                } else {
+                    d.hidden = true;
+                }
+            });
+
+            if (datasetToShow) {
+                combinedChartInstance.data.labels = allChartData.labels;
+                combinedChartInstance.data.datasets = allChartData.datasets;
+                combinedChartInstance.update();
+                const stats = calculateStats(datasetToShow.data);
+                console.log('Calling updateStatsDisplay from updateCombinedChartForSingleCurrency (dataset found)'); // Логирование
+                updateStatsDisplay(selectedCurrency, stats); // Убедимся, что вызывается здесь
+            } else {
+                console.warn(`Dataset for ${selectedCurrency} not found after processing for interval ${interval}`);
+                combinedChartInstance.data.labels = [];
+                combinedChartInstance.data.datasets = [];
+                combinedChartInstance.update();
+                console.log('Calling updateStatsDisplay from updateCombinedChartForSingleCurrency (dataset NOT found)'); // Логирование
+                updateStatsDisplay(selectedCurrency, { average: '--', median: '--', outliers: '--', description: 'Данные не найдены.' });
+            }
+        })
+        .catch(error => {
+            console.error(`Error fetching or processing data for interval ${interval}:`, error);
+            const chartWrapper = document.querySelector('.chart-wrapper');
+            if (chartWrapper) {
+                chartWrapper.innerHTML = `<p style="color: red; text-align: center;">Не удалось загрузить данные для графика: ${error.message}. Проверьте консоль.</p>`;
+            }
+            console.log('Calling updateStatsDisplay from updateCombinedChartForSingleCurrency (catch block)'); // Логирование
+            updateStatsDisplay(selectedCurrency, { average: 'Ошибка', median: 'Ошибка', outliers: 'Ошибка', description: 'Не удалось загрузить данные.' });
+        });
+}
+
+async function initializeDashboard() {
+    console.log('[initializeDashboard] Initializing...');
+    const chartCanvas = document.getElementById('combinedChart');
+    const timeRangeSelect = document.getElementById('timeRange'); // Объявляем здесь
+    const colorPicker = document.getElementById('chartColorPicker'); // Объявляем здесь
+
+    if (timeRangeSelect) {
+        currentInterval = timeRangeSelect.value; // Initialize from dropdown
+    }
+    if (colorPicker) {
+        currentChartColor = colorPicker.value; // Initialize from color picker
+    }
+
+    if (!chartCanvas) {
+        console.error('Error: Chart canvas element (combinedChart) not found.');
+        updateStatsDisplay('Ошибка', { average: '!', median: '!', outliers: '!', description: 'Элемент графика не найден.' });
+        return;
+    }
+
+    try {
+        const response = await fetch(exchangeratesFile); // exchangeratesFile is global from HTML
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status} while fetching ${exchangeratesFile}`);
+        }
+        window.exchangeRatesData = await response.json(); // Store globally for easier access
+        console.log('[initializeDashboard] Exchange rates data loaded:', window.exchangeRatesData);
+
+        allChartData = processChartData(window.exchangeRatesData, currentInterval);
+        console.log('[initializeDashboard] Processed chart data:', allChartData);
+
+        if (!allChartData.labels || !allChartData.datasets || allChartData.datasets.length === 0) {
+            console.error('[initializeDashboard] No data available to display on the chart after processing.');
+            updateStatsDisplay('Нет данных', { average: '--', median: '--', outliers: '--', description: 'Нет данных для отображения на графике.' });
+            // return; // Optional: stop if no data, or draw an empty chart
+        }
+
+        const ctx = chartCanvas.getContext('2d');
+        if (combinedChartInstance) {
+            combinedChartInstance.destroy();
+        }
+
+        combinedChartInstance = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: allChartData.labels,
+                datasets: allChartData.datasets.map(ds => ({
+                    ...ds,
+                    hidden: true, // Initially hide all datasets
+                    borderColor: currentChartColor, // Apply initial color
+                    backgroundColor: currentChartColor.replace('rgb', 'rgba').replace(')', ', 0.1)') // Apply initial color with opacity
+                }))
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: false, 
+                        type: 'logarithmic', 
+                        ticks: {
+                            color: getComputedStyle(document.documentElement).getPropertyValue('--chart-text-color').trim(),
+                            callback: function(value, index, values) {
+                                // Показываем метки для 1, 2, 5 на каждом порядке величины
+                                const logValue = Math.log10(value);
+                                const remainder = logValue - Math.floor(logValue);
+                                
+                                // Проверяем, близко ли значение к 1, 2, 5 (с учетом погрешности для логарифмов)
+                                const isOne = Math.abs(remainder) < 0.001 || Math.abs(remainder - 1) < 0.001;
+                                const isTwo = Math.abs(remainder - Math.log10(2)) < 0.001;
+                                const isFive = Math.abs(remainder - Math.log10(5)) < 0.001;
+
+                                if (isOne || isTwo || isFive) {
+                                    if (value >= 1000000) return (value / 1000000).toLocaleString(undefined, NUMBER_FORMAT_OPTIONS) + 'M';
+                                    if (value >= 1000) return (value / 1000).toLocaleString(undefined, NUMBER_FORMAT_OPTIONS) + 'K';
+                                    return value.toLocaleString(undefined, NUMBER_FORMAT_OPTIONS);
+                                }
+                                return ''; // Скрываем остальные метки
+                            },
+                            // Можно также попробовать увеличить максимальное количество тиков, если Chart.js это поддерживает для логарифмической шкалы
+                            // maxTicksLimit: 15 // Например, но это может не сработать как ожидается с логарифмической шкалой и callback
+                        },
+                        grid: { color: getComputedStyle(document.documentElement).getPropertyValue('--chart-grid-color').trim() }
+                    },
+                    x: {
+                        ticks: { color: getComputedStyle(document.documentElement).getPropertyValue('--chart-text-color').trim() },
+                        grid: { color: getComputedStyle(document.documentElement).getPropertyValue('--chart-grid-color').trim() }
+                    }
+                },
+                plugins: {
+                    legend: { 
+                        display: false // Убедимся, что легенда отключена
+                    },
+                    tooltip: { mode: 'index', intersect: false }
+                },
+                animation: { duration: 500, easing: 'easeInOutQuart' }
+            }
+        });
+        console.log('[initializeDashboard] Chart instance created.');
+
+        // Determine initial currency to display
+        const currencyButtons = document.querySelectorAll('.currency-selector-panel .currency-btn');
+        let initialCurrencyCode = 'BTC'; // По умолчанию BTC
+
+        if (currencyButtons.length > 0) {
+            // Устанавливаем активное состояние для первой кнопки, если она есть
+            const firstButton = currencyButtons[0];
+            if (firstButton) {
+                firstButton.classList.add('active');
+                initialCurrencyCode = firstButton.getAttribute('data-currency');
+            }
+            
+            // Можно добавить логику для выбора предпочтительной валюты, если BTC не первая
+            // Например, найти кнопку BTC и сделать ее активной:
+            const btcButton = Array.from(currencyButtons).find(btn => btn.getAttribute('data-currency') === 'BTC');
+            if (btcButton) {
+                currencyButtons.forEach(btn => btn.classList.remove('active')); // Сначала убираем active у всех
+                btcButton.classList.add('active');
+                initialCurrencyCode = 'BTC';
+            } else if (firstButton) { // Если BTC нет, оставляем активной первую
+                 currencyButtons.forEach(btn => btn.classList.remove('active'));
+                 firstButton.classList.add('active');
+                 initialCurrencyCode = firstButton.getAttribute('data-currency');
+            }
+        }
+        console.log('[initializeDashboard] Initial currency code set to:', initialCurrencyCode);
+
+        updateCombinedChartForSingleCurrency(initialCurrencyCode, currentInterval);
+
+        // Event listeners for currency buttons
+        currencyButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                currencyButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const selectedCurrency = button.getAttribute('data-currency');
+                updateCombinedChartForSingleCurrency(selectedCurrency, currentInterval);
+            });
+        });
+
+        // Обработчик для выпадающего списка интервалов
+        if (timeRangeSelect) {
+            timeRangeSelect.addEventListener('change', (event) => {
+                currentInterval = event.target.value;
+                const activeButton = document.querySelector('.currency-selector-panel .currency-btn.active');
+                const selectedCurrency = activeButton ? activeButton.getAttribute('data-currency') : initialCurrencyCode;
+                updateCombinedChartForSingleCurrency(selectedCurrency, currentInterval);
+            });
+        }
+
+        // Обработчик для выбора цвета
+        if (colorPicker) {
+            colorPicker.addEventListener('input', (event) => {
+                currentChartColor = event.target.value;
+                const activeButton = document.querySelector('.currency-selector-panel .currency-btn.active');
+                const selectedCurrency = activeButton ? activeButton.getAttribute('data-currency') : initialCurrencyCode;
+                updateCombinedChartForSingleCurrency(selectedCurrency, currentInterval);
+            });
+        }
+
+        console.log('[initializeDashboard] Initialization complete.');
+
+    } catch (error) {
+        console.error('[initializeDashboard] Error during initialization:', error);
+        const chartWrapper = document.querySelector('.chart-wrapper');
+        if (chartWrapper) {
+            chartWrapper.innerHTML = `<p style="color: red; text-align: center;">Не удалось инициализировать график: ${error.message}. Проверьте консоль.</p>`;
+        }
+        updateStatsDisplay('Ошибка', { average: '!', median: '!', outliers: '!', description: 'Ошибка инициализации графика.' });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  // ... existing code ...
-  
-  // Получаем новости каждые 5 минут
-  getFinancialNews();
-  setInterval(getFinancialNews, 5 * 60 * 1000);
+    initializeDashboard();
+
+    // --- ИНИЦИАЛИЗАЦИЯ МОДАЛЬНОГО ОКНА ---
+    const buyButton = document.getElementById('buyButton');
+    const sellButton = document.getElementById('sellButton');
+    const modal = document.getElementById('transactionModal');
+    const closeButton = modal ? modal.querySelector('.close-button') : null;
+    const modalActionButton = document.getElementById('modalActionButton');
+    const quantityInput = document.getElementById('modalQuantity');
+
+    if (buyButton) {
+        buyButton.addEventListener('click', () => {
+            const selectedCurrency = combinedChartInstance && combinedChartInstance.data.datasets.find(ds => !ds.hidden)?.label;
+            if (selectedCurrency) {
+                openTransactionModal('buy', selectedCurrency);
+            }
+        });
+    }
+
+    if (sellButton) {
+        sellButton.addEventListener('click', () => {
+            const selectedCurrency = combinedChartInstance && combinedChartInstance.data.datasets.find(ds => !ds.hidden)?.label;
+            if (selectedCurrency) {
+                openTransactionModal('sell', selectedCurrency);
+            }
+        });
+    }
+
+    if (closeButton) {
+        closeButton.addEventListener('click', closeTransactionModal);
+    }
+
+    if (modalActionButton) {
+        modalActionButton.addEventListener('click', handleModalAction);
+    }
+
+    if (quantityInput) {
+        quantityInput.addEventListener('input', updateModalTotalCost);
+    }
+
+    // Закрытие модального окна при клике вне его
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeTransactionModal();
+        }
+    });
+    // --- КОНЕЦ ИНИЦИАЛИЗАЦИИ МОДАЛЬНОГО ОКНА ---
+
+    updateAllPrices(); // Первоначальное обновление цен для модального окна
 });
