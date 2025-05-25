@@ -214,11 +214,11 @@ class CBRCurrencyRates:
         return rates
     
     def save_rates_to_json(self, rates: List[CurrencyRate], filename: str = None) -> str:
-        """Сохранение курсов валют в JSON-файл.
+        """Сохранение курсов валют в JSON-файл в формате Django fixtures.
         
         Args:
             rates (List[CurrencyRate]): Список курсов валют
-            filename (str, optional): Имя файла. По умолчанию '{currency_code}_rub_rates_YYYY-MM-DD.json'
+            filename (str, optional): Имя файла. По умолчанию 'rates.json'
         
         Returns:
             str: Путь к сохраненному файлу
@@ -228,21 +228,69 @@ class CBRCurrencyRates:
             return ""
         
         if not filename:
-            today = datetime.now().strftime('%Y-%m-%d')
-            currency_code = rates[0].code.lower() if rates else "currency"
-            filename = f"{currency_code}_rub_rates_{today}.json"
+            filename = "rates.json"
         
-        filepath = os.path.join(self.data_dir, filename)
+        filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../backend/fixtures', filename)
+        
+        # Mapping of currency codes to their primary keys
+        currency_pk_map = {
+            'USD': 1,
+            'EUR': 2,
+            'AED': 3,
+            'CNY': 4,
+            'BTC': 5,
+            'ETH': 6,
+            'TON': 7
+        }
         
         try:
-            with open(filepath, 'w', encoding='utf-8') as jsonfile:
-                json.dump([{
-                    'date': rate.date.strftime('%Y-%m-%d'),
-                    'currency': rate.currency,
-                    'code': rate.code,
-                    'nominal': rate.nominal,
-                    'price': rate.price
-                } for rate in rates], jsonfile, indent=4, ensure_ascii=False)
+            # Load existing data if file exists
+            existing_data = []
+            if os.path.exists(filepath):
+                try:
+                    with open(filepath, 'r', encoding='utf-8') as jsonfile:
+                        existing_data = json.load(jsonfile)
+                except json.JSONDecodeError as e:
+                    logger.error(f"Error reading existing rates file: {str(e)}")
+                    return ""
+            
+            # Create new entries
+            new_entries = []
+            for rate in rates:
+                if rate.code in currency_pk_map:
+                    # Find existing entry for this currency and date
+                    existing_entry = None
+                    for entry in existing_data:
+                        if (entry['fields']['currency'] == currency_pk_map[rate.code] and
+                            entry['fields']['timestamp'] == rate.date.strftime('%Y-%m-%dT%H:%M:%S+03:00')):
+                            existing_entry = entry
+                            break
+                    
+                    if existing_entry:
+                        # Update existing entry
+                        existing_entry['fields']['cost'] = rate.price
+                    else:
+                        # Add new entry
+                        new_entries.append({
+                            'model': 'api.rate',
+                            'pk': len(existing_data) + len(new_entries) + 1,
+                            'fields': {
+                                'currency': currency_pk_map[rate.code],
+                                'cost': rate.price,
+                                'timestamp': rate.date.strftime('%Y-%m-%dT%H:%M:%S+03:00')
+                            }
+                        })
+            
+            # Combine existing and new entries
+            all_entries = existing_data + new_entries
+            
+            # Write combined data back to file
+            try:
+                with open(filepath, 'w', encoding='utf-8') as jsonfile:
+                    json.dump(all_entries, jsonfile, indent=2, ensure_ascii=False)
+            except IOError as e:
+                logger.error(f"Error writing to rates file: {str(e)}")
+                return ""
             
             logger.info(f"Данные успешно сохранены в JSON файл: {filepath}")
             return filepath
@@ -299,23 +347,26 @@ def main():
         # Список поддерживаемых валют
         currencies = ["USD", "EUR", "CNY", "AED"]
         
+        all_rates = []
         for currency in currencies:
             # Получение курсов валюты за последние 5 лет
             rates = cbr_rates.fetch_five_year_rates(currency)
             logger.info(f"Получено {len(rates)} записей о курсах {currency}/RUB")
+            all_rates.extend(rates)
             
-            # Сохранение данных в CSV
-            filepath = cbr_rates.save_rates_to_csv(rates)
-            if filepath:
-                logger.info(f"Данные сохранены в файл: {filepath}")
-                
-                # Вывод первых 3 записей для примера
-                for i, rate in enumerate(rates[:3]):
-                    print(f"Дата: {rate.date.strftime('%Y-%m-%d')}, {currency}/RUB: {rate.price:.4f} руб. за {rate.nominal} {rate.code}")
-                
-                if len(rates) > 3:
-                    print(f"... и еще {len(rates) - 3} записей")
-                print("\n")
+            # Вывод первых 3 записей для примера
+            for i, rate in enumerate(rates[:3]):
+                print(f"Дата: {rate.date.strftime('%Y-%m-%d')}, {currency}/RUB: {rate.price:.4f} руб. за {rate.nominal} {rate.code}")
+            
+            if len(rates) > 3:
+                print(f"... и еще {len(rates) - 3} записей")
+            print("\n")
+        
+        # Сохранение всех курсов в JSON в формате Django fixtures
+        filepath = cbr_rates.save_rates_to_json(all_rates)
+        if filepath:
+            logger.info(f"Данные сохранены в файл: {filepath}")
+            
     except Exception as e:
         logger.error(f"Ошибка при получении и сохранении курсов валют: {str(e)}")
 
