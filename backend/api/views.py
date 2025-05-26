@@ -7,51 +7,17 @@ from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
+from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_200_OK
 from rest_framework_simplejwt.tokens import RefreshToken
 from django_celery_beat.models import PeriodicTask, CrontabSchedule
 from datetime import timedelta
 import secrets
 
 from .serializers import *
-from .models import *
 
 class AuthViewSet(viewsets.GenericViewSet):
-    """
-    ViewSet для аутентификации пользователей.
-
-    register (POST /api/auth/register/):
-    Регистрация нового пользователя
-    * username - имя пользователя
-    * email - электронная почта
-    * password - пароль
-    * password2 - подтверждение пароля
-
-    login (POST /api/auth/login/):
-    Авторизация пользователя
-    * username - имя пользователя
-    * password - пароль
-
-    logout (POST /api/auth/logout/):
-    Выход из системы
-    * refresh - токен обновления для добавления в черный список
-
-    refresh (POST /api/auth/refresh/):
-    Обновление токена доступа
-    * refresh - токен обновления
-
-    telegram_link (POST /api/auth/telegram/link/):
-    Генерирует временную ссылку для привязки Telegram
-
-    telegram_verify (POST /api/auth/telegram/verify/):
-    Верифицирует пользователя по коду и привязывает chat_id
-    * code - код верификации
-    * chat_id - ID чата в Telegram
-
-    telegram_status (GET /api/auth/telegram/status/):
-    Возвращает статус привязки Telegram
-    """
     def get_permissions(self):
-        if self.action in ['logout', 'telegram_link', 'telegram_status']:
+        if self.action in ['logout', 'telegram_link']:
             return [IsAuthenticated()]
         return [AllowAny()]
 
@@ -60,23 +26,25 @@ class AuthViewSet(viewsets.GenericViewSet):
             return AuthRegisterSerializer
         elif self.action == 'login':
             return AuthLoginSerializer
-        elif self.action == 'telegram_verify':
-            return TelegramVerificationLinkSerializer
         elif self.action in ['logout', 'refresh']:
-            return RefreshTokenSerializer
+            return AuthRefreshSerializer
         elif self.action == 'telegram_link':
-            return TelegramLinkResponseSerializer
-        elif self.action == 'telegram_status':
-            return TelegramStatusResponseSerializer
+            return AuthTelegramLinkSerializer
+        elif self.action == 'telegram_verify':
+            return AuthTelegramVerifySerializer
+
+        return None
 
     @action(detail=False, methods=['post'])
     def register(self, request):
-        """Регистрация нового пользователя."""
         serializer = self.get_serializer(data=request.data)
         serializer.context['action'] = 'register'
         serializer.is_valid(raise_exception=True)
+
         user = serializer.save()
+
         refresh = RefreshToken.for_user(user)
+
         return Response({
             'user': AccountSerializer(user).data,
             'refresh': str(refresh),
@@ -85,13 +53,16 @@ class AuthViewSet(viewsets.GenericViewSet):
 
     @action(detail=False, methods=['post'])
     def login(self, request):
-        """Авторизация пользователя."""
         serializer = self.get_serializer(data=request.data)
         serializer.context['action'] = 'login'
         serializer.is_valid(raise_exception=True)
+
         user = serializer.validated_data['user']
+
         login(request, user)
+
         refresh = RefreshToken.for_user(user)
+
         return Response({
             'user': AccountSerializer(user).data,
             'refresh': str(refresh),
@@ -100,112 +71,80 @@ class AuthViewSet(viewsets.GenericViewSet):
 
     @action(detail=False, methods=['post'])
     def logout(self, request):
-        """Выход из системы."""
         try:
-            refresh_token = request.data["refresh"]
+            refresh_token = request.data['refresh']
+
             token = RefreshToken(refresh_token)
             token.blacklist()
+
             logout(request)
+
             return Response(status=status.HTTP_205_RESET_CONTENT)
-        except Exception as e:
+        except Exception as exception:
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
     @action(detail=False, methods=['post'])
     def refresh(self, request):
-        """Обновление токена доступа."""
         try:
-            refresh_token = request.data["refresh"]
+            refresh_token = request.data['refresh']
+
             token = RefreshToken(refresh_token)
+
             return Response({
                 'access': str(token.access_token),
             })
-        except Exception:
+        except Exception as exception:
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
     @action(detail=False, methods=['post'])
     def telegram_link(self, request):
-        """Генерирует временную ссылку для привязки Telegram"""
-        # Генерируем уникальный код
         code = secrets.token_urlsafe(24)
-        
-        # Создаем запись с временной ссылкой
+
         link = TelegramVerificationLink.objects.create(
             user=request.user,
             code=code,
-            expires_at=timezone.now() + timedelta(minutes=2)
+            expires_at=timezone.now() + timedelta(minutes=5)
         )
-        
-        # Формируем ссылку для Telegram
-        bot_username = settings.TELEGRAM_BOT_USERNAME
-        telegram_link = f"https://t.me/{bot_username}?start={code}"
-        
+
         serializer = self.get_serializer(data={
-            'link': telegram_link,
+            'link': f'https://t.me/{settings.TELEGRAM_BOT_USERNAME}?start={code}',
             'expires_at': link.expires_at
         })
         serializer.is_valid(raise_exception=True)
+
         return Response(serializer.data)
 
     @action(detail=False, methods=['post'])
     def telegram_verify(self, request):
-        """Верифицирует пользователя по коду и привязывает chat_id"""
         serializer = self.get_serializer(data=request.data)
+
         if not serializer.is_valid():
             return Response(serializer.errors, status=400)
-        
+
         code = serializer.validated_data['code']
         chat_id = serializer.validated_data['chat_id']
-        
+
         try:
-            # Ищем активную ссылку
             link = TelegramVerificationLink.objects.get(
                 code=code,
                 expires_at__gt=timezone.now()
             )
-            
-            # Проверяем, не привязан ли уже этот chat_id к другому пользователю
+
             if Account.objects.filter(telegram_chat_id=chat_id).exclude(id=link.user_id).exists():
-                return Response({'error': 'Этот Telegram аккаунт уже привязан к другому пользователю'}, status=400)
-            
-            # Обновляем chat_id пользователя
+                return Response(status=status.HTTP_400_BAD_REQUEST)
+
             user = link.user
             user.telegram_chat_id = chat_id
             user.save()
-            
-            # Удаляем использованную ссылку
-            link.delete()
-            
-            return Response({'status': 'success'})
-        except TelegramVerificationLink.DoesNotExist:
-            return Response({'error': 'Неверный или устаревший код'}, status=400)
 
-    @action(detail=False, methods=['get'])
-    def telegram_status(self, request):
-        """Возвращает статус привязки Telegram"""
-        return Response({
-            'is_verified': bool(request.user.telegram_chat_id),
-            'chat_id': request.user.telegram_chat_id
-        })
+            link.delete()
+
+            return Response(status=HTTP_200_OK)
+        except TelegramVerificationLink.DoesNotExist:
+            return Response(status=HTTP_400_BAD_REQUEST)
 
 
 class AccountViewSet(viewsets.ModelViewSet):
-    """
-    ViewSet для управления аккаунтом пользователя.
-
-    me (GET /api/accounts/me/):
-    Получение информации о текущем пользователе
-
-    update (PATCH /api/accounts/me/):
-    Обновление профиля
-    * email - электронная почта (опционально)
-    * telegram - ссылка на Telegram (опционально)
-
-    change_password (POST /api/accounts/me/change-password/):
-    Смена пароля
-    * old_password - текущий пароль
-    * new_password - новый пароль
-    * new_password2 - подтверждение нового пароля
-    """
     serializer_class = AccountSerializer
     permission_classes = [IsAuthenticated]
     http_method_names = ['get', 'patch', 'post']
@@ -215,8 +154,10 @@ class AccountViewSet(viewsets.ModelViewSet):
 
     def get_object(self):
         obj = super().get_object()
+
         if obj != self.request.user:
             raise PermissionDenied("Вы не можете управлять чужим аккаунтом")
+
         return obj
 
     def get_serializer_class(self):
@@ -224,42 +165,34 @@ class AccountViewSet(viewsets.ModelViewSet):
             return AccountUpdateSerializer
         elif self.action == 'change_password':
             return PasswordChangeSerializer
+
         return AccountSerializer
 
     @action(detail=False, methods=['get'])
     def me(self, request):
-        """
-        Получение информации о текущем пользователе.
-        """
         serializer = self.get_serializer(request.user)
+
         return Response(serializer.data)
 
     @action(detail=False, methods=['patch'])
     def update(self, request):
-        """
-        Обновление профиля пользователя.
-        """
         serializer = self.get_serializer(request.user, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
+
         return Response(AccountSerializer(request.user).data)
 
     @action(detail=False, methods=['post'])
     def change_password(self, request):
-        """
-        Смена пароля пользователя.
-        """
         serializer = self.get_serializer(data=request.data)
         serializer.context['user'] = request.user
         serializer.is_valid(raise_exception=True)
         serializer.save()
+
         return Response(status=status.HTTP_200_OK)
 
 
 class PortfolioViewSet(viewsets.ModelViewSet):
-    """
-    Конечная точка API для управления портфелями.
-    """
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
@@ -267,13 +200,16 @@ class PortfolioViewSet(viewsets.ModelViewSet):
 
     def get_object(self):
         obj = super().get_object()
+
         if obj.account != self.request.user:
             raise PermissionDenied("Вы не можете управлять чужим портфелем")
+
         return obj
 
     def get_serializer_class(self):
         if self.action in ['buy', 'sell']:
             return PortfolioOperationSerializer
+
         return PortfolioSerializer
 
     def perform_create(self, serializer):
@@ -281,9 +217,6 @@ class PortfolioViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=['post'])
     def buy(self, request, pk=None):
-        """
-        Покупка валюты в портфель.
-        """
         portfolio = self.get_object()
         serializer = PortfolioOperationSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -336,9 +269,6 @@ class PortfolioViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=['post'])
     def sell(self, request, pk=None):
-        """
-        Продажа валюты из портфеля.
-        """
         portfolio = self.get_object()
         serializer = PortfolioOperationSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -395,39 +325,36 @@ class PortfolioViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=['get'])
     def operations(self, request, pk=None):
-        """
-        Получение списка операций в портфеле.
-        """
         portfolio = self.get_object()
+
         operations = portfolio.operations.all()
+
         serializer = OperationSerializer(operations, many=True)
+
         return Response(serializer.data)
 
     @action(detail=True, methods=['get'])
     def watches(self, request, pk=None):
-        """
-        Получение списка отслеживаемых валют в портфеле.
-        """
         portfolio = self.get_object()
+
         watches = portfolio.watches.all()
+
         serializer = WatchSerializer(watches, many=True)
+
         return Response(serializer.data)
 
     @action(detail=True, methods=['get'])
     def currencies(self, request, pk=None):
-        """
-        Получение информации о валютах в портфеле.
-        """
         portfolio = self.get_object()
+
         currency_balances = CurrencyBalance.objects.filter(portfolio=portfolio).select_related('currency')
+
         serializer = CurrencyBalanceSerializer(currency_balances, many=True)
+
         return Response(serializer.data)
 
 
 class OperationViewSet(viewsets.ModelViewSet):
-    """
-    Конечная точка API для управления операциями.
-    """
     serializer_class = OperationSerializer
     permission_classes = [IsAuthenticated]
 
@@ -436,52 +363,53 @@ class OperationViewSet(viewsets.ModelViewSet):
 
     def get_object(self):
         obj = super().get_object()
+
         if obj.portfolio.account != self.request.user:
             raise PermissionDenied("Вы не можете управлять чужими операциями")
+
         return obj
 
     def perform_create(self, serializer):
         portfolio = serializer.validated_data['portfolio']
+
         if portfolio.account != self.request.user:
             raise PermissionDenied("Вы не можете создавать операции в чужом портфеле")
+
         serializer.save()
 
 
 class CurrencyViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    Конечная точка API для просмотра информации о валютах.
-    """
     queryset = Currency.objects.all()
     serializer_class = CurrencySerializer
     permission_classes = [IsAuthenticated]
 
     @action(detail=True, methods=['get'])
     def rates(self, request, pk=None):
-        """
-        Получение истории курсов валюты.
-        """
         currency = self.get_object()
+
         rates = currency.rate_set.order_by('-timestamp')
+
         serializer = RateSerializer(rates, many=True)
+
         return Response(serializer.data)
 
 
 class RateViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    Конечная точка API для просмотра курсов валют.
-    """
-    queryset = Rate.objects.all()
     serializer_class = RateSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Rate.objects.select_related('currency').order_by('-timestamp')
+        queryset = Rate.objects.select_related('currency').order_by('-timestamp')
+
+        short_name = self.request.query_params.get('short_name')
+
+        if short_name:
+            queryset = queryset.filter(currency__short_name=short_name)
+
+        return queryset
 
 
 class WatchViewSet(viewsets.ModelViewSet):
-    """
-    Конечная точка API для управления отслеживаемыми валютами.
-    """
     serializer_class = WatchSerializer
     permission_classes = [IsAuthenticated]
 
@@ -490,12 +418,15 @@ class WatchViewSet(viewsets.ModelViewSet):
 
     def get_object(self):
         obj = super().get_object()
+
         if obj.portfolio.account != self.request.user:
             raise PermissionDenied("Вы не можете управлять чужими отслеживаемыми валютами")
+
         return obj
 
     def perform_create(self, serializer):
         portfolio = serializer.validated_data['portfolio']
+
         if portfolio.account != self.request.user:
             raise PermissionDenied("Вы не можете добавлять отслеживаемые валюты в чужой портфель")
         
@@ -518,6 +449,31 @@ class WatchViewSet(viewsets.ModelViewSet):
             enabled=True
         )
 
+    def perform_update(self, serializer):
+        watch = serializer.save()
+        
+        schedule, _ = CrontabSchedule.objects.get_or_create(
+            hour=watch.notify_time.hour,
+            minute=watch.notify_time.minute,
+            day_of_week='*',
+            day_of_month='*',
+            month_of_year='*',
+        )
+
+        task, created = PeriodicTask.objects.get_or_create(
+            name=f'notify-{watch.id}',
+            defaults={
+                'task': 'api.tasks.notify_currency_rate',
+                'args': [watch.id],
+                'enabled': True
+            }
+        )
+        
+        if not created:
+            task.crontab = schedule
+            task.save()
+
     def perform_destroy(self, instance):
         PeriodicTask.objects.filter(name=f'notify-{instance.id}').delete()
+
         instance.delete()

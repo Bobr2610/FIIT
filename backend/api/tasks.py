@@ -1,12 +1,13 @@
 from celery import shared_task
 from django.core.mail import send_mail
 from django.conf import settings
-from .models import Watch, Rate
+from django.core.cache import cache
+from django.utils import timezone
+from .models import Watch, Rate, Portfolio, CurrencyBalance
 import asyncio
 import aiohttp
 
 async def send_telegram_notification(chat_id: int, message: str) -> bool:
-    """Отправка уведомления через Telegram бота"""
     try:
         async with aiohttp.ClientSession() as session:
             async with session.post(
@@ -23,9 +24,6 @@ async def send_telegram_notification(chat_id: int, message: str) -> bool:
 
 @shared_task
 def notify_currency_rate(watch_id):
-    """
-    Отправляет уведомление пользователю о текущем курсе валюты.
-    """
     try:
         watch = Watch.objects.select_related('portfolio__account', 'currency').get(id=watch_id)
         latest_rate = Rate.objects.filter(currency=watch.currency).latest('timestamp')
@@ -37,7 +35,6 @@ def notify_currency_rate(watch_id):
             f"⏰ Время: {latest_rate.timestamp}"
         )
 
-        # Отправляем уведомление в Telegram
         if watch.portfolio.account.telegram_chat_id:
             try:
                 asyncio.run(send_telegram_notification(
@@ -46,8 +43,7 @@ def notify_currency_rate(watch_id):
                 ))
             except Exception:
                 pass
-        
-        # Отправляем уведомление на email
+
         # TODO: исправить почту
         if watch.portfolio.account.email:
             try:
@@ -62,4 +58,45 @@ def notify_currency_rate(watch_id):
                 pass
         
     except (Watch.DoesNotExist, Rate.DoesNotExist):
-        pass 
+        pass
+
+@shared_task
+def update_portfolio_values():
+    portfolios = Portfolio.objects.all()
+    
+    for portfolio in portfolios:
+        total_value = portfolio.balance
+        
+        currency_balances = CurrencyBalance.objects.filter(portfolio=portfolio).select_related('currency')
+        
+        for balance in currency_balances:
+            try:
+                current_rate = balance.currency.rate_set.latest('timestamp')
+                total_value += balance.amount * current_rate.cost
+            except Rate.DoesNotExist:
+                continue
+        
+        cache_key = f'portfolio_value_{portfolio.id}'
+        previous_value = cache.get(cache_key)
+        
+        if previous_value is not None:
+            change_percent = ((total_value - previous_value) / previous_value) * 100
+            
+            if portfolio.notify_threshold is not None and abs(change_percent) >= portfolio.notify_threshold:
+                message = (
+                    f"<b>Изменение стоимости портфеля</b>\n\n"
+                    f"💰 Текущая стоимость: {total_value}\n"
+                    f"📈 Изменение: {'+' if change_percent > 0 else ''}{change_percent:.2f}%\n"
+                    f"⏰ Время: {timezone.now().strftime('%H:%M:%S')}"
+                )
+                
+                if portfolio.account.telegram_chat_id:
+                    try:
+                        asyncio.run(send_telegram_notification(
+                            chat_id=portfolio.account.telegram_chat_id,
+                            message=message
+                        ))
+                    except Exception:
+                        pass
+        
+        cache.set(cache_key, total_value, timeout=3600)

@@ -4,10 +4,10 @@ from .models import *
 
 
 admin.site.register(Account)
+admin.site.register(TelegramVerificationLink)
 admin.site.register(Portfolio)
 admin.site.register(CurrencyBalance)
 admin.site.register(Operation)
 admin.site.register(Currency)
 admin.site.register(Rate)
 admin.site.register(Watch)
-admin.site.register(TelegramVerificationLink)
