@@ -1,0 +1,2121 @@
+/* Глобальные переменные */
+:root {
+  /* Размеры элементов интерфейса */
+  --sidebar-width: 240px; /* Обновленная ширина боковой панели */
+  --header-height: 65px;
+  --border-radius: 6px;
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 30px;
+
+  /* Толщина границ */
+  --border-width-sm: 1px;
+  --border-width-md: 1px;
+
+  /* Тени */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.07);
+
+  /* Скорость анимаций */
+  --transition-speed: 0.25s;
+
+  /* Типографика */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 22px;
+  --font-size-2xl: 28px;
+
+  /* Светлая тема (по умолчанию) */
+  --bg-primary: #ffffff; /* Фон для сайдбара и верхней панели */
+  --bg-secondary: #f8f9fa; /* Фон для основного контента */
+  --card-bg: #ffffff; /* Фон для карточек */
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --accent-primary: #0d6efd;
+  --accent-secondary: #5AC8FA; /* Оставляем без изменений, так как не было явных указаний */
+  --border-color: #dee2e6;
+  --border-color-light: #e9ecef;
+  --success-color: #34C759; /* Оставляем без изменений, для контекста */
+  --danger-color: #FF3B30;
+  --trend-up-color: #2ecc71;
+  --trend-down-color: #e74c3c;
+  --table-header-bg: #f8f9fa;
+  --table-row-hover: #eff2f5;
+  --sidebar-bg: var(--bg-primary);
+  --sidebar-text: var(--text-primary);
+  --hover-bg: #f0f2f5;
+  --logo-width: 150px;
+  --nav-icon-width: 20px;
+  --sidebar-transition: transform 0.3s ease-in-out;
+  --sidebar-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  --nav-item-hover-bg: #e9ecef;
+  --nav-item-active-bg: #007bff;
+  --nav-item-active-text: #ffffff;
+
+
+  /* Для контролов в темной теме, чтобы текст был виден */
+  --dark-theme-controls-text: #e1e1e1; /* Светлый текст для темной темы на контролах */
+  --dark-theme-controls-bg: #3a3a3a;   /* Фон для контролов в темной теме */
+  --dark-theme-controls-border: #505050;
+
+  /* Добавленные переменные из плана */
+  --primary-color: #007bff; /* Пример значения */
+  --secondary-color: #6c757d; /* Пример значения */
+  --white-color: #ffffff;
+  --border-radius-large: 12px; /* Пример значения */
+  --border-radius-sm: 4px; /* Пример значения */
+  --shadow-large: 0 10px 20px rgba(0,0,0,0.1);
+  --font-weight-bold: 700;
+
+  --button-bg: var(--accent-primary);
+  --button-text: #ffffff;
+  --button-border: var(--accent-primary);
+}
+
+/* Темная тема */
+[data-theme="dark"] {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --card-bg: #2c2c2e;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --accent-primary: #3b82f6;
+  --border-color: #3a3a3c;
+  --border-color-light: #2a2a2c;
+  --table-header-bg: #2c2c2e; /* Обновлено для соответствия новому --card-bg */
+  --table-row-hover: #404040;
+  --sidebar-bg: var(--bg-primary);
+  --sidebar-text: var(--text-primary);
+  --hover-bg: #404040;
+  --nav-item-hover-bg: #343a40;
+  --nav-item-active-bg: #3498db;
+  --nav-item-active-text: #ffffff;
+
+  /* Переопределение для контролов в темной теме */
+  --text-primary-on-controls: var(--dark-theme-controls-text);
+  --controls-bg: var(--dark-theme-controls-bg);
+  --controls-border: var(--dark-theme-controls-border);
+}
+[data-theme="light"] {
+  --text-primary-on-controls: var(--text-primary);
+  --controls-bg: var(--bg-primary);
+  --controls-border: var(--border-color);
+  --sidebar-bg: #ffffff; /* Explicitly set sidebar background for light theme */
+}
+
+[data-theme="light"] .sidebar {
+  background-color: var(--sidebar-bg);
+}
+
+
+/* Тема для дальтоников (высокий контраст) */
+[data-theme="colorblind"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f8f8;
+  --card-bg: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #595959;
+  --accent-primary: #0072B2; /* Colorblind-safe Blue */
+  --border-color: #000000;
+  --border-color-light: #c0c0c0;
+  --success-color: #009E73; /* Colorblind-safe Bluish Green */
+  --danger-color: #D55E00; /* Colorblind-safe Orange/Red-Orange */
+  --trend-up-color: var(--success-color);
+  --trend-down-color: var(--danger-color);
+  --table-header-bg: #e0e0e0;
+  --table-row-hover: #f0f0f0;
+  --sidebar-bg: #ffffff;
+  --sidebar-text: #000000;
+  --hover-bg: #f0f0f0;
+
+  --text-primary-on-controls: #000000;
+  --controls-bg: #ffffff;
+  --controls-border: #000000;
+}
+
+/* Улучшение контрастности для темы colorblind */
+[data-theme="colorblind"] body,
+[data-theme="colorblind"] p,
+[data-theme="colorblind"] span,
+[data-theme="colorblind"] div,
+[data-theme="colorblind"] li,
+[data-theme="colorblind"] h1,
+[data-theme="colorblind"] h2,
+[data-theme="colorblind"] h3,
+[data-theme="colorblind"] h4,
+[data-theme="colorblind"] h5,
+[data-theme="colorblind"] h6,
+[data-theme="colorblind"] label,
+[data-theme="colorblind"] td,
+[data-theme="colorblind"] th,
+[data-theme="colorblind"] a,
+[data-theme="colorblind"] button,
+[data-theme="colorblind"] input,
+[data-theme="colorblind"] select,
+[data-theme="colorblind"] textarea {
+    text-decoration: underline !important;
+    font-weight: bold !important;
+}
+
+[data-theme="colorblind"] body {
+    --text-primary: #000000;
+    --text-secondary: #1a1a1a;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f0f0f0;
+    --accent-primary: #0072B2; /* Colorblind-safe Blue */
+    --accent-secondary: #005C8A; /* Darker Colorblind-safe Blue for hover/secondary */
+    --border-color: #333333;
+    --border-color-light: #666666;
+    --card-bg: #ffffff;
+    --card-border: #1a1a1a;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --controls-bg: #e6e6e6;
+    --controls-border: #1a1a1a;
+    --text-primary-on-controls: #000000;
+    --hover-bg: #cccccc;
+    --button-text-color: #ffffff;
+    --button-hover-bg: #003380;
+}
+
+[data-theme="colorblind"] a {
+    color: #0052cc;
+}
+
+[data-theme="colorblind"] a:hover {
+    color: var(--accent-secondary);
+}
+
+[data-theme="colorblind"] .button-primary,
+[data-theme="colorblind"] button {
+    background-color: var(--accent-primary);
+    color: #ffffff;
+    border: 1px solid var(--accent-secondary);
+}
+
+[data-theme="colorblind"] .button-primary:hover,
+[data-theme="colorblind"] button:hover {
+    background-color: var(--accent-secondary);
+}
+
+[data-theme="colorblind"] input,
+[data-theme="colorblind"] select,
+[data-theme="colorblind"] textarea {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+[data-theme="colorblind"] input::placeholder,
+[data-theme="colorblind"] textarea::placeholder {
+    color: #4d4d4d;
+}
+
+[data-theme="colorblind"] {
+    --nav-item-hover-bg: #d0e8f2; /* Светло-голубой для ховера */
+    --nav-item-active-bg: #0072B2; /* Основной акцентный цвет для активного элемента */
+    --nav-item-active-text: #ffffff; /* Белый текст для активного элемента */
+}
+
+
+/* Глобальные стили */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  display: flex;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; }
+
+/* Сайдбар */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  border-right: var(--border-width-md) solid var(--border-color);
+  position: fixed; left: 0; top: 0; height: 100vh; z-index: 1000;
+  box-shadow: var(--sidebar-shadow);
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--sidebar-transition);
+}
+
+.sidebar:hover {
+    transform: translateX(0); /* Показываем сайдбар при наведении, если он скрыт */
+}
+.sidebar .logo { 
+    margin-bottom: var(--spacing-lg); 
+    text-align: left; 
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+}
+.sidebar .logo img { 
+    max-width: var(--logo-width); 
+    height: auto;
+    max-height: calc(var(--header-height) - var(--spacing-sm) * 2);
+}
+.sidebar .main-nav a {
+  display: flex; align-items: center; padding: var(--spacing-sm) var(--spacing-md);
+  margin-bottom: var(--spacing-xs); border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform 0.2s ease;
+  color: var(--sidebar-text); font-size: var(--font-size-md);
+  font-weight: 500; /* Немного жирнее шрифт */
+}
+.sidebar .main-nav a i {
+  margin-right: var(--spacing-sm); width: var(--nav-icon-width);
+  text-align: center; color: var(--accent-primary);
+  transition: color var(--transition-speed) ease;
+}
+.sidebar .main-nav a:hover {
+  background-color: var(--nav-item-hover-bg);
+  color: var(--accent-primary); /* Цвет текста при наведении */
+  transform: translateX(5px); /* Небольшой сдвиг вправо при наведении */
+}
+
+.sidebar .main-nav a:hover i {
+    color: var(--accent-primary); /* Цвет иконок при наведении, если отличается */
+}
+.sidebar .main-nav a.active {
+  background-color: var(--nav-item-active-bg);
+  color: var(--nav-item-active-text);
+  font-weight: var(--font-weight-bold);
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar .main-nav a.active i {
+    color: var(--nav-item-active-text);
+}
+
+/* Основной контент */
+.main-content {
+  flex-grow: 1; padding: var(--spacing-md);
+  margin-left: var(--sidebar-width); /* Отступ слева равен ширине сайдбара */
+  background-color: var(--bg-secondary); overflow-y: auto;
+  transition: margin-left var(--transition-speed) ease; /* Плавный переход для отступа */
+}
+
+/* Верхняя панель */
+.top-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--card-bg); /* Фон как у карточек в светлой теме */
+  border: none; /* Убираем рамку для минимализма */
+  border-radius: 0; /* Убираем скругление углов для минимализма */
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-md); height: var(--header-height);
+}
+.account-group { display: flex; align-items: center; gap: var(--spacing-sm); }
+.account-link {
+  display: flex; align-items: center; gap: var(--spacing-xs);
+  color: var(--text-primary); font-weight: 500; font-size: var(--font-size-sm);
+}
+.account-link i { font-size: var(--font-size-lg); color: var(--text-secondary); }
+.account-link:hover, .account-link:hover i { color: var(--accent-primary); }
+.current-time { font-size: var(--font-size-xs); color: var(--text-secondary); margin-left: auto; /* Добавлено для выравнивания времени */ }
+.header-right-controls { display: flex; align-items: center; gap: var(--spacing-md); margin-left: var(--spacing-md); /* Добавлен отступ слева */ }
+.theme-selector { display: flex; align-items: center; gap: var(--spacing-xs); }
+.theme-selector label { color: var(--text-secondary); font-size: var(--font-size-sm); margin-bottom: 0; }
+.theme-selector select,
+.market-overview-controls select,
+.market-overview-controls input[type="color"] {
+    padding: var(--spacing-xs) var(--spacing-sm); /* или 5px var(--spacing-xs) если это важно */
+    border-radius: var(--border-radius);
+    border: 1px solid var(--controls-border);
+    background-color: var(--controls-bg);
+    color: var(--text-primary-on-controls);
+    font-size: var(--font-size-sm);
+    /* height: auto; line-height: 1.2; - если применимо ко всем */
+}
+
+.theme-selector select {
+    height: auto; /* специфичное свойство, если нужно */
+    line-height: 1.2; /* специфичное свойство, если нужно */
+    /* padding: 5px var(--spacing-xs); если отличается от общего */
+}
+.theme-selector select:hover { border-color: var(--accent-primary); }
+.theme-toggle {
+  background: none; border: none; color: var(--text-secondary); cursor: pointer;
+  padding: var(--spacing-xs); border-radius: 50%; width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--font-size-lg);
+}
+.theme-toggle:hover { color: var(--accent-primary); background-color: var(--hover-bg); }
+.hidden { display: none !important; }
+
+
+/* Стили для элементов управления в "Обзор рынка" */
+.market-overview-controls {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+    margin-bottom: var(--spacing-md); /* Отступ снизу для отделения от графика */
+}
+
+.market-overview-controls .form-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.market-overview-controls label {
+    margin-bottom: 0; /* Убираем стандартный отступ у label */
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.market-overview-controls .form-control,
+.market-overview-controls .form-control-sm {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--controls-border);
+    background-color: var(--controls-bg);
+    color: var(--text-primary-on-controls);
+    font-size: var(--font-size-sm);
+    height: auto; /* Автоматическая высота */
+    line-height: 1.5; /* Улучшение читаемости */
+}
+
+.market-overview-controls .form-control-sm {
+    padding: 5px var(--spacing-xs); /* Меньший padding для sm контролов */
+}
+
+.market-overview-controls input[type="color"] {
+    width: 50px; /* Фиксированная ширина для выбора цвета */
+    height: calc(1.5em + var(--spacing-xs) * 2 + 2px); /* Высота как у других контролов */
+    padding: var(--spacing-xs); /* Небольшой внутренний отступ */
+}
+
+/* Стили для карточек/секций */
+.card {
+  background-color: var(--card-bg); border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  box-shadow: none; /* Убираем тень для минимализма */
+  border: var(--border-width-md) solid var(--border-color-light); /* Более светлая граница */
+  margin-bottom: var(--spacing-md);
+}
+.card:last-child { margin-bottom: 0; }
+.card-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: var(--spacing-md); padding-bottom: var(--spacing-sm);
+  border-bottom: var(--border-width-sm) solid var(--border-color);
+}
+.card-header h3, .card-header h4 {
+  font-size: var(--font-size-lg); font-weight: 500;
+  margin: 0; color: var(--text-primary);
+}
+
+/* Стили для контейнера «Ваш Баланс» - Минималистичный дизайн */
+.user-balance-container {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    border: var(--border-width-sm) solid var(--border-color-light);
+    transition: box-shadow var(--transition-speed) ease;
+}
+
+.user-balance-container:hover {
+    box-shadow: var(--shadow-md);
+}
+
+/* Удаляем .animated-gradient-background и @keyframes gradientAnimation, так как они больше не нужны */
+
+.balance-icon {
+    font-size: 1.8em; /* Уменьшаем размер иконки для минимализма */
+    margin-right: var(--spacing-md);
+    color: var(--accent-primary); /* Используем акцентный цвет темы */
+    /* Убираем фон и тень для иконки */
+}
+
+.balance-icon i {
+    /* Если иконка вставлена через <i>, цвет уже задан выше */
+}
+
+.balance-details h4 {
+    margin: 0 0 var(--spacing-xs) 0;
+    font-size: var(--font-size-sm); /* Уменьшаем шрифт заголовка */
+    font-weight: 400; /* Стандартный вес */
+    color: var(--text-secondary); /* Вторичный цвет текста */
+    opacity: 1; /* Убираем прозрачность */
+}
+
+.balance-amount {
+    font-size: var(--font-size-xl); /* Уменьшаем размер суммы баланса */
+    font-weight: 500; /* Средний вес */
+    color: var(--text-primary);
+    letter-spacing: normal; /* Убираем дополнительный интервал */
+}
+
+/* Удаляем стили для .balance-container и .balance-container::before, если они не используются в других местах или относятся к старому дизайну */
+/* Если .balance-container используется для другого, его нужно оставить или адаптировать */
+}
+
+.balance-container h2,
+.balance-container p {
+    position: relative;
+    z-index: 1;
+}
+
+.balance-container h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-small);
+    font-weight: var(--font-weight-bold);
+}
+
+.balance-container p {
+    font-size: var(--font-size-large);
+    margin: 0;
+}
+
+/* Секция "Ваш портфель" */
+.portfolio .balance {
+  font-size: var(--font-size-2xl); font-weight: 500;
+  color: var(--text-primary); margin-bottom: var(--spacing-md);
+}
+.portfolio-table { width: 100%; border-collapse: collapse; }
+.portfolio-table th, .portfolio-table td {
+  padding: var(--spacing-sm) var(--spacing-xs); text-align: left;
+  border-bottom: var(--border-width-sm) solid var(--border-color-light);
+  vertical-align: middle; font-size: var(--font-size-sm);
+}
+.portfolio-table th:first-child, .portfolio-table td:first-child { padding-left: 0; }
+.portfolio-table th:last-child, .portfolio-table td:last-child { padding-right: 0; text-align: right; }
+.portfolio-table th {
+  background-color: transparent; color: var(--text-secondary); font-weight: normal;
+  border-bottom-width: var(--border-width-md); border-bottom-color: var(--border-color);
+}
+.portfolio-table td { color: var(--text-primary); }
+.portfolio-table td:nth-child(2), .portfolio-table td:nth-child(3), .portfolio-table td:nth-child(4) { font-weight: 500; }
+.portfolio-table tr:last-child td { border-bottom: none; }
+.portfolio-table tr:hover { background-color: var(--table-row-hover); }
+.trend-up, .trend-down {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-weight: 500; font-size: var(--font-size-sm);
+}
+.trend-up { color: var(--trend-up-color); }
+.trend-down { color: var(--trend-down-color); }
+.trend-up i, .trend-down i { font-size: 0.8em; }
+
+/* Оптимизированные стили для отслеживаемых активов */
+.tracked-assets-container {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.tracked-assets-container .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.tracked-assets-container .section-header h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.tracked-assets-container .assets-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.tracked-assets-container .asset-item {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-md);
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color-light);
+    transition: all var(--transition-speed) ease;
+}
+
+.tracked-assets-container .asset-item:hover {
+    background-color: var(--hover-bg);
+    transform: translateX(5px);
+    box-shadow: var(--shadow-sm);
+}
+
+.tracked-assets-container .asset-item i {
+    font-size: var(--font-size-lg);
+    color: var(--accent-primary);
+    width: 30px;
+    text-align: center;
+    margin-right: var(--spacing-md);
+}
+
+.tracked-assets-container .asset-item span:not(.price) {
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    color: var(--text-primary);
+    flex-grow: 1;
+}
+
+.tracked-assets-container .asset-item .price {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-left: auto;
+    padding-left: var(--spacing-md);
+    min-width: 120px;
+    text-align: right;
+}
+
+/* Улучшенные стили для кнопки обновления */
+.refresh-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--accent-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+}
+
+.refresh-btn:hover {
+    background-color: var(--accent-primary-dark, #005bb5);
+    transform: scale(1.05);
+}
+
+.refresh-btn i {
+    font-size: var(--font-size-md);
+}
+
+.refresh-btn:active {
+    transform: scale(0.95);
+}
+
+/* Улучшенные стили для графика */
+.main-chart-area .chart-wrapper {
+    position: relative;
+    height: 600px; /* Увеличена высота графика */
+    width: 100%;
+    margin-bottom: var(--spacing-lg);
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+}
+
+/* Улучшенные стили для кнопок выбора валюты */
+.currency-selector-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    justify-content: center;
+}
+
+.currency-selector-panel .currency-btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    min-width: 80px;
+}
+
+.currency-selector-panel .currency-btn:hover {
+    border-color: var(--accent-primary);
+    background-color: var(--hover-bg);
+}
+
+.currency-selector-panel .currency-btn.active {
+    background-color: var(--accent-primary);
+    color: white;
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Улучшенные стили для кнопок купить/продать */
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    justify-content: center;
+}
+
+.btn-buy, .btn-sell {
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: var(--font-size-md);
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    min-width: 120px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-buy {
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+}
+
+.btn-buy:hover {
+    background-color: var(--success-color-dark, #28a745);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-sell {
+    background-color: var(--danger-color);
+    color: white;
+    border: none;
+}
+
+.btn-sell:hover {
+    background-color: var(--danger-color-dark, #dc3545);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Стили для модального окна */
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Оставаться на месте */
+    z-index: 1001; /* Поверх всего остального */
+    left: 0;
+    top: 0;
+    width: 100%; /* Полная ширина */
+    height: 100%; /* Полная высота */
+    overflow: auto; /* Включить прокрутку, если нужно */
+    background-color: rgba(0,0,0,0.4); /* Черный с непрозрачностью */
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 15% auto; /* 15% сверху и по центру */
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    width: 80%; /* Может быть изменено в зависимости от предпочтений */
+    max-width: 500px; /* Максимальная ширина */
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+}
+
+.close-button {
+    color: var(--text-secondary);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--text-primary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: var(--text-primary);
+}
+
+.modal-content p {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-secondary);
+}
+
+.modal-content .form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.modal-content input[type="number"] {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--controls-border);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--controls-bg);
+    color: var(--text-primary-on-controls);
+    font-size: var(--font-size-sm);
+}
+
+.modal-content #modalActionButton {
+    width: 100%;
+    padding: var(--spacing-md);
+    font-size: var(--font-size-md);
+    margin-top: var(--spacing-sm);
+}
+
+/* Стили для страницы аккаунта */
+#account-page .main-content {
+    max-width: 800px; /* Ограничиваем ширину для лучшей читаемости */
+    margin-left: auto; /* Центрируем, если сайдбар скрыт или страница без него */
+    margin-right: auto;
+    padding-top: var(--spacing-lg); /* Дополнительный отступ сверху */
+}
+
+.account-form-container {
+    /* Стили .card уже применены, добавляем специфичные */
+    padding: var(--spacing-lg);
+}
+
+.account-form-container h1 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.user-info-section {
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color-light);
+}
+
+.user-info-section p {
+    font-size: var(--font-size-md);
+    color: var(--text-secondary);
+}
+
+.user-info-section strong {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.account-form .form-group,
+.settings-form .form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.account-form label,
+.settings-form label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.account-form input[type="text"],
+.account-form input[type="email"],
+.settings-form input[type="number"],
+.settings-form select {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--controls-border);
+    background-color: var(--controls-bg);
+    color: var(--text-primary-on-controls);
+    font-size: var(--font-size-md);
+    transition: border-color var(--transition-speed);
+}
+
+.account-form input[type="text"]:focus,
+.account-form input[type="email"]:focus,
+.settings-form input[type="number"]:focus,
+.settings-form select:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px rgba(var(--accent-primary), 0.2);
+}
+
+.form-actions {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: var(--font-size-md);
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--accent-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #005bb5; /* Darken accent color */
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #cc2e2e; /* Darken danger color */
+}
+
+.notification-settings-section {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-color-light);
+}
+
+.notification-settings-section h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+/* Адаптивность для страницы аккаунта */
+@media (max-width: 768px) {
+    #account-page .main-content {
+        margin-left: var(--spacing-sm); /* Убираем авто-отступы на мобильных */
+        margin-right: var(--spacing-sm);
+    }
+    .account-form-container h1 {
+        font-size: var(--font-size-xl);
+    }
+    .notification-settings-section h2 {
+        font-size: var(--font-size-lg);
+    }
+    .form-actions {
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Стили для страницы logout */
+.logout-container {
+    text-align: center;
+    padding: var(--spacing-lg);
+    max-width: 500px;
+    margin: var(--spacing-lg) auto;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+}
+
+.logout-container h1 {
+    font-size: var(--font-size-xl);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.logout-container p {
+    font-size: var(--font-size-md);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.logout-container .account-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.logout-container .account-btn {
+    /* Стили .btn уже частично покрывают, но можно уточнить */
+    background-color: var(--accent-primary);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    text-decoration: none;
+}
+
+.logout-container .account-btn:hover {
+    background-color: #005bb5;
+}
+
+
+/* Убедимся, что body на странице аккаунта имеет правильный фон */
+body#account-page {
+    background-color: var(--bg-secondary);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  body { flex-direction: column; }
+  .sidebar {
+    position: static; width: 100%; height: auto;
+    border-right: none; border-bottom: 1px solid var(--border-color);
+  }
+  .main-content { margin-left: 0; padding: var(--spacing-sm); }
+  .top-bar { flex-direction: column; height: auto; gap: var(--spacing-sm); padding: var(--spacing-sm); }
+  .current-time { order: -1; width: 100%; text-align: center; }
+  .header-right-controls { width: 100%; justify-content: space-around; }
+  .portfolio .balance { font-size: var(--font-size-xl); }
+  .portfolio-table th, .portfolio-table td { font-size: var(--font-size-xs); padding: var(--spacing-xs); }
+  .controls-container { flex-direction: column; align-items: stretch; }
+  .time-filter, .color-picker-container { justify-content: space-between; }
+  .chart-wrapper { height: 250px; }
+}
+
+/* Styles for the Home Page - Modern Minimalist Design */
+
+/* Общие стили для .home-container остаются, но можно немного скорректировать отступы */
+.home-container {
+    max-width: 1100px; /* Немного уменьшим для более компактного вида */
+    margin: 0 auto;
+    padding: 20px;
+    color: var(--text-color);
+}
+
+/* Hero Section - Минимализм */
+.hero-section {
+    text-align: center;
+    padding: 80px 20px; /* Больше вертикального пространства */
+    margin-bottom: 60px;
+    background-color: transparent; /* Убираем фон карточки, если основной фон страницы подходит */
+    border-radius: 0; /* Убираем скругление, если не используем фон карточки */
+    border-bottom: 1px solid var(--border-color-light); /* Тонкая линия для разделения */
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 3.8rem); /* Адаптивный размер шрифта */
+    color: var(--text-color); /* Основной цвет текста, акцент через размер и жирность */
+    margin-bottom: 20px;
+    font-weight: 600; /* Чуть менее жирный, чем стандартный bold */
+}
+
+.hero-content .subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    margin-bottom: 25px;
+    color: var(--text-color-secondary);
+    font-weight: 300; /* Легкий шрифт */
+}
+
+.hero-content p {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    line-height: 1.7;
+    margin-bottom: 35px;
+    max-width: 700px; /* Ограничиваем ширину для лучшей читаемости */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-actions .btn {
+    margin: 5px;
+    padding: 14px 30px;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    border-radius: var(--border-radius-md); /* Мягкие скругления */
+    transition: all 0.3s ease;
+}
+
+.hero-actions .btn-primary {
+    background-color: var(--primary-color);
+    color: var(--button-text-color, #fff);
+    border: 1px solid var(--primary-color);
+}
+
+.hero-actions .btn-primary:hover {
+    background-color: var(--primary-color-dark);
+    border-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+}
+
+.hero-actions .btn-outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.hero-actions .btn-outline:hover {
+    background-color: var(--primary-color-light-transparent, rgba(0, 123, 255, 0.1)); /* Светлый фон при наведении */
+    color: var(--primary-color-dark);
+    transform: translateY(-2px);
+}
+
+/* Features Section - Минимализм */
+.features-section, .about-us-section {
+    padding: 60px 0; /* Убираем боковые отступы, если home-container их уже имеет */
+    margin-bottom: 60px;
+    background-color: transparent; /* Убираем фон карточки */
+    border-bottom: 1px solid var(--border-color-light); /* Тонкая линия для разделения */
+}
+
+.features-section:last-of-type, .about-us-section:last-of-type {
+    border-bottom: none; /* Убираем линию у последней секции перед футером */
+}
+
+.features-section h2, .about-us-section h2 {
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    margin-bottom: 50px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.features-grid {
+    display: grid;
+    gap: var(--spacing-md); /* Добавляем отступы между элементами сетки */
+}
+
+/* Стили для панели статистики валют */
+.currency-stats-panel {
+    background-color: var(--card-bg);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+}
+
+.currency-stats-panel h5 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-lg);
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color-light);
+    padding-bottom: var(--spacing-sm);
+}
+
+.currency-description p,
+.stats-display p {
+    margin: var(--spacing-xs) 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.currency-description p span,
+.stats-display p span {
+    font-weight: 600; /* Полужирный для значений */
+    color: var(--text-primary);
+}
+
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.action-buttons .btn {
+    flex-grow: 1; /* Кнопки занимают всю доступную ширину */
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-md);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    border: none; /* Убираем стандартную рамку */
+}
+
+.btn-buy {
+    background-color: var(--success-color);
+    color: var(--white-color);
+}
+
+.btn-buy:hover {
+    background-color: #28a745; /* Немного темнее при наведении */
+}
+
+.btn-sell {
+    background-color: var(--danger-color);
+    color: var(--white-color);
+}
+
+.btn-sell:hover {
+    background-color: #dc3545; /* Немного темнее при наведении */
+}
+
+/* Стили для кнопок выбора валют - Улучшенный дизайн */
+.currency-selector-panel {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет кнопкам переноситься на новую строку */
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius);
+}
+
+.currency-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    background-color: var(--controls-bg);
+    color: var(--text-primary-on-controls);
+    border: 1px solid var(--controls-border);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.currency-btn:hover {
+    background-color: var(--hover-bg);
+    border-color: var(--accent-primary);
+}
+
+.currency-btn.active {
+    background-color: var(--accent-primary);
+    color: var(--white-color);
+    border-color: var(--accent-primary);
+    font-weight: var(--font-weight-bold);
+    box-shadow: 0 0 8px rgba(var(--accent-primary-rgb), 0.5);
+    transform: translateY(-2px);
+}
+
+/* Стили для панели статистики валют - Улучшенный дизайн */
+.currency-stats-panel {
+    background-color: var(--card-bg-elevated, #ffffff);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-xl, 12px);
+    box-shadow: var(--shadow-interactive, 0 2px 8px rgba(0,0,0,0.07));
+    border: 1px solid var(--border-color-soft, #dee2e6);
+    margin-top: var(--spacing-lg);
+    transition: box-shadow var(--transition-speed) ease-in-out;
+}
+
+.currency-stats-panel:hover {
+    box-shadow: var(--shadow-interactive-hover, 0 5px 15px rgba(0,0,0,0.1));
+}
+
+.currency-stats-panel h5 {
+    font-size: var(--font-size-xl);
+    color: var(--text-title, #212529);
+    border-bottom: 2px solid var(--accent-secondary, #5ac8fa);
+    padding-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.currency-description p,
+.stats-display p {
+    font-size: var(--font-size-md);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.currency-description p span,
+.stats-display p span {
+    font-weight: var(--font-weight-semibold, 600);
+    color: var(--text-primary);
+}
+
+/* Стили для кнопок Купить/Продать - Улучшенный дизайн */
+.action-buttons {
+    margin-top: var(--spacing-lg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+.action-buttons .btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--border-radius-pill, 50px); /* Уже должно быть из общих стилей, но можно усилить */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease-out;
+    border: none; /* Убираем рамку, если она есть от базовых .btn */
+    box-shadow: var(--shadow-sm);
+}
+
+.action-buttons .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.action-buttons .btn:active {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-xs);
+}
+
+.btn-buy {
+    background-color: var(--success-color, #28a745);
+    color: var(--white-color, #ffffff);
+}
+
+.btn-buy:hover {
+    background-color: var(--success-color-dark, #1e7e34); /* Используем переменную, если есть */
+}
+
+.btn-sell {
+    background-color: var(--danger-color, #dc3545);
+    color: var(--white-color, #ffffff);
+}
+
+.btn-sell:hover {
+    background-color: var(--danger-color-dark, #bd2130); /* Используем переменную, если есть */
+}
+
+@media (max-width: 768px) {
+    .action-buttons {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    .action-buttons .btn {
+        font-size: var(--font-size-md);
+    }
+}
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px; /* Немного уменьшим гэп */
+}
+
+.feature-card {
+    padding: 30px 25px;
+    text-align: center;
+    background-color: var(--card-bg-color); /* Возвращаем фон для карточек фич */
+    border: 1px solid var(--border-color-light);
+    border-radius: var(--border-radius-lg); /* Более выраженные скругления для карточек */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Легкая тень */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.feature-card i {
+    font-size: 2.2rem; /* 35px, немного меньше */
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: 12px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.feature-card p {
+    font-size: var(--font-size-sm);
+    color: var(--text-color-secondary);
+    line-height: 1.6;
+}
+
+/* About Us Section - Минимализм */
+.about-us-section p {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    line-height: 1.8;
+    text-align: left;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-us-section ul {
+    list-style: none;
+    padding-left: 0;
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+.about-us-section ul li {
+    font-size: var(--font-size-md);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color-extralight, #eee); /* Очень светлая линия */
+    color: var(--text-color);
+    font-weight: 400;
+}
+
+.about-us-section ul li:last-child {
+    border-bottom: none;
+}
+
+/* Home Footer - Минимализм */
+.home-footer {
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 20px; /* Уменьшаем отступ, т.к. убрали border у последней секции */
+    font-size: var(--font-size-sm);
+    color: var(--text-color-secondary);
+    background-color: transparent;
+    border-top: 1px solid var(--border-color-light);
+}
+
+.home-footer a {
+    color: var(--text-color-secondary); /* Менее контрастные ссылки в футере */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.home-footer a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Убираем класс .card из секций, если они не должны иметь фон и тень */
+.home-page .hero-section.card,
+.home-page .features-section.card,
+.home-page .about-us-section.card {
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    /* border-bottom: 1px solid var(--border-color-light); /* Перенесено выше */
+}
+
+/* Если вы хотите, чтобы секции все же имели фон, но более минималистичный: */
+/*
+.home-page .hero-section.card,
+.home-page .features-section.card,
+.home-page .about-us-section.card {
+    background-color: var(--background-color-offset, #f9f9f9); 
+    border-radius: var(--border-radius-md);
+    box-shadow: none; 
+    border: 1px solid var(--border-color-light);
+}
+*/
+
+/* Responsive adjustments for home page - могут остаться прежними или быть доработаны */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        /* font-size: var(--font-size-xxl); уже покрыто clamp() */
+    }
+    .hero-content .subtitle {
+        /* font-size: var(--font-size-lg); уже покрыто clamp() */
+    }
+    .hero-actions .btn {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+        max-width: 300px;
+    }
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    .features-section h2, .about-us-section h2 {
+        margin-bottom: 30px;
+    }
+    .feature-card {
+        padding: 25px 20px;
+    }
+}
+
+/* Ensure main-content on home page takes full height if needed, or adjust as per layout */
+.home-page.main-content {
+    /* If you have a sticky footer or specific layout needs */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* min-height: calc(100vh - var(--top-bar-height, 60px)); */ /* Adjust var if top-bar height is different */
+}
+
+.btn-sm-padding {
+    padding: 0.375rem 0.75rem; /* Примерные значения для кнопок Вход/Регистрация в top-bar */
+    font-size: var(--font-size-sm);
+}
+
+/* =============================== */
+/* ===== Home Page Specific Styles ===== */
+/* =============================== */
+
+body.home-page {
+    background-color: var(--bg-secondary); /* Используем основной фон для контента */
+    color: var(--text-primary);
+}
+
+.home-container {
+    width: 100%;
+    max-width: var(--container-max-width, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+    box-sizing: border-box;
+}
+
+/* Hero Section */
+.hero-section.card { 
+    background: var(--gradient-hero, linear-gradient(135deg, var(--accent-primary, #007bff), var(--accent-secondary, #5ac8fa)));
+    color: var(--white-color, #ffffff);
+    padding: clamp(30px, 5vw, 60px) clamp(20px, 4vw, 40px); /* Адаптивные отступы */
+    text-align: center;
+    border-radius: var(--border-radius-xl, 16px);
+    margin-bottom: var(--spacing-xl, 40px);
+    box-shadow: var(--shadow-xl, 0 12px 24px rgba(0,0,0,0.15));
+    border: none; /* Убираем стандартную границу .card, если она есть */
+}
+
+.hero-section .hero-content h1 {
+    font-size: clamp(var(--font-size-xl, 1.8rem), 6vw, var(--font-size-2xl, 3rem));
+    font-weight: var(--font-weight-bold, 700);
+    margin-bottom: var(--spacing-md, 20px);
+    line-height: 1.2;
+    color: var(--white-color, #ffffff); /* Явно указываем цвет */
+}
+
+.hero-section .hero-content .subtitle {
+    font-size: clamp(var(--font-size-md, 1.1rem), 3.5vw, var(--font-size-lg, 1.3rem));
+    margin-bottom: var(--spacing-md, 20px);
+    opacity: 0.9;
+    font-weight: var(--font-weight-light, 300);
+    color: var(--white-color, #ffffff);
+}
+
+.hero-section .hero-content p {
+    font-size: var(--font-size-md, 1.1rem);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg, 30px);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.95;
+    color: var(--white-color, #ffffff);
+}
+
+.hero-actions {
+    margin-top: var(--spacing-lg, 30px);
+    display: flex;
+    flex-wrap: wrap; /* Для переноса кнопок на малых экранах */
+    justify-content: center;
+    gap: var(--spacing-md, 20px);
+}
+
+.hero-actions .btn {
+    padding: var(--button-padding-y, 12px) var(--button-padding-x, 28px);
+    font-size: var(--font-size-md, 1.1rem);
+    min-width: 170px;
+    border-radius: var(--border-radius, 6px); /* Используем общую переменную */
+}
+
+.hero-actions .btn-primary {
+    background-color: var(--white-color, #ffffff); /* Белая кнопка на цветном фоне */
+    color: var(--accent-primary, #007bff);
+    border: 2px solid transparent; /* Убираем границу, если фон контрастный */
+}
+
+.hero-actions .btn-primary:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--accent-primary-dark, #0056b3);
+}
+
+.hero-actions .btn-outline {
+    color: var(--white-color, #ffffff);
+    border: 2px solid var(--white-color, #ffffff);
+    background-color: transparent;
+}
+
+.hero-actions .btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--white-color, #ffffff);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Features Section */
+.features-section {
+    text-align: center;
+    padding: var(--spacing-xl, 40px) 0;
+    /* background-color: var(--bg-secondary); */ /* Можно убрать, если основной фон body.home-page уже --bg-secondary */
+    border-radius: var(--border-radius-section, var(--border-radius-large, 12px));
+    margin-bottom: var(--spacing-xl, 40px);
+}
+
+.features-section h2 {
+    font-size: clamp(var(--font-size-lg, 1.5rem), 5vw, var(--font-size-xl, 2.2rem));
+    font-weight: var(--font-weight-semibold, 600);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg, 30px);
+}
+
+.features-grid {
+    display: grid;
+    gap: var(--spacing-md); /* Добавляем отступы между элементами сетки */
+}
+
+/* Стили для панели статистики валют */
+.currency-stats-panel {
+    background-color: var(--card-bg);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+}
+
+.currency-stats-panel h5 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-lg);
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color-light);
+    padding-bottom: var(--spacing-sm);
+}
+
+.currency-description p,
+.stats-display p {
+    margin: var(--spacing-xs) 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.currency-description p span,
+.stats-display p span {
+    font-weight: 600; /* Полужирный для значений */
+    color: var(--text-primary);
+}
+
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.action-buttons .btn {
+    flex-grow: 1; /* Кнопки занимают всю доступную ширину */
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-md);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    border: none; /* Убираем стандартную рамку */
+}
+
+.btn-buy {
+    background-color: var(--success-color);
+    color: var(--white-color);
+}
+
+.btn-buy:hover {
+    background-color: #28a745; /* Немного темнее при наведении */
+}
+
+.btn-sell {
+    background-color: var(--danger-color);
+    color: var(--white-color);
+}
+
+.btn-sell:hover {
+    background-color: #dc3545; /* Немного темнее при наведении */
+}
+
+/* Стили для кнопок выбора валют - Улучшенный дизайн */
+.currency-selector-panel {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет кнопкам переноситься на новую строку */
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius);
+}
+
+.currency-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    background-color: var(--controls-bg);
+    color: var(--text-primary-on-controls);
+    border: 1px solid var(--controls-border);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.currency-btn:hover {
+    background-color: var(--hover-bg);
+    border-color: var(--accent-primary);
+}
+
+.currency-btn.active {
+    background-color: var(--accent-primary);
+    color: var(--white-color);
+    border-color: var(--accent-primary);
+    font-weight: var(--font-weight-bold);
+    box-shadow: 0 0 8px rgba(var(--accent-primary-rgb), 0.5);
+    transform: translateY(-2px);
+}
+
+/* Стили для панели статистики валют - Улучшенный дизайн */
+.currency-stats-panel {
+    background-color: var(--card-bg-elevated, #ffffff);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-xl, 12px);
+    box-shadow: var(--shadow-interactive, 0 2px 8px rgba(0,0,0,0.07));
+    border: 1px solid var(--border-color-soft, #dee2e6);
+    margin-top: var(--spacing-lg);
+    transition: box-shadow var(--transition-speed) ease-in-out;
+}
+
+.currency-stats-panel:hover {
+    box-shadow: var(--shadow-interactive-hover, 0 5px 15px rgba(0,0,0,0.1));
+}
+
+.currency-stats-panel h5 {
+    font-size: var(--font-size-xl);
+    color: var(--text-title, #212529);
+    border-bottom: 2px solid var(--accent-secondary, #5ac8fa);
+    padding-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.currency-description p,
+.stats-display p {
+    font-size: var(--font-size-md);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.currency-description p span,
+.stats-display p span {
+    font-weight: var(--font-weight-semibold, 600);
+    color: var(--text-primary);
+}
+
+/* Стили для кнопок Купить/Продать - Улучшенный дизайн */
+.action-buttons {
+    margin-top: var(--spacing-lg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+.action-buttons .btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--border-radius-pill, 50px); /* Уже должно быть из общих стилей, но можно усилить */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease-out;
+    border: none; /* Убираем рамку, если она есть от базовых .btn */
+    box-shadow: var(--shadow-sm);
+}
+
+.action-buttons .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.action-buttons .btn:active {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-xs);
+}
+
+.btn-buy {
+    background-color: var(--success-color, #28a745);
+    color: var(--white-color, #ffffff);
+}
+
+.btn-buy:hover {
+    background-color: var(--success-color-dark, #1e7e34); /* Используем переменную, если есть */
+}
+
+.btn-sell {
+    background-color: var(--danger-color, #dc3545);
+    color: var(--white-color, #ffffff);
+}
+
+.btn-sell:hover {
+    background-color: var(--danger-color-dark, #bd2130); /* Используем переменную, если есть */
+}
+
+@media (max-width: 768px) {
+    .action-buttons {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    .action-buttons .btn {
+        font-size: var(--font-size-md);
+    }
+}
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: var(--spacing-lg, 30px);
+    padding: 0 var(--spacing-sm, 10px); /* Небольшие отступы по бокам для грида */
+}
+
+.feature-card.card { 
+    background-color: var(--card-bg, #ffffff);
+    padding: var(--spacing-lg, 30px);
+    border-radius: var(--border-radius-card, var(--border-radius-lg, 10px));
+    box-shadow: var(--shadow-card, var(--shadow-md, 0 3px 6px rgba(0,0,0,0.07)));
+    text-align: center;
+    border: 1px solid var(--border-color-light, #f1f3f5);
+    transition: transform 0.3s var(--transition-speed, ease-in-out), 
+                box-shadow 0.3s var(--transition-speed, ease-in-out);
+}
+
+.feature-card.card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover, var(--shadow-lg, 0 6px 12px rgba(0,0,0,0.1)));
+}
+
+.feature-card i.fas {
+    font-size: clamp(2rem, 6vw, 2.8rem); /* Адаптивный размер иконки */
+    color: var(--icon-color, var(--accent-primary, #007bff));
+    margin-bottom: var(--spacing-md, 20px);
+    display: block;
+}
+
+.feature-card h3 {
+    font-size: var(--font-size-lg, 1.25rem);
+    font-weight: var(--font-weight-semibold, 600);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm, 10px);
+}
+
+.feature-card p {
+    font-size: var(--font-size-sm, 0.95rem); /* Немного уменьшил для компактности */
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* About Us Section */
+.about-us-section.card {
+    background-color: var(--bg-secondary); /* Или var(--card-bg) если нужен контраст с body */
+    padding: var(--spacing-xl, 40px) var(--spacing-lg, 30px);
+    border-radius: var(--border-radius-section, var(--border-radius-large, 12px));
+    margin-top: var(--spacing-xl, 40px);
+    box-shadow: var(--shadow-subtle, 0 2px 5px rgba(0,0,0,0.06));
+    border: 1px solid var(--border-color-light, #f1f3f5);
+}
+
+.about-us-section h2 {
+    font-size: clamp(var(--font-size-lg, 1.5rem), 5vw, var(--font-size-xl, 2.2rem));
+    font-weight: var(--font-weight-semibold, 600);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md, 20px);
+    text-align: center;
+}
+
+.about-us-section p,
+.about-us-section ul {
+    font-size: var(--font-size-md, 1.05rem);
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--spacing-md, 20px);
+}
+
+.about-us-section ul {
+    list-style: none; 
+    padding-left: 0;
+}
+
+.about-us-section ul li {
+    position: relative;
+    padding-left: var(--spacing-lg, 30px); 
+    margin-bottom: var(--spacing-sm, 10px);
+}
+
+.about-us-section ul li::before {
+    content: "\f00c"; 
+    font-family: "Font Awesome 5 Free", "FontAwesome"; /* Добавьте запасной вариант FontAwesome */
+    font-weight: 900; 
+    position: absolute;
+    left: 0;
+    top: 4px; /* Немного скорректировал позицию */
+    color: var(--accent-primary, #007bff);
+    font-size: var(--font-size-sm, 0.9rem);
+}
+
+.about-us-section ul li strong {
+    color: var(--text-primary);
+    font-weight: var(--font-weight-medium, 500);
+}
+
+/* Enhanced Sidebar Styles */
+.sidebar {
+    background-color: var(--sidebar-bg-darker, #2c3e50); /* Slightly darker sidebar */
+    box-shadow: var(--shadow-lg, 0 4px 12px rgba(0,0,0,0.15));
+    border-right: 1px solid var(--border-color-dark, #253544);
+}
+
+.sidebar .nav-link {
+    color: var(--sidebar-link-color-hover, #ecf0f1);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-left: 4px solid transparent;
+    transition: all var(--transition-speed) ease;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    background-color: var(--sidebar-link-active-bg, #34495e);
+    color: var(--white-color, #ffffff);
+    border-left-color: var(--accent-primary, #3498db);
+    box-shadow: inset 3px 0 8px rgba(0,0,0,0.1);
+}
+
+.sidebar .nav-link i {
+    margin-right: var(--spacing-md);
+    width: 20px; /* Ensure icons align nicely */
+    text-align: center;
+}
+
+/* Enhanced Top Bar Styles */
+.top-bar {
+    background-color: var(--top-bar-bg-light, #ffffff);
+    box-shadow: var(--shadow-subtle-bottom, 0 2px 4px rgba(0,0,0,0.05));
+    border-bottom: 1px solid var(--border-color-light, #e9ecef);
+}
+
+.top-bar .username {
+    color: var(--text-primary, #343a40);
+    font-weight: var(--font-weight-medium, 500);
+}
+
+.top-bar .btn-theme-toggle {
+    color: var(--text-secondary, #6c757d);
+    transition: color var(--transition-speed) ease;
+}
+
+.top-bar .btn-theme-toggle:hover {
+    color: var(--accent-primary, #007bff);
+}
+
+/* Enhanced User Balance & Tracked Assets Styles */
+.user-balance .card,
+.tracked-assets .card {
+    background-color: var(--card-bg-elevated, #ffffff);
+    border: 1px solid var(--border-color-soft, #dee2e6);
+    box-shadow: var(--shadow-interactive, 0 2px 8px rgba(0,0,0,0.07));
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.user-balance .card:hover,
+.tracked-assets .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-interactive-hover, 0 5px 15px rgba(0,0,0,0.1));
+}
+
+.user-balance h2,
+.tracked-assets h2 {
+    color: var(--text-title, #212529);
+    border-bottom: 2px solid var(--accent-secondary, #5ac8fa);
+    padding-bottom: var(--spacing-sm);
+}
+
+.balance-amount,
+.asset-value {
+    color: var(--success-color-dark, #1e7e34);
+    font-weight: var(--font-weight-bold, 700);
+}
+
+/* Enhanced Main Chart Area Styles */
+.main-chart-area .card {
+    background-color: var(--card-bg-deep, #f8f9fa);
+    border: none; /* Remove border for a cleaner look if desired */
+    box-shadow: var(--shadow-inset, inset 0 1px 3px rgba(0,0,0,0.05));
+}
+
+#mainChart {
+    border-radius: var(--border-radius-sm, 4px);
+}
+
+/* General Card Enhancements (apply if not overridden) */
+.card {
+    border-radius: var(--border-radius-xl, 12px); /* More rounded cards */
+}
+
+/* Button Enhancements */
+.btn {
+    border-radius: var(--border-radius-pill, 50px); /* Pill-shaped buttons */
+    padding: var(--spacing-sm) var(--spacing-lg); /* Generous padding */
+    font-weight: var(--font-weight-semibold, 600);
+    transition: all 0.25s ease-out;
+}
+
+.btn-primary {
+    background-color: var(--accent-primary, #007bff);
+    border-color: var(--accent-primary, #007bff);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-primary-dark, #0056b3);
+    border-color: var(--accent-primary-dark, #0056b3);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-outline-secondary {
+    border-color: var(--border-color, #ced4da);
+    color: var(--text-secondary, #6c757d);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--bg-light-hover, #f8f9fa);
+    color: var(--text-primary, #343a40);
+    border-color: var(--border-color-dark, #adb5bd);
+}
+
+
+/* Home Footer */
+.home-footer {
+    text-align: center;
+    padding: var(--spacing-lg, 30px) var(--spacing-md, 20px);
+    margin-top: var(--spacing-xl, 40px);
+    border-top: 1px solid var(--border-color, #e0e0e0);
+    background-color: var(--card-bg); /* Фон как у карточек */
+}
+
+.home-footer p {
+    font-size: var(--font-size-sm, 0.9rem);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs, 5px);
+}
+
+.home-footer a {
+    color: var(--link-color, var(--accent-primary, #007bff));
+    text-decoration: none;
+    margin: 0 var(--spacing-xs, 5px);
+    transition: color 0.2s ease-in-out;
+}
+
+.home-footer a:hover {
+    text-decoration: underline;
+    color: var(--link-color-hover, var(--accent-primary-dark, #0056b3));
+}
+
+/* Market Overview Section Styles - Enhanced */
+.market-overview-header {
+    padding: var(--spacing-lg);
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-speed) ease;
+}
+
+.market-overview-header:hover {
+    box-shadow: var(--shadow-large);
+    transform: translateY(-3px);
+}
+
+.market-overview-header h2 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-2xl);
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--accent-primary);
+    padding-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.5px;
+}
+
+.market-overview-header .controls-container.form-inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end; /* Align items to the bottom for better visual */
+    gap: var(--spacing-lg); /* Increased gap */
+}
+
+.market-overview-header .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0; /* Remove default margin-bottom if form-inline adds it */
+    gap: var(--spacing-sm); /* Space between label and control */
+}
+
+.market-overview-header .form-group label {
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs); /* Add a small margin below label */
+    font-size: var(--font-size-md);
+    display: block; /* Make label take full width for stacking */
+}
+
+.market-overview-header .form-control-sm {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-md);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--controls-border);
+    background-color: var(--controls-bg);
+    color: var(--text-primary-on-controls);
+    transition: all var(--transition-speed) ease-in-out;
+    height: 42px; /* Slightly taller for better touch targets */
+    width: 100%; /* Make controls take full width of their group */
+}
+
+.market-overview-header .form-control-sm::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.market-overview-header .form-control-sm:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 0.25rem rgba(var(--accent-primary-rgb, 0, 122, 255), 0.35);
+    background-color: var(--controls-bg);
+    color: var(--text-primary-on-controls);
+    outline: none; /* Remove default outline */
+}
+
+.market-overview-header .chart-color-picker {
+    height: 42px; /* Match select height */
+    min-width: 60px; /* Ensure color picker has some width */
+    border: 1px solid var(--controls-border);
+    background-color: var(--controls-bg);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    padding: var(--spacing-xs); /* Small padding around the color swatch */
+    transition: all var(--transition-speed) ease-in-out;
+}
+
+.market-overview-header .chart-color-picker:hover {
+    border-color: var(--accent-primary);
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments for controls container */
+@media (max-width: 992px) { /* Adjusted breakpoint for better responsiveness */
+    .market-overview-header .controls-container.form-inline {
+        flex-direction: column;
+        align-items: stretch; /* Stretch items to full width */
+        gap: var(--spacing-md);
+    }
+
+    .market-overview-header .form-group {
+        width: 100%;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .market-overview-header .form-group:last-child {
+        margin-bottom: 0;
+    }
+
+    .market-overview-header .form-control-sm,
+    .market-overview-header .chart-color-picker {
+        width: 100%; /* Ensure controls take full width on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .market-overview-header {
+        padding: var(--spacing-md);
+    }
+    .market-overview-header h2 {
+        font-size: var(--font-size-xl);
+    }
+    .market-overview-header .form-group label {
+        font-size: var(--font-size-sm);
+    }
+    .market-overview-header .form-control-sm {
+        font-size: var(--font-size-sm);
+        height: 38px;
+    }
+    .market-overview-header .chart-color-picker {
+        height: 38px;
+    }
+}

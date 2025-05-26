@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block body_attributes %}class="main-content"{% endblock %} {# Для центрирования и общего стиля фона #}
+
+{% block title %}
+    Выход из аккаунта
+{% endblock %}
+
+{% block topbar %}
+    <!-- Можно оставить пустым или добавить минимальный top-bar без специфичных для пользователя элементов -->
+    <div class="top-bar" id="top">
+        <div class="account-group">
+            <span style="font-weight: 500; font-size: var(--font-size-lg);">FIIT</span> {# Или логотип #}
+        </div>
+         <div class="header-right-controls">
+            <div class="theme-selector">
+                <label for="colorScheme">Тема:</label>
+                <select id="colorScheme">
+                    <option value="light">Светлая</option>
+                    <option value="dark">Темная</option>
+                    <option value="colorblind">Высокий контраст</option>
+                </select>
+                <button class="theme-toggle" title="Переключить тему">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="logout-container card"> {# Используем .card для общих стилей и .logout-container для специфичных #}
+    <h1>
+        Вы успешно вышли из своего аккаунта
+    </h1>
+    <p>
+        Спасибо, что воспользовались нашим сервисом. Вы всегда можете войти снова.
+    </p>
+
+    <div class="account-buttons">
+        <a id="login" class="btn btn-primary" href="{% url 'app:login' %}">Войти снова</a> {# Используем классы btn #}
+    </div>
+</div>
+{% endblock %}

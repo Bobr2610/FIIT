@@ -1,0 +1,244 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block notifications %}
+    Уведомления
+{% endblock %}
+
+{% block sidebar %}
+
+<!-- Сайдбар - боковая панель навигации -->
+<aside class="sidebar">
+    <!-- Логотип с ссылкой наверх -->
+    <div class="logo">
+        <a href="/home/" title="Домашняя">
+            <img src="{% static 'logo.png' %}" id="logoImage" alt="Логотип FIIT">
+        </a>
+    </div>
+
+    <!-- Основная навигация с иконками -->
+    <nav class="main-nav">
+        <!-- Каждый пункт навигации имеет иконку и текст -->
+        <a href="#userBalance" class="nav-item">
+            <i class="fas fa-coins"></i>
+            <span>Баланс</span>
+        </a>
+        <a href="#trackedAssets" class="nav-item">
+            <i class="fas fa-binoculars"></i>
+            <span>Отслеживаемые</span>
+        </a>
+        <a href="#allAssetsChart" class="nav-item">
+            <i class="fas fa-chart-pie"></i>
+            <span>График</span>
+        </a>
+    </nav>
+
+    <!-- Нижняя панель -->
+    <div class="sidebar-footer">
+        <!-- Тут можно что-то вставить полезное -->
+    </div>
+</aside>
+
+{% endblock %}
+
+<div class="main-content">
+
+{% block topbar %}
+
+    <!-- Верхняя панель с аккаунтом и настройками темы -->
+    <div class="top-bar" id="top">
+        <!-- Группа элементов аккаунта -->
+        <div class="account-group">
+            <a href="/account/" class="account-link">
+                <i class="fas fa-user-circle"></i>
+                <span>Аккаунт: {{ user.username }}</span>
+            </a>
+
+        </div>
+
+        <!-- Добавляем текущее время под логотип -->
+        <span class="current-time"></span>
+
+        <!-- Правые контролы: Селектор темы и Уведомления -->
+        <div class="header-right-controls">
+            <!-- Селектор темы с кнопкой переключения -->
+            <div class="theme-selector">
+                <label for="colorScheme">Тема:</label>
+                <select id="colorScheme">
+                    <option value="light">Светлая</option>
+                    <option value="dark">Темная</option>
+                    <option value="colorblind">Высокий контраст</option>
+                </select>
+                <button class="theme-toggle" title="Переключить тему">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block content %}
+
+<!-- Основной контент страницы располагается здесь в заданном порядке -->
+
+    <!-- 1. Баланс пользователя -->
+    <div class="user-balance-container card animated-gradient-background" id="userBalance">
+        <div class="balance-icon">
+            <i class="fas fa-wallet"></i>
+        </div>
+        <div class="balance-details">
+            <h4>Ваш баланс</h4>
+            <div class="balance-amount">40 150 RUB</div>
+        </div>
+    </div>
+
+    <!-- 3. Отслеживаемые активы -->
+    <div class="tracked-assets-container card" id="trackedAssets">
+        <!-- Заголовок секции с кнопкой обновления -->
+        <div class="section-header">
+            <div class="header-left">
+                <h3>Отслеживаемые активы </h3>
+            </div>
+            <button class="refresh-btn styled-refresh-btn" title="Обновить курсы">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+        </div>
+
+        <!-- Список активов с иконками и ценами -->
+        <div class="assets-list">
+            <!-- Каждый актив имеет иконку, название и текущую цену -->
+            <div class="asset-item">
+                <i class="fab fa-bitcoin"></i>
+                <span>BTC</span>
+                <span class="price">7,142,252 ₽</span>
+            </div>
+
+            <div class="asset-item">
+                <i class="fab fa-ethereum"></i>
+                <span>ETH</span>
+                <span class="price">165,777 ₽</span>
+            </div>
+
+            <div class="asset-item">
+                <i class="fas fa-coins"></i>
+                <span>TON</span>
+                <span class="price">316,80 ₽</span>
+            </div>
+
+            <div class="asset-item">
+                <i class="fas fa-dollar-sign"></i>
+                <span>USD</span>
+                <span class="price">89,70 ₽</span>
+            </div>
+
+            <div class="asset-item">
+                <i class="fas fa-euro-sign"></i>
+                <span>EUR</span>
+                <span class="price">89,70 ₽</span>
+            </div>
+
+            <div class="asset-item">
+                <i class="fas fa-yen-sign"></i>
+                <span>CNY</span>
+                <span class="price">11,80 ₽</span>
+            </div>
+
+            <div class="asset-item">
+                <i class="fas fa-money-bill"></i>
+                <span>AED</span>
+                <span class="price">22,83 ₽</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Обзор рынка (заголовок и фильтры) -->
+    <div class="market-overview-header card" id="marketOverview">
+        <h2>Обзор рынка</h2>
+        <!-- Фильтр временного интервала и выбор цвета -->
+        <div class="controls-container form-inline">
+            <div class="form-group time-filter">
+                <label for="timeRange">Интервал:</label>
+                <select id="timeRange" class="form-control form-control-sm">
+                    <option value="1m">1 месяц</option>
+                    <option value="6m">6 месяцев</option>
+                    <option value="1y">1 год</option>
+                    <option value="3y" selected>3 года</option>
+                    <option value="all">Всё время</option>
+                </select>
+            </div>
+            <div class="form-group color-picker-container">
+                <label for="chartColorPicker">Цвет графика:</label>
+                <input type="color" id="chartColorPicker" class="form-control form-control-sm chart-color-picker" value="#FF6384">
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. График и 6. Контейнер для выбранной валюты (статистика) -->
+    <div class="main-chart-area card" id="allAssetsChart">
+        <div class="chart-header">
+            <h3>Динамика валют</h3>
+        </div>
+        <div class="chart-and-stats-container">
+            <div class="chart-wrapper">
+                <canvas id="combinedChart"></canvas>
+            </div>
+            <div class="currency-selector-panel">
+                <!-- Кнопки выбора валют -->
+                <button class="currency-btn active" data-currency="BTC">BTC</button>
+                <button class="currency-btn" data-currency="ETH">ETH</button>
+                <button class="currency-btn" data-currency="TON">TON</button>
+                <button class="currency-btn" data-currency="USD">USD</button>
+                <button class="currency-btn" data-currency="EUR">EUR</button>
+                <button class="currency-btn" data-currency="CNY">CNY</button>
+                <button class="currency-btn" data-currency="AED">AED</button>
+            </div>
+            <div class="currency-stats-panel">
+                <h5 id="selectedCurrencyName">Статистика для: --</h5>
+                <div id="currencyDescriptionContainer" class="currency-description">
+                    <p>Описание: <span id="statDescription">--</span></p>
+                </div>
+                <div class="stats-display">
+                    <p>Среднее значение: <span id="statAverage">--</span></p>
+                    <p>Медиана: <span id="statMedian">--</span></p>
+                    <p>Выбросы (среднее): <span id="statOutliers">--</span></p>
+                </div>
+                <div class="action-buttons">
+                    <button id="buyButton" class="btn btn-buy">Купить</button>
+                    <button id="sellButton" class="btn btn-sell">Продать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Модальное окно покупки/продажи -->
+    <div id="transactionModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 id="modalTitle">Действие с валютой</h3>
+            <p>Валюта: <span id="modalCurrency">--</span></p>
+            <div class="form-group">
+                <label for="modalQuantity">Количество:</label>
+                <input type="number" id="modalQuantity" name="quantity" min="0.01" step="0.01" value="1">
+            </div>
+            <p>Итоговая стоимость: <span id="modalTotalCost">--</span> RUB</p>
+            <button id="modalActionButton" class="btn">Подтвердить</button>
+        </div>
+    </div>
+
+{% endblock %}
+</div>
+
+{% block scripts %}
+
+<script>
+    var exchangeratesFile = '{% static "exchangerates.json" %}';
+</script>
+<script src="{% static 'scripts.js' %}"></script>
+<script src="{% static 'dashboardScripts.js' %}"></script>
+
+{% endblock %}
