@@ -26,3 +26,21 @@ def setup_periodic_tasks(sender: Celery, **kwargs):
         crontab=schedule,
         enabled=True
     )
+
+    # <script>
+    # function connectTelegram() {
+    #     fetch('{% url "api:auth-telegram-link" %}', {
+    #         method: 'POST',
+    #         headers: {
+    #             'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+    #         }
+    #     })
+    #     .then(response => response.json())
+    #     .then(data => {
+    #         window.open(data.link, '_blank');
+    #     })
+    #     .catch(error => {
+    #         alert('Произошла ошибка при подключении Telegram');
+    #     });
+    # }
+    # </script>
