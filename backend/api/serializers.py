@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate
+
 from rest_framework import serializers
-from django.contrib.auth.password_validation import validate_password
 
 from .models import *
 
@@ -9,70 +9,62 @@ class AuthLoginSerializer(serializers.Serializer):
     username = serializers.CharField()
     password = serializers.CharField(write_only=True)
 
-    def validate(self, attrs):
-        user = authenticate(username=attrs['username'], password=attrs['password'])
-
+    def validate(self, data):
+        user = authenticate(username=data['username'], password=data['password'])
         if not user:
-            raise serializers.ValidationError('Неверные учетные данные')
-
-        attrs['user'] = user
-
-        return attrs
+            raise serializers.ValidationError("Неверное имя пользователя или пароль")
+        data['user'] = user
+        return data
 
 
-class AuthRegisterSerializer(serializers.Serializer):
-    username = serializers.CharField(required=True)
-    password = serializers.CharField(write_only=True, required=True)
-    email = serializers.EmailField(required=True)
-    telegram = serializers.CharField(required=False)
+class AuthRegisterSerializer(serializers.ModelSerializer):
+    password2 = serializers.CharField(write_only=True)
 
-    def validate(self, attrs):
-        if Account.objects.filter(username=attrs['username']).exists():
-            raise serializers.ValidationError({"username": "Пользователь с таким именем уже существует"})
-        if Account.objects.filter(email=attrs['email']).exists():
-            raise serializers.ValidationError({"email": "Пользователь с такой почтой уже существует"})
+    class Meta:
+        model = Account
+        fields = ('username', 'email', 'password', 'password2')
+        extra_kwargs = {
+            'password': {'write_only': True}
+        }
 
-        return attrs
+    def validate(self, data):
+        if data['password'] != data['password2']:
+            raise serializers.ValidationError("Пароли не совпадают")
+        return data
 
     def create(self, validated_data):
+        validated_data.pop('password2')
         user = Account.objects.create_user(**validated_data)
-
         return user
 
 
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
-        fields = ('id', 'username', 'email', 'telegram', 'date_joined')
-        read_only_fields = fields
+        fields = ('id', 'username', 'email', 'telegram_chat_id')
+        read_only_fields = ('id', 'telegram_chat_id')
 
 
 class AccountUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
-        fields = ('email', 'telegram')
-        extra_kwargs = {
-            'email': {'required': False},
-            'telegram': {'required': False}
-        }
+        fields = ('email',)
 
 
 class PasswordChangeSerializer(serializers.Serializer):
     old_password = serializers.CharField(write_only=True)
-    new_password = serializers.CharField(write_only=True, validators=[validate_password])
+    new_password = serializers.CharField(write_only=True)
     new_password2 = serializers.CharField(write_only=True)
 
-    def validate(self, attrs):
-        if attrs['new_password'] != attrs['new_password2']:
-            raise serializers.ValidationError({"new_password": "Пароли не совпадают"})
-
-        if not self.context['user'].check_password(attrs['old_password']):
-            raise serializers.ValidationError({"old_password": "Неверный пароль"})
-
-        return attrs
+    def validate(self, data):
+        if data['new_password'] != data['new_password2']:
+            raise serializers.ValidationError("Новые пароли не совпадают")
+        return data
 
     def save(self, **kwargs):
         user = self.context['user']
+        if not user.check_password(self.validated_data['old_password']):
+            raise serializers.ValidationError("Неверный текущий пароль")
         user.set_password(self.validated_data['new_password'])
         user.save()
         return user
@@ -204,3 +196,22 @@ class WatchSerializer(serializers.ModelSerializer):
         fields = ('id', 'portfolio', 'portfolio_id', 'currency',
                   'currency_id', 'notify_time')
         read_only_fields = ('id',)
+
+
+class TelegramVerificationLinkSerializer(serializers.Serializer):
+    code = serializers.CharField()
+    chat_id = serializers.IntegerField()
+
+
+class RefreshTokenSerializer(serializers.Serializer):
+    refresh = serializers.CharField()
+
+
+class TelegramLinkResponseSerializer(serializers.Serializer):
+    link = serializers.CharField()
+    expires_at = serializers.DateTimeField()
+
+
+class TelegramStatusResponseSerializer(serializers.Serializer):
+    is_verified = serializers.BooleanField()
+    chat_id = serializers.IntegerField(allow_null=True)

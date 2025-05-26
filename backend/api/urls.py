@@ -16,6 +16,15 @@ urlpatterns = [
     path('auth/refresh/', AuthViewSet.as_view({
         'post': 'refresh'
     }), name='auth-refresh'),
+    path('auth/telegram/link/', AuthViewSet.as_view({
+        'post': 'telegram_link'
+    }), name='auth-telegram-link'),
+    path('auth/telegram/verify/', AuthViewSet.as_view({
+        'post': 'telegram_verify'
+    }), name='auth-telegram-verify'),
+    path('auth/telegram/status/', AuthViewSet.as_view({
+        'get': 'telegram_status'
+    }), name='auth-telegram-status'),
 
     path('accounts/me/', AccountViewSet.as_view({
         'get': 'me',

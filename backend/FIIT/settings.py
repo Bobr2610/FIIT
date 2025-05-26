@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
     'api',
-    'app'
+    'app',
 ]
 
 AUTH_USER_MODEL = 'api.Account'
@@ -131,7 +131,8 @@ APPEND_SLASH = True
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [PROJECT_DIR / 'frontend'],
+        'DIRS': [PROJECT_DIR / 'frontend',
+                 PROJECT_DIR / 'frontend/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -216,10 +217,15 @@ STATIC_ROOT = PROJECT_DIR / 'build/static'
 STATICFILES_DIRS = [
     PROJECT_DIR / 'frontend/css',
     PROJECT_DIR / 'frontend/js',
-    PROJECT_DIR / 'frontend/img'
+    PROJECT_DIR / 'frontend/assets/images',
+    PROJECT_DIR / 'frontend/templates'
 ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Telegram Bot settings
+TELEGRAM_BOT_USERNAME = os.getenv('TELEGRAM_BOT_USERNAME')
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
