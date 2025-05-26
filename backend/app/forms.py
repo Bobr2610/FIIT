@@ -141,6 +141,22 @@ class RegisterForm(UserCreationForm):
             'placeholder': 'Повторите пароль'
         })
 
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+
+        if Account.objects.filter(username=username).exists():
+            raise forms.ValidationError('Пользователь с таким именем уже существует')
+        
+        return username
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+
+        if Account.objects.filter(email=email).exists():
+            raise forms.ValidationError('Пользователь с таким email уже существует')
+        
+        return email
+
 
 class LoginForm(forms.Form):
     email = forms.EmailField(

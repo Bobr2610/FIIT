@@ -35,6 +35,16 @@ class AuthRegisterSerializer(serializers.ModelSerializer):
         if data['password'] != data['password_check']:
             raise serializers.ValidationError("Пароли не совпадают")
 
+        if Account.objects.filter(username=data['username']).exists():
+            raise serializers.ValidationError({
+                'username': 'Пользователь с таким именем уже существует'
+            })
+
+        if Account.objects.filter(email=data['email']).exists():
+            raise serializers.ValidationError({
+                'email': 'Пользователь с таким email уже существует'
+            })
+
         return data
 
     def create(self, validated_data):
