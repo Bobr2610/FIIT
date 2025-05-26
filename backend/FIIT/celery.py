@@ -27,20 +27,9 @@ def setup_periodic_tasks(sender: Celery, **kwargs):
         enabled=True
     )
 
-    # <script>
-    # function connectTelegram() {
-    #     fetch('{% url "api:auth-telegram-link" %}', {
-    #         method: 'POST',
-    #         headers: {
-    #             'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
-    #         }
-    #     })
-    #     .then(response => response.json())
-    #     .then(data => {
-    #         window.open(data.link, '_blank');
-    #     })
-    #     .catch(error => {
-    #         alert('Произошла ошибка при подключении Telegram');
-    #     });
-    # }
-    # </script>
+    PeriodicTask.objects.create(
+        name='update-portfolio-values',
+        task='api.tasks.update_portfolio_values',
+        crontab=schedule,
+        enabled=True
+    )
