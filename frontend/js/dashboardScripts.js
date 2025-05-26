@@ -1,3 +1,4 @@
+
 // Глобальные переменные
 let allChartData = { labels: [], datasets: [] };
 let combinedChartInstance = null;
@@ -44,7 +45,7 @@ function generateLabels(currencyData, interval = 'all', dailyDataKey = null) {
         // Для 'all' используем все доступные годы (yearsToProcess уже содержит их)
 
         yearsToProcess.forEach(year => {
-            if (currencyData[year] && Array.isArray(currencyData[year])) {
+            if (currencyData[year]) {
                 for (let month = 1; month <= 12; month++) {
                     // Проверяем, есть ли данные за этот месяц в годовом массиве
                     if (currencyData[year][month - 1] !== undefined) {
