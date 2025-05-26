@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class Account(AbstractUser):
-    telegram = models.CharField(max_length=128)
+    telegram_chat_id = models.BigIntegerField(null=True, blank=True, unique=True)
 
     def __str__(self):
         return self.username
@@ -11,6 +11,24 @@ class Account(AbstractUser):
     class Meta:
         db_table = 'account'
         db_table_comment = 'User Account'
+        verbose_name = 'Account'
+        verbose_name_plural = 'Accounts'
+
+
+class TelegramVerificationLink(models.Model):
+    user = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='telegram_links')
+    code = models.CharField(max_length=32, unique=True)
+    expires_at = models.DateTimeField()
+
+    def __str__(self):
+        # TODO: replace to link
+        return f'{self.user.username} {self.code}'
+
+    class Meta:
+        db_table = 'telegram_verification_link'
+        db_table_comment = 'Telegram Verification Links'
+        verbose_name = 'Telegram Verification Link'
+        verbose_name_plural = 'Telegram Verification Links'
 
 
 class Portfolio(models.Model):
@@ -27,6 +45,8 @@ class Portfolio(models.Model):
     class Meta:
         db_table = 'portfolio'
         db_table_comment = 'Portfolio Of User'
+        verbose_name = 'Portfolio'
+        verbose_name_plural = 'Portfolios'
 
 
 class CurrencyBalance(models.Model):
@@ -40,6 +60,8 @@ class CurrencyBalance(models.Model):
     class Meta:
         db_table = 'currency_balance'
         db_table_comment = 'Currency Balance In Portfolio'
+        verbose_name = 'Currency Balance'
+        verbose_name_plural = 'Currency Balances'
 
 
 class Operation(models.Model):
@@ -58,6 +80,8 @@ class Operation(models.Model):
     class Meta:
         db_table = 'operation'
         db_table_comment = 'Operations In Portfolio'
+        verbose_name = 'Operation'
+        verbose_name_plural = 'Operations'
 
 
 class Currency(models.Model):
@@ -71,6 +95,8 @@ class Currency(models.Model):
     class Meta:
         db_table = 'currency'
         db_table_comment = 'Currencies'
+        verbose_name = 'Currency'
+        verbose_name_plural = 'Currencies'
 
 
 class Rate(models.Model):
@@ -83,7 +109,9 @@ class Rate(models.Model):
 
     class Meta:
         db_table = 'rate'
-        db_table_comment = 'Rate Of Currency'
+        db_table_comment = 'Rates Of Currencies'
+        verbose_name = 'Rate'
+        verbose_name_plural = 'Rates'
 
 
 class Watch(models.Model):
@@ -96,4 +124,6 @@ class Watch(models.Model):
 
     class Meta:
         db_table = 'watch'
-        db_table_comment = 'Watch Of Currency'
+        db_table_comment = 'Watches Of Currencies'
+        verbose_name = 'Watch'
+        verbose_name_plural = 'Watches'

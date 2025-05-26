@@ -45,7 +45,6 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="account-form-container card">
     <h1>
         Управление вашим аккаунтом
@@ -53,8 +52,6 @@
 
     <div class="user-info-section">
         <p>Пользователь: <strong>{{ user.username }}</strong></p>
-        {# Можно добавить Email если он есть в user объекте и это безопасно #}
-        {# <p>Email: <strong>{{ user.email }}</strong></p> #}
     </div>
 
     <form action="{% url 'app:account' %}" method="post" class="account-form">
@@ -74,42 +71,33 @@
 
     <div class="account-buttons">
         <a href="{% url 'app:change-password' %}" class="account-btn">Изменить пароль</a>
+        {% if not user.telegram_chat_id %}
+        <button onclick="connectTelegram()" class="account-btn">Подключить Telegram</button>
+        {% endif %}
     </div>
 
     <form action="{% url 'app:logout' %}" class="account-form">
-        {% csrf_token %}
         <div class="form-actions">
             <button type="submit" class="btn btn-danger">Выйти</button>
         </div>
     </form>
-    
-    <div class="notification-settings-section">
-        <h2>Настройки уведомлений</h2>
-        <form id="notificationSettingsForm" method="post" action="{# TODO: добавить обработчик #}" class="settings-form">
-            <div class="form-group">
-                <label for="notifyCurrency">Валюта для уведомлений:</label>
-                <select id="notifyCurrency" name="notifyCurrency">
-                    <option value="BTC">Bitcoin (BTC)</option>
-                    <option value="ETH">Ethereum (ETH)</option>
-                    <option value="TON">Toncoin (TON)</option>
-                    <option value="USD">Доллар США (USD)</option>
-                    <option value="EUR">Евро (EUR)</option>
-                    <option value="CNY">Китайский юань (CNY)</option>
-                    <option value="AED">Дирхам ОАЭ (AED)</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="notifyInterval">Частота уведомлений (каждые k часов):</label>
-                <input type="number" id="notifyInterval" name="notifyInterval" min="1" max="168" value="6">
-            </div>
-            <div class="form-group">
-                <label for="notifyThreshold">Порог изменения стоимости для уведомления (%):</label>
-                <input type="number" id="notifyThreshold" name="notifyThreshold" min="0.1" max="100" step="0.1" value="5">
-            </div>
-            <div class="form-actions">
-                <button type="submit" class="btn btn-primary">Сохранить настройки</button>
-            </div>
-        </form>
-    </div>
 </div>
+
+<script>
+function connectTelegram() {
+    fetch('{% url "api:auth-telegram-link" %}', {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        window.open(data.link, '_blank');
+    })
+    .catch(error => {
+        alert('Произошла ошибка при подключении Telegram');
+    });
+}
+</script>
 {% endblock %}
