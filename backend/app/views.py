@@ -7,17 +7,19 @@ from django.views import View
 from django.views.generic import FormView, TemplateView
 from rest_framework_simplejwt.tokens import RefreshToken
 from django_celery_beat.models import PeriodicTask, CrontabSchedule
+from django.core.cache import cache
+from django.utils import timezone
 
 from api.serializers import *
 from .forms import *
 
 
 class HomeView(TemplateView):
-    template_name = 'home/index.html'
+    template_name = 'home.html'
 
 
 class AccountView(LoginRequiredMixin, FormView):
-    template_name = 'account/index.html'
+    template_name = 'account.html'
     form_class = AccountForm
     success_url = reverse_lazy('app:account')
     login_url = 'app:login'
@@ -37,7 +39,7 @@ class AccountView(LoginRequiredMixin, FormView):
 
 
 class ChangePasswordView(LoginRequiredMixin, FormView):
-    template_name = 'account/change_password.html'
+    template_name = 'change_password.html'
     form_class = ChangePasswordForm
     success_url = reverse_lazy('app:account')
     login_url = 'app:login'
@@ -61,7 +63,7 @@ class ChangePasswordView(LoginRequiredMixin, FormView):
 
 
 class RegisterView(FormView):
-    template_name = 'account/register.html'
+    template_name = 'register.html'
     form_class = RegisterForm
     success_url = reverse_lazy('app:login')
 
@@ -77,7 +79,7 @@ class RegisterView(FormView):
 
 
 class LoginView(FormView):
-    template_name = 'account/login.html'
+    template_name = 'login.html'
     form_class = LoginForm
     success_url = reverse_lazy('app:account')
 
@@ -120,46 +122,77 @@ class LogoutView(LoginRequiredMixin, View):
         return response
 
 
-class PortfolioView(LoginRequiredMixin, TemplateView):
-    template_name = 'portfolio/index.html'
+class DashboardView(LoginRequiredMixin, TemplateView):
+    template_name = 'dashboard.html'
     login_url = 'app:login'
 
     def get(self, request, *args, **kwargs):
         portfolio = get_object_or_404(Portfolio, account=request.user)
         serializer = PortfolioSerializer(portfolio)
-        
+
         currencies = CurrencyBalance.objects.filter(portfolio=portfolio)
-        currency_serializer = CurrencyBalanceSerializer(currencies, many=True)
+        currency_balance_serializer = CurrencyBalanceSerializer(currencies, many=True)
+
+        actives = 0
+        for currency_balance in currencies:
+            current_rate = currency_balance.currency.rate_set.latest('timestamp')
+            actives += currency_balance.amount * current_rate.cost
+
+        total_value = portfolio.balance + actives
+        cache_key = f'portfolio_value_{portfolio.id}'
+        previous_value = cache.get(cache_key)
         
+        change_percent = None
+        if previous_value is not None:
+            change_percent = ((total_value - previous_value) / previous_value) * 100
+
         operations = Operation.objects.filter(portfolio=portfolio)
         operation_serializer = OperationSerializer(operations, many=True)
-        
+
         watches = Watch.objects.filter(portfolio=portfolio)
         watch_serializer = WatchSerializer(watches, many=True)
-        
+
+        currencies = Currency.objects.all()
+        currency_serializer = CurrencySerializer(currencies, many=True)
+
+        chart_data = {}
+        for currency in currencies:
+            rates = Rate.objects.filter(currency=currency).order_by('timestamp')
+            rate_serializer = RateSerializer(rates, many=True)
+
+            chart_data[currency.short_name] = {
+                'labels': [rate['timestamp'] for rate in rate_serializer.data],
+                'values': [float(rate['cost']) for rate in rate_serializer.data]
+            }
+
         context = {
             'portfolio': serializer.data,
-            'currency_balances': currency_serializer.data,
+            'currency_balances': currency_balance_serializer.data,
+            'actives': actives,
+            'total_value': total_value,
+            'change_percent': change_percent,
             'operations': operation_serializer.data,
             'watches': watch_serializer.data,
             'buy_form': PortfolioOperationForm(),
             'sell_form': PortfolioOperationForm(),
-            'watch_form': WatchForm()
+            'watch_form': WatchForm(),
+            'currencies': currency_serializer.data,
+            'chart_data': chart_data
         }
 
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
         portfolio = get_object_or_404(Portfolio, account=request.user)
-        
+
         if 'buy' in request.POST:
             return self._handle_buy(request, portfolio)
         elif 'sell' in request.POST:
             return self._handle_sell(request, portfolio)
         elif 'add_watch' in request.POST:
             return self._handle_add_watch(request, portfolio)
-        
-        return redirect('app:portfolio')
+
+        return redirect('app:dashboard')
 
     def _handle_buy(self, request, portfolio):
         form = PortfolioOperationForm(request.POST)
@@ -167,11 +200,11 @@ class PortfolioView(LoginRequiredMixin, TemplateView):
         if form.is_valid():
             currency = form.cleaned_data['currency']
             amount = form.cleaned_data['amount']
-            
+
             rate = Rate.objects.filter(currency=currency).latest('timestamp')
             price = rate.cost
             total_cost = price * amount
-            
+
             if portfolio.balance >= total_cost:
                 operation = Operation.objects.create(
                     portfolio=portfolio,
@@ -180,10 +213,10 @@ class PortfolioView(LoginRequiredMixin, TemplateView):
                     price=price,
                     operation_type='buy'
                 )
-                
+
                 portfolio.balance -= total_cost
                 portfolio.save()
-                
+
                 balance, created = CurrencyBalance.objects.get_or_create(
                     portfolio=portfolio,
                     currency=currency,
@@ -194,7 +227,7 @@ class PortfolioView(LoginRequiredMixin, TemplateView):
                     balance.amount += amount
                     balance.save()
 
-        return redirect('app:portfolio')
+        return redirect('app:dashboard')
 
     def _handle_sell(self, request, portfolio):
         form = PortfolioOperationForm(request.POST)
@@ -202,13 +235,13 @@ class PortfolioView(LoginRequiredMixin, TemplateView):
         if form.is_valid():
             currency = form.cleaned_data['currency']
             amount = form.cleaned_data['amount']
-            
+
             balance = get_object_or_404(CurrencyBalance, portfolio=portfolio, currency=currency)
             if balance.amount >= amount:
                 rate = Rate.objects.filter(currency=currency).latest('timestamp')
                 price = rate.cost
                 total_cost = price * amount
-                
+
                 operation = Operation.objects.create(
                     portfolio=portfolio,
                     currency=currency,
@@ -216,17 +249,17 @@ class PortfolioView(LoginRequiredMixin, TemplateView):
                     price=price,
                     operation_type='sell'
                 )
-                
+
                 portfolio.balance += total_cost
                 portfolio.save()
-                
+
                 balance.amount -= amount
                 if balance.amount == 0:
                     balance.delete()
                 else:
                     balance.save()
 
-        return redirect('app:portfolio')
+        return redirect('app:dashboard')
 
     def _handle_add_watch(self, request, portfolio):
         form = WatchForm(request.POST)
@@ -237,9 +270,9 @@ class PortfolioView(LoginRequiredMixin, TemplateView):
                 currency=form.cleaned_data['currency'],
                 notify_time=form.cleaned_data['notify_time']
             )
-            
+
             portfolio.watches.add(watch)
-            
+
             schedule, _ = CrontabSchedule.objects.get_or_create(
                 hour=watch.notify_time.hour,
                 minute=watch.notify_time.minute,
@@ -256,30 +289,4 @@ class PortfolioView(LoginRequiredMixin, TemplateView):
                 enabled=True
             )
 
-        return redirect('app:portfolio')
-
-
-class MarketView(LoginRequiredMixin, TemplateView):
-    template_name = 'market/index.html'
-    login_url = 'app:login'
-    
-    def get(self, request, *args, **kwargs):
-        currencies = Currency.objects.all()
-        currency_serializer = CurrencySerializer(currencies, many=True)
-        
-        chart_data = {}
-        for currency in currencies:
-            rates = Rate.objects.filter(currency=currency).order_by('timestamp')
-            rate_serializer = RateSerializer(rates, many=True)
-
-            chart_data[currency.short_name] = {
-                'labels': [rate['timestamp'] for rate in rate_serializer.data],
-                'values': [float(rate['cost']) for rate in rate_serializer.data]
-            }
-        
-        context = {
-            'currencies': currency_serializer.data,
-            'chart_data': chart_data
-        }
-
-        return render(request, self.template_name, context)
+        return redirect('app:dashboard')

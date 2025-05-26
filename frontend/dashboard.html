@@ -24,13 +24,10 @@
             <i class="fas fa-coins"></i>
             <span>Баланс</span>
         </a>
-        <a href="#news" class="nav-item">
-            <i class="fas fa-newspaper"></i>
-            <span>Новости</span>
-        </a>
         <a href="#trackedAssets" class="nav-item">
             <i class="fas fa-binoculars"></i>
             <span>Отслеживаемые</span>
+        </a>
         <a href="#allAssetsChart" class="nav-item">
             <i class="fas fa-chart-pie"></i>
             <span>График</span>
@@ -45,7 +42,7 @@
 
 {% endblock %}
 
-<!-- <div class="main-content"> -->
+<div class="main-content">
 
 {% block topbar %}
 
@@ -78,21 +75,6 @@
                 </button>
             </div>
 
-            <!--Уведомления для пользователя-->
-            <div class="notification-container">
-                <button id="notificationToggle"
-                        class="notification-icon"
-                        aria-label="Уведомления">
-                    <i class="fas fa-bell"></i>
-                </button>
-
-                <!-- popover -->
-                <div id="notificationPanel" class="notification-panel hidden">
-                    <p style="padding:16px;color:var(--text-secondary);">
-                        Здесь будут показываться уведомления
-                    </p>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -104,30 +86,18 @@
 <!-- Основной контент страницы располагается здесь в заданном порядке -->
 
     <!-- 1. Баланс пользователя -->
-    <div class="user-balance-container card" id="userBalance">
-        <h4>Ваш баланс</h4>
-        <div class="balance">Баланс: 40 150 RUB</div>
-    </div>
-
-    <!-- 2. Новости -->
-    <div class="news-container card" id="news">
-        <h3>Финансовые новости</h3>
-        <ul class="news-list">
-            <!-- Список новостей с временными метками -->
-            <li>
-                <strong>12:30</strong> — Рынок криптовалют демонстрирует повышенную волатильность: аналитики
-                прогнозируют
-                возможное снижение.
-            </li>
-            <li>
-                <strong>11:15</strong> — Евро укрепился на фоне свежих экономических данных. Эксперт поделился
-                своими
-                выводами.
-            </li>
-            <li>
-                <strong>10:00</strong> — Рубль стабилизируется по отношению к USD, а спрос на евро заметно растёт.
-            </li>
-        </ul>
+    <div class="user-balance-container card animated-gradient-background" id="userBalance">
+        <div class="balance-icon">
+            <i class="fas fa-wallet"></i>
+        </div>
+        <div class="balance-details">
+            <h4>Ваш портфель</h4>
+            <div class="balance-amount">{{ total_value }} RUB</div>
+            <h4>Ваш баланс</h4>
+            <div class="balance-amount">{{ portfolio.balance }} RUB</div>
+            <h4>Ваши активы</h4>
+            <div class="balance-amount">{{ actives }} RUB</div>
+        </div>
     </div>
 
     <!-- 3. Отслеживаемые активы -->
@@ -193,10 +163,10 @@
     <div class="market-overview-header card" id="marketOverview">
         <h2>Обзор рынка</h2>
         <!-- Фильтр временного интервала и выбор цвета -->
-        <div class="controls-container">
-            <div class="time-filter">
+        <div class="controls-container form-inline">
+            <div class="form-group time-filter">
                 <label for="timeRange">Интервал:</label>
-                <select id="timeRange">
+                <select id="timeRange" class="form-control form-control-sm">
                     <option value="1m">1 месяц</option>
                     <option value="6m">6 месяцев</option>
                     <option value="1y">1 год</option>
@@ -204,9 +174,9 @@
                     <option value="all">Всё время</option>
                 </select>
             </div>
-            <div class="color-picker-container">
+            <div class="form-group color-picker-container">
                 <label for="chartColorPicker">Цвет графика:</label>
-                <input type="color" id="chartColorPicker" value="#FF6384">
+                <input type="color" id="chartColorPicker" class="form-control form-control-sm chart-color-picker" value="#FF6384">
             </div>
         </div>
     </div>
@@ -218,15 +188,17 @@
         </div>
         <div class="chart-and-stats-container">
             <div class="chart-wrapper">
-                <canvas id="currencyChart"></canvas>
+                <canvas id="combinedChart"></canvas>
             </div>
             <div class="currency-selector-panel">
-                {% for currency in currencies %}
-                <button class="currency-btn {% if forloop.first %}active{% endif %}" 
-                        data-currency="{{ currency.short_name }}">
-                    {{ currency.short_name }}
-                </button>
-                {% endfor %}
+                <!-- Кнопки выбора валют -->
+                <button class="currency-btn active" data-currency="BTC">BTC</button>
+                <button class="currency-btn" data-currency="ETH">ETH</button>
+                <button class="currency-btn" data-currency="TON">TON</button>
+                <button class="currency-btn" data-currency="USD">USD</button>
+                <button class="currency-btn" data-currency="EUR">EUR</button>
+                <button class="currency-btn" data-currency="CNY">CNY</button>
+                <button class="currency-btn" data-currency="AED">AED</button>
             </div>
             <div class="currency-stats-panel">
                 <h5 id="selectedCurrencyName">Статистика для: --</h5>
@@ -247,7 +219,6 @@
     </div>
 
 
-    <!-- Модальное окно покупки/продажи -->
     <div id="transactionModal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
@@ -262,112 +233,8 @@
         </div>
     </div>
 
-    <!-- Добавляем скрипт для работы с графиками -->
-    <script>
-        // Получаем данные из контекста Django
-        const chartData = {{ chart_data|safe }};
-        let currencyChart;
-
-        // Функция для создания графика
-        function createChart(currency) {
-            const ctx = document.getElementById('currencyChart').getContext('2d');
-            const data = chartData[currency];
-            
-            if (currencyChart) {
-                currencyChart.destroy();
-            }
-
-            currencyChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: data.labels,
-                    datasets: [{
-                        label: currency,
-                        data: data.values,
-                        borderColor: 'rgb(75, 192, 192)',
-                        tension: 0.4,
-                        fill: false
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: `График ${currency}`
-                        },
-                        tooltip: {
-                            mode: 'index',
-                            intersect: false
-                        }
-                    },
-                    scales: {
-                        x: {
-                            display: true,
-                            title: {
-                                display: true,
-                                text: 'Дата'
-                            }
-                        },
-                        y: {
-                            display: true,
-                            title: {
-                                display: true,
-                                text: 'Курс'
-                            }
-                        }
-                    }
-                }
-            });
-        }
-
-        // Инициализация графика при загрузке страницы
-        document.addEventListener('DOMContentLoaded', function() {
-            const firstCurrency = Object.keys(chartData)[0];
-            createChart(firstCurrency);
-            updateCurrencyStats(firstCurrency);
-        });
-
-        // Обработчик изменения временного интервала
-        document.getElementById('timeRange').addEventListener('change', function(e) {
-            const range = e.target.value;
-            // Здесь можно добавить логику фильтрации данных по выбранному интервалу
-        });
-
-        // Обработчик выбора валюты
-        document.querySelectorAll('.currency-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const currency = this.dataset.currency;
-                // Обновляем график и статистику для выбранной валюты
-                createChart(currency);
-                updateCurrencyStats(currency);
-                
-                // Обновляем активную кнопку
-                document.querySelectorAll('.currency-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                this.classList.add('active');
-            });
-        });
-
-        // Функция обновления статистики
-        function updateCurrencyStats(currency) {
-            const data = chartData[currency];
-            if (!data) return;
-
-            const values = data.values;
-            const average = values.reduce((a, b) => a + b, 0) / values.length;
-            const sorted = [...values].sort((a, b) => a - b);
-            const median = sorted[Math.floor(sorted.length / 2)];
-            
-            document.getElementById('selectedCurrencyName').textContent = `Статистика для: ${currency}`;
-            document.getElementById('statAverage').textContent = average.toFixed(2);
-            document.getElementById('statMedian').textContent = median.toFixed(2);
-        }
-    </script>
-
 {% endblock %}
-<!-- </div> -->
+</div>
 
 {% block scripts %}
 
@@ -375,6 +242,6 @@
     var exchangeratesFile = '{% static "exchangerates.json" %}';
 </script>
 <script src="{% static 'scripts.js' %}"></script>
-{#<script src="{% static 'dashboardScripts.js' %}"></script>#}
+<script src="{% static 'dashboardScripts.js' %}"></script>
 
 {% endblock %}

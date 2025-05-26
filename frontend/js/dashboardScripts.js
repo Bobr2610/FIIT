@@ -1,3 +1,4 @@
+
 // Глобальные переменные
 let allChartData = { labels: [], datasets: [] };
 let combinedChartInstance = null;

@@ -110,16 +110,18 @@ class PasswordChangeSerializer(serializers.Serializer):
 
 # TODO: replace counts to objects?
 class PortfolioSerializer(serializers.ModelSerializer):
-    account = AccountSerializer()
+    account = AccountSerializer(read_only=True)
     operations_count = serializers.SerializerMethodField()
     watches_count = serializers.SerializerMethodField()
     currencies_count = serializers.SerializerMethodField()
+    total_balance = serializers.SerializerMethodField()
 
     class Meta:
         model = Portfolio
         fields = ('id', 'account', 'balance', 'notify_threshold',
-                  'operations_count', 'watches_count', 'currencies_count')
-        read_only_fields = ('id', 'account')
+                  'operations_count', 'watches_count', 'currencies_count',
+                  'total_balance')
+        read_only_fields = ('id',)
 
     def get_operations_count(self, obj):
         return obj.operations.count()
@@ -129,6 +131,19 @@ class PortfolioSerializer(serializers.ModelSerializer):
 
     def get_currencies_count(self, obj):
         return CurrencyBalance.objects.filter(portfolio=obj).count()
+
+    def get_total_balance(self, obj):
+        total = obj.balance
+        currency_balances = CurrencyBalance.objects.filter(portfolio=obj).select_related('currency')
+        
+        for balance in currency_balances:
+            try:
+                current_rate = balance.currency.rate_set.latest('timestamp')
+                total += balance.amount * current_rate.cost
+            except Rate.DoesNotExist:
+                continue
+                
+        return total
 
 
 class PortfolioOperationSerializer(serializers.Serializer):
@@ -155,7 +170,7 @@ class CurrencySerializer(serializers.ModelSerializer):
 
 
 class RateSerializer(serializers.ModelSerializer):
-    currency = CurrencySerializer()
+    currency = CurrencySerializer(read_only=True)
     currency_id = serializers.PrimaryKeyRelatedField(
         queryset=Currency.objects.all(),
         write_only=True,
@@ -165,11 +180,11 @@ class RateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rate
         fields = ('id', 'currency', 'currency_id', 'cost', 'timestamp')
-        read_only_fields = ('id', 'currency', 'timestamp')
+        read_only_fields = ('id', 'timestamp')
 
 
 class CurrencyBalanceSerializer(serializers.ModelSerializer):
-    currency = CurrencySerializer()
+    currency = CurrencySerializer(read_only=True)
     current_price = serializers.SerializerMethodField()
     total_value = serializers.SerializerMethodField()
 
@@ -194,7 +209,7 @@ class CurrencyBalanceSerializer(serializers.ModelSerializer):
 
 
 class OperationSerializer(serializers.ModelSerializer):
-    portfolio = PortfolioSerializer()
+    portfolio = PortfolioSerializer(read_only=True)
     portfolio_id = serializers.PrimaryKeyRelatedField(
         queryset=Portfolio.objects.all(),
         write_only=True,
@@ -213,20 +228,20 @@ class OperationSerializer(serializers.ModelSerializer):
         fields = ('id', 'portfolio', 'portfolio_id', 'operation_type',
                   'currency', 'currency_id', 'amount', 'price',
                   'total_amount', 'timestamp')
-        read_only_fields = ('id', 'portfolio', 'currency', 'timestamp')
+        read_only_fields = ('id', 'timestamp')
 
     def get_total_amount(self, obj):
         return obj.amount * obj.price
 
 
 class WatchSerializer(serializers.ModelSerializer):
-    portfolio = PortfolioSerializer()
+    portfolio = PortfolioSerializer(read_only=True)
     portfolio_id = serializers.PrimaryKeyRelatedField(
         queryset=Portfolio.objects.all(),
         write_only=True,
         source='portfolio'
     )
-    currency = CurrencySerializer()
+    currency = CurrencySerializer(read_only=True)
     currency_id = serializers.PrimaryKeyRelatedField(
         queryset=Currency.objects.all(),
         write_only=True,
@@ -237,4 +252,4 @@ class WatchSerializer(serializers.ModelSerializer):
         model = Watch
         fields = ('id', 'portfolio', 'portfolio_id', 'currency',
                   'currency_id', 'notify_time')
-        read_only_fields = ('id', 'portfolio', 'currency')
+        read_only_fields = ('id', )
