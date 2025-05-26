@@ -1,8 +1,31 @@
-/.idea
-/.venv
-/.vscode
+__pycache__/
+*.py[cod]
+*$py.class
 
-__pycache__
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+
+# Миграции
+**/migrations/*.py
+!**/migrations/__init__.py
+
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+.idea/
+.vscode/
+*.swp
+*.swo
+
+.DS_Store
+Thumbs.db
 
 config/.env
 poetry.lock

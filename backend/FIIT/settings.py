@@ -31,6 +31,9 @@ ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS').split(',')
 
 CSRF_TRUSTED_ORIGINS = [f'http://{host}:8000' for host in ALLOWED_HOSTS]
 
+API_URL = os.getenv('SITE_API_URL')
+PORTFOLIO_BALANCE = int(os.getenv('SITE_PORTFOLIO_BALANCE'))
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,7 +50,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
     'api',
-    'app'
+    'app',
 ]
 
 AUTH_USER_MODEL = 'api.Account'
@@ -225,3 +228,7 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Telegram Bot settings
+TELEGRAM_BOT_USERNAME = os.getenv('TELEGRAM_BOT_USERNAME')
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
