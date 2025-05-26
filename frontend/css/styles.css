@@ -1,7 +1,7 @@
 /* Глобальные переменные */
 :root {
   /* Размеры элементов интерфейса */
-  --sidebar-width: 190px; /* Обновленная ширина боковой панели */
+  --sidebar-width: 240px; /* Обновленная ширина боковой панели */
   --header-height: 65px;
   --border-radius: 6px;
   --spacing-xs: 5px;
@@ -30,16 +30,16 @@
   --font-size-2xl: 28px;
 
   /* Светлая тема (по умолчанию) */
-  --bg-primary: #fdfdfd; /* Фон для сайдбара и верхней панели */
-  --bg-secondary: #f4f6f8; /* Фон для основного контента */
+  --bg-primary: #ffffff; /* Фон для сайдбара и верхней панели */
+  --bg-secondary: #f8f9fa; /* Фон для основного контента */
   --card-bg: #ffffff; /* Фон для карточек */
-  --text-primary: #333333;
-  --text-secondary: #777777;
-  --accent-primary: #007AFF;
-  --accent-secondary: #5AC8FA;
-  --border-color: #e0e0e0;
-  --border-color-light: #f1f3f5;
-  --success-color: #34C759;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --accent-primary: #0d6efd;
+  --accent-secondary: #5AC8FA; /* Оставляем без изменений, так как не было явных указаний */
+  --border-color: #dee2e6;
+  --border-color-light: #e9ecef;
+  --success-color: #34C759; /* Оставляем без изменений, для контекста */
   --danger-color: #FF3B30;
   --trend-up-color: #2ecc71;
   --trend-down-color: #e74c3c;
@@ -50,6 +50,12 @@
   --hover-bg: #f0f2f5;
   --logo-width: 150px;
   --nav-icon-width: 20px;
+  --sidebar-transition: transform 0.3s ease-in-out;
+  --sidebar-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  --nav-item-hover-bg: #e9ecef;
+  --nav-item-active-bg: #007bff;
+  --nav-item-active-text: #ffffff;
+
 
   /* Для контролов в темной теме, чтобы текст был виден */
   --dark-theme-controls-text: #e1e1e1; /* Светлый текст для темной темы на контролах */
@@ -72,19 +78,22 @@
 
 /* Темная тема */
 [data-theme="dark"] {
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #252526;
-  --card-bg: #2d2d2d;
-  --text-primary: #ffffff;
-  --text-secondary: #b3b3b3;
-  --accent-primary: #3498db;
-  --border-color: #404040;
-  --border-color-light: #333333;
-  --table-header-bg: #2d2d2d;
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --card-bg: #2c2c2e;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --accent-primary: #3b82f6;
+  --border-color: #3a3a3c;
+  --border-color-light: #2a2a2c;
+  --table-header-bg: #2c2c2e; /* Обновлено для соответствия новому --card-bg */
   --table-row-hover: #404040;
   --sidebar-bg: var(--bg-primary);
   --sidebar-text: var(--text-primary);
   --hover-bg: #404040;
+  --nav-item-hover-bg: #343a40;
+  --nav-item-active-bg: #3498db;
+  --nav-item-active-text: #ffffff;
 
   /* Переопределение для контролов в темной теме */
   --text-primary-on-controls: var(--dark-theme-controls-text);
@@ -95,6 +104,11 @@
   --text-primary-on-controls: var(--text-primary);
   --controls-bg: var(--bg-primary);
   --controls-border: var(--border-color);
+  --sidebar-bg: #ffffff; /* Explicitly set sidebar background for light theme */
+}
+
+[data-theme="light"] .sidebar {
+  background-color: var(--sidebar-bg);
 }
 
 
@@ -105,13 +119,13 @@
   --card-bg: #ffffff;
   --text-primary: #000000;
   --text-secondary: #595959;
-  --accent-primary: #0000ff;
+  --accent-primary: #0072B2; /* Colorblind-safe Blue */
   --border-color: #000000;
   --border-color-light: #c0c0c0;
-  --success-color: #006400;
-  --danger-color: #8b0000;
-  --trend-up-color: #006400;
-  --trend-down-color: #8b0000;
+  --success-color: #009E73; /* Colorblind-safe Bluish Green */
+  --danger-color: #D55E00; /* Colorblind-safe Orange/Red-Orange */
+  --trend-up-color: var(--success-color);
+  --trend-down-color: var(--danger-color);
   --table-header-bg: #e0e0e0;
   --table-row-hover: #f0f0f0;
   --sidebar-bg: #ffffff;
@@ -124,13 +138,36 @@
 }
 
 /* Улучшение контрастности для темы colorblind */
+[data-theme="colorblind"] body,
+[data-theme="colorblind"] p,
+[data-theme="colorblind"] span,
+[data-theme="colorblind"] div,
+[data-theme="colorblind"] li,
+[data-theme="colorblind"] h1,
+[data-theme="colorblind"] h2,
+[data-theme="colorblind"] h3,
+[data-theme="colorblind"] h4,
+[data-theme="colorblind"] h5,
+[data-theme="colorblind"] h6,
+[data-theme="colorblind"] label,
+[data-theme="colorblind"] td,
+[data-theme="colorblind"] th,
+[data-theme="colorblind"] a,
+[data-theme="colorblind"] button,
+[data-theme="colorblind"] input,
+[data-theme="colorblind"] select,
+[data-theme="colorblind"] textarea {
+    text-decoration: underline !important;
+    font-weight: bold !important;
+}
+
 [data-theme="colorblind"] body {
     --text-primary: #000000;
     --text-secondary: #1a1a1a;
     --bg-primary: #ffffff;
     --bg-secondary: #f0f0f0;
-    --accent-primary: #0052cc; /* Более темный синий для акцента */
-    --accent-secondary: #003380; /* Еще более темный синий для акцента при наведении */
+    --accent-primary: #0072B2; /* Colorblind-safe Blue */
+    --accent-secondary: #005C8A; /* Darker Colorblind-safe Blue for hover/secondary */
     --border-color: #333333;
     --border-color-light: #666666;
     --card-bg: #ffffff;
@@ -149,19 +186,19 @@
 }
 
 [data-theme="colorblind"] a:hover {
-    color: #003380;
+    color: var(--accent-secondary);
 }
 
 [data-theme="colorblind"] .button-primary,
 [data-theme="colorblind"] button {
-    background-color: #0052cc;
+    background-color: var(--accent-primary);
     color: #ffffff;
-    border: 1px solid #003380;
+    border: 1px solid var(--accent-secondary);
 }
 
 [data-theme="colorblind"] .button-primary:hover,
 [data-theme="colorblind"] button:hover {
-    background-color: #003380;
+    background-color: var(--accent-secondary);
 }
 
 [data-theme="colorblind"] input,
@@ -175,6 +212,12 @@
 [data-theme="colorblind"] input::placeholder,
 [data-theme="colorblind"] textarea::placeholder {
     color: #4d4d4d;
+}
+
+[data-theme="colorblind"] {
+    --nav-item-hover-bg: #d0e8f2; /* Светло-голубой для ховера */
+    --nav-item-active-bg: #0072B2; /* Основной акцентный цвет для активного элемента */
+    --nav-item-active-text: #ffffff; /* Белый текст для активного элемента */
 }
 
 
@@ -192,8 +235,7 @@ a { text-decoration: none; color: inherit; }
 
 /* Сайдбар */
 .sidebar {
-  width: var(--sidebar-width); /* Возвращаем ширину */
-  /* display: none; */ /* Убираем скрытие сайдбара, если он должен быть виден */
+  width: var(--sidebar-width);
   background-color: var(--sidebar-bg);
   color: var(--sidebar-text);
   padding: var(--spacing-md);
@@ -201,30 +243,64 @@ a { text-decoration: none; color: inherit; }
   flex-direction: column;
   border-right: var(--border-width-md) solid var(--border-color);
   position: fixed; left: 0; top: 0; height: 100vh; z-index: 1000;
+  box-shadow: var(--sidebar-shadow);
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--sidebar-transition);
 }
-.sidebar .logo { margin-bottom: var(--spacing-lg); text-align: left; }
-.sidebar .logo img { max-width: var(--logo-width); height: auto; }
+
+.sidebar:hover {
+    transform: translateX(0); /* Показываем сайдбар при наведении, если он скрыт */
+}
+.sidebar .logo { 
+    margin-bottom: var(--spacing-lg); 
+    text-align: left; 
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+}
+.sidebar .logo img { 
+    max-width: var(--logo-width); 
+    height: auto;
+    max-height: calc(var(--header-height) - var(--spacing-sm) * 2);
+}
 .sidebar .main-nav a {
-  display: flex; align-items: center; padding: var(--spacing-sm) 0;
+  display: flex; align-items: center; padding: var(--spacing-sm) var(--spacing-md);
   margin-bottom: var(--spacing-xs); border-radius: var(--border-radius);
-  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
-  color: var(--sidebar-text); font-size: var(--font-size-sm);
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform 0.2s ease;
+  color: var(--sidebar-text); font-size: var(--font-size-md);
+  font-weight: 500; /* Немного жирнее шрифт */
 }
 .sidebar .main-nav a i {
   margin-right: var(--spacing-sm); width: var(--nav-icon-width);
   text-align: center; color: var(--accent-primary);
+  transition: color var(--transition-speed) ease;
 }
-.sidebar .main-nav a:hover, .sidebar .main-nav a.active {
-  background-color: var(--hover-bg); color: var(--accent-primary);
+.sidebar .main-nav a:hover {
+  background-color: var(--nav-item-hover-bg);
+  color: var(--accent-primary); /* Цвет текста при наведении */
+  transform: translateX(5px); /* Небольшой сдвиг вправо при наведении */
 }
-.sidebar .main-nav a.active { font-weight: 500; }
+
+.sidebar .main-nav a:hover i {
+    color: var(--accent-primary); /* Цвет иконок при наведении, если отличается */
+}
+.sidebar .main-nav a.active {
+  background-color: var(--nav-item-active-bg);
+  color: var(--nav-item-active-text);
+  font-weight: var(--font-weight-bold);
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar .main-nav a.active i {
+    color: var(--nav-item-active-text);
+}
 
 /* Основной контент */
 .main-content {
   flex-grow: 1; padding: var(--spacing-md);
-  margin-left: var(--sidebar-width); /* Возвращаем отступ слева */
-  /* margin-left: 0; */ /* Убираем отступ в 0 */
+  margin-left: var(--sidebar-width); /* Отступ слева равен ширине сайдбара */
   background-color: var(--bg-secondary); overflow-y: auto;
+  transition: margin-left var(--transition-speed) ease; /* Плавный переход для отступа */
 }
 
 /* Верхняя панель */
@@ -249,8 +325,8 @@ a { text-decoration: none; color: inherit; }
 .theme-selector { display: flex; align-items: center; gap: var(--spacing-xs); }
 .theme-selector label { color: var(--text-secondary); font-size: var(--font-size-sm); margin-bottom: 0; }
 .theme-selector select,
-.market-overview-header select,
-.market-overview-header input[type="color"] {
+.market-overview-controls select,
+.market-overview-controls input[type="color"] {
     padding: var(--spacing-xs) var(--spacing-sm); /* или 5px var(--spacing-xs) если это важно */
     border-radius: var(--border-radius);
     border: 1px solid var(--controls-border);
@@ -266,21 +342,57 @@ a { text-decoration: none; color: inherit; }
     /* padding: 5px var(--spacing-xs); если отличается от общего */
 }
 .theme-selector select:hover { border-color: var(--accent-primary); }
-.theme-toggle, .notification-icon {
+.theme-toggle {
   background: none; border: none; color: var(--text-secondary); cursor: pointer;
   padding: var(--spacing-xs); border-radius: 50%; width: 32px; height: 32px;
   display: flex; align-items: center; justify-content: center;
   font-size: var(--font-size-lg);
 }
-.theme-toggle:hover, .notification-icon:hover { color: var(--accent-primary); background-color: var(--hover-bg); }
-.notification-container { position: relative; }
-.notification-panel {
-  position: absolute; right: 0; top: calc(100% + 5px); width: 300px;
-  background: var(--card-bg); border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-md); z-index: 1001; max-height: 400px;
-  overflow-y: auto; border-radius: var(--border-radius); padding: var(--spacing-sm);
-}
+.theme-toggle:hover { color: var(--accent-primary); background-color: var(--hover-bg); }
 .hidden { display: none !important; }
+
+
+/* Стили для элементов управления в "Обзор рынка" */
+.market-overview-controls {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+    margin-bottom: var(--spacing-md); /* Отступ снизу для отделения от графика */
+}
+
+.market-overview-controls .form-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.market-overview-controls label {
+    margin-bottom: 0; /* Убираем стандартный отступ у label */
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.market-overview-controls .form-control,
+.market-overview-controls .form-control-sm {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--controls-border);
+    background-color: var(--controls-bg);
+    color: var(--text-primary-on-controls);
+    font-size: var(--font-size-sm);
+    height: auto; /* Автоматическая высота */
+    line-height: 1.5; /* Улучшение читаемости */
+}
+
+.market-overview-controls .form-control-sm {
+    padding: 5px var(--spacing-xs); /* Меньший padding для sm контролов */
+}
+
+.market-overview-controls input[type="color"] {
+    width: 50px; /* Фиксированная ширина для выбора цвета */
+    height: calc(1.5em + var(--spacing-xs) * 2 + 2px); /* Высота как у других контролов */
+    padding: var(--spacing-xs); /* Небольшой внутренний отступ */
+}
 
 /* Стили для карточек/секций */
 .card {
@@ -301,28 +413,52 @@ a { text-decoration: none; color: inherit; }
   margin: 0; color: var(--text-primary);
 }
 
-/* 3. Улучшение стилей для контейнера «Ваш Баланс» */
-.balance-container {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: var(--white-color);
-    padding: var(--spacing-large);
-    border-radius: var(--border-radius-large);
-    text-align: center;
-    box-shadow: var(--shadow-large);
-    position: relative;
-    overflow: hidden;
+/* Стили для контейнера «Ваш Баланс» - Минималистичный дизайн */
+.user-balance-container {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    border: var(--border-width-sm) solid var(--border-color-light);
+    transition: box-shadow var(--transition-speed) ease;
 }
 
-.balance-container::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-    transform: rotate(45deg);
-    z-index: 0;
+.user-balance-container:hover {
+    box-shadow: var(--shadow-md);
+}
+
+/* Удаляем .animated-gradient-background и @keyframes gradientAnimation, так как они больше не нужны */
+
+.balance-icon {
+    font-size: 1.8em; /* Уменьшаем размер иконки для минимализма */
+    margin-right: var(--spacing-md);
+    color: var(--accent-primary); /* Используем акцентный цвет темы */
+    /* Убираем фон и тень для иконки */
+}
+
+.balance-icon i {
+    /* Если иконка вставлена через <i>, цвет уже задан выше */
+}
+
+.balance-details h4 {
+    margin: 0 0 var(--spacing-xs) 0;
+    font-size: var(--font-size-sm); /* Уменьшаем шрифт заголовка */
+    font-weight: 400; /* Стандартный вес */
+    color: var(--text-secondary); /* Вторичный цвет текста */
+    opacity: 1; /* Убираем прозрачность */
+}
+
+.balance-amount {
+    font-size: var(--font-size-xl); /* Уменьшаем размер суммы баланса */
+    font-weight: 500; /* Средний вес */
+    color: var(--text-primary);
+    letter-spacing: normal; /* Убираем дополнительный интервал */
+}
+
+/* Удаляем стили для .balance-container и .balance-container::before, если они не используются в других местах или относятся к старому дизайну */
+/* Если .balance-container используется для другого, его нужно оставить или адаптировать */
 }
 
 .balance-container h2,
@@ -370,15 +506,6 @@ a { text-decoration: none; color: inherit; }
 .trend-up { color: var(--trend-up-color); }
 .trend-down { color: var(--trend-down-color); }
 .trend-up i, .trend-down i { font-size: 0.8em; }
-
-/* Секция Финансовые новости */
-.news-section ul { list-style: none; padding-left: 0; }
-.news-section li {
-  padding: var(--spacing-sm) 0; font-size: var(--font-size-sm);
-  border-bottom: var(--border-width-sm) solid var(--border-color-light); line-height: 1.4;
-}
-.news-section li:last-child { border-bottom: none; }
-.news-section .news-time { color: var(--text-secondary); margin-right: var(--spacing-sm); font-weight: 500; }
 
 /* Оптимизированные стили для отслеживаемых активов */
 .tracked-assets-container {
@@ -949,7 +1076,207 @@ body#account-page {
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--spacing-md); /* Добавляем отступы между элементами сетки */
+}
+
+/* Стили для панели статистики валют */
+.currency-stats-panel {
+    background-color: var(--card-bg);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+}
+
+.currency-stats-panel h5 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-lg);
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color-light);
+    padding-bottom: var(--spacing-sm);
+}
+
+.currency-description p,
+.stats-display p {
+    margin: var(--spacing-xs) 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.currency-description p span,
+.stats-display p span {
+    font-weight: 600; /* Полужирный для значений */
+    color: var(--text-primary);
+}
+
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.action-buttons .btn {
+    flex-grow: 1; /* Кнопки занимают всю доступную ширину */
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-md);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    border: none; /* Убираем стандартную рамку */
+}
+
+.btn-buy {
+    background-color: var(--success-color);
+    color: var(--white-color);
+}
+
+.btn-buy:hover {
+    background-color: #28a745; /* Немного темнее при наведении */
+}
+
+.btn-sell {
+    background-color: var(--danger-color);
+    color: var(--white-color);
+}
+
+.btn-sell:hover {
+    background-color: #dc3545; /* Немного темнее при наведении */
+}
+
+/* Стили для кнопок выбора валют - Улучшенный дизайн */
+.currency-selector-panel {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет кнопкам переноситься на новую строку */
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius);
+}
+
+.currency-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    background-color: var(--controls-bg);
+    color: var(--text-primary-on-controls);
+    border: 1px solid var(--controls-border);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.currency-btn:hover {
+    background-color: var(--hover-bg);
+    border-color: var(--accent-primary);
+}
+
+.currency-btn.active {
+    background-color: var(--accent-primary);
+    color: var(--white-color);
+    border-color: var(--accent-primary);
+    font-weight: var(--font-weight-bold);
+    box-shadow: 0 0 8px rgba(var(--accent-primary-rgb), 0.5);
+    transform: translateY(-2px);
+}
+
+/* Стили для панели статистики валют - Улучшенный дизайн */
+.currency-stats-panel {
+    background-color: var(--card-bg-elevated, #ffffff);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-xl, 12px);
+    box-shadow: var(--shadow-interactive, 0 2px 8px rgba(0,0,0,0.07));
+    border: 1px solid var(--border-color-soft, #dee2e6);
+    margin-top: var(--spacing-lg);
+    transition: box-shadow var(--transition-speed) ease-in-out;
+}
+
+.currency-stats-panel:hover {
+    box-shadow: var(--shadow-interactive-hover, 0 5px 15px rgba(0,0,0,0.1));
+}
+
+.currency-stats-panel h5 {
+    font-size: var(--font-size-xl);
+    color: var(--text-title, #212529);
+    border-bottom: 2px solid var(--accent-secondary, #5ac8fa);
+    padding-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.currency-description p,
+.stats-display p {
+    font-size: var(--font-size-md);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.currency-description p span,
+.stats-display p span {
+    font-weight: var(--font-weight-semibold, 600);
+    color: var(--text-primary);
+}
+
+/* Стили для кнопок Купить/Продать - Улучшенный дизайн */
+.action-buttons {
+    margin-top: var(--spacing-lg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+.action-buttons .btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--border-radius-pill, 50px); /* Уже должно быть из общих стилей, но можно усилить */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease-out;
+    border: none; /* Убираем рамку, если она есть от базовых .btn */
+    box-shadow: var(--shadow-sm);
+}
+
+.action-buttons .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.action-buttons .btn:active {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-xs);
+}
+
+.btn-buy {
+    background-color: var(--success-color, #28a745);
+    color: var(--white-color, #ffffff);
+}
+
+.btn-buy:hover {
+    background-color: var(--success-color-dark, #1e7e34); /* Используем переменную, если есть */
+}
+
+.btn-sell {
+    background-color: var(--danger-color, #dc3545);
+    color: var(--white-color, #ffffff);
+}
+
+.btn-sell:hover {
+    background-color: var(--danger-color-dark, #bd2130); /* Используем переменную, если есть */
+}
+
+@media (max-width: 768px) {
+    .action-buttons {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    .action-buttons .btn {
+        font-size: var(--font-size-md);
+    }
+}
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px; /* Немного уменьшим гэп */
 }
 
@@ -1212,6 +1539,206 @@ body.home-page {
 
 .features-grid {
     display: grid;
+    gap: var(--spacing-md); /* Добавляем отступы между элементами сетки */
+}
+
+/* Стили для панели статистики валют */
+.currency-stats-panel {
+    background-color: var(--card-bg);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+}
+
+.currency-stats-panel h5 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-lg);
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color-light);
+    padding-bottom: var(--spacing-sm);
+}
+
+.currency-description p,
+.stats-display p {
+    margin: var(--spacing-xs) 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.currency-description p span,
+.stats-display p span {
+    font-weight: 600; /* Полужирный для значений */
+    color: var(--text-primary);
+}
+
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.action-buttons .btn {
+    flex-grow: 1; /* Кнопки занимают всю доступную ширину */
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-md);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    border: none; /* Убираем стандартную рамку */
+}
+
+.btn-buy {
+    background-color: var(--success-color);
+    color: var(--white-color);
+}
+
+.btn-buy:hover {
+    background-color: #28a745; /* Немного темнее при наведении */
+}
+
+.btn-sell {
+    background-color: var(--danger-color);
+    color: var(--white-color);
+}
+
+.btn-sell:hover {
+    background-color: #dc3545; /* Немного темнее при наведении */
+}
+
+/* Стили для кнопок выбора валют - Улучшенный дизайн */
+.currency-selector-panel {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет кнопкам переноситься на новую строку */
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius);
+}
+
+.currency-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    background-color: var(--controls-bg);
+    color: var(--text-primary-on-controls);
+    border: 1px solid var(--controls-border);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.currency-btn:hover {
+    background-color: var(--hover-bg);
+    border-color: var(--accent-primary);
+}
+
+.currency-btn.active {
+    background-color: var(--accent-primary);
+    color: var(--white-color);
+    border-color: var(--accent-primary);
+    font-weight: var(--font-weight-bold);
+    box-shadow: 0 0 8px rgba(var(--accent-primary-rgb), 0.5);
+    transform: translateY(-2px);
+}
+
+/* Стили для панели статистики валют - Улучшенный дизайн */
+.currency-stats-panel {
+    background-color: var(--card-bg-elevated, #ffffff);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-xl, 12px);
+    box-shadow: var(--shadow-interactive, 0 2px 8px rgba(0,0,0,0.07));
+    border: 1px solid var(--border-color-soft, #dee2e6);
+    margin-top: var(--spacing-lg);
+    transition: box-shadow var(--transition-speed) ease-in-out;
+}
+
+.currency-stats-panel:hover {
+    box-shadow: var(--shadow-interactive-hover, 0 5px 15px rgba(0,0,0,0.1));
+}
+
+.currency-stats-panel h5 {
+    font-size: var(--font-size-xl);
+    color: var(--text-title, #212529);
+    border-bottom: 2px solid var(--accent-secondary, #5ac8fa);
+    padding-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.currency-description p,
+.stats-display p {
+    font-size: var(--font-size-md);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.currency-description p span,
+.stats-display p span {
+    font-weight: var(--font-weight-semibold, 600);
+    color: var(--text-primary);
+}
+
+/* Стили для кнопок Купить/Продать - Улучшенный дизайн */
+.action-buttons {
+    margin-top: var(--spacing-lg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+.action-buttons .btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--border-radius-pill, 50px); /* Уже должно быть из общих стилей, но можно усилить */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease-out;
+    border: none; /* Убираем рамку, если она есть от базовых .btn */
+    box-shadow: var(--shadow-sm);
+}
+
+.action-buttons .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.action-buttons .btn:active {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-xs);
+}
+
+.btn-buy {
+    background-color: var(--success-color, #28a745);
+    color: var(--white-color, #ffffff);
+}
+
+.btn-buy:hover {
+    background-color: var(--success-color-dark, #1e7e34); /* Используем переменную, если есть */
+}
+
+.btn-sell {
+    background-color: var(--danger-color, #dc3545);
+    color: var(--white-color, #ffffff);
+}
+
+.btn-sell:hover {
+    background-color: var(--danger-color-dark, #bd2130); /* Используем переменную, если есть */
+}
+
+@media (max-width: 768px) {
+    .action-buttons {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    .action-buttons .btn {
+        font-size: var(--font-size-md);
+    }
+}
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: var(--spacing-lg, 30px);
     padding: 0 var(--spacing-sm, 10px); /* Небольшие отступы по бокам для грида */
@@ -1309,6 +1836,131 @@ body.home-page {
     font-weight: var(--font-weight-medium, 500);
 }
 
+/* Enhanced Sidebar Styles */
+.sidebar {
+    background-color: var(--sidebar-bg-darker, #2c3e50); /* Slightly darker sidebar */
+    box-shadow: var(--shadow-lg, 0 4px 12px rgba(0,0,0,0.15));
+    border-right: 1px solid var(--border-color-dark, #253544);
+}
+
+.sidebar .nav-link {
+    color: var(--sidebar-link-color-hover, #ecf0f1);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-left: 4px solid transparent;
+    transition: all var(--transition-speed) ease;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    background-color: var(--sidebar-link-active-bg, #34495e);
+    color: var(--white-color, #ffffff);
+    border-left-color: var(--accent-primary, #3498db);
+    box-shadow: inset 3px 0 8px rgba(0,0,0,0.1);
+}
+
+.sidebar .nav-link i {
+    margin-right: var(--spacing-md);
+    width: 20px; /* Ensure icons align nicely */
+    text-align: center;
+}
+
+/* Enhanced Top Bar Styles */
+.top-bar {
+    background-color: var(--top-bar-bg-light, #ffffff);
+    box-shadow: var(--shadow-subtle-bottom, 0 2px 4px rgba(0,0,0,0.05));
+    border-bottom: 1px solid var(--border-color-light, #e9ecef);
+}
+
+.top-bar .username {
+    color: var(--text-primary, #343a40);
+    font-weight: var(--font-weight-medium, 500);
+}
+
+.top-bar .btn-theme-toggle {
+    color: var(--text-secondary, #6c757d);
+    transition: color var(--transition-speed) ease;
+}
+
+.top-bar .btn-theme-toggle:hover {
+    color: var(--accent-primary, #007bff);
+}
+
+/* Enhanced User Balance & Tracked Assets Styles */
+.user-balance .card,
+.tracked-assets .card {
+    background-color: var(--card-bg-elevated, #ffffff);
+    border: 1px solid var(--border-color-soft, #dee2e6);
+    box-shadow: var(--shadow-interactive, 0 2px 8px rgba(0,0,0,0.07));
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.user-balance .card:hover,
+.tracked-assets .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-interactive-hover, 0 5px 15px rgba(0,0,0,0.1));
+}
+
+.user-balance h2,
+.tracked-assets h2 {
+    color: var(--text-title, #212529);
+    border-bottom: 2px solid var(--accent-secondary, #5ac8fa);
+    padding-bottom: var(--spacing-sm);
+}
+
+.balance-amount,
+.asset-value {
+    color: var(--success-color-dark, #1e7e34);
+    font-weight: var(--font-weight-bold, 700);
+}
+
+/* Enhanced Main Chart Area Styles */
+.main-chart-area .card {
+    background-color: var(--card-bg-deep, #f8f9fa);
+    border: none; /* Remove border for a cleaner look if desired */
+    box-shadow: var(--shadow-inset, inset 0 1px 3px rgba(0,0,0,0.05));
+}
+
+#mainChart {
+    border-radius: var(--border-radius-sm, 4px);
+}
+
+/* General Card Enhancements (apply if not overridden) */
+.card {
+    border-radius: var(--border-radius-xl, 12px); /* More rounded cards */
+}
+
+/* Button Enhancements */
+.btn {
+    border-radius: var(--border-radius-pill, 50px); /* Pill-shaped buttons */
+    padding: var(--spacing-sm) var(--spacing-lg); /* Generous padding */
+    font-weight: var(--font-weight-semibold, 600);
+    transition: all 0.25s ease-out;
+}
+
+.btn-primary {
+    background-color: var(--accent-primary, #007bff);
+    border-color: var(--accent-primary, #007bff);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-primary-dark, #0056b3);
+    border-color: var(--accent-primary-dark, #0056b3);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-outline-secondary {
+    border-color: var(--border-color, #ced4da);
+    color: var(--text-secondary, #6c757d);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--bg-light-hover, #f8f9fa);
+    color: var(--text-primary, #343a40);
+    border-color: var(--border-color-dark, #adb5bd);
+}
+
+
 /* Home Footer */
 .home-footer {
     text-align: center;
@@ -1334,4 +1986,136 @@ body.home-page {
 .home-footer a:hover {
     text-decoration: underline;
     color: var(--link-color-hover, var(--accent-primary-dark, #0056b3));
+}
+
+/* Market Overview Section Styles - Enhanced */
+.market-overview-header {
+    padding: var(--spacing-lg);
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-speed) ease;
+}
+
+.market-overview-header:hover {
+    box-shadow: var(--shadow-large);
+    transform: translateY(-3px);
+}
+
+.market-overview-header h2 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-2xl);
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--accent-primary);
+    padding-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.5px;
+}
+
+.market-overview-header .controls-container.form-inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end; /* Align items to the bottom for better visual */
+    gap: var(--spacing-lg); /* Increased gap */
+}
+
+.market-overview-header .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0; /* Remove default margin-bottom if form-inline adds it */
+    gap: var(--spacing-sm); /* Space between label and control */
+}
+
+.market-overview-header .form-group label {
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs); /* Add a small margin below label */
+    font-size: var(--font-size-md);
+    display: block; /* Make label take full width for stacking */
+}
+
+.market-overview-header .form-control-sm {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-md);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--controls-border);
+    background-color: var(--controls-bg);
+    color: var(--text-primary-on-controls);
+    transition: all var(--transition-speed) ease-in-out;
+    height: 42px; /* Slightly taller for better touch targets */
+    width: 100%; /* Make controls take full width of their group */
+}
+
+.market-overview-header .form-control-sm::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.market-overview-header .form-control-sm:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 0.25rem rgba(var(--accent-primary-rgb, 0, 122, 255), 0.35);
+    background-color: var(--controls-bg);
+    color: var(--text-primary-on-controls);
+    outline: none; /* Remove default outline */
+}
+
+.market-overview-header .chart-color-picker {
+    height: 42px; /* Match select height */
+    min-width: 60px; /* Ensure color picker has some width */
+    border: 1px solid var(--controls-border);
+    background-color: var(--controls-bg);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    padding: var(--spacing-xs); /* Small padding around the color swatch */
+    transition: all var(--transition-speed) ease-in-out;
+}
+
+.market-overview-header .chart-color-picker:hover {
+    border-color: var(--accent-primary);
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments for controls container */
+@media (max-width: 992px) { /* Adjusted breakpoint for better responsiveness */
+    .market-overview-header .controls-container.form-inline {
+        flex-direction: column;
+        align-items: stretch; /* Stretch items to full width */
+        gap: var(--spacing-md);
+    }
+
+    .market-overview-header .form-group {
+        width: 100%;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .market-overview-header .form-group:last-child {
+        margin-bottom: 0;
+    }
+
+    .market-overview-header .form-control-sm,
+    .market-overview-header .chart-color-picker {
+        width: 100%; /* Ensure controls take full width on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .market-overview-header {
+        padding: var(--spacing-md);
+    }
+    .market-overview-header h2 {
+        font-size: var(--font-size-xl);
+    }
+    .market-overview-header .form-group label {
+        font-size: var(--font-size-sm);
+    }
+    .market-overview-header .form-control-sm {
+        font-size: var(--font-size-sm);
+        height: 38px;
+    }
+    .market-overview-header .chart-color-picker {
+        height: 38px;
+    }
 }
