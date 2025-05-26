@@ -449,6 +449,30 @@ class WatchViewSet(viewsets.ModelViewSet):
             enabled=True
         )
 
+    def perform_update(self, serializer):
+        watch = serializer.save()
+        
+        schedule, _ = CrontabSchedule.objects.get_or_create(
+            hour=watch.notify_time.hour,
+            minute=watch.notify_time.minute,
+            day_of_week='*',
+            day_of_month='*',
+            month_of_year='*',
+        )
+
+        task, created = PeriodicTask.objects.get_or_create(
+            name=f'notify-{watch.id}',
+            defaults={
+                'task': 'api.tasks.notify_currency_rate',
+                'args': [watch.id],
+                'enabled': True
+            }
+        )
+        
+        if not created:
+            task.crontab = schedule
+            task.save()
+
     def perform_destroy(self, instance):
         PeriodicTask.objects.filter(name=f'notify-{instance.id}').delete()
 

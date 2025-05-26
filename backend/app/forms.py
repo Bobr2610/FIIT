@@ -5,10 +5,6 @@ from api.models import *
 
 
 class AccountForm(forms.ModelForm):
-    """
-    Форма для управления информацией аккаунта пользователя.
-    Включает поля для имени пользователя и email.
-    """
     email = forms.EmailField(
         required=False,
         label='Email'
@@ -27,21 +23,15 @@ class AccountForm(forms.ModelForm):
         }
 
     def save(self, commit=True):
-        """
-        Сохраняет информацию аккаунта в базу данных.
-        Если commit=True, изменения сохраняются немедленно.
-        """
         account = super(AccountForm, self).save(commit=False)
+
         if commit:
             account.save()
+
         return account
 
 
 class ChangePasswordForm(forms.Form):
-    """
-    Форма для смены пароля пользователя.
-    Включает поля для старого пароля, нового пароля и подтверждения нового пароля.
-    """
     old_password = forms.CharField(
         label='Текущий пароль',
         widget=forms.PasswordInput(attrs={
@@ -71,57 +61,61 @@ class ChangePasswordForm(forms.Form):
 
     def __init__(self, user, *args, **kwargs):
         self.user = user
+
         super().__init__(*args, **kwargs)
 
     def clean_old_password(self):
         old_password = self.cleaned_data.get('old_password')
+
         if not self.user.check_password(old_password):
             raise forms.ValidationError(
                 self.error_messages['password_incorrect'],
                 code='password_incorrect',
             )
+
         return old_password
 
     def clean_new_password(self):
         new_password = self.cleaned_data.get('new_password')
+
         if len(new_password) < 8:
             raise forms.ValidationError(
                 self.error_messages['password_too_short'],
                 code='password_too_short',
             )
+
         if new_password.isdigit():
             raise forms.ValidationError(
                 self.error_messages['password_entirely_numeric'],
                 code='password_entirely_numeric',
             )
+
         return new_password
 
     def clean_new_password_check(self):
-        password1 = self.cleaned_data.get('new_password')
-        password2 = self.cleaned_data.get('new_password_check')
-        if password1 and password2 and password1 != password2:
+        new_password = self.cleaned_data.get('new_password')
+        new_password_check = self.cleaned_data.get('new_password_check')
+
+        if new_password and new_password_check and new_password != new_password_check:
             raise forms.ValidationError(
                 self.error_messages['password_mismatch'],
                 code='password_mismatch',
             )
-        return password2
+
+        return new_password_check
 
     def save(self, commit=True):
-        """
-        Сохраняет новый пароль пользователя.
-        """
         password = self.cleaned_data['new_password']
+
         self.user.set_password(password)
+
         if commit:
             self.user.save()
+
         return self.user
 
 
 class RegisterForm(UserCreationForm):
-    """
-    Форма для регистрации пользователя.
-    Включает поля для имени пользователя, email и пароля.
-    """
     email = forms.EmailField(
         required=True,
         label='Email',
@@ -136,6 +130,7 @@ class RegisterForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
         self.fields['username'].widget = forms.TextInput(attrs={
             'placeholder': 'Введите имя пользователя'
         })
@@ -148,10 +143,6 @@ class RegisterForm(UserCreationForm):
 
 
 class LoginForm(forms.Form):
-    """
-    Форма для входа пользователя.
-    Использует поля email и пароль для аутентификации.
-    """
     email = forms.EmailField(
         label='Email',
         widget=forms.EmailInput(attrs={
@@ -174,6 +165,7 @@ class LoginForm(forms.Form):
     def __init__(self, request=None, *args, **kwargs):
         self.request = request
         self.user_cache = None
+
         super().__init__(*args, **kwargs)
 
     def clean(self):
@@ -184,6 +176,7 @@ class LoginForm(forms.Form):
             self.user_cache = authenticate(self.request,
                                         email=email,
                                         password=password)
+
             if self.user_cache is None:
                 raise forms.ValidationError(
                     self.error_messages['invalid_login'],
@@ -194,6 +187,7 @@ class LoginForm(forms.Form):
                     self.error_messages['inactive'],
                     code='inactive',
                 )
+
         return self.cleaned_data
 
     def get_user(self):
@@ -201,9 +195,6 @@ class LoginForm(forms.Form):
 
 
 class PortfolioOperationForm(forms.Form):
-    """
-    Форма для операций с портфелем (покупка/продажа).
-    """
     currency = forms.ModelChoiceField(
         queryset=Currency.objects.all(),
         label='Валюта'
@@ -216,9 +207,6 @@ class PortfolioOperationForm(forms.Form):
 
 
 class WatchForm(forms.ModelForm):
-    """
-    Форма для добавления валюты в отслеживаемые.
-    """
     class Meta:
         model = Watch
         fields = ['currency', 'notify_time']

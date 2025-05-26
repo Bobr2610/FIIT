@@ -1,13 +1,11 @@
 from django.conf import settings
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import FormView, TemplateView
 from rest_framework_simplejwt.tokens import RefreshToken
-from django.contrib import messages
-from django.utils import timezone
 from django_celery_beat.models import PeriodicTask, CrontabSchedule
 
 from api.serializers import *
@@ -18,59 +16,24 @@ class HomeView(TemplateView):
     template_name = 'home/index.html'
 
 
-class AccountView(LoginRequiredMixin, TemplateView):
+class AccountView(LoginRequiredMixin, FormView):
     template_name = 'account/index.html'
+    form_class = AccountForm
+    success_url = reverse_lazy('app:account')
     login_url = 'app:login'
 
-    def get(self, request, *args, **kwargs):
-        serializer = AccountSerializer(request.user)
+    def get_initial(self):
+        serializer = AccountSerializer(self.request.user)
 
-        account_form = AccountForm(initial=serializer.data)
-        password_form = ChangePasswordForm(user=request.user)
+        return serializer.data
 
-        return render(request, self.template_name, {
-            'account_form': account_form,
-            'password_form': password_form
-        })
+    def form_valid(self, form):
+        user = self.request.user
+        user.username = form.cleaned_data['username']
+        user.email = form.cleaned_data['email']
+        user.save()
 
-    def post(self, request, *args, **kwargs):
-        if 'change_password' in request.POST:
-            password_form = ChangePasswordForm(request.user, request.POST)
-
-            if password_form.is_valid():
-                user = request.user
-
-                if user.check_password(password_form.cleaned_data['old_password']):
-                    user.set_password(password_form.cleaned_data['new_password'])
-                    user.save()
-
-                    messages.success(request, 'Пароль успешно изменен')
-
-                    return redirect('app:account')
-                else:
-                    messages.error(request, 'Неверный текущий пароль')
-
-            account_form = AccountForm(instance=request.user)
-        else:
-            form = AccountForm(request.POST)
-
-            if form.is_valid():
-                user = request.user
-                user.username = form.cleaned_data['username']
-                user.email = form.cleaned_data['email']
-                user.save()
-
-                messages.success(request, 'Профиль успешно обновлен')
-
-                return redirect('app:account')
-
-            account_form = form
-            password_form = ChangePasswordForm(user=request.user)
-
-        return render(request, self.template_name, {
-            'account_form': account_form,
-            'password_form': password_form
-        })
+        return super().form_valid(form)
 
 
 class ChangePasswordView(LoginRequiredMixin, FormView):
@@ -82,6 +45,7 @@ class ChangePasswordView(LoginRequiredMixin, FormView):
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         kwargs['user'] = self.request.user
+
         return kwargs
 
     def form_valid(self, form):
@@ -91,12 +55,8 @@ class ChangePasswordView(LoginRequiredMixin, FormView):
             user.set_password(form.cleaned_data['new_password'])
             user.save()
 
-            messages.success(self.request, 'Пароль успешно изменен')
-
             return super().form_valid(form)
         else:
-            messages.error(self.request, 'Неверный текущий пароль')
-
             return self.form_invalid(form)
 
 
@@ -113,8 +73,6 @@ class RegisterView(FormView):
             balance=settings.PORTFOLIO_BALANCE
         )
 
-        messages.success(self.request, 'Регистрация успешно завершена')
-
         return super().form_valid(form)
 
 
@@ -126,6 +84,7 @@ class LoginView(FormView):
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         kwargs['request'] = self.request
+
         return kwargs
 
     def form_valid(self, form):
@@ -143,12 +102,8 @@ class LoginView(FormView):
             response = redirect(self.get_success_url())
             response.set_cookie('access_token', str(refresh.access_token), httponly=True)
 
-            messages.success(self.request, 'Вход выполнен успешно')
-
             return response
         else:
-            messages.error(self.request, 'Неверный email или пароль')
-
             return self.form_invalid(form)
 
 
@@ -161,8 +116,6 @@ class LogoutView(LoginRequiredMixin, View):
 
         response = redirect(str(self.success_url))
         response.delete_cookie('access_token')
-
-        messages.success(request, 'Выход выполнен успешно')
 
         return response
 
@@ -200,105 +153,109 @@ class PortfolioView(LoginRequiredMixin, TemplateView):
         portfolio = get_object_or_404(Portfolio, account=request.user)
         
         if 'buy' in request.POST:
-            form = PortfolioOperationForm(request.POST)
+            return self._handle_buy(request, portfolio)
+        elif 'sell' in request.POST:
+            return self._handle_sell(request, portfolio)
+        elif 'add_watch' in request.POST:
+            return self._handle_add_watch(request, portfolio)
+        
+        return redirect('app:portfolio')
 
-            if form.is_valid():
-                currency = form.cleaned_data['currency']
-                amount = form.cleaned_data['amount']
+    def _handle_buy(self, request, portfolio):
+        form = PortfolioOperationForm(request.POST)
+
+        if form.is_valid():
+            currency = form.cleaned_data['currency']
+            amount = form.cleaned_data['amount']
+            
+            rate = Rate.objects.filter(currency=currency).latest('timestamp')
+            price = rate.cost
+            total_cost = price * amount
+            
+            if portfolio.balance >= total_cost:
+                operation = Operation.objects.create(
+                    portfolio=portfolio,
+                    currency=currency,
+                    amount=amount,
+                    price=price,
+                    operation_type='buy'
+                )
                 
+                portfolio.balance -= total_cost
+                portfolio.save()
+                
+                balance, created = CurrencyBalance.objects.get_or_create(
+                    portfolio=portfolio,
+                    currency=currency,
+                    defaults={'amount': amount}
+                )
+
+                if not created:
+                    balance.amount += amount
+                    balance.save()
+
+        return redirect('app:portfolio')
+
+    def _handle_sell(self, request, portfolio):
+        form = PortfolioOperationForm(request.POST)
+
+        if form.is_valid():
+            currency = form.cleaned_data['currency']
+            amount = form.cleaned_data['amount']
+            
+            balance = get_object_or_404(CurrencyBalance, portfolio=portfolio, currency=currency)
+            if balance.amount >= amount:
                 rate = Rate.objects.filter(currency=currency).latest('timestamp')
                 price = rate.cost
                 total_cost = price * amount
                 
-                if portfolio.balance >= total_cost:
-                    operation = Operation.objects.create(
-                        portfolio=portfolio,
-                        currency=currency,
-                        amount=amount,
-                        price=price,
-                        operation_type='buy'
-                    )
-                    
-                    portfolio.balance -= total_cost
-                    portfolio.save()
-                    
-                    balance, created = CurrencyBalance.objects.get_or_create(
-                        portfolio=portfolio,
-                        currency=currency,
-                        defaults={'amount': amount}
-                    )
-
-                    if not created:
-                        balance.amount += amount
-                        balance.save()
-                    
-                    messages.success(request, 'Покупка успешно выполнена')
-                else:
-                    messages.error(request, 'Недостаточно средств')
-        elif 'sell' in request.POST:
-            form = PortfolioOperationForm(request.POST)
-
-            if form.is_valid():
-                currency = form.cleaned_data['currency']
-                amount = form.cleaned_data['amount']
-                
-                balance = get_object_or_404(CurrencyBalance, portfolio=portfolio, currency=currency)
-                if balance.amount >= amount:
-                    rate = Rate.objects.filter(currency=currency).latest('timestamp')
-                    price = rate.cost
-                    total_cost = price * amount
-                    
-                    operation = Operation.objects.create(
-                        portfolio=portfolio,
-                        currency=currency,
-                        amount=amount,
-                        price=price,
-                        operation_type='sell'
-                    )
-                    
-                    portfolio.balance += total_cost
-                    portfolio.save()
-                    
-                    balance.amount -= amount
-                    if balance.amount == 0:
-                        balance.delete()
-                    else:
-                        balance.save()
-                    
-                    messages.success(request, 'Продажа успешно выполнена')
-                else:
-                    messages.error(request, 'Недостаточно валюты')
-                
-        elif 'add_watch' in request.POST:
-            form = WatchForm(request.POST)
-
-            if form.is_valid():
-                watch = Watch.objects.create(
+                operation = Operation.objects.create(
                     portfolio=portfolio,
-                    currency=form.cleaned_data['currency'],
-                    notify_time=form.cleaned_data['notify_time']
+                    currency=currency,
+                    amount=amount,
+                    price=price,
+                    operation_type='sell'
                 )
                 
-                portfolio.watches.add(watch)
+                portfolio.balance += total_cost
+                portfolio.save()
                 
-                schedule, _ = CrontabSchedule.objects.get_or_create(
-                    hour=watch.notify_time.hour,
-                    minute=watch.notify_time.minute,
-                    day_of_week='*',
-                    day_of_month='*',
-                    month_of_year='*',
-                )
+                balance.amount -= amount
+                if balance.amount == 0:
+                    balance.delete()
+                else:
+                    balance.save()
 
-                PeriodicTask.objects.create(
-                    name=f'notify-{watch.id}',
-                    task='api.tasks.notify_currency_rate',
-                    crontab=schedule,
-                    args=[watch.id],
-                    enabled=True
-                )
+        return redirect('app:portfolio')
 
-                messages.success(request, 'Валюта добавлена в отслеживаемые')
-        
+    def _handle_add_watch(self, request, portfolio):
+        form = WatchForm(request.POST)
+
+        if form.is_valid():
+            watch = Watch.objects.create(
+                portfolio=portfolio,
+                currency=form.cleaned_data['currency'],
+                notify_time=form.cleaned_data['notify_time']
+            )
+            
+            portfolio.watches.add(watch)
+            
+            schedule, _ = CrontabSchedule.objects.get_or_create(
+                hour=watch.notify_time.hour,
+                minute=watch.notify_time.minute,
+                day_of_week='*',
+                day_of_month='*',
+                month_of_year='*',
+            )
+
+            PeriodicTask.objects.create(
+                name=f'notify-{watch.id}',
+                task='api.tasks.notify_currency_rate',
+                crontab=schedule,
+                args=[watch.id],
+                enabled=True
+            )
+
         return redirect('app:portfolio')
 
 
