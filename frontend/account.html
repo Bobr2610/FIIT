@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block body_attributes %}id="account-page" class="main-content"{% endblock %}
+{# Добавляем main-content для центрирования #}
+
+{% block title %}
+    Управление аккаунтом
+{% endblock %}
+
+{% block topbar %}
+    <!-- Верхняя панель для страницы аккаунта может быть упрощена или стандартной -->
+    <div class="top-bar" id="top">
+        <div class="account-group">
+            <a href="{% url 'app:dashboard' %}" class="account-link">
+                <i class="fas fa-arrow-left"></i>
+                <span>Назад к панели</span>
+            </a>
+        </div>
+        <span class="current-time"></span>
+        <div class="header-right-controls">
+            <div class="theme-selector">
+                <label for="colorScheme">Тема:</label>
+                <select id="colorScheme">
+                    <option value="light">Светлая</option>
+                    <option value="dark">Темная</option>
+                    <option value="colorblind">Высокий контраст</option>
+                </select>
+                <button class="theme-toggle" title="Переключить тему">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="account-form-container card">
+        <h1 class="card-header">
+            Управление вашим аккаунтом
+        </h1>
+
+        <div class="card-body">
+            <div class="user-info-section card-section">
+                <h2>Основная информация</h2>
+                <p>Пользователь: <strong>{{ user.username }}</strong></p>
+                {# Можно добавить Email если он есть в user объекте и это безопасно #}
+                {# <p>Email: <strong>{{ user.email }}</strong></p> #}
+            </div>
+
+            <div class="form-section card-section">
+                <h2>Данные аккаунта</h2>
+                <form action="{% url 'app:account' %}" method="post" class="account-form settings-form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ form.username.label_tag }}
+                        {{ form.username }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.email.label_tag }}
+                        {{ form.email }}
+                    </div>
+                    <div class="form-group">
+                        <label for="telegram_username">Телеграм никнейм:</label>
+                        <input type="text" id="telegram_username" name="telegram_username" placeholder="@username"
+                               class="form-control">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="form-section card-section">
+                <form action="{% url 'app:logout' %}" method="post" class="account-form settings-form">
+                    {% csrf_token %}
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-danger">Выйти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="notification-settings-section card-section">
+                <h2>Настройки уведомлений</h2>
+                <form id="notificationSettingsForm" method="post" action="{# TODO: добавить обработчик #}"
+                      class="settings-form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="notifyCurrency">Валюта для уведомлений:</label>
+                        <select id="notifyCurrency" name="notifyCurrency" class="form-control">
+                            <option value="BTC">Bitcoin (BTC)</option>
+                            <option value="ETH">Ethereum (ETH)</option>
+                            <option value="TON">Toncoin (TON)</option>
+                            <option value="USD">Доллар США (USD)</option>
+                            <option value="EUR">Евро (EUR)</option>
+                            <option value="CNY">Китайский юань (CNY)</option>
+                            <option value="AED">Дирхам ОАЭ (AED)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notifyInterval">Частота уведомлений (каждые k часов):</label>
+                        <input type="number" id="notifyInterval" name="notifyInterval" min="1" max="168" value="6"
+                               class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="notifyThreshold">Порог изменения стоимости для уведомления (%):</label>
+                        <input type="number" id="notifyThreshold" name="notifyThreshold" min="0.1" max="100" step="0.1"
+                               value="5" class="form-control">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Сохранить настройки</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="telegram-bot-section card-section">
+                <h2>Телеграм бот</h2>
+                <p>Подключите телеграм бота для получения уведомлений о курсах валют прямо в мессенджере.</p>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="connectTelegram();">
+                        Подключить Telegram
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function connectTelegram() {
+            fetch('{% url "api:auth-telegram-link" %}', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    window.open(data.link, '_blank');
+                })
+                .catch(error => {
+                    alert('Произошла ошибка при подключении Telegram');
+                });
+        }
+    </script>
+
+{% endblock %}

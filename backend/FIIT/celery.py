@@ -26,3 +26,10 @@ def setup_periodic_tasks(sender: Celery, **kwargs):
         crontab=schedule,
         enabled=True
     )
+
+    PeriodicTask.objects.create(
+        name='update-portfolio-values',
+        task='api.tasks.update_portfolio_values',
+        crontab=schedule,
+        enabled=True
+    )

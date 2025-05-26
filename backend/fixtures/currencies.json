@@ -16,5 +16,41 @@
       "short_name": "EUR",
       "description": "About Euro"
     }
+  },
+  {
+    "model": "api.currency",
+    "pk": 3,
+    "fields": {
+      "name": "AED",
+      "short_name": "AED",
+      "description": "About AED"
+    }
+  },
+  {
+    "model": "api.currency",
+    "pk": 4,
+    "fields": {
+      "name": "CNY",
+      "short_name": "CNY",
+      "description": "About CNY"
+    }
+  },
+  {
+    "model": "api.currency",
+    "pk": 5,
+    "fields": {
+      "name": "Bitcoin",
+      "short_name": "BTC",
+      "description": "About BTC"
+    }
+  },
+  {
+    "model": "api.currency",
+    "pk": 6,
+    "fields": {
+      "name": "Ethereum",
+      "short_name": "ETH",
+      "description": "About ETH"
+    }
   }
 ]
