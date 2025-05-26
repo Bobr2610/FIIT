@@ -49,7 +49,7 @@ class AuthRefreshSerializer(serializers.Serializer):
     refresh = serializers.CharField()
 
 
-class TelegramVerificationLinkSerializer(serializers.Serializer):
+class AuthTelegramVerifySerializer(serializers.Serializer):
     code = serializers.CharField()
     chat_id = serializers.IntegerField()
 
@@ -57,11 +57,6 @@ class TelegramVerificationLinkSerializer(serializers.Serializer):
 class AuthTelegramLinkSerializer(serializers.Serializer):
     link = serializers.CharField()
     expires_at = serializers.DateTimeField()
-
-
-class TelegramStatusResponseSerializer(serializers.Serializer):
-    is_verified = serializers.BooleanField()
-    chat_id = serializers.IntegerField(allow_null=True)
 
 
 class AccountSerializer(serializers.ModelSerializer):

@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth import login, logout
 from django.db import transaction
 from django.utils import timezone
@@ -16,7 +17,7 @@ from .serializers import *
 
 class AuthViewSet(viewsets.GenericViewSet):
     def get_permissions(self):
-        if self.action in ['logout', 'telegram_link', 'telegram_status']:
+        if self.action in ['logout', 'telegram_link']:
             return [IsAuthenticated()]
         return [AllowAny()]
 
@@ -30,9 +31,7 @@ class AuthViewSet(viewsets.GenericViewSet):
         elif self.action == 'telegram_link':
             return AuthTelegramLinkSerializer
         elif self.action == 'telegram_verify':
-            return TelegramVerificationLinkSerializer
-        elif self.action == 'telegram_status':
-            return TelegramStatusResponseSerializer
+            return AuthTelegramVerifySerializer
 
         return None
 
@@ -108,7 +107,7 @@ class AuthViewSet(viewsets.GenericViewSet):
         )
 
         serializer = self.get_serializer(data={
-            'link': f"https://t.me/{settings.TELEGRAM_BOT_USERNAME}?start={code}",
+            'link': f'https://t.me/{settings.TELEGRAM_BOT_USERNAME}?start={code}',
             'expires_at': link.expires_at
         })
         serializer.is_valid(raise_exception=True)
@@ -143,13 +142,6 @@ class AuthViewSet(viewsets.GenericViewSet):
             return Response(status=HTTP_200_OK)
         except TelegramVerificationLink.DoesNotExist:
             return Response(status=HTTP_400_BAD_REQUEST)
-
-    @action(detail=False, methods=['get'])
-    def telegram_status(self, request):
-        return Response({
-            'is_verified': bool(request.user.telegram_chat_id),
-            'chat_id': request.user.telegram_chat_id
-        })
 
 
 class AccountViewSet(viewsets.ModelViewSet):
@@ -403,12 +395,18 @@ class CurrencyViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class RateViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Rate.objects.all()
     serializer_class = RateSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Rate.objects.select_related('currency').order_by('-timestamp')
+        queryset = Rate.objects.select_related('currency').order_by('-timestamp')
+
+        short_name = self.request.query_params.get('short_name')
+
+        if short_name:
+            queryset = queryset.filter(currency__short_name=short_name)
+
+        return queryset
 
 
 class WatchViewSet(viewsets.ModelViewSet):

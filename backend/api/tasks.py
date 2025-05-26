@@ -6,7 +6,6 @@ import asyncio
 import aiohttp
 
 async def send_telegram_notification(chat_id: int, message: str) -> bool:
-    """Отправка уведомления через Telegram бота"""
     try:
         async with aiohttp.ClientSession() as session:
             async with session.post(
@@ -23,9 +22,6 @@ async def send_telegram_notification(chat_id: int, message: str) -> bool:
 
 @shared_task
 def notify_currency_rate(watch_id):
-    """
-    Отправляет уведомление пользователю о текущем курсе валюты.
-    """
     try:
         watch = Watch.objects.select_related('portfolio__account', 'currency').get(id=watch_id)
         latest_rate = Rate.objects.filter(currency=watch.currency).latest('timestamp')
@@ -37,7 +33,6 @@ def notify_currency_rate(watch_id):
             f"⏰ Время: {latest_rate.timestamp}"
         )
 
-        # Отправляем уведомление в Telegram
         if watch.portfolio.account.telegram_chat_id:
             try:
                 asyncio.run(send_telegram_notification(
@@ -46,8 +41,7 @@ def notify_currency_rate(watch_id):
                 ))
             except Exception:
                 pass
-        
-        # Отправляем уведомление на email
+
         # TODO: исправить почту
         if watch.portfolio.account.email:
             try:

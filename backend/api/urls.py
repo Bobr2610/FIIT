@@ -22,9 +22,6 @@ urlpatterns = [
     path('auth/telegram/verify/', AuthViewSet.as_view({
         'post': 'telegram_verify'
     }), name='auth-telegram-verify'),
-    path('auth/telegram/status/', AuthViewSet.as_view({
-        'get': 'telegram_status'
-    }), name='auth-telegram-status'),
 
     path('accounts/me/', AccountViewSet.as_view({
         'get': 'me',
