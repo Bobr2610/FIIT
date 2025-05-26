@@ -14,7 +14,7 @@
   --border-width-md: 1px;
 
   /* Тени */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px rgba(213, 16, 16, 0.05);
   --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.07);
 
   /* Скорость анимаций */
@@ -76,6 +76,10 @@
   --button-border: var(--accent-primary);
 }
 
+.top-bar {
+  background-color: var(--bg-primary);
+}
+
 /* Темная тема */
 [data-theme="dark"] {
   --bg-primary: #121212;
@@ -99,6 +103,142 @@
   --text-primary-on-controls: var(--dark-theme-controls-text);
   --controls-bg: var(--dark-theme-controls-bg);
   --controls-border: var(--dark-theme-controls-border);
+
+  /* Стили для статистики и кнопок покупки/продажи */
+  /* Styling for currency selector panel */
+  .currency-selector-panel {
+    background-color: var(--card-bg) !important;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+  }
+  .currency-selector-panel h3 {
+    color: var(--text-primary);
+  }
+  .currency-selector-panel p {
+    color: var(--text-secondary);
+  }
+
+  /* Specific styling for the statistics panel when it's a card */
+  .card.currency-stats-panel {
+    background-color: var(--card-bg) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+  }
+
+  .card.currency-stats-panel .card-body {
+    background-color: var(--card-bg) !important; /* Ensure card body is explicitly dark */
+    color: var(--text-primary) !important;
+  }
+
+  .card.currency-stats-panel .card-title,
+  .card.currency-stats-panel h5 { /* Targets <h5 class="card-title"> and general h5 */
+    color: var(--text-primary) !important;
+  }
+
+  .card.currency-stats-panel p, /* General paragraphs */
+  .card.currency-stats-panel .details p,
+  .card.currency-stats-panel .details span,
+  .card.currency-stats-panel .details p strong { /* For any strong text within details */
+    color: var(--text-secondary) !important;
+  }
+
+  .card.currency-stats-panel .details {
+      /* Ensure .details div itself doesn't have a conflicting background if it's a block */
+      background-color: transparent !important; /* Or var(--card-bg) if it should match */
+      color: var(--text-secondary) !important; /* Ensure text within details inherits correctly or is set */
+  }
+
+
+
+  .buy-button {
+    background-color: var(--success-color) !important;
+    color: #ffffff !important; /* Явно указываем белый цвет текста для контраста */
+    border: none !important;
+  }
+
+  .sell-button {
+    background-color: var(--danger-color) !important;
+    color: #ffffff !important; /* Явно указываем белый цвет текста для контраста */
+    border: none !important;
+  }
+
+  .buy-button:hover,
+  .sell-button:hover {
+    opacity: 0.9;
+  }
+
+  /* Стили для контейнера с информацией о валюте */
+  .currency-info-container {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+  }
+
+  .currency-info-container h3 {
+    color: var(--text-primary);
+  }
+
+  .currency-info-container p {
+    color: var(--text-secondary);
+  }
+
+  /* Дополнительные стили для элементов, которые могут оставаться белыми */
+  .top-bar {
+    background-color: var(--bg-primary) !important; /* Убедимся, что верхняя панель использует основной фон */
+  }
+
+  .card {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important; /* Use border shorthand and correct variable */
+    color: var(--text-primary); /* Set default text color for the card */
+  }
+
+  .card .card-body {
+    background-color: var(--card-bg) !important; /* Added !important, Explicitly set for card-body */
+    color: var(--text-primary); /* Default text color for card-body content */
+  }
+
+  /* Ensure headings and text within card-body are correctly colored */
+  .card .card-body h1,
+  .card .card-body h2,
+  .card .card-body h3,
+  .card .card-body h4,
+  .card .card-body h5,
+  .card .card-body h6,
+  .card .card-body .card-title { /* Explicit for card-title */
+    color: var(--text-primary);
+  }
+
+  .card .card-body p,
+  .card .card-body span,
+  .card .card-body div {
+    color: var(--text-secondary); /* Default to secondary for these elements */
+  }
+
+  .card .card-body strong {
+    color: var(--text-primary); /* Make strong text primary */
+  }
+
+  .main-content {
+      background-color: var(--bg-secondary) !important;
+  }
+
+  /* Стили для кнопок выбора валюты на графике */
+  .currency-selector-panel .currency-btn {
+      background-color: var(--controls-bg);
+      color: var(--text-primary-on-controls);
+      border: 1px solid var(--controls-border);
+  }
+
+  .currency-selector-panel .currency-btn.active {
+      background-color: var(--accent-primary);
+      color: var(--button-text);
+      border-color: var(--accent-primary);
+  }
+
+  .currency-selector-panel .currency-btn:hover {
+      background-color: var(--hover-bg);
+  }
 }
 [data-theme="light"] {
   --text-primary-on-controls: var(--text-primary);
