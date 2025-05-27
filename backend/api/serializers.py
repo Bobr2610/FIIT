@@ -176,6 +176,7 @@ class RateSerializer(serializers.ModelSerializer):
         write_only=True,
         source='currency'
     )
+    timestamp = serializers.DateTimeField(format='%Y-%m-%d')
 
     class Meta:
         model = Rate

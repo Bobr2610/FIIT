@@ -135,7 +135,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
 
         actives = 0
         for currency_balance in currencies:
-            current_rate = currency_balance.currency.rate_set.latest('timestamp')
+            current_rate = currency_balance.currency.rate_set.latest('-timestamp')
             actives += currency_balance.amount * current_rate.cost
 
         total_value = portfolio.balance + actives
@@ -157,7 +157,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
 
         chart_data = {}
         for currency in currencies:
-            rates = Rate.objects.filter(currency=currency).order_by('timestamp')
+            rates = Rate.objects.filter(currency=currency).order_by('-timestamp')
             rate_serializer = RateSerializer(rates, many=True)
 
             chart_data[currency.short_name] = {

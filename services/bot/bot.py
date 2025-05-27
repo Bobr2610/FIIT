@@ -1,5 +1,7 @@
 import asyncio
 import os
+import signal
+import sys
 import aiohttp
 from aiogram import Bot, Dispatcher
 from aiogram.filters import Command
@@ -11,7 +13,12 @@ BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
+is_running = True
 
+def signal_handler(sig, frame):
+    global is_running
+    print(f"Получен сигнал {sig}, завершаем работу...")
+    is_running = False
 
 async def verify_link(code: str, chat_id: int) -> bool:
     try:
@@ -51,7 +58,30 @@ async def cmd_start(message: Message):
         )
 
 async def main():
-    await dp.start_polling(bot)
+    # Регистрируем обработчики сигналов
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
+    
+    try:
+        # Запускаем бота с отключенной встроенной обработкой сигналов
+        await dp.start_polling(bot, handle_signals=False)
+        
+        # Ждем, пока не получим сигнал завершения
+        while is_running:
+            await asyncio.sleep(1)
+            
+    except Exception as e:
+        print(f"Произошла ошибка: {e}")
+    finally:
+        # Закрываем сессию бота
+        await bot.session.close()
+        print("Бот успешно остановлен")
 
 if __name__ == '__main__':
-    asyncio.run(main())
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        print("Получен сигнал прерывания, завершаем работу...")
+    except Exception as e:
+        print(f"Критическая ошибка: {e}")
+        sys.exit(1)

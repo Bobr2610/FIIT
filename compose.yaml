@@ -200,7 +200,7 @@ services:
     command: python bot.py
     deploy:
       replicas: 1
-    restart: always
+    restart: unless-stopped
     env_file:
       - config/.env
     volumes:

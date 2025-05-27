@@ -102,7 +102,7 @@ class Currency(models.Model):
 class Rate(models.Model):
     currency = models.ForeignKey('Currency', on_delete=models.CASCADE)
     cost = models.PositiveIntegerField()
-    timestamp = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(db_index=True)
 
     def __str__(self):
         return f'{self.currency} {self.cost} {self.timestamp}'
