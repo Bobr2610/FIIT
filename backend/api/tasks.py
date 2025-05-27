@@ -44,7 +44,6 @@ def notify_currency_rate(watch_id):
             except Exception:
                 pass
 
-        # TODO: исправить почту
         if watch.portfolio.account.email:
             try:
                 send_mail(
@@ -96,6 +95,18 @@ def update_portfolio_values():
                             chat_id=portfolio.account.telegram_chat_id,
                             message=message
                         ))
+                    except Exception:
+                        pass
+
+                if portfolio.account.email:
+                    try:
+                        send_mail(
+                            subject=f'Изменение стоимости портфеля',
+                            message=message,
+                            from_email=settings.DEFAULT_FROM_EMAIL,
+                            recipient_list=[portfolio.account.email],
+                            fail_silently=True
+                        )
                     except Exception:
                         pass
         
