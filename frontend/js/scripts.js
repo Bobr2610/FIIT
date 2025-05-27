@@ -159,8 +159,12 @@ function initRefreshButton() {
   if (refreshBtn) {
     refreshBtn.addEventListener('click', function() {
       console.log('Обновление данных...');
-      // Здесь должна быть функция updateAllPrices, но она не определена в вашем коде
-      // Рекомендую определить её или вызывать другую функцию
+      // Проверяем, доступна ли функция updateAllPrices
+      if (typeof updateAllPrices === 'function') {
+        updateAllPrices(); // Вызываем функцию обновления всех цен
+      } else {
+        console.warn('Функция updateAllPrices не найдена. Возможно, не загружен dashboardScripts.js');
+      }
     });
   }
 }
@@ -171,47 +175,197 @@ function initRefreshButton() {
 function initNotifications() {
   console.log('Инициализация уведомлений');
 
-  const notificationToggle = document.getElementById('notificationToggle');
-  const notificationPanel = document.getElementById('notificationPanel');
+  // Загружаем сохраненные настройки
+  loadNotificationSettings();
 
-  console.log('Элементы уведомлений:', {
-    notificationToggle: notificationToggle ? 'Найден' : 'Не найден',
-    notificationPanel: notificationPanel ? 'Найден' : 'Не найден'
-  });
-
-  if (notificationToggle && notificationPanel) {
-    console.log('Добавляем обработчик клика для уведомлений');
-
-    // Прямая проверка работы обработчика
-    notificationToggle.onclick = function(event) {
-      console.log('Клик на кнопке уведомлений через onclick');
-    };
-
-    notificationToggle.addEventListener('click', function(event) {
-      console.log('Кнопка уведомлений нажата через addEventListener');
-      event.preventDefault();
-      event.stopPropagation();
-
-      // Проверяем текущее состояние
-      const isHidden = notificationPanel.classList.contains('hidden');
-      console.log('Текущее состояние панели: ' + (isHidden ? 'скрыта' : 'видима'));
-
-      // Переключаем состояние
-      notificationPanel.classList.toggle('hidden');
-
-      // Проверяем новое состояние
-      console.log('Новое состояние панели: ' +
-        (notificationPanel.classList.contains('hidden') ? 'скрыта' : 'видима'));
-    });
-
-    // Закрывать панель при клике вне её
-    document.addEventListener('click', function(event) {
-      if (!notificationToggle.contains(event.target) &&
-          !notificationPanel.contains(event.target)) {
-        notificationPanel.classList.add('hidden');
-      }
-    });
-  } else {
-    console.log('Элементы уведомлений не найдены');
+  // Инициализация статуса уведомлений для текущей валюты
+  const currentCurrency = document.getElementById('notifyCurrency');
+  if (currentCurrency) {
+    updateNotificationStatus(currentCurrency.value);
   }
+
+  // Добавляем обработчик формы настроек
+  const settingsForms = document.querySelectorAll('.settings-form');
+  if (settingsForms.length > 0) {
+    settingsForms.forEach(form => {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        
+        fetch(this.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+          }
+        })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          showNotificationMessage('Настройки успешно сохранены');
+        } else {
+          showNotificationMessage('Ошибка при сохранении настроек', 'error');
+        }
+      })
+      .catch(error => {
+        console.error('Ошибка:', error);
+        showNotificationMessage('Произошла ошибка при сохранении', 'error');
+      });
+    });
+    });
+  }
+}
+
+// Объект для хранения состояния уведомлений по валютам
+let currencyNotifications = {
+  BTC: { enabled: true, times: [9, 12, 15, 18] },
+  ETH: { enabled: true, times: [8, 12, 16, 20] },
+  TON: { enabled: true, times: [10, 14, 18, 22] },
+  USD: { enabled: true, times: [8, 12, 16, 20] },
+  EUR: { enabled: true, times: [8, 12, 16, 20] },
+  CNY: { enabled: true, times: [7, 11, 15, 19] },
+  AED: { enabled: true, times: [8, 12, 16, 20] }
+};
+
+// Функция включения/выключения уведомлений для валюты
+function toggleNotifications(currency, enabled) {
+  if (currencyNotifications[currency]) {
+    currencyNotifications[currency].enabled = enabled;
+    if (enabled && currencyNotifications[currency].times.length === 0) {
+      // Устанавливаем стандартное время для уведомлений при включении
+      currencyNotifications[currency].times = [8, 12, 16, 20];
+    }
+    saveNotificationSettings();
+    updateNotificationStatus(currency);
+  }
+}
+
+// Загрузка сохраненных настроек из localStorage
+function loadNotificationSettings() {
+  const saved = localStorage.getItem('currencyNotifications');
+  if (saved) {
+    try {
+      currencyNotifications = JSON.parse(saved);
+    } catch (e) {
+      console.warn('Ошибка загрузки настроек уведомлений:', e);
+    }
+  }
+}
+
+// Сохранение настроек в localStorage
+function saveNotificationSettings() {
+  localStorage.setItem('currencyNotifications', JSON.stringify(currencyNotifications));
+}
+
+// Функция обновления статуса уведомлений при переключении валюты
+function updateNotificationStatus(currency) {
+  const statusElement = document.getElementById('notificationStatus');
+  const timelineElement = document.getElementById('notificationTimeline');
+  const timeSelectionContainer = document.getElementById('timeSelectionContainer');
+
+  if (!statusElement || !timelineElement) return;
+
+  const currencyInfo = currencyNotifications[currency];
+
+  // Обновляем статус
+  if (currencyInfo.enabled) {
+    statusElement.innerHTML = `<strong>Уведомления включены</strong> для ${currency}`;
+    statusElement.classList.remove('notification-disabled');
+    
+    // Показываем временную шкалу
+    timelineElement.style.display = 'block';
+    timelineElement.innerHTML = generateTimeline(currencyInfo.times, currency);
+    
+    // Показываем контейнер выбора времени
+    if (timeSelectionContainer) {
+      timeSelectionContainer.style.display = 'block';
+      generateTimeSelection(currency);
+    }
+  } else {
+    statusElement.innerHTML = `Уведомления отключены для ${currency}`;
+    statusElement.classList.add('notification-disabled');
+    timelineElement.style.display = 'none';
+    if (timeSelectionContainer) {
+      timeSelectionContainer.style.display = 'none';
+    }
+  }
+}
+
+// Функция генерации временной шкалы
+function generateTimeline(times, currency) {
+  if (!times.length) return '<em>Время уведомлений не выбрано</em>';
+
+  let timeline = '<strong>Время уведомлений:</strong><br>';
+  times.forEach(time => {
+    timeline += `<span class="timeline-marker" title="${time}:00"></span> ${time}:00 `;
+  });
+  timeline += '<br><small style="color: var(--text-secondary);">Нажмите на время ниже, чтобы изменить</small>';
+
+  return timeline;
+}
+
+// Функция генерации интерфейса выбора времени
+function generateTimeSelection(currency) {
+  const container = document.querySelector('.time-checkboxes');
+  if (!container) return;
+
+  const currentTimes = currencyNotifications[currency].times;
+  const availableHours = Array.from({length: 24}, (_, i) => i);
+
+  container.innerHTML = '';
+  availableHours.forEach(hour => {
+    const isChecked = currentTimes.includes(hour);
+    const checkboxItem = document.createElement('div');
+    checkboxItem.className = 'time-checkbox-item';
+    
+    checkboxItem.innerHTML = `
+      <input type="checkbox" id="time_${hour}" value="${hour}" ${isChecked ? 'checked' : ''}>
+      <label for="time_${hour}">${hour.toString().padStart(2, '0')}:00</label>
+    `;
+    
+    container.appendChild(checkboxItem);
+  });
+}
+
+// Функция сохранения выбранного времени уведомлений
+function saveNotificationTimes() {
+  const currentCurrency = document.getElementById('notifyCurrency').value;
+  const checkboxes = document.querySelectorAll('.time-checkboxes input[type="checkbox"]:checked');
+  
+  const selectedTimes = Array.from(checkboxes).map(cb => parseInt(cb.value)).sort((a, b) => a - b);
+  
+  // Обновляем настройки для текущей валюты
+  currencyNotifications[currentCurrency].times = selectedTimes;
+  
+  // Сохраняем в localStorage
+  saveNotificationSettings();
+  
+  // Обновляем отображение
+  updateNotificationStatus(currentCurrency);
+  
+  // Показываем уведомление об успешном сохранении
+  showNotificationMessage('Время уведомлений сохранено!');
+}
+
+// Функция показа временного уведомления
+function showNotificationMessage(message) {
+  const notification = document.createElement('div');
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--accent-primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    z-index: 1000;
+    animation: slideIn 0.3s ease;
+  `;
+  notification.textContent = message;
+  
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.remove();
+  }, 3000);
 }

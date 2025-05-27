@@ -2,7 +2,13 @@
 // Глобальные переменные
 let allChartData = { labels: [], datasets: [] };
 let combinedChartInstance = null;
-// const exchangeratesFile = 'js/exchangerates.json'; // Эта строка должна быть удалена или закомментирована
+let currentInterval = '1y';
+let currentPeriod = 'month'; // 'hour', 'day', 'month', 'year'
+let currentChartColor = '#FF6384';
+
+// Добавляем стили для элементов управления датами
+const style = document.createElement('style');
+document.head.appendChild(style);
 
 // Описания валют
 const currencyDescriptions = {
@@ -62,7 +68,17 @@ function combineYearlyData(currencyData, interval = 'all') {
     let combined = [];
     const allYears = Object.keys(currencyData).filter(k => k.match(/^\d{4}$/)).sort();
 
-    if (interval === '1m') {
+    // Handle different time periods
+    if (dataFormat === 'hourly' && currencyData.hourly) {
+        combinedData = currencyData.hourly;
+        currentLabels = currencyData.hourly_labels;
+    } else if (dataFormat === 'daily' && currencyData.daily) {
+        combinedData = currencyData.daily;
+        currentLabels = currencyData.daily_labels;
+    } else if (dataFormat === 'yearly' && currencyData.yearly) {
+        combinedData = currencyData.yearly;
+        currentLabels = currencyData.yearly_labels;
+    } else if (interval === '1m') {
         // Если есть ключ daily_ для последнего месяца последнего года, используем его
         const lastYear = allYears.length > 0 ? allYears[allYears.length - 1] : null;
         if (lastYear) {
@@ -148,7 +164,7 @@ function getCookie(name) {
     return cookieValue;
 }
 
-async function fetchRatesFromAPI() {
+// async function fetchRatesFromAPI() { // Функция больше не нужна, данные из Django
     // TODO: Implement token retrieval (access and refresh tokens)
     const accessToken = localStorage.getItem('accessToken'); // Пример: получение токена из localStorage
     const csrfToken = getCookie('csrftoken'); // Пример: получение CSRF токена
@@ -170,12 +186,12 @@ async function fetchRatesFromAPI() {
             // TODO: Implement refresh token logic if applicable (e.g., on 401 Unauthorized)
             throw new Error(`HTTP error! status: ${response.status} while fetching /api/v1/rates/`);
         }
-        return await response.json();
-    } catch (error) {
-        console.error('Error fetching rates from API:', error);
-        throw error; // Перебрасываем ошибку для обработки выше
-    }
-}
+//         return await response.json();
+//     } catch (error) {
+//         console.error('Error fetching rates from API:', error);
+//         throw error; // Перебрасываем ошибку для обработки выше
+//     }
+// } // Функция больше не нужна, данные из Django
 
 async function getBTCPriceFromBinance() {
   try {
@@ -392,7 +408,15 @@ function handleModalAction() {
 
 // --- ОСНОВНАЯ ЛОГИКА ДЭШБОРДА ---
 
-function processChartData(rawData, interval = 'all') {
+function processCharData(rawData, interval = 'all', period = 'month', startDate = null, endDate = null) {
+    // Convert period to appropriate data format
+    const periodMap = {
+        'hour': 'hourly',
+        'day': 'daily',
+        'month': 'monthly',
+        'year': 'yearly'
+    };
+    const dataFormat = periodMap[period] || 'monthly';
     const datasets = [];
     let allLabelsSet = new Set();
 
@@ -404,7 +428,17 @@ function processChartData(rawData, interval = 'all') {
             let currentLabels;
             let dailyKeyForLabels = null;
 
-            if (interval === '1m') {
+            // Handle different time periods
+    if (dataFormat === 'hourly' && currencyData.hourly) {
+        combinedData = currencyData.hourly;
+        currentLabels = currencyData.hourly_labels;
+    } else if (dataFormat === 'daily' && currencyData.daily) {
+        combinedData = currencyData.daily;
+        currentLabels = currencyData.daily_labels;
+    } else if (dataFormat === 'yearly' && currencyData.yearly) {
+        combinedData = currencyData.yearly;
+        currentLabels = currencyData.yearly_labels;
+    } else if (interval === '1m') {
                 const allYears = Object.keys(currencyData).filter(k => k.match(/^\d{4}$/)).sort();
                 const lastYear = allYears.length > 0 ? allYears[allYears.length - 1] : null;
                 if (lastYear) {
@@ -420,13 +454,27 @@ function processChartData(rawData, interval = 'all') {
                 currentLabels = generateLabels(currencyData, interval);
             }
 
+            // Filter data based on date range if provided
+            if (startDate || endDate) {
+                const filteredData = [];
+                const filteredLabels = [];
+                currentLabels.forEach((label, index) => {
+                    const labelDate = new Date(label);
+                    if ((!startDate || labelDate >= new Date(startDate)) && 
+                        (!endDate || labelDate <= new Date(endDate))) {
+                        filteredLabels.push(label);
+                        filteredData.push(combinedData[index]);
+                    }
+                });
+                combinedData = filteredData;
+                currentLabels = filteredLabels;
+            }
+
             currentLabels.forEach(label => allLabelsSet.add(label));
 
             datasets.push({
                 label: baseCurrencyCode,
                 data: combinedData,
-                // borderColor: getRandomColor(), // Цвет будет устанавливаться динамически
-                // backgroundColor: getRandomColor(0.1), // Цвет будет устанавливаться динамически
                 tension: 0.3,
                 fill: false,
                 hidden: true
@@ -468,29 +516,32 @@ function updateStatsDisplay(currency, stats) {
     }
 }
 
-function updateCombinedChartForSingleCurrency(selectedCurrency, interval) { // interval теперь обязательный параметр
+function updateCombinedChartForSingleCurrency(selectedCurrency, interval, period = currentPeriod) {
     if (!combinedChartInstance || !allChartData.datasets) return;
     console.log(`Updating chart for ${selectedCurrency} with interval ${interval} and color ${currentChartColor}`);
 
-    fetch(exchangeratesFile)
-        .then(response => response.json())
-        .then(rawData => {
-            allChartData = processChartData(rawData, interval); // Передаем актуальный interval
-            console.log(`Processed chart data for interval ${interval}:`, allChartData);
+    const startDateInput = document.getElementById('startDate');
+    const endDateInput = document.getElementById('endDate');
+    const startDate = startDateInput ? startDateInput.value : null;
+    const endDate = endDateInput ? endDateInput.value : null;
 
-            const upperSelectedCurrency = selectedCurrency.toUpperCase();
-            let datasetToShow = null;
+    if (window.djangoChartData) {
+        allChartData = processChartData(window.djangoChartData, interval, period, startDate, endDate);
+        console.log(`Processed chart data for interval ${interval}:`, allChartData);
 
-            allChartData.datasets.forEach(d => {
-                if (d.label.toUpperCase() === upperSelectedCurrency) {
-                    d.hidden = false;
-                    d.borderColor = currentChartColor; // Устанавливаем выбранный цвет
-                    d.backgroundColor = currentChartColor.replace('rgb', 'rgba').replace(')', ', 0.1)'); // Для заливки
-                    datasetToShow = d;
-                } else {
-                    d.hidden = true;
-                }
-            });
+        const upperSelectedCurrency = selectedCurrency.toUpperCase();
+        let datasetToShow = null;
+
+        allChartData.datasets.forEach(d => {
+            if (d.label.toUpperCase() === upperSelectedCurrency) {
+                d.hidden = false;
+                d.borderColor = currentChartColor;
+                d.backgroundColor = currentChartColor.replace('rgb', 'rgba').replace(')', ', 0.1)');
+                datasetToShow = d;
+            } else {
+                d.hidden = true;
+            }
+        });
 
             if (datasetToShow) {
                 combinedChartInstance.data.labels = allChartData.labels;
@@ -522,14 +573,66 @@ function updateCombinedChartForSingleCurrency(selectedCurrency, interval) { // i
 async function initializeDashboard() {
     console.log('[initializeDashboard] Initializing...');
     const chartCanvas = document.getElementById('combinedChart');
-    const timeRangeSelect = document.getElementById('timeRange'); // Объявляем здесь
-    const colorPicker = document.getElementById('chartColorPicker'); // Объявляем здесь
+    const timeRangeSelect = document.getElementById('timeRange');
+    const periodSelect = document.getElementById('periodSelect');
+    const colorPicker = document.getElementById('chartColorPicker');
+    const startDateInput = document.getElementById('startDate');
+    const endDateInput = document.getElementById('endDate');
 
     if (timeRangeSelect) {
-        currentInterval = timeRangeSelect.value; // Initialize from dropdown
+        currentInterval = timeRangeSelect.value;
+        timeRangeSelect.addEventListener('change', (e) => {
+            currentInterval = e.target.value;
+            updateChart();
+        });
+    }
+
+    if (periodSelect) {
+        currentPeriod = periodSelect.value;
+        periodSelect.addEventListener('change', (e) => {
+            currentPeriod = e.target.value;
+            updateChart();
+        });
+    }
+
+    if (colorPicker) {
+        currentChartColor = colorPicker.value;
+        colorPicker.addEventListener('change', (e) => {
+            currentChartColor = e.target.value;
+            updateChart();
+        });
+    }
+    console.log('[initializeDashboard] Initializing...');
+    const chartCanvas = document.getElementById('combinedChart');
+    const timeRangeSelect = document.getElementById('timeRange');
+    const colorPicker = document.getElementById('chartColorPicker');
+    const startDateInput = document.getElementById('startDate');
+    const endDateInput = document.getElementById('endDate');
+
+    if (timeRangeSelect) {
+        currentInterval = timeRangeSelect.value;
     }
     if (colorPicker) {
-        currentChartColor = colorPicker.value; // Initialize from color picker
+        currentChartColor = colorPicker.value;
+    }
+
+    // Add event listeners for date inputs
+    if (startDateInput && endDateInput) {
+        startDateInput.addEventListener('change', () => updateChart());
+        endDateInput.addEventListener('change', () => updateChart());
+    }
+
+    function updateChart() {
+        const startDate = startDateInput.value || null;
+        const endDate = endDateInput.value || null;
+        if (window.djangoChartData) {
+            allChartData = processChartData(window.djangoChartData, currentInterval, startDate, endDate);
+            if (combinedChartInstance) {
+                combinedChartInstance.data.labels = allChartData.labels;
+                combinedChartInstance.data.datasets = allChartData.datasets;
+                combinedChartInstance.update();
+            }
+        }
     }
 
     if (!chartCanvas) {
@@ -539,14 +642,21 @@ async function initializeDashboard() {
     }
 
     try {
-        const response = await fetch(exchangeratesFile); // exchangeratesFile is global from HTML
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status} while fetching ${exchangeratesFile}`);
-        }
-        window.exchangeRatesData = await response.json(); // Store globally for easier access
-        console.log('[initializeDashboard] Exchange rates data loaded:', window.exchangeRatesData);
+        // const response = await fetch(exchangeratesFile); // exchangeratesFile is global from HTML // Больше не нужно
+        // if (!response.ok) { // Больше не нужно
+        //     throw new Error(`HTTP error! status: ${response.status} while fetching ${exchangeratesFile}`); // Больше не нужно
+        // } // Больше не нужно
+        // window.exchangeRatesData = await response.json(); // Store globally for easier access // Больше не нужно
+        // console.log('[initializeDashboard] Exchange rates data loaded:', window.exchangeRatesData); // Больше не нужно
 
-        allChartData = processChartData(window.exchangeRatesData, currentInterval);
+        if (!window.djangoChartData) { // Проверяем наличие данных из Django
+            console.error("[initializeDashboard] Не удалось загрузить данные для графика из Django.");
+            updateStatsDisplay('Нет данных', { average: '--', median: '--', outliers: '--', description: 'Данные для графика не найдены в Django.' });
+            return;
+        }
+        console.log('[initializeDashboard] Exchange rates data loaded from Django:', window.djangoChartData);
+
+        allChartData = processChartData(window.djangoChartData, currentInterval);
         console.log('[initializeDashboard] Processed chart data:', allChartData);
 
         if (!allChartData.labels || !allChartData.datasets || allChartData.datasets.length === 0) {

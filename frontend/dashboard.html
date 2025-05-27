@@ -83,6 +83,10 @@
 
 {% block content %}
 
+<script>
+    const djangoChartData = {{ chart_data|safe }};
+</script>
+
 <!-- Основной контент страницы располагается здесь в заданном порядке -->
 
     <!-- 1. Баланс пользователя -->
@@ -164,15 +168,26 @@
         <h2>Обзор рынка</h2>
         <!-- Фильтр временного интервала и выбор цвета -->
         <div class="controls-container form-inline">
+        <div class="controls-container form-inline">
             <div class="form-group time-filter">
                 <label for="timeRange">Интервал:</label>
                 <select id="timeRange" class="form-control form-control-sm">
+                    <option value="1h">1 час</option>
+                    <option value="1d">1 день</option>
+                    <option value="1w">1 неделя</option>
                     <option value="1m">1 месяц</option>
+                    <option value="3m">3 месяца</option>
                     <option value="6m">6 месяцев</option>
                     <option value="1y">1 год</option>
                     <option value="3y" selected>3 года</option>
                     <option value="all">Всё время</option>
                 </select>
+            </div>
+            <div class="form-group date-range">
+                <label for="startDate">С:</label>
+                <input type="date" id="startDate" class="form-control form-control-sm">
+                <label for="endDate">По:</label>
+                <input type="date" id="endDate" class="form-control form-control-sm">
             </div>
             <div class="form-group color-picker-container">
                 <label for="chartColorPicker">Цвет графика:</label>
