@@ -2,7 +2,8 @@
 // Глобальные переменные
 let allChartData = { labels: [], datasets: [] };
 let combinedChartInstance = null;
-// const exchangeratesFile = 'js/exchangerates.json'; // Эта строка должна быть удалена или закомментирована
+let currentInterval = 'all';
+let currentChartColor = '#1f77b4';
 
 // Описания валют
 const currencyDescriptions = {
@@ -469,52 +470,86 @@ function updateStatsDisplay(currency, stats) {
 }
 
 function updateCombinedChartForSingleCurrency(selectedCurrency, interval) { // interval теперь обязательный параметр
-    if (!combinedChartInstance || !allChartData.datasets) return;
+    if (!combinedChartInstance) return;
     console.log(`Updating chart for ${selectedCurrency} with interval ${interval} and color ${currentChartColor}`);
 
-    fetch(exchangeratesFile)
-        .then(response => response.json())
-        .then(rawData => {
-            allChartData = processChartData(rawData, interval); // Передаем актуальный interval
-            console.log(`Processed chart data for interval ${interval}:`, allChartData);
+    // Показываем индикатор загрузки
+    const chartWrapper = document.querySelector('.chart-wrapper');
+    if (chartWrapper) {
+        chartWrapper.classList.add('loading');
+    }
 
-            const upperSelectedCurrency = selectedCurrency.toUpperCase();
-            let datasetToShow = null;
-
-            allChartData.datasets.forEach(d => {
-                if (d.label.toUpperCase() === upperSelectedCurrency) {
-                    d.hidden = false;
-                    d.borderColor = currentChartColor; // Устанавливаем выбранный цвет
-                    d.backgroundColor = currentChartColor.replace('rgb', 'rgba').replace(')', ', 0.1)'); // Для заливки
-                    datasetToShow = d;
-                } else {
-                    d.hidden = true;
-                }
+    // Используем API для получения данных вместо файла
+    fetch(`/api/v1/rates/?short_name=${selectedCurrency}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(ratesData => {
+            // Преобразуем данные из API в формат для графика
+            const labels = [];
+            const values = [];
+            
+            // Сортируем данные по дате (от старых к новым)
+            ratesData.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+            
+            // Фильтруем данные в зависимости от выбранного интервала
+            let filteredData = ratesData;
+            const now = new Date();
+            
+            if (interval === '1m') {
+                const oneMonthAgo = new Date(now);
+                oneMonthAgo.setMonth(now.getMonth() - 1);
+                filteredData = ratesData.filter(item => new Date(item.timestamp) >= oneMonthAgo);
+            } else if (interval === '1y') {
+                const oneYearAgo = new Date(now);
+                oneYearAgo.setFullYear(now.getFullYear() - 1);
+                filteredData = ratesData.filter(item => new Date(item.timestamp) >= oneYearAgo);
+            } else if (interval === '3y') {
+                const threeYearsAgo = new Date(now);
+                threeYearsAgo.setFullYear(now.getFullYear() - 3);
+                filteredData = ratesData.filter(item => new Date(item.timestamp) >= threeYearsAgo);
+            }
+            
+            // Извлекаем метки и значения
+            filteredData.forEach(rate => {
+                labels.push(rate.timestamp);
+                values.push(rate.cost);
             });
-
-            if (datasetToShow) {
-                combinedChartInstance.data.labels = allChartData.labels;
-                combinedChartInstance.data.datasets = allChartData.datasets;
-                combinedChartInstance.update();
-                const stats = calculateStats(datasetToShow.data);
-                console.log('Calling updateStatsDisplay from updateCombinedChartForSingleCurrency (dataset found)'); // Логирование
-                updateStatsDisplay(selectedCurrency, stats); // Убедимся, что вызывается здесь
-            } else {
-                console.warn(`Dataset for ${selectedCurrency} not found after processing for interval ${interval}`);
-                combinedChartInstance.data.labels = [];
-                combinedChartInstance.data.datasets = [];
-                combinedChartInstance.update();
-                console.log('Calling updateStatsDisplay from updateCombinedChartForSingleCurrency (dataset NOT found)'); // Логирование
-                updateStatsDisplay(selectedCurrency, { average: '--', median: '--', outliers: '--', description: 'Данные не найдены.' });
+            
+            // Создаем набор данных для графика
+            const dataset = {
+                label: selectedCurrency,
+                data: values,
+                borderColor: currentChartColor,
+                backgroundColor: currentChartColor.replace('rgb', 'rgba').replace(')', ', 0.1)'),
+                tension: 0.3,
+                fill: false,
+                hidden: false
+            };
+            
+            // Обновляем график
+            combinedChartInstance.data.labels = labels;
+            combinedChartInstance.data.datasets = [dataset];
+            combinedChartInstance.update();
+            
+            // Рассчитываем и отображаем статистику
+            const stats = calculateStats(values);
+            updateStatsDisplay(selectedCurrency, stats);
+            
+            // Скрываем индикатор загрузки
+            if (chartWrapper) {
+                chartWrapper.classList.remove('loading');
             }
         })
         .catch(error => {
-            console.error(`Error fetching or processing data for interval ${interval}:`, error);
-            const chartWrapper = document.querySelector('.chart-wrapper');
+            console.error(`Error fetching or processing data for ${selectedCurrency}:`, error);
             if (chartWrapper) {
+                chartWrapper.classList.remove('loading');
                 chartWrapper.innerHTML = `<p style="color: red; text-align: center;">Не удалось загрузить данные для графика: ${error.message}. Проверьте консоль.</p>`;
             }
-            console.log('Calling updateStatsDisplay from updateCombinedChartForSingleCurrency (catch block)'); // Логирование
             updateStatsDisplay(selectedCurrency, { average: 'Ошибка', median: 'Ошибка', outliers: 'Ошибка', description: 'Не удалось загрузить данные.' });
         });
 }
@@ -522,8 +557,8 @@ function updateCombinedChartForSingleCurrency(selectedCurrency, interval) { // i
 async function initializeDashboard() {
     console.log('[initializeDashboard] Initializing...');
     const chartCanvas = document.getElementById('combinedChart');
-    const timeRangeSelect = document.getElementById('timeRange'); // Объявляем здесь
-    const colorPicker = document.getElementById('chartColorPicker'); // Объявляем здесь
+    const timeRangeSelect = document.getElementById('timeRange');
+    const colorPicker = document.getElementById('chartColorPicker');
 
     if (timeRangeSelect) {
         currentInterval = timeRangeSelect.value; // Initialize from dropdown
@@ -539,22 +574,7 @@ async function initializeDashboard() {
     }
 
     try {
-        const response = await fetch(exchangeratesFile); // exchangeratesFile is global from HTML
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status} while fetching ${exchangeratesFile}`);
-        }
-        window.exchangeRatesData = await response.json(); // Store globally for easier access
-        console.log('[initializeDashboard] Exchange rates data loaded:', window.exchangeRatesData);
-
-        allChartData = processChartData(window.exchangeRatesData, currentInterval);
-        console.log('[initializeDashboard] Processed chart data:', allChartData);
-
-        if (!allChartData.labels || !allChartData.datasets || allChartData.datasets.length === 0) {
-            console.error('[initializeDashboard] No data available to display on the chart after processing.');
-            updateStatsDisplay('Нет данных', { average: '--', median: '--', outliers: '--', description: 'Нет данных для отображения на графике.' });
-            // return; // Optional: stop if no data, or draw an empty chart
-        }
-
+        // Создаем экземпляр графика
         const ctx = chartCanvas.getContext('2d');
         if (combinedChartInstance) {
             combinedChartInstance.destroy();
@@ -563,42 +583,22 @@ async function initializeDashboard() {
         combinedChartInstance = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: allChartData.labels,
-                datasets: allChartData.datasets.map(ds => ({
-                    ...ds,
-                    hidden: true, // Initially hide all datasets
-                    borderColor: currentChartColor, // Apply initial color
-                    backgroundColor: currentChartColor.replace('rgb', 'rgba').replace(')', ', 0.1)') // Apply initial color with opacity
-                }))
+                labels: [],
+                datasets: []
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
                     y: {
-                        beginAtZero: false, 
-                        type: 'logarithmic', 
+                        type: 'linear',
                         ticks: {
                             color: getComputedStyle(document.documentElement).getPropertyValue('--chart-text-color').trim(),
                             callback: function(value, index, values) {
-                                // Показываем метки для 1, 2, 5 на каждом порядке величины
-                                const logValue = Math.log10(value);
-                                const remainder = logValue - Math.floor(logValue);
-                                
-                                // Проверяем, близко ли значение к 1, 2, 5 (с учетом погрешности для логарифмов)
-                                const isOne = Math.abs(remainder) < 0.001 || Math.abs(remainder - 1) < 0.001;
-                                const isTwo = Math.abs(remainder - Math.log10(2)) < 0.001;
-                                const isFive = Math.abs(remainder - Math.log10(5)) < 0.001;
-
-                                if (isOne || isTwo || isFive) {
-                                    if (value >= 1000000) return (value / 1000000).toLocaleString(undefined, NUMBER_FORMAT_OPTIONS) + 'M';
-                                    if (value >= 1000) return (value / 1000).toLocaleString(undefined, NUMBER_FORMAT_OPTIONS) + 'K';
-                                    return value.toLocaleString(undefined, NUMBER_FORMAT_OPTIONS);
-                                }
-                                return ''; // Скрываем остальные метки
+                                if (value >= 1000000) return (value / 1000000).toLocaleString(undefined, NUMBER_FORMAT_OPTIONS) + 'M';
+                                if (value >= 1000) return (value / 1000).toLocaleString(undefined, NUMBER_FORMAT_OPTIONS) + 'K';
+                                return value.toLocaleString(undefined, NUMBER_FORMAT_OPTIONS);
                             },
-                            // Можно также попробовать увеличить максимальное количество тиков, если Chart.js это поддерживает для логарифмической шкалы
-                            // maxTicksLimit: 15 // Например, но это может не сработать как ожидается с логарифмической шкалой и callback
                         },
                         grid: { color: getComputedStyle(document.documentElement).getPropertyValue('--chart-grid-color').trim() }
                     },
