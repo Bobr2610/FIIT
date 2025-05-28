@@ -267,7 +267,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
                 portfolio.save()
 
                 balance.amount -= amount
-                if balance.amount == 0:
+                if abs(balance.amount) < 1e-10:
                     balance.delete()
                 else:
                     balance.save()

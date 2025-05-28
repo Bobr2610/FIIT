@@ -151,7 +151,7 @@ class PortfolioOperationSerializer(serializers.Serializer):
         queryset=Currency.objects.all(),
         source='currency'
     )
-    amount = serializers.DecimalField(max_digits=20, decimal_places=8)
+    amount = serializers.FloatField()
 
 
 class CurrencySerializer(serializers.ModelSerializer):

@@ -33,7 +33,7 @@ class TelegramVerificationLink(models.Model):
 
 class Portfolio(models.Model):
     account = models.ForeignKey('Account', on_delete=models.CASCADE)
-    balance = models.PositiveIntegerField()
+    balance = models.FloatField()
     currencies = models.ManyToManyField('CurrencyBalance', related_name='portfolios', blank=True)
     operations = models.ManyToManyField('Operation', related_name='portfolios', blank=True)
     notify_threshold = models.FloatField(null=True, blank=True)
@@ -52,7 +52,7 @@ class Portfolio(models.Model):
 class CurrencyBalance(models.Model):
     portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
     currency = models.ForeignKey('Currency', on_delete=models.CASCADE)
-    amount = models.PositiveIntegerField(default=0)
+    amount = models.FloatField(default=0)
 
     def __str__(self):
         return f'{self.portfolio} {self.currency} {self.amount}'
@@ -70,8 +70,8 @@ class Operation(models.Model):
     portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
     operation_type = models.CharField(max_length=128, choices=OperationType)
     currency = models.ForeignKey('Currency', on_delete=models.CASCADE)
-    amount = models.PositiveIntegerField()
-    price = models.PositiveIntegerField()
+    amount = models.FloatField()
+    price = models.FloatField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -86,7 +86,7 @@ class Operation(models.Model):
 
 class PortfolioValue(models.Model):
     portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
-    value = models.PositiveIntegerField()
+    value = models.FloatField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -117,7 +117,7 @@ class Currency(models.Model):
 
 class Rate(models.Model):
     currency = models.ForeignKey('Currency', on_delete=models.CASCADE)
-    cost = models.PositiveIntegerField()
+    cost = models.FloatField()
     timestamp = models.DateTimeField(db_index=True)
 
     def __str__(self):

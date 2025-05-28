@@ -215,9 +215,7 @@ class PortfolioOperationForm(forms.Form):
         queryset=Currency.objects.all(),
         label='Валюта'
     )
-    amount = forms.DecimalField(
-        max_digits=20,
-        decimal_places=8,
+    amount = forms.FloatField(
         label='Количество'
     )
 

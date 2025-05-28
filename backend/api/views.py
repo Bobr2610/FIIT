@@ -337,7 +337,10 @@ class PortfolioViewSet(viewsets.ModelViewSet):
             portfolio.save()
             
             currency_balance.amount -= amount
-            currency_balance.save()
+            if abs(currency_balance.amount) < 1e-10:  # Проверка на близость к нулю
+                currency_balance.delete()
+            else:
+                currency_balance.save()
             
             portfolio.operations.add(operation)
 
