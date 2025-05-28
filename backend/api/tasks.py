@@ -1,9 +1,8 @@
 from celery import shared_task
 from django.core.mail import send_mail
 from django.conf import settings
-from django.core.cache import cache
 from django.utils import timezone
-from .models import Watch, Rate, Portfolio, CurrencyBalance
+from .models import Watch, Rate, Portfolio, CurrencyBalance, PortfolioValue
 import asyncio
 import aiohttp
 
@@ -62,25 +61,23 @@ def notify_currency_rate(watch_id):
 @shared_task
 def update_portfolio_values():
     portfolios = Portfolio.objects.all()
-    
+
     for portfolio in portfolios:
         total_value = portfolio.balance
         
         currency_balances = CurrencyBalance.objects.filter(portfolio=portfolio).select_related('currency')
-        
+
         for balance in currency_balances:
             try:
                 current_rate = balance.currency.rate_set.latest('timestamp')
                 total_value += balance.amount * current_rate.cost
             except Rate.DoesNotExist:
                 continue
-        
-        cache_key = f'portfolio_value_{portfolio.id}'
-        previous_value = cache.get(cache_key)
-        
-        if previous_value is not None:
-            change_percent = ((total_value - previous_value) / previous_value) * 100
-            
+
+        try:
+            last_value = PortfolioValue.objects.filter(portfolio=portfolio).latest('timestamp')
+            change_percent = ((total_value - last_value.value) / last_value.value) * 100
+
             if portfolio.notify_threshold is not None and abs(change_percent) >= portfolio.notify_threshold:
                 message = (
                     f"<b>Изменение стоимости портфеля</b>\n\n"
@@ -109,5 +106,5 @@ def update_portfolio_values():
                         )
                     except Exception:
                         pass
-        
-        cache.set(cache_key, total_value, timeout=3600)
+        except PortfolioValue.DoesNotExist:
+            pass

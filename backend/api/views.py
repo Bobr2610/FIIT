@@ -194,6 +194,7 @@ class AccountViewSet(viewsets.ModelViewSet):
 
 class PortfolioViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
+    http_method_names = ['get', 'post']
 
     def get_queryset(self):
         return Portfolio.objects.filter(account=self.request.user)
@@ -211,6 +212,12 @@ class PortfolioViewSet(viewsets.ModelViewSet):
             return PortfolioOperationSerializer
 
         return PortfolioSerializer
+
+    def create(self, request, *args, **kwargs):
+        return Response(
+            {"error": "Создание портфеля через API запрещено"},
+            status=status.HTTP_403_FORBIDDEN
+        )
 
     def perform_create(self, serializer):
         serializer.save(account=self.request.user)
@@ -264,6 +271,19 @@ class PortfolioViewSet(viewsets.ModelViewSet):
                 currency_balance.save()
             
             portfolio.operations.add(operation)
+
+            total_value = portfolio.balance
+            for balance in CurrencyBalance.objects.filter(portfolio=portfolio).select_related('currency'):
+                try:
+                    current_rate = balance.currency.rate_set.latest('timestamp')
+                    total_value += balance.amount * current_rate.cost
+                except Rate.DoesNotExist:
+                    continue
+            
+            PortfolioValue.objects.create(
+                portfolio=portfolio,
+                value=total_value
+            )
         
         return Response(OperationSerializer(operation).data, status=status.HTTP_201_CREATED)
 
@@ -320,6 +340,19 @@ class PortfolioViewSet(viewsets.ModelViewSet):
             currency_balance.save()
             
             portfolio.operations.add(operation)
+
+            total_value = portfolio.balance
+            for balance in CurrencyBalance.objects.filter(portfolio=portfolio).select_related('currency'):
+                try:
+                    current_rate = balance.currency.rate_set.latest('timestamp')
+                    total_value += balance.amount * current_rate.cost
+                except Rate.DoesNotExist:
+                    continue
+            
+            PortfolioValue.objects.create(
+                portfolio=portfolio,
+                value=total_value
+            )
         
         return Response(OperationSerializer(operation).data, status=status.HTTP_201_CREATED)
 

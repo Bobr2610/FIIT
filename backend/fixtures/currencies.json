@@ -52,14 +52,5 @@
       "short_name": "ETH",
       "description": "About ETH"
     }
-  },
-  {
-    "model": "api.currency",
-    "pk": 7,
-    "fields": {
-      "name": "TON",
-      "short_name": "TON",
-      "description": "About TON"
-    }
   }
 ]

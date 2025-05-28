@@ -84,6 +84,22 @@ class Operation(models.Model):
         verbose_name_plural = 'Operations'
 
 
+class PortfolioValue(models.Model):
+    portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
+    value = models.PositiveIntegerField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.portfolio} - {self.value} RUB ({self.timestamp})"
+
+    class Meta:
+        db_table = 'portfolio_value'
+        db_table_comment = 'Portfolio Value History'
+        verbose_name = 'Portfolio Value'
+        verbose_name_plural = 'Portfolio Values'
+        ordering = ['-timestamp']
+
+
 class Currency(models.Model):
     name = models.CharField(max_length=128)
     short_name = models.CharField(max_length=128)
@@ -112,6 +128,7 @@ class Rate(models.Model):
         db_table_comment = 'Rates Of Currencies'
         verbose_name = 'Rate'
         verbose_name_plural = 'Rates'
+        ordering = ['-timestamp']
 
 
 class Watch(models.Model):

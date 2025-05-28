@@ -93,6 +93,14 @@
         <div class="balance-details">
             <h4>Ваш портфель</h4>
             <div class="balance-amount">{{ total_value }} RUB</div>
+            {% if change_percent is not None %}
+            <div class="trend-{% if change_percent > 0 %}up{% else %}down{% endif %}">
+                <i class="fas fa-{% if change_percent > 0 %}arrow-up{% else %}arrow-down{% endif %}"></i>
+                {{ change_percent|floatformat:2 }}%
+            </div>
+            {% else %}
+                <h3>No change percent</h3>
+            {% endif %}
             <h4>Ваш баланс</h4>
             <div class="balance-amount">{{ portfolio.balance }} RUB</div>
             <h4>Ваши активы</h4>

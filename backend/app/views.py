@@ -7,7 +7,6 @@ from django.views import View
 from django.views.generic import FormView, TemplateView
 from rest_framework_simplejwt.tokens import RefreshToken
 from django_celery_beat.models import PeriodicTask, CrontabSchedule
-from django.core.cache import cache
 from django.utils import timezone
 
 from api.serializers import *
@@ -126,37 +125,67 @@ class DashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'dashboard.html'
     login_url = 'app:login'
 
+    def _calculate_portfolio_value(self, portfolio):
+        total_value = portfolio.balance
+        actives = 0
+        
+        for currency_balance in CurrencyBalance.objects.filter(portfolio=portfolio).select_related('currency'):
+            try:
+                current_rate = currency_balance.currency.rate_set.latest('timestamp')
+                currency_value = currency_balance.amount * current_rate.cost
+                actives += currency_value
+                total_value += currency_value
+            except Rate.DoesNotExist:
+                continue
+                
+        return total_value, actives
+
+    def _get_portfolio_change(self, portfolio, current_value):
+        try:
+            last_value = PortfolioValue.objects.filter(portfolio=portfolio).latest('timestamp')
+            return ((current_value - last_value.value) / last_value.value) * 100
+        except PortfolioValue.DoesNotExist:
+            return None
+
     def get(self, request, *args, **kwargs):
         portfolio = get_object_or_404(Portfolio, account=request.user)
-        serializer = PortfolioSerializer(portfolio)
-
-        currencies = CurrencyBalance.objects.filter(portfolio=portfolio)
-        currency_balance_serializer = CurrencyBalanceSerializer(currencies, many=True)
-
-        actives = 0
-        for currency_balance in currencies:
-            current_rate = currency_balance.currency.rate_set.latest('-timestamp')
-            actives += currency_balance.amount * current_rate.cost
-
-        total_value = portfolio.balance + actives
-        cache_key = f'portfolio_value_{portfolio.id}'
-        previous_value = cache.get(cache_key)
         
-        change_percent = None
-        if previous_value is not None:
-            change_percent = ((total_value - previous_value) / previous_value) * 100
+        total_value, actives = self._calculate_portfolio_value(portfolio)
+        
+        change_percent = self._get_portfolio_change(portfolio, total_value)
+        
+        context = {
+            'portfolio': PortfolioSerializer(portfolio).data,
+            'currency_balances': CurrencyBalanceSerializer(
+                CurrencyBalance.objects.filter(portfolio=portfolio),
+                many=True
+            ).data,
+            'actives': actives,
+            'total_value': total_value,
+            'change_percent': change_percent,
+            'operations': OperationSerializer(
+                Operation.objects.filter(portfolio=portfolio),
+                many=True
+            ).data,
+            'watches': WatchSerializer(
+                Watch.objects.filter(portfolio=portfolio),
+                many=True
+            ).data,
+            'buy_form': PortfolioOperationForm(),
+            'sell_form': PortfolioOperationForm(),
+            'watch_form': WatchForm(),
+            'currencies': CurrencySerializer(
+                Currency.objects.all(),
+                many=True
+            ).data,
+            'chart_data': self._prepare_chart_data()
+        }
 
-        operations = Operation.objects.filter(portfolio=portfolio)
-        operation_serializer = OperationSerializer(operations, many=True)
+        return render(request, self.template_name, context)
 
-        watches = Watch.objects.filter(portfolio=portfolio)
-        watch_serializer = WatchSerializer(watches, many=True)
-
-        currencies = Currency.objects.all()
-        currency_serializer = CurrencySerializer(currencies, many=True)
-
+    def _prepare_chart_data(self):
         chart_data = {}
-        for currency in currencies:
+        for currency in Currency.objects.all():
             rates = Rate.objects.filter(currency=currency).order_by('-timestamp')
             rate_serializer = RateSerializer(rates, many=True)
 
@@ -164,23 +193,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
                 'labels': [rate['timestamp'] for rate in rate_serializer.data],
                 'values': [float(rate['cost']) for rate in rate_serializer.data]
             }
-
-        context = {
-            'portfolio': serializer.data,
-            'currency_balances': currency_balance_serializer.data,
-            'actives': actives,
-            'total_value': total_value,
-            'change_percent': change_percent,
-            'operations': operation_serializer.data,
-            'watches': watch_serializer.data,
-            'buy_form': PortfolioOperationForm(),
-            'sell_form': PortfolioOperationForm(),
-            'watch_form': WatchForm(),
-            'currencies': currency_serializer.data,
-            'chart_data': chart_data
-        }
-
-        return render(request, self.template_name, context)
+        return chart_data
 
     def post(self, request, *args, **kwargs):
         portfolio = get_object_or_404(Portfolio, account=request.user)
