@@ -60,11 +60,6 @@
                         {{ form.email.label_tag }}
                         {{ form.email }}
                     </div>
-                    <div class="form-group">
-                        <label for="telegram_username">Телеграм никнейм:</label>
-                        <input type="text" id="telegram_username" name="telegram_username" placeholder="@username"
-                               class="form-control">
-                    </div>
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary">Сохранить изменения</button>
                     </div>
@@ -87,9 +82,14 @@
                 <form id="notificationSettingsForm" method="post" action="{# TODO: добавить обработчик #}"
                       class="settings-form">
                     {% csrf_token %}
+                <div class="form-group">
+                        <label for="notifyThreshold">Порог изменения стоимости портфеля для уведомления (%):</label>
+                        <input type="number" id="notifyThreshold" name="notifyThreshold" min="0.1" max="100" step="0.1"
+                               value="5" class="form-control">
+                </div>
                     <div class="form-group">
                         <label for="notifyCurrency">Валюта для уведомлений:</label>
-                        <select id="notifyCurrency" name="notifyCurrency" class="form-control">
+                        <select id="notifyCurrency" name="notifyCurrency" class="form-control" onchange="updateNotificationStatus(this.value)">
                             <option value="BTC">Bitcoin (BTC)</option>
                             <option value="ETH">Ethereum (ETH)</option>
                             <option value="TON">Toncoin (TON)</option>
@@ -98,16 +98,19 @@
                             <option value="CNY">Китайский юань (CNY)</option>
                             <option value="AED">Дирхам ОАЭ (AED)</option>
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="notifyInterval">Частота уведомлений (каждые k часов):</label>
-                        <input type="number" id="notifyInterval" name="notifyInterval" min="1" max="168" value="6"
-                               class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="notifyThreshold">Порог изменения стоимости для уведомления (%):</label>
-                        <input type="number" id="notifyThreshold" name="notifyThreshold" min="0.1" max="100" step="0.1"
-                               value="5" class="form-control">
+                        <div id="notificationStatus" class="currency-notification-status">
+                            <!-- Здесь будет отображаться статус уведомлений -->
+                        </div>
+                        <div id="notificationTimeline" class="notification-timeline" style="display: none;">
+                            <!-- Здесь будет отображаться временная шкала уведомлений -->
+                        </div>
+                        <div id="timeSelectionContainer" class="time-selection-container" style="display: none;">
+                            <label>Выберите время уведомлений:</label>
+                            <div class="time-checkboxes">
+                                <!-- Время будет добавлено динамически -->
+                            </div>
+                            <button type="button" class="btn btn-secondary btn-sm" onclick="saveNotificationTimes()">Применить время</button>
+                        </div>
                     </div>
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary">Сохранить настройки</button>

@@ -1,5 +1,17 @@
 /* Глобальные переменные */
 :root {
+  /* Добавляем новые переменные для формы входа */
+  --form-max-width: 400px;
+  --form-bg: var(--card-bg);
+  --form-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --input-bg: var(--bg-secondary);
+  --input-focus-shadow: 0 0 0 3px var(--accent-primary-alpha);
+  --input-height: 45px;
+  --form-border: 1px solid var(--border-color-light);
+  --form-border-radius: 12px;
+  --input-border-radius: 8px;
+  --button-hover-transform: translateY(-2px);
+  --button-active-transform: translateY(1px);
   /* Размеры элементов интерфейса */
   --sidebar-width: 240px; /* Обновленная ширина боковой панели */
   --header-height: 65px;
@@ -14,7 +26,7 @@
   --border-width-md: 1px;
 
   /* Тени */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px rgba(213, 16, 16, 0.05);
   --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.07);
 
   /* Скорость анимаций */
@@ -74,11 +86,47 @@
   --button-bg: var(--accent-primary);
   --button-text: #ffffff;
   --button-border: var(--accent-primary);
+  --accent-primary-alpha: rgba(13, 110, 253, 0.25);
+}
+
+/* Стили для селектора периода */
+.period-selector {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-right: var(--spacing-md);
+}
+
+.period-selector select {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--controls-border);
+  background-color: var(--controls-bg);
+  color: var(--text-primary-on-controls);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+}
+
+.period-selector select:hover {
+  border-color: var(--accent-primary);
+}
+
+.period-selector select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px var(--accent-primary-alpha);
+}
+
+.top-bar {
+  background-color: var(--bg-primary);
 }
 
 /* Темная тема */
 [data-theme="dark"] {
   --bg-primary: #121212;
+  --form-bg: #1e1e1e;
+  --input-bg: #2c2c2e;
+  --accent-primary-alpha: rgba(59, 130, 246, 0.25);
   --bg-secondary: #1e1e1e;
   --card-bg: #2c2c2e;
   --text-primary: #e0e0e0;
@@ -100,6 +148,157 @@
   --controls-bg: var(--dark-theme-controls-bg);
   --controls-border: var(--dark-theme-controls-border);
 }
+
+/* Explicit dark theme overrides for form container */
+[data-theme="dark"] .form-container {
+  background-color: var(--form-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+/* Explicit dark theme overrides for currency stats panel */
+[data-theme="dark"] .currency-stats-panel {
+  background-color: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+  /* Стили для статистики и кнопок покупки/продажи */
+  /* Styling for currency selector panel */
+  .currency-selector-panel {
+    background-color: var(--card-bg) !important;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+  }
+  .currency-selector-panel h3 {
+    color: var(--text-primary);
+  }
+  .currency-selector-panel p {
+    color: var(--text-secondary);
+  }
+
+  /* Specific styling for the statistics panel when it's a card */
+  .card.currency-stats-panel {
+    background-color: var(--card-bg) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+  }
+
+  .card.currency-stats-panel .card-body {
+    background-color: var(--card-bg) !important; /* Ensure card body is explicitly dark */
+    color: var(--text-primary) !important;
+  }
+
+  .card.currency-stats-panel .card-title,
+  .card.currency-stats-panel h5 { /* Targets <h5 class="card-title"> and general h5 */
+    color: var(--text-primary) !important;
+  }
+
+  .card.currency-stats-panel p, /* General paragraphs */
+  .card.currency-stats-panel .details p,
+  .card.currency-stats-panel .details span,
+  .card.currency-stats-panel .details p strong { /* For any strong text within details */
+    color: var(--text-primary) !important;
+  }
+
+  .card.currency-stats-panel .details {
+      /* Ensure .details div itself doesn't have a conflicting background if it's a block */
+      background-color: transparent !important; /* Or var(--card-bg) if it should match */
+      color: var(--text-primary) !important; /* Ensure text within details inherits correctly or is set */
+  }
+
+
+
+  .buy-button {
+    background-color: var(--success-color) !important;
+    color: #ffffff !important; /* Явно указываем белый цвет текста для контраста */
+    border: none !important;
+  }
+
+  .sell-button {
+    background-color: var(--danger-color) !important;
+    color: #ffffff !important; /* Явно указываем белый цвет текста для контраста */
+    border: none !important;
+  }
+
+  .buy-button:hover,
+  .sell-button:hover {
+    opacity: 0.9;
+  }
+
+  /* Стили для контейнера с информацией о валюте */
+  .currency-info-container {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+  }
+
+  .currency-info-container h3 {
+    color: var(--text-primary);
+  }
+
+  .currency-info-container p {
+    color: var(--text-secondary);
+  }
+
+  /* Дополнительные стили для элементов, которые могут оставаться белыми */
+  .top-bar {
+    background-color: var(--bg-primary) !important; /* Убедимся, что верхняя панель использует основной фон */
+  }
+
+  .card {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important; /* Use border shorthand and correct variable */
+    color: var(--text-primary); /* Set default text color for the card */
+  }
+
+  .card .card-body {
+    background-color: var(--card-bg) !important; /* Added !important, Explicitly set for card-body */
+    color: var(--text-primary); /* Default text color for card-body content */
+  }
+
+  /* Ensure headings and text within card-body are correctly colored */
+  .card .card-body h1,
+  .card .card-body h2,
+  .card .card-body h3,
+  .card .card-body h4,
+  .card .card-body h5,
+  .card .card-body h6,
+  .card .card-body .card-title { /* Explicit for card-title */
+    color: var(--text-primary);
+  }
+
+  .card .card-body p,
+  .card .card-body span,
+  .card .card-body div {
+    color: var(--text-secondary); /* Default to secondary for these elements */
+  }
+
+  .card .card-body strong {
+    color: var(--text-primary); /* Make strong text primary */
+  }
+
+  .main-content {
+      background-color: var(--bg-secondary) !important;
+  }
+
+  /* Стили для кнопок выбора валюты на графике */
+  .currency-selector-panel .currency-btn {
+      background-color: var(--controls-bg);
+      color: var(--text-primary-on-controls);
+      border: 1px solid var(--controls-border);
+  }
+
+  .currency-selector-panel .currency-btn.active {
+      background-color: var(--accent-primary);
+      color: var(--button-text);
+      border-color: var(--accent-primary);
+  }
+
+  .currency-selector-panel .currency-btn:hover {
+      background-color: var(--hover-bg);
+  }
+}
 [data-theme="light"] {
   --text-primary-on-controls: var(--text-primary);
   --controls-bg: var(--bg-primary);
@@ -115,6 +314,10 @@
 /* Тема для дальтоников (высокий контраст) */
 [data-theme="colorblind"] {
   --bg-primary: #ffffff;
+  --form-bg: #ffffff;
+  --input-bg: #f8f8f8;
+  --input-focus-shadow: 0 0 0 3px rgba(0, 114, 178, 0.3);
+  --form-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   --bg-secondary: #f8f8f8;
   --card-bg: #ffffff;
   --text-primary: #000000;
@@ -163,6 +366,7 @@
 
 [data-theme="colorblind"] body {
     --text-primary: #000000;
+    --accent-primary-alpha: rgba(0, 114, 178, 0.25);
     --text-secondary: #1a1a1a;
     --bg-primary: #ffffff;
     --bg-secondary: #f0f0f0;
@@ -223,6 +427,103 @@
 
 /* Глобальные стили */
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Стили для формы входа */
+.form-container {
+  max-width: var(--form-max-width);
+  margin: 80px auto;
+  padding: var(--spacing-lg);
+  background: var(--form-bg);
+  border-radius: var(--form-border-radius);
+  border: var(--form-border);
+  box-shadow: var(--form-shadow);
+}
+
+.form-container h1 {
+  color: var(--text-primary);
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  font-weight: var(--font-weight-bold);
+}
+
+.form-field {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-field label {
+  display: block;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+.form-field input {
+  width: 100%;
+  height: var(--input-height);
+  padding: 0 var(--spacing-md);
+  background: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--input-border-radius);
+  color: var(--text-primary);
+  font-size: var(--font-size-md);
+  transition: all var(--transition-speed) ease;
+}
+
+.form-field input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: var(--input-focus-shadow);
+}
+
+.error {
+  color: var(--danger-color);
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-xs);
+}
+
+.account-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.account-btn {
+  flex: 1;
+  height: var(--input-height);
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: var(--input-border-radius);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  text-align: center;
+  line-height: var(--input-height);
+  text-decoration: none;
+}
+
+.account-btn:hover {
+  transform: var(--button-hover-transform);
+  box-shadow: var(--form-shadow);
+}
+
+.account-btn:active {
+  transform: var(--button-active-transform);
+}
+
+#register {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+#register:hover {
+  background: var(--hover-bg);
+  border-color: var(--accent-primary);
+}
 body {
   font-family: var(--font-family);
   background-color: var(--bg-secondary);
@@ -392,6 +693,27 @@ a { text-decoration: none; color: inherit; }
     width: 50px; /* Фиксированная ширина для выбора цвета */
     height: calc(1.5em + var(--spacing-xs) * 2 + 2px); /* Высота как у других контролов */
     padding: var(--spacing-xs); /* Небольшой внутренний отступ */
+}
+
+/* Стили для диапазона дат */
+.date-range {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin: 0 var(--spacing-md);
+}
+
+.date-range input[type="date"] {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: var(--border-width-sm) solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--controls-bg);
+    color: var(--text-primary);
+}
+
+.date-range label {
+    margin: 0;
+    color: var(--text-secondary);
 }
 
 /* Стили для карточек/секций */
@@ -745,7 +1067,79 @@ a { text-decoration: none; color: inherit; }
 }
 
 .modal-content .form-group {
-    margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.currency-notification-status {
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.notification-timeline {
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+.timeline-marker {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+  margin: 0 2px;
+}
+
+.notification-disabled {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.time-selection-container {
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+.time-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: var(--spacing-xs);
+  margin: var(--spacing-sm) 0;
+}
+
+.time-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.time-checkbox-item input[type="checkbox"] {
+  margin: 0;
+}
+
+.time-checkbox-item label {
+  margin: 0;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .modal-content label {
@@ -812,7 +1206,79 @@ a { text-decoration: none; color: inherit; }
 
 .account-form .form-group,
 .settings-form .form-group {
-    margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.currency-notification-status {
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.notification-timeline {
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+.timeline-marker {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+  margin: 0 2px;
+}
+
+.notification-disabled {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.time-selection-container {
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+.time-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: var(--spacing-xs);
+  margin: var(--spacing-sm) 0;
+}
+
+.time-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.time-checkbox-item input[type="checkbox"] {
+  margin: 0;
+}
+
+.time-checkbox-item label {
+  margin: 0;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .account-form label,
