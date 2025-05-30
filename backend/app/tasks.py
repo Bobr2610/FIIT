@@ -47,14 +47,14 @@ class CurrencyRatesService:
             for currency_code in self.CBR_CODES:
                 rates[currency_code] = self._get_cbr_rates(currency_code, start_date, end_date)
             
-            # Получаем курс USDT/RUB
-            usdt_rub_rates = self._get_usdt_rub_rates(start_date, end_date)
-            
-            # Получаем курсы криптовалют от Binance
-            for symbol in self.BINANCE_PAIRS:
-                klines = self._get_binance_rates(symbol, start_date, end_date)
-                if klines and usdt_rub_rates:
-                    rates[symbol] = self._convert_crypto_rates(symbol, klines, usdt_rub_rates)
+            # Получаем курсы криптовалют от Binance и конвертируем через USD/RUB от ЦБ РФ
+            usd_rates = rates.get('USD', [])
+            if usd_rates:
+                usd_rub_rates = {rate.date.strftime('%Y-%m-%d'): rate.price for rate in usd_rates}
+                for symbol in self.BINANCE_PAIRS:
+                    klines = self._get_binance_rates(symbol, start_date, end_date)
+                    if klines and usd_rub_rates:
+                        rates[symbol] = self._convert_crypto_rates(symbol, klines, usd_rub_rates)
             
             return rates
         except Exception as e:
@@ -109,38 +109,13 @@ class CurrencyRatesService:
             print(f"Ошибка при получении курсов Binance для {symbol}: {e}")
             return []
     
-    def _get_usdt_rub_rates(self, start_date: datetime, end_date: datetime) -> Dict[str, float]:
-        try:
-            params = {
-                'symbol': 'USDTRUB',
-                'interval': '1d',
-                'startTime': int(start_date.timestamp() * 1000),
-                'endTime': int(end_date.timestamp() * 1000),
-                'limit': 1000
-            }
-            
-            response = self.session.get("https://api.binance.com/api/v3/klines", params=params, timeout=10)
-            response.raise_for_status()
-            klines = response.json()
-            
-            rates = {}
-            for k in klines:
-                date = django_timezone.localtime(datetime.fromtimestamp(k[0] // 1000, tz=timezone.utc))
-                close = float(k[4])
-                rates[date.strftime('%Y-%m-%d')] = close
-            
-            return rates
-        except Exception as e:
-            print(f"Ошибка при получении курса USDT/RUB: {e}")
-            return {}
-    
-    def _convert_crypto_rates(self, symbol: str, klines: List[Dict[str, Any]], usdt_rub_rates: Dict[str, float]) -> List[CurrencyRate]:
+    def _convert_crypto_rates(self, symbol: str, klines: List[Dict[str, Any]], usd_rub_rates: Dict[str, float]) -> List[CurrencyRate]:
         try:
             rates = []
             for k in klines:
                 date = django_timezone.localtime(datetime.fromtimestamp(k[0] // 1000, tz=timezone.utc))
                 close_usdt = float(k[4])
-                rub = usdt_rub_rates.get(date.strftime('%Y-%m-%d'))
+                rub = usd_rub_rates.get(date.strftime('%Y-%m-%d'))
                 if rub is not None:
                     price_rub = close_usdt * rub
                     rate = CurrencyRate(
