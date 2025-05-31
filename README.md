@@ -7,7 +7,8 @@
 2. **Сальманов Эльдар** : Lead Backend Developer
 3. **Седов Михаил**     : Leader, Support Frontend & Backend Developer
 ---
-
+Для подробностей о работе биржы перейдите на WIKI
+---
 # Setup
 
 ## 1. Установка внешних зависимостей
