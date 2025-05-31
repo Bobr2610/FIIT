@@ -8,6 +8,7 @@ from django.views.generic import FormView, TemplateView
 from rest_framework_simplejwt.tokens import RefreshToken
 from django_celery_beat.models import PeriodicTask, CrontabSchedule
 from django.utils import timezone
+from django.core.cache import cache
 
 from api.serializers import *
 from .forms import *
@@ -184,15 +185,32 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         return render(request, self.template_name, context)
 
     def _prepare_chart_data(self):
+        """
+        Готовит данные для графиков, включая метки и значения.
+
+        Возвращает:
+            dict: Словарь с данными для графиков по каждой валюте.
+        """
         chart_data = {}
+
+        # Кэширование данных графиков
+        cached_chart_data = cache.get('chart_data')
+        if cached_chart_data:
+            return cached_chart_data
+
         for currency in Currency.objects.all():
-            rates = Rate.objects.filter(currency=currency).order_by('-timestamp')
+            # Ограничение количества записей для графиков
+            rates = Rate.objects.filter(currency=currency).order_by('-timestamp')[:100]
             rate_serializer = RateSerializer(rates, many=True)
 
             chart_data[currency.short_name] = {
                 'labels': [rate['timestamp'] for rate in rate_serializer.data],
                 'values': [float(rate['cost']) for rate in rate_serializer.data]
             }
+
+        # Сохранение данных в кэш
+        # Устанавливаем время жизни кэша 1 час
+        cache.set('chart_data', chart_data, timeout=3600)
         return chart_data
 
     def post(self, request, *args, **kwargs):
